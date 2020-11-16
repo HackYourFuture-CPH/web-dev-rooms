@@ -23,7 +23,7 @@ export default function SignUpContainer() {
     });
     if (!doesPasswordsMatch) {
       setIsLoading(false);
-      // alert("Passwords doesn't match");
+      alert("Passwords doesn't match");
       return;
     }
     const isSignedUp = await signUp({ email, password });
