@@ -36,9 +36,9 @@
 
 This repository is for Web Dev Rooms - Class14 Final Project.
 
-The project consists of creating an App that facilitates the Study Group Management. 
+The project consists of creating an App that facilitates the Study Group Management.
 
-Currently we have 2 companies supporting HackYourFuture where there employees volunteers work hours on 2 different days and on 4 different time slots. We also run an Open Office once a week where students can meet. 
+Currently we have 2 companies supporting HackYourFuture where there employees volunteers work hours on 2 different days and on 4 different time slots. We also run an Open Office once a week where students can meet.
 
 All of this demands coordination between STAFF, STUDENTS and VOLUNTEERS and Web Dev Rooms will help everyone to be on track without spending too much time or loosing good opportunities - Let's use time wisely :)
 
@@ -56,14 +56,14 @@ All of this demands coordination between STAFF, STUDENTS and VOLUNTEERS and Web 
 ## 📅 Project's Calendar
 
 - Week 0 - 08/11 - Job Hunt workshop and Boilerplate installation (online)
-- Week 1 - 15/11 - Kick-off with Wireframes presentation and Storybook  (online)
-- Week 2 - 22/11 -      (online)
-- Week 3 - 29/11 -      (online)
-- Week 4 - 06/12 -      (not decided yet but probably online)
-- Week 5 - 13/12 -      (not decided yet but probably online)	
-- Week 6 - 20/12 -      (not decided yet but probably online)
-- Xmas Holidays - 27/12 
-- Week 7 - 03/01 -      (not decided yet but probably online)
+- Week 1 - 15/11 - Kick-off with Wireframes presentation and Storybook (online)
+- Week 2 - 22/11 - (online)
+- Week 3 - 29/11 - (online)
+- Week 4 - 06/12 - (not decided yet but probably online)
+- Week 5 - 13/12 - (not decided yet but probably online)
+- Week 6 - 20/12 - (not decided yet but probably online)
+- Xmas Holidays - 27/12
+- Week 7 - 03/01 - (not decided yet but probably online)
 - Graduation - 06/01 - Graduation
 
 ## 🕛 Class Daily Agenda 🕓
@@ -83,7 +83,7 @@ The customer of this project is HackYourFuture but you should also consider Your
 
 [Business Glossary](/BusinessGlossary.md)
 
-#### 🖌️ Wireframes 
+#### 🖌️ Wireframes
 
 https://www.figma.com/file/9gN79UmpDPrAZk5jY4V7Ww/Study-Group-Management-System
 
