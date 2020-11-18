@@ -40,7 +40,9 @@ const appendTimestamp = format((info, opts) => {
   if (opts.tz) {
     return {
       ...info,
-      timestamp: moment().tz(opts.tz).format(),
+      timestamp: moment()
+        .tz(opts.tz)
+        .format(),
     };
   }
   return info;
@@ -90,4 +92,3 @@ logger.stream = {
 module.exports = {
   logger,
 };
-
