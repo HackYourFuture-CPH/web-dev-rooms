@@ -2,11 +2,11 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('Topics')
+  return knex('topics')
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex('Topics').insert([
+      return knex('topics').insert([
         {
           id: 1,
           title: 'HTML/CSS',
