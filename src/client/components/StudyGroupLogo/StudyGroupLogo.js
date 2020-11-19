@@ -5,16 +5,16 @@ import './StudyGroupLogo.styles.css';
 
 export const StudyGroupLogo = (props) => {
   return (
-    <i>
-      <img src={props.path} width="50" alt="logo" />
-    </i>
+    <span className="rounded-circle">
+      <img src={props.path} width="50" alt="logo" className="logos" />
+    </span>
   );
 };
 
 StudyGroupLogo.propTypes = {
-  path: PropTypes.arrayOf(PropTypes.string),
+  path: PropTypes.string,
 };
 
 StudyGroupLogo.defaultProps = {
-  path: [''],
+  path: '',
 };

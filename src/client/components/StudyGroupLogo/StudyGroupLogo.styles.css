@@ -1,4 +1,4 @@
-i {
+.rounded-circle {
   width: 78x;
   height: 78px;
   text-align: center;
@@ -11,6 +11,6 @@ i {
   padding: 10px;
 }
 
-img {
+.rounded-circle .logos {
   display: block;
 }
