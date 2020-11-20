@@ -1,15 +1,28 @@
 import React from 'react';
-import { withKnobs, files } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 
 import { StudyGroupLogo } from './StudyGroupLogo';
+import HYFLogo from './HYF.logo.svg';
+import ZendeskLogo from './Zendesk.logo.svg';
+import ElasticLogo from './Elastic.logo.svg';
 
 export default {
   title: 'StudyGroupLogo',
   decorators: [withKnobs],
 };
 
-export const DefaultUsage = () => (
+export const ExampleWithHYF = () => (
   <>
-    <StudyGroupLogo path={files('Images', '.svg')} />
+    <StudyGroupLogo path={HYFLogo} />
+  </>
+);
+export const ExampleWithElastic = () => (
+  <>
+    <StudyGroupLogo path={ZendeskLogo} />
+  </>
+);
+export const ExampleWithZendesk = () => (
+  <>
+    <StudyGroupLogo path={ElasticLogo} />
   </>
 );
