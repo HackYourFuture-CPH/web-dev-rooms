@@ -6,7 +6,7 @@ import './StudyGroupLogo.styles.css';
 export const StudyGroupLogo = (props) => {
   return (
     <span className="rounded-circle">
-      <img src={props.path} width="50" alt="logo" className="logos" />
+      <img src={props.path} width="50" alt="logo" className="logo" />
     </span>
   );
 };
