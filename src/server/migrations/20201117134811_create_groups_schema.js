@@ -1,5 +1,5 @@
 exports.up = function (knex) {
-  return knex.schema.createTable('class_groups', (table) => {
+  return knex.schema.createTable('groups', (table) => {
     table.increments();
     table.string('title').notNullable();
     table.string('classId').notNullable();
@@ -10,5 +10,5 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.dropTable('class_groups');
+  return knex.schema.dropTable('groups');
 };
