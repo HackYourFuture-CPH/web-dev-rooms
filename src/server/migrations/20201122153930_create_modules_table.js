@@ -1,5 +1,5 @@
 exports.up = function(knex) {
-  return knex.schema.createTable('modules', (table) => {
+  return knex.schema.createTable('module', (table) => {
     table.increments();
     table.varchar('module_name').notNullable();
     table.datetime('created_at').notNullable();
@@ -9,5 +9,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('modules');
+  return knex.schema.dropTable('module');
 };
