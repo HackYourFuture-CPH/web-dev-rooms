@@ -2,9 +2,15 @@ exports.up = function(knex) {
   return knex.schema.createTable('module', (table) => {
     table.increments();
     table.varchar('module_name').notNullable();
-    table.datetime('created_at').notNullable();
-    table.datetime('updated_at').notNullable();
-    table.datetime('deleted_at').notNullable();
+    table
+      .datetime('created_at')
+      .defaultTo(knex.fn.now())
+      .notNullable();
+    table
+      .datetime('updated_at')
+      .defaultTo(knex.fn.now())
+      .notNullable();
+    table.datetime('deleted_at');
   });
 };
 
