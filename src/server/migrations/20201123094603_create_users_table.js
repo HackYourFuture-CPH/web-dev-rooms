@@ -1,7 +1,7 @@
 exports.up = function(knex) {
   return knex.schema
     .createTable('organization', (table) => {
-      table.integer('id').primary();
+      table.increments();
       table.string('name').notNullable();
       table.string('image_url').notNullable();
       table
@@ -14,12 +14,14 @@ exports.up = function(knex) {
         .notNullable();
       table.datetime('deletedAt');
     })
+
     .createTable('users', (table) => {
-      table.integer('id').primary();
+      table.increments();
       table.string('title').notNullable();
       table.string('slack_id').notNullable();
       table
         .integer('organization_id')
+        .unsigned()
         .references('id')
         .inTable('organization');
       table

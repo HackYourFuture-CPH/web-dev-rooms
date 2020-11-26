@@ -8,6 +8,7 @@ exports.up = function(knex) {
     table.string('homework_url').notNullable();
     table
       .integer('module_id')
+      .unsigned()
       .references('id')
       .inTable('module');
     table

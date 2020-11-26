@@ -3,14 +3,17 @@ exports.up = function(knex) {
     table.increments();
     table
       .integer('topic')
+      .unsigned()
       .references('id')
       .inTable('topics');
     table
       .integer('asked_by')
+      .unsigned()
       .references('id')
       .inTable('users');
     table
       .integer('event_id')
+      .unsigned()
       .references('id')
       .inTable('events');
     table
