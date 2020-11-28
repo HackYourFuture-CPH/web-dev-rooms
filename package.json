@@ -16,7 +16,7 @@
     "db:clean": "cd ./src/server/ && knex migrate:rollback",
     "db:setup": "cd ./src/server/ && knex migrate:latest && knex seed:run",
     "storybook": "cd ./src/client/ && start-storybook -p 3007",
-    "build-storybook": "build-storybook --no-dll -s public -c /src/client/.storybook --quiet",
+    "build-storybook": "build-storybook --no-dll -s public -c src/client/.storybook --quiet",
     "test": "jest",
     "test:watch": "jest --watch",
     "code:styles:check": "stylelint '**/*.css'",
@@ -34,6 +34,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "@fortawesome/free-solid-svg-icons": "^5.11.2",
     "@fortawesome/react-fontawesome": "^0.1.7",
+    "@storybook/addon-actions": "^6.0.28",
     "@storybook/addon-knobs": "^6.0.28",
     "@storybook/react": "^6.0.28",
     "@storybook/theming": "^6.0.28",
@@ -80,7 +81,6 @@
     "winston": "^3.2.1"
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.0.28",
     "@storybook/preset-scss": "^1.0.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
