@@ -1,0 +1,25 @@
+.radiobutton {
+  background-color: #f6f6f6;
+  border-radius: 25px;
+  background-color: #f6f6f6;
+  border: none;
+  outline: 0;
+  color: #bdbdbd;
+  padding: 10px 14px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.radiobutton:focus {
+  color: #293a7d;
+}
+.btn-group {
+  border: 2px solid #f6f6f6;
+  background-color: #f6f6f6;
+  border-radius: 25px;
+}
+.btn-group .button:hover {
+  background-color: #ffffff;
+}

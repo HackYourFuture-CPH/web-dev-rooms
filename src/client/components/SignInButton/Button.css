@@ -1,0 +1,44 @@
+/*Style the button*/
+.button {
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  width: 18%;
+  position: relative;
+  border: none;
+  font-size: 18px;
+  color: rgb(17, 1, 1);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  font-weight: 900;
+}
+/*Style the image*/
+.button img {
+  width: 100%;
+  display: flex;
+}
+/*Make button active when you click it*/
+.button:active {
+  transform: translateY(4px);
+}
+/*Responsive */
+@media screen and (max-width: 800px) {
+  .button {
+    width: 50%;
+  }
+  .button img {
+    width: 100%;
+    display: flex;
+  }
+}
+@media screen and (max-width: 500px) {
+  .button {
+    width: 50%;
+  }
+  .button img {
+    width: 100%;
+    display: flex;
+  }
+}

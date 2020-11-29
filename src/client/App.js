@@ -10,6 +10,13 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
+import Route404 from './components/Route404';
+
+import LoginPage from './containers/LoginPage/LoginPage.component';
+import SelectionPage from './containers/SelectionPage/SelectionPage.component';
+import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
+import EventsPage from './containers/EventsPage/EventsPage.component';
+import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
@@ -21,6 +28,23 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
+
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+        <Route exact path="/selection">
+          <SelectionPage />
+        </Route>
+        <Route exact path="/registration">
+          <RegistrationPage />
+        </Route>
+        <Route exact path="/events">
+          <EventsPage />
+        </Route>
+        <Route exact path="/profile">
+          <ProfilePage />
+        </Route>
+
         <SignIn exact path="/sign-in" />
         <SignUp exact path="/sign-up" />
         <ResetPassword exact path="/reset-password" />
@@ -31,6 +55,7 @@ function App() {
         >
           <Profile />
         </AuthenticatedRoute>
+        <Route path="*" component={Route404} />
       </Switch>
     </Router>
   );

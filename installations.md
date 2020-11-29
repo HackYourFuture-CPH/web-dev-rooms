@@ -1,18 +1,21 @@
 ## Prerequisites
 
 #### Mysql workbench
+
 Install it from here:
 
 Windows: https://dev.mysql.com/downloads/windows/installer/
 
-Mac: https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html
+Mac: https://dev.mysql.com/doc/refman/8.0/en/osx-installation-pkg.html
 
 #### Setting up on Windows
+
 Only thing Windows users have to do is run the following command anywhere in their terminal (not necessarily the project folder): npm install -g win-node-env
 
 Refer to this post on stackoverflow for more info.
 
 #### Install Node
+
 Refer to this points on how to install on your OS:
 
 Linux
@@ -21,8 +24,8 @@ Mac
 Installing
 Run npm install to install all required dependencies.
 
-
 #### Prettier
+
 The Project comes pre setup with Prettier, which is a tool that will automatically format your code. Prettier is currently set up to format your code right before committing to git, so there should be no risk of someone committing something that does not live up to our coding style.
 
 You may, however, optionally install the Prettier VS Code extension to format your code on every single save. This has the benefit that you will always be looking at code in the right format and you will know exactly what gets committed at any time.
@@ -31,15 +34,14 @@ In VS Code you can press CTRL+P (CMD+P on Mac) and type ext install esbenp.prett
 
 Remember to enable "format on save" in VS Code settings. You can also enable formatting on pasting or while editing, depending on your taste.
 
-
 #### Environment variables
 
 Environment variables are used for working with sensitive data like passwords
 and usernames.
 
-Fx connecting to a database, we dont want to commit the code that shows our
+Fx connecting to a database, we don't want to commit the code that shows our
 password. Therefore we use environment variables instead. The `.env` **SHOULD
-NEVER** be commited!!!! Therefore it is in the `.gitignore` file (ignored by
+NEVER** be committed!!!! Therefore it is in the `.gitignore` file (ignored by
 git).
 
 Here is how to get started with the `.env` file
