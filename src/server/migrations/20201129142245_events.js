@@ -10,7 +10,6 @@ exports.up = function (knex) {
     table
       .integer('created_by')
       .unsigned()
-      .index()
       .references('id')
       .inTable('users')
       .notNullable();

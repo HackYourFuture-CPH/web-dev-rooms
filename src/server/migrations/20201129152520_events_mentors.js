@@ -6,14 +6,12 @@ exports.up = function (knex) {
       .unsigned()
       .index()
       .references('id')
-      .inTable('events')
-      .notNullable();
+      .inTable('events');
     table
       .integer('mentor_id')
       .unsigned()
       .references('id')
-      .inTable('events_users')
-      .notNullable();
+      .inTable('events_users');
     table.boolean('status').notNullable();
     table.datetime('created_at').defaultTo(knex.fn.now()).notNullable();
     table.datetime('updated_at').defaultTo(knex.fn.now()).notNullable();

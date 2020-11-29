@@ -4,7 +4,6 @@ exports.up = function (knex) {
     table
       .integer('users_id')
       .unsigned()
-      .index()
       .references('id')
       .inTable('users')
       .notNullable();
