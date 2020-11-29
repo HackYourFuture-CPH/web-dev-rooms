@@ -1,0 +1,34 @@
+.hyf-big-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ebeff0de;
+  min-width: 400px;
+  border-radius: 5px;
+}
+
+.hyf-big-logo .hyf-logo {
+  width: 100%;
+  height: 170px;
+  color: lightblue;
+  overflow: hidden;
+}
+
+.hyf-big-logo .app-title {
+  color: rgba(104, 102, 102, 0.87);
+  border-radius: 1px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  margin-top: -32px;
+  margin-left: 80px;
+  width: fit-content;
+  padding: 5px 10px;
+  font-weight: 100;
+}
+@media screen and (max-width: 600px) {
+  .hyf-big-logo {
+    height: 15%;
+  }
+  .hyf-big-logo img {
+    margin-left: 4rem;
+  }
+}

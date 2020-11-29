@@ -5,14 +5,18 @@ import profile from './profile.jpg';
 
 const Footer = () => {
   return (
-    <div className="footer">
-      <img src={home} alt="home icon" className="home-icon" />
-      <img src={profile} alt="profile icon" className="profile-icon" />
-      <ul>
-        <li className="home-paragraph">HOME</li>
-        <li className="profile-paragraph">PROFILE</li>
-      </ul>
-    </div>
+    <footer>
+      <div className="main-content">
+        <div className="box">
+          <img src={home} alt="home icon" />
+          <h4>HOME</h4>
+        </div>
+        <div className=" box">
+          <img src={profile} alt="profile icon" />
+          <h4>PROFILE</h4>
+        </div>
+      </div>
+    </footer>
   );
 };
 
