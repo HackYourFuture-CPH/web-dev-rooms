@@ -6,7 +6,7 @@ exports.up = function (knex) {
     table.string('readme_url').notNullable();
     table.string('lesson_url').notNullable();
     table.string('homework_url').notNullable();
-    table.integer('module_id').unsigned().references('id').inTable('module');
+    table.integer('module_id').unsigned().references('id').inTable('modules');
     table.datetime('created_at').defaultTo(knex.fn.now()).notNullable();
     table.datetime('updated_at').defaultTo(knex.fn.now()).notNullable();
     table.datetime('deleted_at');
