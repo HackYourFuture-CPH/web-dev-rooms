@@ -1,17 +1,11 @@
-exports.up = function(knex) {
+exports.up = function (knex) {
   return knex.schema
     .createTable('organization', (table) => {
       table.increments();
       table.string('name').notNullable();
       table.string('image_url').notNullable();
-      table
-        .datetime('createdAt')
-        .defaultTo(knex.fn.now())
-        .notNullable();
-      table
-        .datetime('updatedAt')
-        .defaultTo(knex.fn.now())
-        .notNullable();
+      table.datetime('createdAt').defaultTo(knex.fn.now()).notNullable();
+      table.datetime('updatedAt').defaultTo(knex.fn.now()).notNullable();
       table.datetime('deletedAt');
     })
 
@@ -24,18 +18,12 @@ exports.up = function(knex) {
         .unsigned()
         .references('id')
         .inTable('organization');
-      table
-        .datetime('createdAt')
-        .defaultTo(knex.fn.now())
-        .notNullable();
-      table
-        .datetime('updatedAt')
-        .defaultTo(knex.fn.now())
-        .notNullable();
+      table.datetime('createdAt').defaultTo(knex.fn.now()).notNullable();
+      table.datetime('updatedAt').defaultTo(knex.fn.now()).notNullable();
       table.datetime('deletedAt');
     });
 };
 
-exports.down = function(knex) {
+exports.down = function (knex) {
   return knex.schema.dropTable('users').dropTable('organization');
 };
