@@ -1,7 +1,14 @@
 exports.up = function(knex) {
-  return knex.schema.createTable('roles', (table) => {
+  return knex.schema.createTable('groups', (table) => {
     table.increments();
-    table.string('name').notNullable();
+    table.string('title').notNullable();
+    table
+      .integer('user_id')
+      .unsigned()
+      .notNull()
+      .references('id')
+      .inTable('users')
+      .onDelete('cascade');
     table
       .datetime('created_at')
       .defaultTo(knex.fn.now())
@@ -15,5 +22,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-  return knex.schema.dropTable('roles');
+  return knex.schema.dropTable('groups');
 };
