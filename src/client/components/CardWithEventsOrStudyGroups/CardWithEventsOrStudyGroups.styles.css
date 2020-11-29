@@ -1,0 +1,29 @@
+.event-card {
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  width: 350px;
+  height: 176px;
+
+  border-radius: 8px;
+}
+
+.event-card-logo-and-text {
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  background: #f6f6f6;
+}
+.event-card-button {
+  position: relative;
+}
+.register-button-position {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

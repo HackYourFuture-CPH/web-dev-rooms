@@ -1,0 +1,76 @@
+.event-card-title {
+  /* Elastic - Week 46 */
+
+  position: absolute;
+  left: 33.71%;
+  right: 23.43%;
+  top: 9.66%;
+  bottom: 79.55%;
+  line-height: 11px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+
+  /* Primary Blue */
+  color: #293a7d;
+}
+.event-card-date-time {
+  /* ________________________________ */
+
+  position: absolute;
+  left: 34%;
+  right: 5.43%;
+  top: 23.3%;
+  bottom: 73.3%;
+  line-height: 11px;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+
+  color: #666666;
+}
+
+.event-card-mentor {
+  /* Mentor : ‘Mentor name’. */
+
+  position: absolute;
+  left: 33.71%;
+  right: 5.43%;
+  top: 34.66%;
+  bottom: 57.95%;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 0.75; /* pixels with respect to font-size*/
+  /* Default text grey */
+  color: #666666;
+  max-width: 300px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-card-link {
+  /* Link : https://slack.com/meeting.... */
+
+  position: absolute;
+  left: 33.71%;
+  right: 5.43%;
+  top: 46.02%;
+  bottom: 46.02%;
+  max-width: 300px;
+  line-height: 0.75; /* pixels with respect to font-size*/
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: #666666;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
