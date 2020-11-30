@@ -92,6 +92,7 @@
     "mock-knex": "^0.4.7",
     "nodemon": "^1.12.1",
     "poetic": "^1.2.6",
+    "prettier": "^2.2.1",
     "sequelize-cli": "^5.4.0",
     "webpack-dev-server": "3.7.2"
   },
