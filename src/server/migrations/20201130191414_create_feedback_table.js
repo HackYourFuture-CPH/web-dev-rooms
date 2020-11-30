@@ -4,7 +4,6 @@ exports.up = function (knex) {
     table.integer('student_id').unsigned().references('id').inTable('users');
     table.integer('answered_by').unsigned().references('id').inTable('users');
     table.string('open_feedback').notNullable();
-    table.datetime('endDate').notNullable();
     table
       .integer('question_id')
       .unsigned()
