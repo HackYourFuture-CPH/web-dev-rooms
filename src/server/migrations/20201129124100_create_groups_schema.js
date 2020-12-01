@@ -1,14 +1,7 @@
 exports.up = function(knex) {
   return knex.schema.createTable('groups', (table) => {
     table.increments();
-    table.string('title').notNullable();
-    table
-      .integer('user_id')
-      .unsigned()
-      .notNull()
-      .references('id')
-      .inTable('users')
-      .onDelete('cascade');
+    table.string('name').notNullable();
     table
       .datetime('created_at')
       .defaultTo(knex.fn.now())
