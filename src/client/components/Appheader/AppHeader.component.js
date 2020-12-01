@@ -1,20 +1,13 @@
-// dumb/statless img component with props
-
 import React from 'react';
+import HyfLogo from './HyfLogo.svg';
 import './AppHeader.style.css';
-import PropTypes from 'prop-types';
 
-export const AppHeader = (props) => {
+export const AppHeader = () => {
   return (
-    <div className="AppHeader-div">
-      <img src={props.path} alt="AppHeader" />
-    </div>
+    <header>
+      <div className="AppHeader-div">
+        <img src={HyfLogo} alt="AppHeader" />
+      </div>
+    </header>
   );
-};
-AppHeader.propTypes = {
-  path: PropTypes.string,
-};
-
-AppHeader.defaultProps = {
-  path: '',
 };

@@ -1,5 +1,12 @@
 import React from 'react';
+import Page404 from '../../components/Page404';
 
-export default function Error404Page() {
-  return <h1>This is a 404Page</h1>;
-}
+const Error404Page = () => {
+  return (
+    <div>
+      <Page404 />
+    </div>
+  );
+};
+
+export default Error404Page;
