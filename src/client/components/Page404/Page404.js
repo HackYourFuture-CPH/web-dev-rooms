@@ -1,6 +1,6 @@
 import React from 'react';
 import AppHeader from '../AppHeader';
-import Footer from '../Footer';
+import Footer from '../footer';
 import Route404 from '../Route404';
 import './Page404.styles.css';
 
