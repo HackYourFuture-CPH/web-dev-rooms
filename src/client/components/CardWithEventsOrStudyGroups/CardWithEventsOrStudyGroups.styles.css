@@ -1,0 +1,19 @@
+.event-card {
+  max-width: 350px;
+  max-height: 176px;
+  background: #f6f6f6;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card-logo-and-text {
+  display: flex;
+  padding: 5px;
+}
+
+.event-card-button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-self: center;
+}

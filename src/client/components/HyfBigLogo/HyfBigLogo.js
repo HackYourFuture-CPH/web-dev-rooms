@@ -9,7 +9,7 @@ export default function HyfBigLogo({ title }) {
       <div>
         <img className="hyf-logo" src={hyfLogo} alt="logo" />
       </div>
-      <h1 className="app-title">{title}</h1>
+      <p className="app-title">{title}</p>
     </div>
   );
 }
