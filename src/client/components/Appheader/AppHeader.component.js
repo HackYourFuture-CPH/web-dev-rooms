@@ -2,7 +2,7 @@ import React from 'react';
 import HyfLogo from './HyfLogo.svg';
 import './AppHeader.style.css';
 
-export const AppHeader = () => {
+const AppHeader = () => {
   return (
     <header>
       <div className="AppHeader-div">
@@ -11,3 +11,5 @@ export const AppHeader = () => {
     </header>
   );
 };
+
+export default AppHeader;
