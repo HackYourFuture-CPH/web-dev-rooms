@@ -1,13 +1,18 @@
 import React from 'react';
 import './AppHeader.style.css';
-import HyfLogo from './HyfLogo.svg';
+import PropTypes from 'prop-types';
 
-export const AppHeader = () => {
+export const AppHeader = (props) => {
   return (
-    <header>
-      <div className="AppHeader-div">
-        <img src={HyfLogo} alt="AppHeader" />
-      </div>
-    </header>
+    <div className="AppHeader-div">
+      <img src={props.path} alt="AppHeader" />
+    </div>
   );
+};
+AppHeader.propTypes = {
+  path: PropTypes.string,
+};
+
+AppHeader.defaultProps = {
+  path: '',
 };
