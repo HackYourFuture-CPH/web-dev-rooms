@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DropDown from './DropDown';
+import PropTypes, { shape } from 'prop-types';
 
 const questions = [
   {
@@ -74,9 +75,28 @@ const studygroups = [
     value: 'Hack Your Future',
   },
 ];
+function DropDownWithState({ items }) {
+  const [values, setValue] = useState('');
+
+  return <DropDown items={items} values={values} setValue={setValue} />;
+}
+
+DropDownWithState.propTypes = {
+  items: PropTypes.arrayOf(
+    shape({
+      id: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
+};
+
+DropDownWithState.defaultProps = {
+  items: [],
+};
+
 export default { title: 'DropDown' };
 
-export const Studygroup = () => <DropDown items={studygroups} />;
-export const Classgroup = () => <DropDown items={classes} />;
-export const Skillgroup = () => <DropDown items={skills} />;
-export const Questiongroup = () => <DropDown items={questions} />;
+export const Studygroup = () => <DropDownWithState items={studygroups} />;
+export const Classgroup = () => <DropDownWithState items={classes} />;
+export const Skillgroup = () => <DropDownWithState items={skills} />;
+export const Questiongroup = () => <DropDownWithState items={questions} />;

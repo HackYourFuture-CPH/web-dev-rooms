@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes, { shape } from 'prop-types';
 import './DropDown.css';
 
-export default function DropDown(props) {
-  const [values, setValue] = useState('');
+export default function DropDown({ values, setValue, items }) {
+  // const [values, setValue] = useState(props.values, props.setValue);
 
   return (
     <div className="dropdown-component">
@@ -12,7 +12,7 @@ export default function DropDown(props) {
         value={values}
         onChange={(e) => setValue(e.currentTarget.value)}
       >
-        {props.items.map((item) => (
+        {items.map((item) => (
           <option className="dropdown-option" key={item.id} value={item.value}>
             {item.value}
           </option>
@@ -22,6 +22,8 @@ export default function DropDown(props) {
   );
 }
 DropDown.propTypes = {
+  values: PropTypes.string,
+  setValue: PropTypes.func,
   items: PropTypes.arrayOf(
     shape({
       id: PropTypes.string,
@@ -31,5 +33,7 @@ DropDown.propTypes = {
 };
 
 DropDown.defaultProps = {
+  values: '',
+  setValue: null,
   items: [],
 };
