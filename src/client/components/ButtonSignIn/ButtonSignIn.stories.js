@@ -1,9 +1,9 @@
 import React from 'react';
-import Button from './ButtonSignIn';
+import ButtonSignIn from './ButtonSignIn';
 
 export default {
   title: 'ButtonSignIn',
-  component: Button,
+  component: ButtonSignIn,
 };
 
-export const ButtonSignIn = () => <Button />;
+export const Demo = () => <ButtonSignIn />;
