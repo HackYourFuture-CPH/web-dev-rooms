@@ -4,6 +4,7 @@ exports.seed = function (knex) {
     .then(function () {
       return knex('users').insert([
         {
+          // mentor
           id: 1,
           group_id: 1,
           name: 'user1',
@@ -12,6 +13,7 @@ exports.seed = function (knex) {
           deleted_at: '2020-11-18 16:00',
         },
         {
+          // student
           id: 2,
           group_id: 2,
           name: 'user2',
@@ -20,6 +22,7 @@ exports.seed = function (knex) {
           deleted_at: '2020-11-18 16:00',
         },
         {
+          // student
           id: 3,
           group_id: 3,
           name: 'user3',
@@ -28,6 +31,7 @@ exports.seed = function (knex) {
           deleted_at: '2020-11-18 16:00',
         },
         {
+          // stuff
           id: 4,
           group_id: 4,
           name: 'user4',
@@ -36,6 +40,7 @@ exports.seed = function (knex) {
           deleted_at: '2020-11-18 16:00',
         },
         {
+          // mentor
           id: 5,
           group_id: 5,
           name: 'user5',
