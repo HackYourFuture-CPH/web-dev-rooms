@@ -1,6 +1,6 @@
 import React from 'react';
-import { AppHeader } from '../../components/AppHeader/AppHeader.component';
-import Vector from '../../components/AppHeader/Vector.svg';
+import { AppHeader } from '../../components/Appheader/AppHeader.component';
+import Vector from '../../components/Appheader/Vector.svg';
 import Footer from '../../components/footer/footer';
 import './404Page.styles.css';
 
