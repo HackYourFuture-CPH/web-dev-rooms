@@ -1,5 +1,5 @@
 /*Style the button*/
-.box {
+.slack-button {
   display: flex;
   justify-content: center;
 }
@@ -8,7 +8,6 @@
   padding: 0;
   cursor: pointer;
   outline: none;
-  position: relative;
   border: none;
   font-size: 18px;
   color: rgb(17, 1, 1);

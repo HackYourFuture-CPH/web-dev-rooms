@@ -8,7 +8,7 @@ const Button = (props) => {
     onclick();
   };
   return (
-    <div className="box">
+    <div className="slack-button">
       <button type="submit" className="button" onClick={clicked}>
         <img
           alt="Sign in with Slack"
