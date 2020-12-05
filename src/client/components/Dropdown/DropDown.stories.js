@@ -76,9 +76,9 @@ const studygroups = [
   },
 ];
 function DropDownWithState({ items }) {
-  const [values, setValue] = useState('');
+  const [value, setValue] = useState('');
 
-  return <DropDown items={items} values={values} setValue={setValue} />;
+  return <DropDown items={items} value={value} setValue={setValue} />;
 }
 
 DropDownWithState.propTypes = {
