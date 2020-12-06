@@ -11,6 +11,6 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema.table('questions', function (table) {
-    table.dropColumn('event_id');
+    table.dropForeign('event_id');
   });
 };
