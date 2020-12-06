@@ -6,6 +6,6 @@ exports.up = function (knex) {
 
 exports.down = function (knex) {
   return knex.schema.table('users', function (table) {
-    table.dropColumn('group_id');
+    table.dropForeign('group_id');
   });
 };
