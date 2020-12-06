@@ -1,10 +1,10 @@
-/*Style the button*/
+/* Style the button */
 .slack-button {
   display: flex;
   justify-content: center;
 }
 
-.button {
+.button-sign-with-slack {
   padding: 0;
   cursor: pointer;
   outline: none;
@@ -17,30 +17,36 @@
   font-weight: 900;
   width: 20rem;
 }
-/*Style the image*/
-.button img {
+
+/* Style the image */
+.button-sign-with-slack img {
   width: 100%;
   display: flex;
 }
-/*Make button active when you click it*/
-.button:active {
+
+/* Make button active when you click it */
+.button-sign-with-slack:active {
   transform: translateY(4px);
 }
-/*Responsive */
+
+/* Responsive */
 @media screen and (max-width: 800px) {
-  .button {
+  .button-sign-with-slack {
     width: 50%;
   }
-  .button img {
+
+  .button-sign-with-slack img {
     width: 100%;
     display: flex;
   }
 }
+
 @media screen and (max-width: 500px) {
-  .button {
+  .button-sign-with-slack {
     width: 70%;
   }
-  .button img {
+
+  .button-sign-with-slack img {
     width: 100%;
     display: flex;
   }
