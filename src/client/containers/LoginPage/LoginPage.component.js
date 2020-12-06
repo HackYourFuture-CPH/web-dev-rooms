@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../components/SignInButton/Button';
+import Button from '../../components/ButtonSignIn/ButtonSignIn';
 import { HyfLogo } from '../../components/HyfBigLogo/HyfBigLogo.stories';
 
 export default function LoginPage() {
