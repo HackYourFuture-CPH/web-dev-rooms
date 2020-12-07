@@ -26,24 +26,7 @@ export default function Header({ isAuthenticated = false }) {
       </nav>
     );
   }
-  return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/sign-in">Sign in</Link>
-        </li>
-        <li>
-          <Link to="/sign-up">Sign up</Link>
-        </li>
-        <li>
-          <Link to="/reset-password">Reset password</Link>
-        </li>
-      </ul>
-    </nav>
-  );
+  return <div />;
 }
 
 Header.propTypes = {
