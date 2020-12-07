@@ -21,7 +21,7 @@ exports.seed = function (knex) {
         {
           id: 4,
           user_id: 4,
-          role_id: 3, // stuff
+          role_id: 3, // staff
         },
         {
           id: 5,
