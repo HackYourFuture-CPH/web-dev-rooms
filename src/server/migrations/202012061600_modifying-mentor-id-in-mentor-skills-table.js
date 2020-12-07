@@ -10,7 +10,7 @@ exports.up = function (knex) {
 };
 
 exports.down = function (knex) {
-  return knex.schema.table('questions', function (table) {
+  return knex.schema.table('mentors_skills', function (table) {
     table.dropForeign('mentor_id');
     table.dropColumn('mentor_id');
   });
