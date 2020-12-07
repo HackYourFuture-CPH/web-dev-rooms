@@ -5,7 +5,7 @@ const getEvents = async () => {
   try {
     return await knex('events').select(
       'events.id',
-      'event.event_type',
+      'events.event_type',
       'event_date',
       'venue',
       'maxParticipants',
