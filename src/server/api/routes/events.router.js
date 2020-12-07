@@ -52,7 +52,7 @@ router.get('/', (req, res, next) => {
  */
 router.get('/:id', (req, res, next) => {
   eventsController
-    .geteventById(req.params.id)
+    .getEventById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });
