@@ -10,7 +10,7 @@ exports.seed = function (knex) {
         },
         {
           id: 2,
-          name: 'Elastic',
+          name: 'Elastic ',
           image_url: 'https://www.elastic.co/',
         },
         {

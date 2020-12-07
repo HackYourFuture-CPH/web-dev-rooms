@@ -17,7 +17,7 @@ exports.seed = function (knex) {
         },
         {
           id: 4,
-          name: 'MySQL',
+          name: 'MySQL ',
         },
         {
           id: 5,

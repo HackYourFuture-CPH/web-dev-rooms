@@ -5,7 +5,7 @@ exports.seed = function (knex) {
       return knex('topics').insert([
         {
           id: 1,
-          topic_name: 'HTML tags',
+          topic_name: 'HTML tags ',
           week_number: 1,
           readme_url:
             'https://github.com/HackYourFuture-CPH/HTML-CSS/blob/master/Week2/readme.md',

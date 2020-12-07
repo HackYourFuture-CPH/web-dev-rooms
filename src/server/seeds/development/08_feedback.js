@@ -15,7 +15,7 @@ exports.seed = function (knex) {
           id: 2,
           student_id: 5,
           answered_by: 5,
-          open_feedback: 'good',
+          open_feedback: 'good ',
           question_id: 1,
           description: 'detailed explanation',
         },

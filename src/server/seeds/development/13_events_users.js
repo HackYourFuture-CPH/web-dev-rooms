@@ -13,13 +13,13 @@ exports.seed = function (knex) {
           id: 2,
           users_id: 2,
           status: 'everyone',
-          comment: 'this is comment in from user 2',
+          comment: 'this is comment in from user 2 ',
         },
         {
           id: 3,
           users_id: 3,
           status: 'done',
-          comment: 'this is comment in from user 3',
+          comment: 'this is comment in from user 3 ',
         },
         {
           id: 4,

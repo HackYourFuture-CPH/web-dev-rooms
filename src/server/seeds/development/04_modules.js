@@ -9,7 +9,7 @@ exports.seed = function (knex) {
         },
         {
           id: 2,
-          module_name: 'Javascript',
+          module_name: 'Javascript ',
         },
         {
           id: 3,

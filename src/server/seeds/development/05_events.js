@@ -7,7 +7,7 @@ exports.seed = function (knex) {
           id: 1,
           created_by: 2,
           event_type: 'study_group',
-          venue: 'meeting link',
+          venue: 'meeting link ',
           event_date: '2020-11-18 10:00',
           description: 'this is study_group event with Elastic',
           max_participants: 2,

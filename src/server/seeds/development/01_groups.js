@@ -9,7 +9,7 @@ exports.seed = function (knex) {
         },
         {
           id: 2,
-          name: 'class15',
+          name: 'class15 ',
         },
         {
           id: 3,

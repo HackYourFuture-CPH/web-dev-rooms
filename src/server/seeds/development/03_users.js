@@ -6,7 +6,7 @@ exports.seed = function (knex) {
         {
           id: 1,
           group_id: 1,
-          name: 'Deepti_class14',
+          name: 'Deepti_class14 ',
           slack_id: 'deepti14',
           organization_id: 1,
         },
@@ -14,7 +14,7 @@ exports.seed = function (knex) {
           id: 2,
           group_id: 2,
           name: 'Stephen_class15',
-          slack_id: 'stephen15',
+          slack_id: 'stephen15 ',
           organization_id: 2,
         },
         {
