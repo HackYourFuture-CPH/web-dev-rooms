@@ -8,7 +8,7 @@ const getEvents = async () => {
       'events.event_type',
       'event_date',
       'venue',
-      'maxParticipants',
+      'max_participants',
       'description',
     );
   } catch (error) {
