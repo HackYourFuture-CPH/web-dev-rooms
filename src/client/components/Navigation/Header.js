@@ -26,7 +26,7 @@ export default function Header({ isAuthenticated = false }) {
       </nav>
     );
   }
-  return <div />;
+  return null;
 }
 
 Header.propTypes = {
