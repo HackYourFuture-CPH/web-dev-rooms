@@ -20,7 +20,7 @@ const skillsController = require('../controllers/skills.controller');
  */
 router.get('/', (req, res, next) => {
   skillsController
-    .getskills()
+    .getSkills()
     .then((result) => res.json(result))
     .catch(next);
 });
