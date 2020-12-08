@@ -11,6 +11,8 @@ const SkillsRouter = require('./skills.router');
 
 const groupsRouter = require('./groups.router');
 
+const organizationsRouter = require('./organizations.router');
+
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -42,5 +44,7 @@ router.use('/topics', TopicsRouter);
 router.use('/skills', SkillsRouter);
 
 router.use('/groups', groupsRouter);
+
+router.use('/organizations', organizationsRouter);
 
 module.exports = router;
