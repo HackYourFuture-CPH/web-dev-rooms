@@ -6,11 +6,11 @@ const router = express.Router({ mergeParams: true });
 const skillsController = require('../controllers/skills.controller');
 /**
  * @swagger
- * /topics:
+ * /skills:
  *  get:
- *    summary: Get all topics
+ *    summary: Get all skills
  *    description:
- *      Will return all topics.
+ *      Will return all skills.
  *    produces: application/json
  *    responses:
  *      200:
@@ -20,18 +20,18 @@ const skillsController = require('../controllers/skills.controller');
  */
 router.get('/', (req, res, next) => {
   skillsController
-    .getTopics()
+    .getskills()
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /topics/{ID}:
+ * /skills/{ID}:
  *  get:
- *    summary: Get topic by ID
+ *    summary: Get skill by ID
  *    description:
- *      Will return single topic with a matching ID.
+ *      Will return single skill with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -39,7 +39,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the topic to get
+ *         description: The ID of the skill to get
  *
  *    responses:
  *      200:
