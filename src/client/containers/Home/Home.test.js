@@ -4,7 +4,7 @@ import '@testing-library/jest-dom/extend-expect';
 import { Home } from './Home';
 
 test('Home section has correct classname', () => {
-  const title = 'home';
+  const title = 'hyf-big-logo';
 
   expect(render(<Home />).container.firstChild).toHaveClass(title);
 });
