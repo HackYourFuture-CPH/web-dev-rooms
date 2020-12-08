@@ -1,0 +1,63 @@
+.modal-wrapper {
+  width: 45%;
+  margin: 0;
+  height: 400px;
+}
+
+.modal-wrapper .modal-title {
+  margin: 0;
+  padding-bottom: 7%;
+}
+
+.dot {
+  height: 80px;
+  width: 80px;
+  background-color: #293a7d;
+  background-image: url('data:image/svg+xml;utf8,<svg width="46" height="34" viewBox="0 0 46 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6109 25.2947L5.30172 15.4492L0.875 19.6768L15.6109 33.75L46 4.72763L41.5733 0.5L15.6109 25.2947Z" fill="%23ffff"/></svg>');
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 3%;
+  margin-right: 5%;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center top 50%;
+}
+
+.event-small-container {
+  background-color: #f6f6f6;
+  width: 90%;
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 8px;
+  flex: wrap;
+  margin-left: 4%;
+  align-items: center;
+}
+
+.event-small-container .eventcardtext {
+  padding: 10px;
+}
+
+.feedback-textfield {
+  display: flex;
+  width: 100%;
+  margin: 4% 0% 5% 5%;
+  margin-left: 4%;
+}
+
+.feedback-textfield .title-text-card {
+  width: 90%;
+}
+
+.title-text-card .title {
+  display: none;
+  margin: 0;
+}
+
+.title-text-card .text {
+  padding: 5%;
+}
+
+.feedback-submit-btn {
+  text-align: center;
+}
