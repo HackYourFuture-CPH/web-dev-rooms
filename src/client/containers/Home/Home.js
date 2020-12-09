@@ -1,4 +1,3 @@
 import React from 'react';
-import Login from '../LoginPage/LoginPage.component';
 
-export const Home = () => <Login />;
+export const Home = () => <section className="home">Final project!</section>;
