@@ -1,39 +1,38 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-// import EventsPage from '../EventsPage/EventsPage.component';
+import React, { useState, useEffect } from 'react';
 import { AppHeader } from '../Appheader/AppHeader.component';
 import Footer from '../footer/footer';
 import './EventsPageComplete.styles.css';
 import Header from '../Heading/Heading';
-import { CardWithEventsOrStudyGroups } from '../CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
+import {
+  CardExampleWithHYF,
+  ExampleWithElastic,
+  ExampleWithZendesk,
+} from '../CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups.stories';
 
 function EventsPageComplete() {
+  const [events, setEvents] = useState('');
+
+  useEffect(() => {
+    const getEvents = async () => {
+      const resp = await fetch('/api/events');
+      const eventsResult = await resp.json();
+      console.log('eventsResult', eventsResult);
+      setEvents(eventsResult);
+    };
+    getEvents();
+  }, []);
+
   return (
     <div className="events-page">
       <AppHeader id="app-header" />
-      <Header id="header" />
-      <CardWithEventsOrStudyGroups id="event-card" />
+      <Header>Current Studygroup</Header>
+      <div className="group-for-class">Study groups for class15</div>
+      <CardExampleWithHYF class="events-card" />
+      <ExampleWithElastic class="events-card" />
+      <ExampleWithZendesk />
       <Footer id="footer" />
     </div>
   );
 }
-
-CardWithEventsOrStudyGroups.propTypes = {
-  path: PropTypes.string,
-  children: PropTypes.node,
-  title: PropTypes.string,
-  datetime: PropTypes.string,
-  mentor: PropTypes.string,
-  link: PropTypes.string,
-};
-
-CardWithEventsOrStudyGroups.defaultProps = {
-  path: '',
-  children: '',
-  title: '',
-  datetime: '',
-  mentor: '',
-  link: '',
-};
 
 export default EventsPageComplete;

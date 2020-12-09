@@ -1,5 +1,10 @@
 import React from 'react';
+import EventsPageComplete from "./.../components/EventsPageComplete/EventsPageComplete";
 
 export default function EventsPage() {
-  return <h1>This is a EventsPage</h1>;
+  return (
+    <>
+      <EventsPageComplete />
+    </>
+  );
 }
