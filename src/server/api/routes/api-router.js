@@ -7,6 +7,8 @@ const modulesRouter = require('./modules.router');
 
 const TopicsRouter = require('./topics.router');
 
+const skillsRouter = require('./skills.router');
+
 const groupsRouter = require('./groups.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -36,6 +38,8 @@ router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 router.use('/modules', modulesRouter);
 
 router.use('/topics', TopicsRouter);
+
+router.use('/skills', skillsRouter);
 
 router.use('/groups', groupsRouter);
 
