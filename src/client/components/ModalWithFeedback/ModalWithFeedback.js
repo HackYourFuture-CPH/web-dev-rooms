@@ -2,9 +2,7 @@ import React from 'react';
 import { Button } from '../Button/Button';
 import './ModalWithFeedback.css';
 import { Card } from '../Card/Card';
-// import HYFLogo from './HYF.logo.svg';
 import { EventCardText } from '../EventCardText/EventCardText';
-// import PropTypes from 'prop-types';
 import Modal from '../Modal/Modal';
 
 function ModalWithFeedback() {
