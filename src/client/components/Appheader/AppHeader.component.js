@@ -2,19 +2,12 @@
 
 import React from 'react';
 import './AppHeader.style.css';
-import PropTypes from 'prop-types';
+import Vector from './Vector.svg';
 
-export const AppHeader = (props) => {
+export const AppHeader = () => {
   return (
     <div className="AppHeader-div">
-      <img src={props.path} alt="AppHeader" />
+      <img src={Vector} alt="AppHeader" />
     </div>
   );
-};
-AppHeader.propTypes = {
-  path: PropTypes.string,
-};
-
-AppHeader.defaultProps = {
-  path: '',
 };
