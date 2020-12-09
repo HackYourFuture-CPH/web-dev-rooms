@@ -11,6 +11,8 @@ const skillsRouter = require('./skills.router');
 
 const groupsRouter = require('./groups.router');
 
+const slackRouter = require('./slack.router');
+
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -42,5 +44,7 @@ router.use('/topics', TopicsRouter);
 router.use('/skills', skillsRouter);
 
 router.use('/groups', groupsRouter);
+
+router.use('/signin', slackRouter);
 
 module.exports = router;

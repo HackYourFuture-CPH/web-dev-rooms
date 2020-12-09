@@ -17,6 +17,7 @@ import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
 import EventsPage from './containers/EventsPage/EventsPage.component';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import SlackAuth from './containers/SlackAuthPage/SlackAuthPage.component';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
@@ -43,6 +44,9 @@ function App() {
         </Route>
         <Route exact path="/profile">
           <ProfilePage />
+        </Route>
+        <Route exact path="/slack-auth">
+          <SlackAuth />
         </Route>
 
         <SignIn exact path="/sign-in" />
