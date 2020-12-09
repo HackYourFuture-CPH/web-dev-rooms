@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer.styles.css';
 import home from './home.png';
-import profile from './Vector-profile.png';
+import profile from './profile.png';
 
 const Footer = () => {
   return (
