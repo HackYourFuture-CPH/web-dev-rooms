@@ -1,8 +1,9 @@
 footer {
   background-color: #f8f8f8;
-  position: fixed;
+  /*position: fixed*/
   width: 100%;
   left: 0px;
+  /*border: solid orange 1px;*/
 }
 .main-content {
   display: flex;
