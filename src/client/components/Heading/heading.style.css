@@ -6,4 +6,10 @@
   font-size: 24px;
   color: #293a7d;
   text-align: center;
+  height: 59px;
+  /*border: solid blue 1px;*/
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
 }
