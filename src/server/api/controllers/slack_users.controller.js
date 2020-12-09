@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 const getSlackAuth = async (code) => {
-  const clienId = process.env.SLACK__CLIENT_ID;
+  const clienId = process.env.SLACK_CLIENT_ID;
   const clientSecret = process.env.SLACK_CLIENT_SECRET;
   try {
     const url = `https://slack.com/api/oauth.v2.access?client_id=${clienId}&client_secret=${clientSecret}&code=${code}`;

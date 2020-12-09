@@ -4,7 +4,9 @@ import { HyfLogo } from '../../components/HyfBigLogo/HyfBigLogo.stories';
 
 export default function LoginPage() {
   const authenticateUser = () => {
-    return null;
+    const clientId = process.env.SLACK__CLIENT_ID;
+    const oauthUrl = `https://slack.com/oauth/v2/authorize?client_id=${clientId}&user_scope=identity.basic`;
+    window.location = oauthUrl;
   };
   return (
     <>

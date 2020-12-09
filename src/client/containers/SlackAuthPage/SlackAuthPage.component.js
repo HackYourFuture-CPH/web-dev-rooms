@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 const axios = require('axios');
 
-export default function SelectionPage() {
+export default function SlackAuthPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
