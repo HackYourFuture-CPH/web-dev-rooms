@@ -14,9 +14,9 @@ import Route404 from './components/Route404';
 
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
-import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
 import EventsPage from './containers/EventsPage/EventsPage.component';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
@@ -35,8 +35,8 @@ function App() {
         <Route exact path="/selection">
           <SelectionPage />
         </Route>
-        <Route exact path="/registration">
-          <RegistrationPage />
+        <Route exact path="/registration/admin">
+          <AdminRegistrationPage />
         </Route>
         <Route exact path="/events">
           <EventsPage />
