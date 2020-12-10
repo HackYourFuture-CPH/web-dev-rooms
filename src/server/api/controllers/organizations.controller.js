@@ -1,33 +1,19 @@
-const HttpError = require('../lib/utils/http-error');
 const knex = require('../../config/db');
 
 const getOrganizations = async () => {
   try {
-    return await knex('organizations').select('id', ' name', 'imageUrl');
+    const organizations = await knex('organizations').select(
+      'id',
+      'name',
+      'image_url',
+    );
+
+    return organizations;
   } catch (err) {
     console.log(err);
   }
 };
 
-const getOrganizationsById = async (id) => {
-  try {
-    const organization = await knex('organizations')
-      .select('organizations.id as id', 'name', 'imageUrl')
-      .where({ id });
-    if (organization.length === 0) {
-      throw new HttpError(
-        'Bad request',
-        `Cannot find organization with ID ${id}!`,
-        404,
-      );
-    }
-    return organization;
-  } catch (err) {
-    return err.message;
-  }
-};
-
 module.exports = {
   getOrganizations,
-  getOrganizationsById,
 };
