@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
 
-// import { AppHeader } from '../../../components/Appheader/AppHeader.component';
-// import Vector from '../../../components/Appheader/Vector.svg';
 import { Avatar } from '../../../components/Avatar/Avatar';
 import student from '../../../assets/images/student.png';
 import Input from '../../../components/Input/Input';
@@ -28,7 +26,7 @@ const classes = [
 
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
-  const [hyfclass, sethyfClass] = useState('Class...');
+  const [hyfclass, sethyfClass] = useState('Class14');
 
   return (
     <div className="student-registration-main">
