@@ -1,16 +1,19 @@
+/* The API routing for events */
+
 const express = require('express');
 
 const router = express.Router({ mergeParams: true });
 
 // controllers
-const skillsController = require('../controllers/skills.controller');
+const eventsController = require('../controllers/events.controller');
+
 /**
  * @swagger
- * /skills:
+ * /events:
  *  get:
- *    summary: Get all skills
+ *    summary: Get all events
  *    description:
- *      Will return all skills.
+ *      Will return all events.
  *    produces: application/json
  *    responses:
  *      200:
@@ -19,19 +22,19 @@ const skillsController = require('../controllers/skills.controller');
  *        description: Unexpected error.
  */
 router.get('/', (req, res, next) => {
-  skillsController
-    .getSkills()
+  eventsController
+    .getEvents()
     .then((result) => res.json(result))
     .catch(next);
 });
 
 /**
  * @swagger
- * /skills/{ID}:
+ * /events/{ID}:
  *  get:
- *    summary: Get skill by ID
+ *    summary: Get events by ID
  *    description:
- *      Will return single skill with a matching ID.
+ *      Will return single event with a matching ID.
  *    produces: application/json
  *    parameters:
  *     - in: path
@@ -39,7 +42,7 @@ router.get('/', (req, res, next) => {
  *       schema:
  *         type: integer
  *         required: true
- *         description: The ID of the skill to get
+ *         description: The ID of the event to get
  *
  *    responses:
  *      200:
@@ -48,8 +51,8 @@ router.get('/', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.get('/:id', (req, res, next) => {
-  skillsController
-    .getSkillById(req.params.id)
+  eventsController
+    .getEventById(req.params.id)
     .then((result) => res.json(result))
     .catch(next);
 });

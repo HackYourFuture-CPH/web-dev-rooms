@@ -7,7 +7,9 @@ const modulesRouter = require('./modules.router');
 
 const TopicsRouter = require('./topics.router');
 
-const SkillsRouter = require('./skills.router');
+const skillsRouter = require('./skills.router');
+
+const eventsRouter = require('./events.router');
 
 const groupsRouter = require('./groups.router');
 
@@ -39,8 +41,9 @@ router.use('/modules', modulesRouter);
 
 router.use('/topics', TopicsRouter);
 
-router.use('/skills', SkillsRouter);
+router.use('/skills', skillsRouter);
 
+router.use('/events', eventsRouter);
 router.use('/groups', groupsRouter);
 
 module.exports = router;
