@@ -45,7 +45,9 @@ export const AdminRegistrationPage = () => {
         If you already do not have a slack id then please make one as it is
         mandatory to have a slack id to connect with mentors and other students.
       </p>
-      <Footer />
+      <div className="admin-registration-footer">
+        <Footer />
+      </div>
     </div>
   );
 };
