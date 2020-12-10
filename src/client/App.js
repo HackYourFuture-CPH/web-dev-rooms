@@ -35,7 +35,7 @@ function App() {
         <Route exact path="/selection">
           <SelectionPage />
         </Route>
-        <Route exact path="/admin-registration">
+        <Route exact path="/registration/admin">
           <AdminRegistrationPage />
         </Route>
         <Route exact path="/events">
