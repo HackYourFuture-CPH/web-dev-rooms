@@ -32,6 +32,7 @@ export const StudentRegistrationPage = () => {
     <div className="student-registration-main">
       <div className="student-registration-avatar">
         <img className="logo-image" src={logo} alt="hyf-logo" />
+
         <Avatar avatarUrl={student} name="student" />
       </div>
 
