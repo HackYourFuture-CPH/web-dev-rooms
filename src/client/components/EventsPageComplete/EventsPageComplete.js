@@ -10,13 +10,12 @@ import {
 } from '../CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups.stories';
 
 function EventsPageComplete() {
-  const [events, setEvents] = useState('');
+  const [events, setEvents] = useState([]);
 
   useEffect(() => {
     const getEvents = async () => {
       const resp = await fetch('/api/events');
       const eventsResult = await resp.json();
-      console.log('eventsResult', eventsResult);
       setEvents(eventsResult);
     };
     getEvents();
@@ -27,9 +26,33 @@ function EventsPageComplete() {
       <AppHeader id="app-header" />
       <Header>Current Studygroup</Header>
       <div className="group-for-class">Study groups for class15</div>
-      <CardExampleWithHYF class="events-card" />
-      <ExampleWithElastic class="events-card" />
-      <ExampleWithZendesk />
+      {events.map((event) => {
+        return (
+          <CardExampleWithHYF
+            class="events-card"
+            key={event.id}
+            event={event}
+          />
+        );
+      })}
+      {events.map((event) => {
+        return (
+          <ExampleWithElastic
+            class="events-card"
+            key={event.id}
+            event={event}
+          />
+        );
+      })}
+      {events.map((event) => {
+        return (
+          <ExampleWithZendesk
+            class="events-card"
+            key={event.id}
+            event={event}
+          />
+        );
+      })}
       <Footer id="footer" />
     </div>
   );
