@@ -6,15 +6,8 @@
 }
 
 .main-avatar-images {
-  max-width: 10em;
-  max-height: 10em;
+  height: 40%;
+  width: 40%;
   border-bottom-left-radius: 25em;
   border-bottom-right-radius: 25em;
-}
-
-@media only screen and (min-width: 279px) and (max-width: 1024px) {
-  .main-avatar-images {
-    max-width: 7em;
-    max-height: 7em;
-  }
 }
