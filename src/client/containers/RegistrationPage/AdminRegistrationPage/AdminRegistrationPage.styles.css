@@ -1,11 +1,9 @@
 .admin-registration-main {
-  margin: 0;
+  margin: auto;
   padding: 0;
-  width: 100%;
-  height: 100vh;
+  width: 70%;
   display: flex;
   align-items: center;
-  text-align: center;
   flex-direction: column;
 }
 
@@ -14,13 +12,13 @@
   margin: 0;
   padding-top: 2%;
   padding-left: 5%;
-  padding-bottom: 10%;
+  padding-bottom: 0.5%;
   background-color: #f8f8f8;
-  border-radius: 0% 0% 90% 90%/0% 0% 100% 100%;
+  border-radius: 0% 0% 100% 100%/0% 0% 100% 100%;
 }
 
 .admin-registration-avatar .logo-image {
-  display: flex;
+  float: left;
   margin: 0;
   padding: 0;
 }
@@ -36,10 +34,20 @@
 .admin-registration-name,
 .admin-registration-role,
 .admin-registration-button,
-.admin-registration-infotext {
+.admin-registration-info-text {
   padding: 2%;
 }
 
 .admin-registration-footer {
   padding: 5%;
+}
+
+.admin-registration-info-text {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .student-registration-main {
+    width: 100%;
+  }
 }
