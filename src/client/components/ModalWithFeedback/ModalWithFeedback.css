@@ -1,11 +1,7 @@
-.modal-wrapper {
+.feedback-modal .modal-wrapper {
   width: 45%;
   margin: 0;
   height: 400px;
-}
-
-.modal-wrapper .modal-title {
-  margin: 0;
   padding-bottom: 7%;
 }
 
@@ -45,19 +41,19 @@
   margin-left: 4%;
 }
 
-.feedback-textfield .title-text-card {
+.feedback-textfield .input-component {
   width: 90%;
-}
-
-.title-text-card .title {
-  display: none;
-  margin: 0;
-}
-
-.title-text-card .text {
+  font-size: 14px;
   padding: 5%;
+  height: 5rem;
 }
 
 .feedback-submit-btn {
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .feedback-modal {
+    width: 100%;
+  }
 }
