@@ -1,26 +1,130 @@
-.radiobutton {
-  background-color: #f6f6f6;
-  border-radius: 25px;
-  border: none;
-  outline: 0;
-  color: #bdbdbd;
-  padding: 10px 14px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
+.radiobutton-student {
+  position: absolute;
+  left: 1px;
+  right: 230px;
+  top: 2.56%;
+  bottom: 2.56%;
 }
 
-.radiobutton:focus {
-  color: #293a7d;
+.radiobutton-student button {
+  position: absolute;
+  width: 85px;
+  height: 40px;
+  left: calc(50% - 75px / 2 - 115px);
+  top: calc(43% - 40px / 2);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+  border-radius: 100px;
+  color: rgba(17, 16, 16, 0.336);
+}
+
+.radiobutton-mentor {
+  position: absolute;
+  left: 116px;
+  right: 120px;
+  top: 2.56%;
+  bottom: 2.56%;
+  background: #fff;
+  border-radius: 100px;
+}
+
+.radiobutton-mentor button {
+  position: absolute;
+  width: 85px;
+  height: 40px;
+  left: calc(50% - 75px / 2);
+  top: calc(43% - 40px / 2);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+  border-radius: 100px;
+  color: rgba(17, 16, 16, 0.336);
+}
+
+.radiobutton-admin {
+  position: absolute;
+  left: 230px;
+  right: 1px;
+  top: 2.56%;
+  bottom: 2.56%;
+  background: #fff;
+  border-radius: 100px;
+}
+
+.radiobutton-admin button {
+  position: absolute;
+  width: 85px;
+  height: 40px;
+  left: calc(47% - 75px / 2 + 114px);
+  top: calc(43% - 40px / 2);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  border: 2px solid #e8e8e8;
+  border-radius: 100px;
+  color: rgba(17, 16, 16, 0.336);
 }
 
 .btn-group {
-  border: 2px solid #f6f6f6;
-  background-color: #f6f6f6;
-  border-radius: 25px;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+  top: 0%;
+  bottom: 0%;
+  background: #f6f6f6;
+  border: 20px solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 100px;
 }
 
-.btn-group .button:hover {
-  background-color: #fff;
+.radiobutton-student button:hover {
+  color: #293a7d;
+}
+
+.radiobutton-student button:focus {
+  color: #293a7d;
+}
+
+.radiobutton-mentor button:hover {
+  color: #293a7d;
+}
+
+.radiobutton-mentor button:focus {
+  color: #293a7d;
+}
+
+.radiobutton-admin button:hover {
+  color: #293a7d;
+}
+
+.radiobutton-admin button:focus {
+  color: #293a7d;
+}
+
+@media screen and (max-width: 812px) {
+  .radiobutton-student {
+    position: absolute;
+    width: 50%;
+    left: 9%;
+  }
+
+  .radiobutton-mentor {
+    position: absolute;
+    width: 50%;
+    left: 19%;
+  }
+
+  .radiobutton-admin {
+    position: absolute;
+    width: 50%;
+    left: 30%;
+  }
 }
