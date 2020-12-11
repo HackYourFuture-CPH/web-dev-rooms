@@ -6,8 +6,14 @@ export default function SlackAuthPage() {
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const code = params.get('code');
-    axios.post(`/api/signin?code=${code}`);
-    // .then((res) => {console.log('this is response', res)});
+    axios.post(`/api/signin?code=${code}`).then(
+      (response) => {
+        return response;
+      },
+      (error) => {
+        return error.message;
+      },
+    );
   }, []);
   return (
     <>
