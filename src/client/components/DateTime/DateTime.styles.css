@@ -1,5 +1,4 @@
-.date-time-picker,
-.date-time-picker input {
+.date-time-picker {
   position: relative;
   left: 0%;
   right: 0%;
@@ -14,18 +13,16 @@
 }
 
 .date-time-picker input {
+  box-sizing: border-box;
+  border-radius: 100px;
   border: none;
-  height: 35px;
-  width: 275px;
-  border-radius: 90px;
-  margin-top: 2%;
-  margin-left: 1.5%;
-  text-align: center;
-  cursor: none;
+  background: transparent;
+  height: 50px;
+  width: 100%;
+  padding-left: 15px;
   font-family: 'Inter', sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
   color: #bdbdbd;
 }
