@@ -5,7 +5,7 @@ const getOrganizations = async () => {
     const organizations = await knex('organizations').select(
       'id',
       'name',
-      'image_url',
+      'organizations.image_url as imageUrl ',
     );
 
     return organizations;
