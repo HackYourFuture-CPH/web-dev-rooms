@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
 import './Selectionpage.css';
+import PropTypes from 'prop-types';
 import Radio from '../../components/Radio/ButtonRadio';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
 import { Button } from '../../components/Button/Button';
 
-const SelectOption = () => {
+const SelectOption = (props) => {
+  const { onClick } = props;
+  const submit = () => {
+    onClick();
+  };
   const [Title, setTitle] = useState('web dev rooms');
   const onclicked = (e) => {
     const choice = e.target.name;
     if (choice === 'student') {
       setTitle('web dev rooms');
-    } else if (choice === 'mentor') {
-      setTitle('STUDY GROUP MANAGEMENT SYSTEM');
-    } else if (choice === 'admin') {
+    } else {
       setTitle('STUDY GROUP MANAGEMENT SYSTEM');
     }
   };
@@ -27,7 +30,7 @@ const SelectOption = () => {
         <Radio onClick={onclicked} />
       </div>
       <div className="sub-button">
-        <Button>Submit</Button>
+        <Button onClick={submit}>Submit</Button>
       </div>
       <div className="text">
         <p>
@@ -41,5 +44,5 @@ const SelectOption = () => {
     </div>
   );
 };
-
+SelectOption.propTypes = { onClick: PropTypes.func.isRequired };
 export default SelectOption;
