@@ -1,5 +1,4 @@
 const knex = require('../../config/db');
-const HttpError = require('../lib/utils/http-error');
 const Error = require('../lib/utils/http-error');
 
 const getUserById = async (id, role) => {
