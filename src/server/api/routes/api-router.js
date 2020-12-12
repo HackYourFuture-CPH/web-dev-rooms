@@ -9,6 +9,8 @@ const TopicsRouter = require('./topics.router');
 
 const groupsRouter = require('./groups.router');
 
+const feedbacksRouter = require('./feedbacks.router');
+
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -38,5 +40,11 @@ router.use('/modules', modulesRouter);
 router.use('/topics', TopicsRouter);
 
 router.use('/groups', groupsRouter);
+
+router.use('/feedbacks', feedbacksRouter);
+
+router.use('/', function (req, res) {
+  res.redirect(`${process.env.API_PATH}/documentation`);
+});
 
 module.exports = router;
