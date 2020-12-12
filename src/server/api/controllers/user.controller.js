@@ -20,15 +20,22 @@ const getUserById = async (id, role) => {
 
 async function transformData(eventData, role) {
   const outPutData = [];
+  const listOfAttendes = [];
   let i;
   for (i = 0; i < eventData[0].length; i += 1) {
     outPutData[i] = eventData[0][i];
     outPutData[i].eventDate = getDate(outPutData[i].eventTime);
     outPutData[i].eventTime = String(outPutData[i].eventTime).substr(16, 8);
-    outPutData[i].listOfAttendess = await getAttendees(
-      role,
-      outPutData[i].eventId,
-    );
+    listOfAttendes.push(getAttendees(role, outPutData[i].eventId));
+  }
+  const finalListOfAttendes = await Promise.all(listOfAttendes);
+  let j;
+  for (j = 0; j < outPutData.length; j += 1) {
+    if (finalListOfAttendes.length >= j) {
+      outPutData[j].listOfAttendes = finalListOfAttendes[j];
+    } else {
+      break;
+    }
   }
   return outPutData;
 }
