@@ -1,43 +1,37 @@
 const knex = require('../../config/db');
+const HttpError = require('../lib/utils/http-error');
 const Error = require('../lib/utils/http-error');
 
 const getUserById = async (id, role) => {
   try {
-    const eventUsers = await knex.raw(
-      'SELECT ' +
-        'ev.id AS eventId, ' +
-        'org.name AS organization, ' +
-        'ev.event_date AS eventDate, ' +
-        'ev.created_at AS eventTime, ' +
-        'WEEK(ev.created_at) as eventWeek ' +
-        'FROM ' +
-        'events_users AS eu, ' +
-        'users AS us, ' +
-        'events_students AS es, ' +
-        'organizations AS org, ' +
-        'events AS ev ' +
-        'WHERE ' +
-        'us.id = eu.users_id ' +
-        'AND es.student_id = eu.id ' +
-        'AND org.id = us.organization_id ' +
-        'AND ev.id = es.event_id ' +
-        'AND eu.users_id = ? ' +
-        'limit 1;',
+    const eventData = await knex.raw(
+      ` SELECT ev.id AS eventId,  org.name AS organization,  ev.event_date AS eventDate,  ev.created_at AS eventTime,  WEEK(ev.created_at) as eventWeek  FROM  events_users AS eu, users AS us,  events_students AS es,  organizations AS org, events AS ev  WHERE  us.id = eu.users_id  AND es.student_id = eu.id  AND org.id = us.organization_id  AND ev.id = es.event_id  AND eu.users_id = ? `,
       [id],
     );
-    if (eventUsers.length === 0) {
-      return new Error(`No Entries with the id of ${id}`, 404);
+    if (eventData[0].length === 0) {
+      throw new Error(`incorrect entry with the id of ${id}`, 404);
     }
-    const usableData = eventUsers[0][0];
-    usableData.eventDate = getDate(usableData.eventTime);
-    usableData.eventTime = String(usableData.eventTime).substr(16, 8);
-    const attendeeList = await getAttendees(role, usableData.eventId);
-    usableData.listOfAttendess = attendeeList;
-    return usableData;
+    const dataToBeFetched = await transformData(eventData, role);
+    return dataToBeFetched;
   } catch (error) {
     return error.message;
   }
 };
+
+async function transformData(eventData, role) {
+  const outPutData = [];
+  let i;
+  for (i = 0; i < eventData[0].length; i += 1) {
+    outPutData[i] = eventData[0][i];
+    outPutData[i].eventDate = getDate(outPutData[i].eventTime);
+    outPutData[i].eventTime = String(outPutData[i].eventTime).substr(16, 8);
+    outPutData[i].listOfAttendess = await getAttendees(
+      role,
+      outPutData[i].eventId,
+    );
+  }
+  return outPutData;
+}
 
 async function getAttendees(role, eventId) {
   if (role !== 'mentors' && role !== 'students') {
@@ -46,18 +40,7 @@ async function getAttendees(role, eventId) {
   try {
     if (role === 'mentors') {
       const studentNames = await knex.raw(
-        'SELECT ' +
-          'us.name ' +
-          'FROM ' +
-          'users us, ' +
-          'events_students es, ' +
-          'events_users eu, ' +
-          'events ev ' +
-          'WHERE ' +
-          'ev.id = es.event_id ' +
-          'AND es.student_id = eu.id ' +
-          'AND eu.users_id = us.id ' +
-          'AND ev.id = ? ',
+        ` SELECT  us.name  FROM  users us, events_students es, events_users eu,  events ev  WHERE  ev.id = es.event_id  AND es.student_id = eu.id  AND eu.users_id = us.id  AND ev.id = ? `,
         [eventId],
       );
       if (studentNames.length > 0) {
@@ -71,18 +54,7 @@ async function getAttendees(role, eventId) {
       }
     } else {
       const mentorNames = await knex.raw(
-        'SELECT ' +
-          'us.name ' +
-          'FROM ' +
-          'users us, ' +
-          'events_mentors em, ' +
-          'events_users eu, ' +
-          'events ev ' +
-          'WHERE ' +
-          'ev.id = em.event_id ' +
-          'AND em.mentor_id = eu.id ' +
-          'AND eu.users_id = us.id ' +
-          'AND ev.id = ? ',
+        ` SELECT  us.name  FROM  users us,  events_mentors em,  events_users eu,  events ev  WHERE  ev.id = em.event_id  AND em.mentor_id = eu.id  AND eu.users_id = us.id  AND ev.id = ? `,
         [eventId],
       );
       if (mentorNames.length > 0) {

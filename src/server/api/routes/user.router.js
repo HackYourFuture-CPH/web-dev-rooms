@@ -50,7 +50,6 @@ const userController = require('../controllers/user.controller');
  *        description: Unexpected error.
  */
 router.get('/:id/:role/', (req, res, next) => {
-  console.log('polo');
   userController
     .getUserById(req.params.id, req.params.role)
     .then((result) => res.json(result))
