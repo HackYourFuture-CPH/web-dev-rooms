@@ -18,50 +18,53 @@ import RegistrationPage from './containers/RegistrationPage/RegistrationPage.com
 import EventsPage from './containers/EventsPage/EventsPage.component';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import UserTest from './context/UserContextTest';
+import { UserProvider } from './context/userContext';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
   if (isLoading) return <Loader />;
   return (
-    <Router>
-      <Header isAuthenticated={isAuthenticated} />
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
+    <UserProvider>
+      <Router>
+        <Header isAuthenticated={isAuthenticated} />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
 
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/selection">
-          <SelectionPage />
-        </Route>
-        <Route exact path="/registration">
-          <RegistrationPage />
-        </Route>
-        <Route exact path="/events">
-          <EventsPage />
-        </Route>
-        <Route exact path="/profile">
-          <ProfilePage />
-        </Route>
-        <Route exact path="/usertest">
-          <UserTest />
-        </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
+          <Route exact path="/selection">
+            <SelectionPage />
+          </Route>
+          <Route exact path="/registration">
+            <RegistrationPage />
+          </Route>
+          <Route exact path="/events">
+            <EventsPage />
+          </Route>
+          <Route exact path="/profile">
+            <ProfilePage />
+          </Route>
+          <Route exact path="/usertest">
+            <UserTest />
+          </Route>
 
-        <SignIn exact path="/sign-in" />
-        <SignUp exact path="/sign-up" />
-        <ResetPassword exact path="/reset-password" />
-        <AuthenticatedRoute
-          exact
-          path="/profile"
-          isAuthenticated={isAuthenticated}
-        >
-          <Profile />
-        </AuthenticatedRoute>
-        <Route path="*" component={Route404} />
-      </Switch>
-    </Router>
+          <SignIn exact path="/sign-in" />
+          <SignUp exact path="/sign-up" />
+          <ResetPassword exact path="/reset-password" />
+          <AuthenticatedRoute
+            exact
+            path="/profile"
+            isAuthenticated={isAuthenticated}
+          >
+            <Profile />
+          </AuthenticatedRoute>
+          <Route path="*" component={Route404} />
+        </Switch>
+      </Router>
+    </UserProvider>
   );
 }
 
