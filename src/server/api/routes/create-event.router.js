@@ -16,7 +16,7 @@ const createEventController = require('../controllers/create_event.controller');
  *    parameters:
  *      - in: body
  *        name: event
- *        description: The event to create.
+ *        description: To create an event
  *        schema:
  *          type: object
  *          required:
@@ -25,31 +25,42 @@ const createEventController = require('../controllers/create_event.controller');
  *            - venue
  *            - description
  *            - max_participants
+ *            - created_by
+ *            - created_at
+ *            - updated_at
  *          properties:
  *            event_type:
- *              type: integer
+ *              type: string
  *            event_date:
- *              type: datetime
+ *              type: string
+ *              format: date
  *            venue:
  *              type: string
  *            description:
  *              type: string
  *            max_participants:
  *              type: integer
+ *            created_by:
+ *              type: integer
+ *            created_at:
+ *              type: string
+ *              format: date
+ *            updated_at:
+ *              type: string
+ *              format: date
  *    responses:
  *      201:
- *        description: createEvent created
+ *        description: Event created
  *      5XX:
  *        description: Unexpected error.
  */
 router.post('/', (req, res) => {
-  console.log('event posted');
+  console.log('event created');
   createEventController
     .createEvent(req.body)
     .then((result) => res.json(result))
     .catch((error) => {
       console.log(error);
-
       res.status(400).send('Bad request').end();
     });
 });
