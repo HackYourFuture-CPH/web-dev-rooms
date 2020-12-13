@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
-import { UserContext, UserProvider } from './userContext';
+import { UserContext } from './userContext';
 
-const TestButton = () => {
+const UserTest = () => {
   const { token, login, logout } = useContext(UserContext);
   return token ? (
     <button onClick={logout} type="button">
@@ -14,12 +14,4 @@ const TestButton = () => {
   );
 };
 
-const AppWithStore = () => {
-  return (
-    <UserProvider>
-      <TestButton />
-    </UserProvider>
-  );
-};
-
-export default AppWithStore;
+export default UserTest;
