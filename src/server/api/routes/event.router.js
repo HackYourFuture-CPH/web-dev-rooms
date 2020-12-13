@@ -40,13 +40,11 @@ const eventController = require('../controllers/event.controller');
  *        description: Unexpected error.
  */
 router.post('/', (req, res) => {
-  console.log('event created');
   eventController
     .event(req.body)
     .then((result) => res.json(result))
     .catch((error) => {
-      console.log(error);
-      res.status(400).send('Bad request').end();
+      res.status(400).send(error).end();
     });
 });
 

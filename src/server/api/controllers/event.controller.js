@@ -5,10 +5,10 @@ const knex = require('../../config/db');
 const event = async (body) => {
   console.log(body);
   await knex('events').insert({
-    event_type: body.event_type,
+    event_type: body.eventType,
     venue: body.venue,
     description: body.description,
-    created_by: body.created_by,
+    created_by: body.createdBy,
   });
 
   return {
