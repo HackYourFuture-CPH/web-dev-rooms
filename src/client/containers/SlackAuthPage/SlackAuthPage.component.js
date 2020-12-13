@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
-
-const axios = require('axios');
+import { useLocation } from 'react-router-dom';
+import axios from 'axios';
 
 export default function SlackAuthPage() {
+  let location = useLocation();
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get('code');
+    const code = new URLSearchParams(location.search).get('code');
     axios.post(`/api/signin?code=${code}`).then(
       (response) => {
         return response;
