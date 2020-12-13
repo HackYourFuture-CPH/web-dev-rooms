@@ -3,45 +3,32 @@
 }
 
 .selection-page .logo {
-  position: absolute;
-  width: 100%;
-  left: 4.76%;
-  right: 5.08%;
-  top: 3.47%;
+  width: 100px;
+  margin: 10px 10px 10px 450px;
 }
 
 .selection-page .selection-content {
-  position: absolute;
-  width: 100%;
-  left: 6%;
-  top: 44%;
+  margin: 9px 19px 19px 19px;
   font-style: normal;
   font-weight: bold;
-  font-size: 28px;
+  font-size: 18px;
   line-height: 21px;
   text-align: center;
   color: #abacb2;
 }
 
 .selection-page .radio {
-  position: absolute;
-  width: 40%;
-  left: 37%;
-  top: 56%;
+  width: 450px;
+  margin: 10px 40px 20px 390px;
 }
 
 .selection-page .sub-button button {
+  width: 130px;
+  margin: 10px 10px 10px 550px;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px 32px;
-  position: absolute;
-  width: 10%;
-  height: 51px;
-  left: 52%;
-  top: 65%;
-
-  /* Gray/01 */
   background: #f6f6f6;
   border: 1px solid #e8e8e8;
   box-sizing: border-box;
@@ -49,92 +36,49 @@
 }
 
 .selection-page .text {
-  position: absolute;
-  width: 40%;
-  left: 37%;
-  top: 73%;
+  margin: 50px 10px 10px -110px;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 140%;
-
-  /* or 20px */
   text-align: center;
-
-  /* Default text grey */
   color: #666;
 }
 
-@media screen and (max-width: 812px) {
+@media (max-width: 500px) {
   .selection-page {
-    position: relative;
     width: 100%;
+    margin: 2%;
+    padding: 1% 2%;
   }
 
   .selection-page .logo {
-    position: absolute;
-    width: 315px;
-    left: 49px;
-    top: 10px;
+    width: 100%;
+    margin: 0;
   }
 
   .selection-page .logo img {
-    position: absolute;
-    left: 4.76%;
-    right: 5.08%;
-    top: 8.47%;
+    width: 100%;
+    margin: 2;
   }
 
   .selection-page .selection-content {
-    position: absolute;
-    width: 324px;
-    height: 21px;
-    left: 45px;
-    top: 210px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 21px;
-    text-align: center;
-    color: #abacb2;
+    width: 100%;
   }
 
   .selection-page .radio {
-    position: absolute;
-    width: 290px;
-    height: 39px;
-    left: 45px;
-    top: 280px;
+    width: 100%;
+    margin: 1%;
   }
 
   .selection-page .sub-button button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 16px 32px;
-    position: absolute;
-    width: 119px;
-    height: 51px;
-    left: 120px;
-    top: 350px;
-
-    /* Gray/01 */
-    background: #f6f6f6;
-    border: 1px solid #e8e8e8;
-    box-sizing: border-box;
-    border-radius: 100px;
+    width: 32%;
+    margin: 20px 130px;
+    padding: 12px 18px;
   }
 
   .selection-page .text {
-    position: absolute;
-    width: 328px;
-    left: 22px;
-    top: 460px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 140%;
-    text-align: center;
-    color: #666;
+    width: 100%;
+    margin: 30px 1px;
   }
 }
