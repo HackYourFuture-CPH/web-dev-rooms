@@ -3,11 +3,7 @@ import { AppHeader } from '../../components/Appheader/AppHeader.component';
 import Footer from '../../components/footer/footer';
 import './EventsPage.styles.css';
 import Header from '../../components/Heading/Heading';
-import {
-  CardExampleWithHYF,
-  ExampleWithElastic,
-  ExampleWithZendesk,
-} from '../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups.stories';
+import { CardExampleWithHYF } from '../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups.stories';
 
 function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -25,28 +21,10 @@ function EventsPage() {
     <div className="events-page">
       <AppHeader id="app-header" />
       <Header>Current Studygroup</Header>
-      <div className="group-for-class">Study groups for class15</div>
+      <div className="group-for-class">Study groups</div>
       {events.map((event) => {
         return (
           <CardExampleWithHYF
-            class="events-card"
-            key={event.id}
-            event={event}
-          />
-        );
-      })}
-      {events.map((event) => {
-        return (
-          <ExampleWithElastic
-            class="events-card"
-            key={event.id}
-            event={event}
-          />
-        );
-      })}
-      {events.map((event) => {
-        return (
-          <ExampleWithZendesk
             class="events-card"
             key={event.id}
             event={event}

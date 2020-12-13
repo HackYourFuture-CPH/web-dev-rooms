@@ -3,17 +3,11 @@
   margin-right: auto;
 }
 
-.app-header {
-  width: 50%;
-}
-
 .group-for-class {
   font-family: Roboto, sans-serif;
   font-weight: bold;
   color: #293a7d;
   margin-bottom: 20px;
-
-  /* border: solid yellow 5px; */
   padding-right: 150px;
   text-align: center;
 }
