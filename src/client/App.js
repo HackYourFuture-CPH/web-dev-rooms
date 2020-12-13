@@ -15,7 +15,7 @@ import Route404 from './components/Route404';
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
-import EventsPage from './containers/EventsPage/EventsPage.component';
+import EventsPage from './containers/EventsPage/EventsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 
 function App() {
