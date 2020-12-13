@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { AppHeader } from '../Appheader/AppHeader.component';
-import Footer from '../footer/footer';
-import './EventsPageComplete.styles.css';
-import Header from '../Heading/Heading';
+import { AppHeader } from '../../components/Appheader/AppHeader.component';
+import Footer from '../../components/footer/footer';
+import './EventsPage.styles.css';
+import Header from '../../components/Heading/Heading';
 import {
   CardExampleWithHYF,
   ExampleWithElastic,
   ExampleWithZendesk,
-} from '../CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups.stories';
+} from '../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups.stories';
 
-function EventsPageComplete() {
+function EventsPage() {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -58,4 +58,4 @@ function EventsPageComplete() {
   );
 }
 
-export default EventsPageComplete;
+export default EventsPage;

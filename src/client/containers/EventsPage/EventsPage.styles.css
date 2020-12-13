@@ -1,7 +1,4 @@
 .events-page {
-  /*margin-top: 80px;*/
-  /*width: 50%;*/
-  /*border: solid red 5px;*/
   margin-left: auto;
   margin-right: auto;
 }
@@ -15,7 +12,8 @@
   font-weight: bold;
   color: #293a7d;
   margin-bottom: 20px;
-  /*border: solid yellow 5px;*/
+
+  /* border: solid yellow 5px; */
   padding-right: 150px;
   text-align: center;
 }
