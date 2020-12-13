@@ -3,17 +3,22 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  border-bottom-left-radius: 10em;
+  border-bottom-right-radius: 10em;
 }
+
 .main-avatar-images {
   max-width: 10em;
   max-height: 10em;
-  border-bottom-left-radius: 25em;
-  border-bottom-right-radius: 25em;
+  border-bottom-left-radius: 3em;
+  border-bottom-right-radius: 2em;
 }
 
 @media only screen and (min-width: 279px) and (max-width: 1024px) {
   .main-avatar-images {
     max-width: 7em;
     max-height: 7em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
   }
 }
