@@ -9,6 +9,51 @@ const eventsController = require('../controllers/events.controller');
 
 /**
  * @swagger
+ * /event:
+ *  post:
+ *    summary: Create an event
+ *    description:
+ *      Will create an event.
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: event
+ *        description: To create an event
+ *        schema:
+ *          type: object
+ *          required:
+ *            - event_type
+ *            - venue
+ *            - description
+ *            - created_by
+ *          properties:
+ *            event_type:
+ *              type: string
+ *            venue:
+ *              type: string
+ *            description:
+ *              type: string
+ *            created_by:
+ *              type: integer
+ *    responses:
+ *      201:
+ *        description: Event created
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.post('/', (req, res) => {
+  eventsController
+    .createEvent(req.body)
+    .then((result) => res.json(result))
+    .catch((error) => {
+      console.log(error);
+      res.status(400).send('Bad request').end();
+    });
+});
+
+/**
+ * @swagger
  * /events:
  *  get:
  *    summary: Get all events
@@ -21,6 +66,7 @@ const eventsController = require('../controllers/events.controller');
  *      5XX:
  *        description: Unexpected error.
  */
+
 router.get('/', (req, res, next) => {
   eventsController
     .getEvents()
@@ -50,6 +96,7 @@ router.get('/', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
+
 router.get('/:id', (req, res, next) => {
   eventsController
     .getEventById(req.params.id)
