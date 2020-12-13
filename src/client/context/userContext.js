@@ -12,7 +12,6 @@ export function UserProvider(props) {
     }
   }, []);
   const login = () => {
-    console.log('login');
     const Apitoken = 'aaa';
     localStorage.setItem('tokenName', Apitoken);
     setToken(Apitoken);
@@ -20,7 +19,6 @@ export function UserProvider(props) {
   const logout = () => {
     localStorage.removeItem('tokenName');
     setToken(null);
-    /* alert("token will delete") */
   };
   return (
     <UserContext.Provider value={{ token, login, logout }}>
