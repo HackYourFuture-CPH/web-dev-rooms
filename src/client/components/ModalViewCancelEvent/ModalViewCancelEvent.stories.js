@@ -8,10 +8,6 @@ export default {
 
 export const CancelEventModal = () => (
   <>
-    <ModalCancelEvent
-      heading="Cancel Event"
-      buttonText="Cancel"
-      text="Are you sure you want to cancel"
-    />
+    <ModalCancelEvent />
   </>
 );
