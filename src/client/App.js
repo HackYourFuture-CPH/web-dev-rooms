@@ -29,8 +29,8 @@ function App() {
 
   const notify = () => toast('Wow so easy !');
   return (
-    <div>
-      <UserProvider>
+    <UserProvider>
+      <div>
         <Router>
           <Header isAuthenticated={isAuthenticated} />
           <Switch>
@@ -70,12 +70,13 @@ function App() {
             <Route path="*" component={Route404} />
           </Switch>
         </Router>
-      </UserProvider>
-      <button type="button" onClick={notify}>
-        ReactToastify
-      </button>
-      <ToastContainer />
-    </div>
+
+        <button type="button" onClick={notify}>
+          ReactToastify
+        </button>
+        <ToastContainer />
+      </div>
+    </UserProvider>
   );
 }
 
