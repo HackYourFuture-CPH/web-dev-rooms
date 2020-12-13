@@ -5,7 +5,14 @@ import './Button.styles.css';
 
 export const Button = (props) => {
   return (
-    <button className="button" type="submit" onClick={props.onClick}>
+    <button
+      className={`button ${
+        props.apperance === 'danger' ? 'button-danger' : ''
+      }`}
+      type="submit"
+      onClick={props.onClick}
+      apperance={props.apperance}
+    >
       {props.children}
     </button>
   );
@@ -14,9 +21,11 @@ export const Button = (props) => {
 Button.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
+  apperance: PropTypes.string,
 };
 
 Button.defaultProps = {
   children: '',
   onClick: null,
+  apperance: 'default',
 };
