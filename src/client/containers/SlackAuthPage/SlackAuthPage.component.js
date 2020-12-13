@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 export default function SlackAuthPage() {
-  let location = useLocation();
+  const location = useLocation();
   useEffect(() => {
     const code = new URLSearchParams(location.search).get('code');
     axios.post(`/api/signin?code=${code}`).then(
@@ -14,7 +14,7 @@ export default function SlackAuthPage() {
         return error.message;
       },
     );
-  }, []);
+  }, [location.search]);
   return (
     <>
       <h1>This is authentication page</h1>
