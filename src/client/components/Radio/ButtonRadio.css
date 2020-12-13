@@ -19,6 +19,7 @@
   border: 1px solid #e8e8e8;
   border-radius: 100px;
   color: rgba(17, 16, 16, 0.336);
+  z-index: 1;
 }
 
 .radiobutton-mentor {
@@ -45,6 +46,7 @@
   border: 1px solid #e8e8e8;
   border-radius: 100px;
   color: rgba(17, 16, 16, 0.336);
+  z-index: 2;
 }
 
 .radiobutton-admin {
@@ -74,15 +76,17 @@
 }
 
 .btn-group {
-  position: absolute;
+  position: relative;
+  width: 100%;
+  height: 40%;
   left: 0%;
   right: 0%;
   top: 0%;
   bottom: 0%;
-  background: #f6f6f6;
   border: 20px solid #e8e8e8;
   box-sizing: border-box;
   border-radius: 100px;
+  z-index: 0;
 }
 
 .radiobutton-student button:hover {
