@@ -7,11 +7,11 @@ export const Button = (props) => {
   return (
     <button
       className={`button ${
-        props.apperance === 'danger' ? 'button-danger' : ''
+        props.appearance === 'danger' ? 'button-danger' : ''
       }`}
       type="submit"
       onClick={props.onClick}
-      apperance={props.apperance}
+      appearance={props.appearance}
     >
       {props.children}
     </button>
@@ -21,11 +21,11 @@ export const Button = (props) => {
 Button.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
-  apperance: PropTypes.string,
+  appearance: PropTypes.string,
 };
 
 Button.defaultProps = {
   children: '',
   onClick: null,
-  apperance: 'default',
+  appearance: 'default',
 };
