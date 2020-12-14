@@ -1,7 +1,7 @@
 .event-modal-view {
   position: fixed;
   top: 10%;
-  left: 37%;
+  left: 35%;
 }
 
 .study-group-info {
@@ -42,6 +42,6 @@
 
 @media only screen and (max-width: 500px) {
   .event-modal-view {
-    left: 14px;
+    left: 0;
   }
 }
