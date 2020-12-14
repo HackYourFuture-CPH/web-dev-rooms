@@ -9,7 +9,7 @@ const eventsController = require('../controllers/events.controller');
 
 /**
  * @swagger
- * /event:
+ * /events:
  *  post:
  *    summary: Create an event
  *    description:
@@ -22,18 +22,18 @@ const eventsController = require('../controllers/events.controller');
  *        schema:
  *          type: object
  *          required:
- *            - event_type
+ *            - eventType
  *            - venue
  *            - description
- *            - created_by
+ *            - createdBy
  *          properties:
- *            event_type:
+ *            eventType:
  *              type: string
  *            venue:
  *              type: string
  *            description:
  *              type: string
- *            created_by:
+ *            createdBy:
  *              type: integer
  *    responses:
  *      201:

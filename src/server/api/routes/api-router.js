@@ -54,5 +54,8 @@ router.use('/groups', groupsRouter);
 router.use('/signin', slackRouter);
 
 // router.use('/createEvent', createEventRouter);
+router.use('/', function (req, res) {
+  res.redirect(`${process.env.API_PATH}/documentation`);
+});
 
 module.exports = router;
