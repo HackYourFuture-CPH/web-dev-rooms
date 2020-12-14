@@ -13,6 +13,6 @@ export const DefaultExample = () => (
 );
 export const DangerExample = () => (
   <>
-    <Button apperance="danger">Register Yourself</Button>
+    <Button appearance="danger">Register Yourself</Button>
   </>
 );
