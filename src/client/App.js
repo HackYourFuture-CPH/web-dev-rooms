@@ -19,6 +19,7 @@ import EventsPage from './containers/EventsPage/EventsPage.component';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import UserTest from './context/UserContextTest';
 import { UserProvider } from './context/userContext';
+import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
 
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -37,7 +38,6 @@ function App() {
             <Route exact path="/">
               <Home />
             </Route>
-
             <Route exact path="/login">
               <LoginPage />
             </Route>
@@ -55,6 +55,9 @@ function App() {
             </Route>
             <Route exact path="/usertest">
               <UserTest />
+            </Route>
+            <Route exact path="/slack-auth">
+              <SlackAuthPage />
             </Route>
 
             <SignIn exact path="/sign-in" />
