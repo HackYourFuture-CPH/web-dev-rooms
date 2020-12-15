@@ -48,7 +48,6 @@ router.use('/topics', TopicsRouter);
 router.use('/skills', skillsRouter);
 
 router.use('/events', eventsRouter);
-
 router.use('/groups', groupsRouter);
 
 router.use('/signin', slackRouter);
