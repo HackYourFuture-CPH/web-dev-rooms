@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// const users = ['Student', 'Mentor', 'Admin'];
 function ButtonRadio(props) {
   const { onClick } = props;
   const onclicked = (e) => {
-    onClick(e);
+    onClick(e.target.name);
   };
 
   return (

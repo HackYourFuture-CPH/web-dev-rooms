@@ -5,14 +5,13 @@ import Radio from '../../components/Radio/ButtonRadio';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
 import { Button } from '../../components/Button/Button';
 
-const SelectOption = (props) => {
+const SelectionPage = (props) => {
   const { onClick } = props;
   const submit = () => {
     onClick();
   };
   const [Title, setTitle] = useState('web dev rooms');
-  const onclicked = (e) => {
-    const choice = e.target.name;
+  const onclicked = (choice) => {
     if (choice === 'student') {
       setTitle('web dev rooms');
     } else {
@@ -44,5 +43,6 @@ const SelectOption = (props) => {
     </div>
   );
 };
-SelectOption.propTypes = { onClick: PropTypes.func.isRequired };
-export default SelectOption;
+
+SelectionPage.propTypes = { onClick: PropTypes.func.isRequired };
+export default SelectionPage;
