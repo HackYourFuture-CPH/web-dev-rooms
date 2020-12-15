@@ -1,8 +1,7 @@
-.feedback-modal .modal-wrapper {
-  width: 45%;
-  margin: 0;
-  height: 400px;
-  padding-bottom: 7%;
+.feedback-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dot {
@@ -23,33 +22,33 @@
   background-color: #f6f6f6;
   width: 90%;
   display: flex;
-  box-sizing: border-box;
   border-radius: 8px;
   flex: wrap;
-  margin-left: 4%;
+  margin: 10px;
   align-items: center;
-}
-
-.event-small-container .eventcardtext {
-  padding: 10px;
+  padding: 7% 0%;
 }
 
 .feedback-textfield {
+  margin: 10px;
+  padding: 0;
+  text-align: center;
   display: flex;
-  width: 100%;
-  margin: 4% 0% 5% 5%;
-  margin-left: 4%;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
 }
 
 .feedback-textfield .input-component {
-  width: 90%;
-  font-size: 14px;
-  padding: 5%;
   height: 5rem;
+  font-size: 12px;
 }
 
 .feedback-submit-btn {
-  text-align: center;
+  padding-bottom: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media only screen and (max-width: 600px) {

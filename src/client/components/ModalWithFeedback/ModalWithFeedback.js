@@ -9,10 +9,6 @@ import Modal from '../Modal/Modal';
 function ModalWithFeedback(props) {
   const [text, textName] = useState('');
 
-  const handelSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <div className="feedback-modal">
       <Modal title="Feedback Form">
@@ -29,6 +25,7 @@ function ModalWithFeedback(props) {
         </div>
         <div className="feedback-textfield">
           <Input
+            type="text"
             value={text}
             onChange={(e) => {
               textName(e.target.value);
@@ -37,7 +34,7 @@ function ModalWithFeedback(props) {
           />
         </div>
         <div className="feedback-submit-btn">
-          <Button onClick={handelSubmit}>Submit</Button>
+          <Button onClick={props.onSubmit}>Submit</Button>
         </div>
       </Modal>
     </div>
@@ -49,6 +46,7 @@ ModalWithFeedback.propTypes = {
   datetime: PropTypes.string,
   mentor: PropTypes.string,
   link: PropTypes.string,
+  onSubmit: PropTypes.func,
 };
 
 ModalWithFeedback.defaultProps = {
@@ -57,6 +55,7 @@ ModalWithFeedback.defaultProps = {
   datetime: '',
   mentor: '',
   link: '',
+  onSubmit: null,
 };
 
 export default ModalWithFeedback;
