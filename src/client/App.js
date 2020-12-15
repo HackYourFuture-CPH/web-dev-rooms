@@ -10,18 +10,19 @@ import { useAuthentication } from './hooks/useAuthentication';
 import Header from './components/Navigation/Header';
 import Profile from './containers/Profile';
 import Loader from './components/Loader';
-import Route404 from './components/Route404';
+import Route404 from './components/';
 
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 
-import EventsPage from './containers/EventsPage/EventsPage.component';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 
 import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
 import EventsPage from './containers/EventsPage/EventsPage';
-import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+
+import UserTest from './context/UserContextTest';
+import { UserProvider } from './context/userContext';
 import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
 
 import { toast, ToastContainer } from 'react-toastify';
@@ -34,47 +35,35 @@ function App() {
   const notify = () => toast('Wow so easy !');
   return (
     <div>
-      <Router>
-        <Header isAuthenticated={isAuthenticated} />
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
-        <Route exact path="/selection">
-          <SelectionPage />
-        </Route>
-        <Route exact path="/registration/admin">
-          <AdminRegistrationPage />
-        </Route>
-        <Route exact path="/events">
-          <EventsPage />
-        </Route>
-        <Route exact path="/profile">
-          <ProfilePage />
-        </Route>
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-          <Route exact path="/selection">
-            <SelectionPage />
-          </Route>
-          <Route exact path="/registration">
-            <RegistrationPage />
-          </Route>
-          <Route exact path="/events">
-            <EventsPage />
-          </Route>
-          <Route exact path="/profile">
-            <ProfilePage />
-          </Route>
-          <Route exact path="/slack-auth">
-            <SlackAuthPage />
-          </Route>
-
+      <UserProvider>
+        <Router>
+          <Header isAuthenticated={isAuthenticated} />
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+            <Route exact path="/selection">
+              <SelectionPage />
+            </Route>
+            <Route exact path="/registration/admin">
+              <AdminRegistrationPage />
+            </Route>
+            <Route exact path="/events">
+              <EventsPage />
+            </Route>
+            <Route exact path="/profile">
+              <ProfilePage />
+            </Route>
+            <Route exact path="/usertest">
+              <UserTest />
+            </Route>
+            <Route exact path="/slack-auth">
+              <SlackAuthPage />
+            </Route>
+                 
           <SignIn exact path="/sign-in" />
           <SignUp exact path="/sign-up" />
           <ResetPassword exact path="/reset-password" />
@@ -88,6 +77,8 @@ function App() {
           <Route path="*" component={Route404} />
         </Switch>
       </Router>
+            
+      </UserProvider>
       <button type="button" onClick={notify}>
         ReactToastify
       </button>
