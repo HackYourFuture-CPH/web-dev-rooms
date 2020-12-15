@@ -10,7 +10,9 @@ function ModalWithCancelRegistration(props) {
       <Modal title="Cancel Registration">
         <div className="cancel-reg-textfield">{props.text}</div>
         <div className="cancel-reg-submit-btn">
-          <Button>Cancel</Button>
+          <Button appearance={props.appearance} onClick={props.onClick}>
+            Cancel
+          </Button>
         </div>
       </Modal>
     </div>
@@ -18,9 +20,13 @@ function ModalWithCancelRegistration(props) {
 }
 ModalWithCancelRegistration.propTypes = {
   text: PropTypes.string,
+  onClick: PropTypes.func,
+  appearance: PropTypes.string,
 };
 ModalWithCancelRegistration.defaultProps = {
   text: '',
+  onClick: null,
+  appearance: 'default',
 };
 
 export default ModalWithCancelRegistration;

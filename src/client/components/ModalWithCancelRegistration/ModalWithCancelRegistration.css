@@ -1,12 +1,5 @@
-.cancel-reg-modal .modal-wrapper {
-  width: 45%;
-  margin: 0;
-  height: 300px;
-}
-
-.cancel-reg-modal .modal-wrapper .modal-title {
+.cancel-reg-modal {
   font-size: 24px;
-  margin: 0;
   padding-bottom: 7%;
 }
 
@@ -22,12 +15,6 @@
 }
 
 .cancel-reg-submit-btn {
+  padding-bottom: 7%;
   text-align: center;
-}
-
-.cancel-reg-submit-btn .button {
-  text-align: center;
-  border: 1px solid #e8e8e8;
-  color: #fff;
-  background-color: #f00;
 }
