@@ -7,7 +7,10 @@ const moment = require('moment-timezone');
 
 const getModules = async () => {
   try {
-    return await knex('modules').select('modules.id', 'modules.module_name');
+    return await knex('modules').select(
+      'modules.id',
+      'modules.module_name as name',
+    );
   } catch (error) {
     return error.message;
   }
