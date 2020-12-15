@@ -6,8 +6,4 @@ export default {
   title: 'Modal Cancel Event',
 };
 
-export const CancelEventModal = () => (
-  <>
-    <ModalCancelEvent />
-  </>
-);
+export const CancelEventModal = () => <ModalCancelEvent />;
