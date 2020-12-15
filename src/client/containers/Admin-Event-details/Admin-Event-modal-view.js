@@ -68,8 +68,14 @@ export default function EventModalView(props) {
   );
 }
 EventModalView.propTypes = {
-  eventTitle: PropTypes.string.isRequired,
-  eventDate: PropTypes.string.isRequired,
-  mentor: PropTypes.string.isRequired,
-  eventLink: PropTypes.string.isRequired,
+  eventTitle: PropTypes.string,
+  eventDate: PropTypes.string,
+  mentor: PropTypes.string,
+  eventLink: PropTypes.string,
+};
+EventModalView.defaultProps = {
+  eventTitle: '',
+  eventDate: '',
+  mentor: '',
+  eventLink: '',
 };

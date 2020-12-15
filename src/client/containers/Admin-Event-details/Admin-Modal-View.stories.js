@@ -8,6 +8,6 @@ export const EventViewModal = () => (
     eventTitle="Elastic - Week 46"
     eventDate="Wednesday | 11 Nov 20|10:00 CEST"
     mentor="madsssssssssssssssssssssssssssssssssssssssssss"
-    eventLink="www.hyf.org"
+    eventLink="maherweb.dk"
   />
 );
