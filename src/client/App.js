@@ -14,7 +14,7 @@ import Route404 from './components/Route404';
 
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
-import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
+import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
 import EventsPage from './containers/EventsPage/EventsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import UserTest from './context/UserContextTest';
@@ -27,7 +27,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
   if (isLoading) return <Loader />;
-
   const notify = () => toast('Wow so easy !');
   return (
     <div>
@@ -44,8 +43,8 @@ function App() {
             <Route exact path="/selection">
               <SelectionPage />
             </Route>
-            <Route exact path="/registration">
-              <RegistrationPage />
+            <Route exact path="/registration/student">
+              <StudentRegistrationPage />
             </Route>
             <Route exact path="/events">
               <EventsPage />
