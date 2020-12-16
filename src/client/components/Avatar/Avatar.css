@@ -4,16 +4,10 @@
   align-items: center;
   justify-content: center;
 }
+
 .main-avatar-images {
-  max-width: 10em;
-  max-height: 10em;
+  width: 20rem;
+  height: 20rem;
   border-bottom-left-radius: 25em;
   border-bottom-right-radius: 25em;
-}
-
-@media only screen and (min-width: 279px) and (max-width: 1024px) {
-  .main-avatar-images {
-    max-width: 7em;
-    max-height: 7em;
-  }
 }
