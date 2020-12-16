@@ -13,11 +13,8 @@ const eventsRouter = require('./events.router');
 
 const groupsRouter = require('./groups.router');
 
-<<<<<<< HEAD
 const feedbacksRouter = require('./feedbacks.router');
-=======
 const slackRouter = require('./slack.router');
->>>>>>> a8dd68182b9443ca2b98c55342a38c494728029c
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
