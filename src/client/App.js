@@ -14,7 +14,7 @@ import Route404 from './components/Route404';
 
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
-
+import EventsPage from './containers/EventsPage/EventsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 
@@ -30,7 +30,6 @@ import 'react-toastify/dist/ReactToastify.css';
 function App() {
   const { isAuthenticated, isLoading } = useAuthentication();
   if (isLoading) return <Loader />;
-
   const notify = () => toast('Wow so easy !');
   return (
     <div>
