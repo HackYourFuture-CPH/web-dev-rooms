@@ -1,5 +1,6 @@
 const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
+const moment = require('moment-timezone');
 
 const getEvents = async () => {
   try {
