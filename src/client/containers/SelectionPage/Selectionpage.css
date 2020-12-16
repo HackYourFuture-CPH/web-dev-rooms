@@ -1,47 +1,41 @@
 .selection-page {
   width: 100%;
-  position: fixed;
+  display: flex;
+  justify-items: center;
+  flex-direction: column;
 }
 
-.selection-page .logo {
-  width: 100px;
-  margin: 10px 10px 10px 450px;
-  position: block;
+.logo {
+  justify-self: center;
 }
 
-.selection-page .selection-content {
-  margin: 9px 19px 19px 19px;
+.selection-content {
   font-style: normal;
   font-weight: bold;
   font-size: 18px;
   line-height: 21px;
   text-align: center;
   color: #abacb2;
-  position: block;
 }
 
-.selection-page .radio {
-  width: 450px;
+.radio {
+  width: 500px;
+  padding: 6px;
   margin: 10px 40px 20px 390px;
-  position: block;
 }
 
-.selection-page .sub-button button {
+.sub-button button {
   width: 130px;
-  margin: 10px 10px 10px 550px;
-  display: flex;
-  flex-direction: row;
   align-items: center;
   padding: 16px 32px;
   background: #f6f6f6;
   border: 1px solid #e8e8e8;
   box-sizing: border-box;
   border-radius: 100px;
-  position: block;
+  margin: 10px 40px 20px 590px;
 }
 
-.selection-page .text {
-  margin: 50px 10px 10px -110px;
+.text {
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -51,39 +45,12 @@
 }
 
 @media (max-width: 500px) {
-  .selection-page {
-    width: 100%;
-    margin: 2%;
-    padding: 1% 2%;
+  .radio {
+    width: 340px;
+    margin: 10px 40px 20px 10px;
   }
 
-  .selection-page .logo {
-    width: 100%;
-    margin: 0;
-  }
-
-  .selection-page .logo img {
-    width: 100%;
-    margin: 2;
-  }
-
-  .selection-page .selection-content {
-    width: 100%;
-  }
-
-  .selection-page .radio {
-    width: 100%;
-    margin: 1%;
-  }
-
-  .selection-page .sub-button button {
-    width: 32%;
-    margin: 20px 130px;
-    padding: 12px 18px;
-  }
-
-  .selection-page .text {
-    width: 100%;
-    margin: 30px 1px;
+  .sub-button button {
+    margin: 10px 40px 20px 120px;
   }
 }
