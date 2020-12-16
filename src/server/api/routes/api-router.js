@@ -15,8 +15,6 @@ const groupsRouter = require('./groups.router');
 
 const slackRouter = require('./slack.router');
 
-// const createEventRouter = require('./create-event.router');
-
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
