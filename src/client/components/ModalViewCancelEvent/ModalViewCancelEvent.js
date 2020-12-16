@@ -3,24 +3,22 @@ import Modal from '../Modal/Modal';
 import { Button } from '../Button/Button';
 import PropTypes from 'prop-types';
 
-export const ModalCancelEvent = ({ cancelMessage }) => {
+export const ModalCancelEvent = ({ onCancelMessage }) => {
   return (
-    <div>
-      <Modal title="Cancel Event">
-        <p>Are you sure you want to cancel</p>
-        <Button
-          className="modal-cancel-event-button"
-          appearance="danger"
-          onClick={cancelMessage}
-        >
-          Cancel
-        </Button>
-      </Modal>
-    </div>
+    <Modal title="Cancel Event">
+      <p>Are you sure you want to cancel</p>
+      <Button
+        className="modal-cancel-event-button"
+        appearance="danger"
+        onClick={onCancelMessage}
+      >
+        Cancel
+      </Button>
+    </Modal>
   );
 };
 ModalCancelEvent.propTypes = {
-  cancelMessage: PropTypes.func,
+  onCancelMessage: PropTypes.func,
 };
 
-ModalCancelEvent.defaultProps = { cancelMessage: '' };
+ModalCancelEvent.defaultProps = { onCancelMessage: null };
