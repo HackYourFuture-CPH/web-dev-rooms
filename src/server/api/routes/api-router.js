@@ -7,6 +7,11 @@ const modulesRouter = require('./modules.router');
 
 const TopicsRouter = require('./topics.router');
 
+const skillsRouter = require('./skills.router');
+
+
+const eventsRouter = require('./events.router');
+
 const groupsRouter = require('./groups.router');
 
 const feedbacksRouter = require('./feedbacks.router');
@@ -41,6 +46,9 @@ router.use('/modules', modulesRouter);
 
 router.use('/topics', TopicsRouter);
 
+router.use('/skills', skillsRouter);
+
+router.use('/events', eventsRouter);
 router.use('/groups', groupsRouter);
 
 router.use('/feedbacks', feedbacksRouter);

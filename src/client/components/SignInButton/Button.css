@@ -1,11 +1,13 @@
-/*Style the button*/
-.button {
+/* Style the button */
+.slack-button {
+  display: flex;
+  justify-content: center;
+}
+
+.button-sign-with-slack {
   padding: 0;
   cursor: pointer;
   outline: none;
-  display: flex;
-  width: 20%;
-  position: relative;
   border: none;
   font-size: 18px;
   color: rgb(17, 1, 1);
@@ -13,35 +15,38 @@
   border-style: solid;
   border-color: white;
   font-weight: 900;
-  align-items: center;
-  left: 33rem;
+  width: 20rem;
 }
-/*Style the image*/
-.button img {
+
+/* Style the image */
+.button-sign-with-slack img {
   width: 100%;
   display: flex;
 }
-/*Make button active when you click it*/
-.button:active {
+
+/* Make button active when you click it */
+.button-sign-with-slack:active {
   transform: translateY(4px);
 }
-/*Responsive */
+
+/* Responsive */
 @media screen and (max-width: 800px) {
-  .button {
+  .button-sign-with-slack {
     width: 50%;
-    left: 10rem;
   }
-  .button img {
+
+  .button-sign-with-slack img {
     width: 100%;
     display: flex;
   }
 }
+
 @media screen and (max-width: 500px) {
-  .button {
+  .button-sign-with-slack {
     width: 70%;
-    left: 1rem;
   }
-  .button img {
+
+  .button-sign-with-slack img {
     width: 100%;
     display: flex;
   }

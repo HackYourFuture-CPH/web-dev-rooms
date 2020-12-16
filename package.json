@@ -18,7 +18,8 @@
     "storybook": "cd ./src/client/ && start-storybook -p 3007",
     "test": "jest",
     "test:watch": "jest --watch",
-    "code:check": "npm run code:lint && npm run code:format -- --check",
+    "code:styles:check": "stylelint '**/*.css'",
+    "code:check": "npm run code:lint && npm run code:styles:check && npm run code:format -- --check",
     "code:clean": "npm run code:lint -- --fix && npm run code:format -- --write",
     "code:lint": "eslint --ext .js,.jsx,.ts,.tsx \"src/\"",
     "code:format": "prettier \"./src/**/**.{js,jsx,ts,tsx}\"",
@@ -70,6 +71,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.3.0",
     "react-social-login-buttons": "^3.0.0",
+    "react-toastify": "^6.2.0",
     "sass-loader": "^7.1.0",
     "serve-favicon": "^2.5.0",
     "sqlite3": "^4.1.1",
@@ -94,6 +96,8 @@
     "poetic": "^1.2.6",
     "prettier": "^2.2.1",
     "sequelize-cli": "^5.4.0",
+    "stylelint": "^13.8.0",
+    "stylelint-config-standard": "^20.0.0",
     "webpack-dev-server": "3.7.2"
   },
   "jest": {
@@ -114,6 +118,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
+    "*.{js,css,md}": "prettier --write",
+    "*.css": "stylelint --fix"
   }
 }
