@@ -1,0 +1,49 @@
+.student-registration-main {
+  margin: auto;
+  padding: 0;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.student-registration-avatar {
+  margin: 0;
+  width: 100%;
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-bottom: 0.5%;
+  background-color: #f8f8f8;
+  border-radius: 0% 0% 100% 100%/0% 0% 100% 100%;
+}
+
+.mentor-registration-avatar .logo-image {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.student-registration-text {
+  padding: 2%;
+  font-weight: bold;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  color: #293a7d;
+}
+
+.student-registration-input,
+.student-registration-dropdown,
+.student-registration-button,
+.student-registration-info-text {
+  padding: 2%;
+}
+
+.student-registration-info-text {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .student-registration-main {
+    width: 100%;
+  }
+}
