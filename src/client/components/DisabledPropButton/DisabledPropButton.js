@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './DisabledPropButton.styles.css';
+import './DisabledPropButton.css';
 
 export const Button = (props) => {
   return (
     <button
-      className="disabledButton"
+      className="disabled-button"
       type="submit"
       onClick={props.onClick}
       disabled={props.disabled}
