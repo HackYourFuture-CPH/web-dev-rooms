@@ -9,14 +9,11 @@ const TopicsRouter = require('./topics.router');
 
 const skillsRouter = require('./skills.router');
 
-
 const eventsRouter = require('./events.router');
 
 const groupsRouter = require('./groups.router');
 
 const feedbacksRouter = require('./feedbacks.router');
-
-const eventsRouter = require('./events.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -48,7 +45,6 @@ router.use('/topics', TopicsRouter);
 
 router.use('/skills', skillsRouter);
 
-router.use('/events', eventsRouter);
 router.use('/groups', groupsRouter);
 
 router.use('/feedbacks', feedbacksRouter);
