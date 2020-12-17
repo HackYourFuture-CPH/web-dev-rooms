@@ -7,8 +7,13 @@ import { EventCardText } from '../EventCardText/EventCardText';
 import Modal from '../Modal/Modal';
 
 function ModalWithFeedback(props) {
-  const [text, textName] = useState('');
+  const [text, setText] = useState('');
 
+  const handelSubmit = (e) => {
+    e.preventDefault();
+    props.onSubmit(text);
+    setText('');
+  };
   return (
     <div className="feedback-modal">
       <Modal title="Feedback Form">
@@ -28,13 +33,13 @@ function ModalWithFeedback(props) {
             type="text"
             value={text}
             onChange={(e) => {
-              textName(e.target.value);
+              setText(e.target.value);
             }}
             placeholder={props.placeholder}
           />
         </div>
         <div className="feedback-submit-btn">
-          <Button onClick={props.onSubmit}>Submit</Button>
+          <Button onClick={handelSubmit}>Submit</Button>
         </div>
       </Modal>
     </div>
