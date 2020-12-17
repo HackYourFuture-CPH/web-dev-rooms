@@ -14,6 +14,7 @@ import Route404 from './components/Route404';
 
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
+import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
 import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
 import EventsPage from './containers/EventsPage/EventsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
@@ -46,6 +47,9 @@ function App() {
             </Route>
             <Route exact path="/registration/mentor">
               <MentorRegistrationPage />
+            </Route>
+            <Route exact path="/registration/student">
+              <StudentRegistrationPage />
             </Route>
             <Route exact path="/events">
               <EventsPage />
