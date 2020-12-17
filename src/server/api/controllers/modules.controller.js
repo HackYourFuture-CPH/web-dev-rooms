@@ -7,7 +7,10 @@ const moment = require('moment-timezone');
 
 const getModules = async () => {
   try {
-    return await knex('modules').select('modules.id', 'modules.title');
+    return await knex('modules').select(
+      'modules.id',
+      'modules.module_name as name',
+    );
   } catch (error) {
     return error.message;
   }
@@ -16,7 +19,7 @@ const getModules = async () => {
 const getModuleById = async (id) => {
   try {
     const modules = await knex('modules')
-      .select('modules.id as id', 'title')
+      .select('modules.id as id', 'modules.module_name as name')
       .where({ id });
     if (modules.length === 0) {
       throw new Error(`incorrect entry with the id of ${id}`, 404);
@@ -27,15 +30,13 @@ const getModuleById = async (id) => {
   }
 };
 
-const editModule = async (moduleId, updatedModule) => {
+const editModule = async (moduleId, body) => {
   return knex('modules')
     .where({ id: moduleId })
     .update({
-      title: updatedModule.title,
-      startDate: moment(updatedModule.startDate).format(),
-      endDate: moment(updatedModule.endDate).format(),
-      classId: updatedModule.classId,
-      updatedAt: moment().format(),
+      module_name: body.moduleName,
+      created_at: moment(body.created_at).format(),
+      updated_at: moment(body.updated_at).format(),
     });
 };
 
@@ -45,10 +46,9 @@ const deleteModule = async (modulesId) => {
 
 const createModule = async (body) => {
   await knex('modules').insert({
-    title: body.title,
-    startDate: moment(body.startDate).format(),
-    endDate: moment(body.endDate).format(),
-    classId: body.classId,
+    module_name: body.moduleName,
+    created_at: moment(body.created_at).format(),
+    updated_at: moment(body.updated_at).format(),
   });
 
   return {
