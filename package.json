@@ -19,7 +19,7 @@
     "build-storybook": "build-storybook --no-dll -s public -c ./src/client/.storybook --quiet",
     "test": "jest",
     "test:watch": "jest --watch",
-    "code:styles:check": "stylelint '**/*.css'",
+    "code:styles:check": "stylelint **/*.css",
     "code:check": "npm run code:lint && npm run code:styles:check && npm run code:format -- --check",
     "code:clean": "npm run code:lint -- --fix && npm run code:format -- --write",
     "code:lint": "eslint --ext .js,.jsx,.ts,.tsx \"src/\"",
