@@ -15,6 +15,7 @@ import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import EventsPage from './containers/EventsPage/EventsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 
 import UserTest from './context/UserContextTest';
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <Route exact path="/selection">
               <SelectionPage />
+            </Route>
+            <Route exact path="/registration/student">
+              <StudentRegistrationPage />
             </Route>
             <Route exact path="/registration/admin">
               <AdminRegistrationPage />
