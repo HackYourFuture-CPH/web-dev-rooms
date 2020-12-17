@@ -31,7 +31,7 @@ export default function EventModalView({
         </div>
         <div className="student-details-block">
           {items.map((student) => (
-            <div className="student-info">
+            <div className="student-info" key={student.id}>
               {student.studentName} | {student.class}
               <p>
                 <span className="close-btn">x</span>
