@@ -22,8 +22,6 @@ app.locals.ENV = process.env.NODE_ENV;
 app.locals.ENV_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 app.disable('x-powered-by');
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-// app.use(morgan('dev', {stream: winston.stream}));
 app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(
@@ -53,7 +51,6 @@ app.use('/api/', function (req, res) {
   res.status(404).send("Sorry can't find that!");
 });
 
-// If "/api" is called, redirect to the API documentation.
 app.use('/api', function (req, res) {
   res.redirect(`${process.env.API_PATH}/documentation`);
 });

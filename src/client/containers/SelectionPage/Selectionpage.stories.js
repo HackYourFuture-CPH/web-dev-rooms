@@ -1,5 +1,5 @@
 import React from 'react';
-import SelectOption from './SelectionPage';
+import SelectOption from './SelectionPage.component';
 
 export default {
   title: 'Selection page',

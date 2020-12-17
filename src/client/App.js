@@ -13,10 +13,12 @@ import Loader from './components/Loader';
 import Route404 from './components/Route404';
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
-import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
 import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
 import EventsPage from './containers/EventsPage/EventsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
+import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
+
 import UserTest from './context/UserContextTest';
 import { UserProvider } from './context/userContext';
 import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
@@ -48,6 +50,9 @@ function App() {
             </Route>
             <Route exact path="/registration/student">
               <StudentRegistrationPage />
+            </Route>
+            <Route exact path="/registration/admin">
+              <AdminRegistrationPage />
             </Route>
             <Route exact path="/events">
               <EventsPage />
