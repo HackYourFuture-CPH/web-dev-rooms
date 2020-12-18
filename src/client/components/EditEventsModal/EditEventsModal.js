@@ -6,7 +6,7 @@ import { Button } from '../Button/Button';
 import DateTimePicker from '../DateTime/DateTime';
 import DropDown from '../Dropdown/DropDown';
 import { StudyGroupLogo } from '../StudyGroupLogo/StudyGroupLogo';
-import PropTypes from 'prop-types';
+import PropTypes, { shape } from 'prop-types';
 
 export default function EditEventsModal(props) {
   return (
