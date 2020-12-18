@@ -4,5 +4,7 @@ exports.up = function (knex) {
   });
 };
 exports.down = function (knex) {
-  return knex.schema.table('feedback');
+  return knex.schema.table('feedback', function (table) {
+    table.string('open_feedback').notNullable();
+  });
 };

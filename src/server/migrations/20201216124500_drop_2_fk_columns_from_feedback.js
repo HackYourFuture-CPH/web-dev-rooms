@@ -7,5 +7,12 @@ exports.up = function (knex) {
   });
 };
 exports.down = function (knex) {
-  return knex.schema.table('feedback');
+  return knex.schema.table('feedback', function (table) {
+    table.integer('answered_by').unsigned().references('id').inTable('users');
+    table
+      .integer('question_id')
+      .unsigned()
+      .references('id')
+      .inTable('questions');
+  });
 };
