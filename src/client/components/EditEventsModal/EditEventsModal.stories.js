@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import EditEventsModal from './EditEventsModal';
 import ElasticLogo from '../StudyGroupLogo/Elastic.logo.svg';
-import PropTypes, { shape } from 'prop-types';
 
 const studygroups = [
   {
@@ -20,6 +19,7 @@ const studygroups = [
 
 const EditEvents = ({ items }) => {
   const [value, setValue] = useState('');
+  const emptyInput = value === '';
   return (
     <EditEventsModal
       items={items}
@@ -31,25 +31,11 @@ const EditEvents = ({ items }) => {
       datetime="Wednesday | 11 Nov 20|10:00 CEST"
       mentor="name"
       link="www.hyf.org"
-    >
-      <p>description of modal</p>
-    </EditEventsModal>
+      disabled={emptyInput}
+    />
   );
-};
-
-EditEvents.propTypes = {
-  items: PropTypes.arrayOf(
-    shape({
-      id: PropTypes.string,
-      value: PropTypes.string,
-    }),
-  ),
-};
-
-EditEvents.defaultProps = {
-  items: [],
 };
 
 export default { title: 'EditEventsModal' };
 
-export const Studygroup = () => <EditEvents items={studygroups} />;
+export const EditNotPastEvent = () => <EditEvents items={studygroups} />;

@@ -26,7 +26,6 @@ export default function EditEventsModal(props) {
             </div>
           </div>
           <div className="edit-event-dropDown">
-            {' '}
             <DropDown
               value={props.value}
               setValue={props.setValue}
@@ -37,7 +36,9 @@ export default function EditEventsModal(props) {
             <DateTimePicker />
           </div>
           <div className="edit-event-Button">
-            <Button onClick={props.onSubmit}>Submit</Button>
+            <Button onClick={props.onSubmit} disabled={props.disabled}>
+              Submit
+            </Button>
           </div>
         </div>
       </Modal>
@@ -51,6 +52,16 @@ EditEventsModal.propTypes = {
   datetime: PropTypes.string,
   mentor: PropTypes.string,
   link: PropTypes.string,
+  value: PropTypes.string,
+  setValue: PropTypes.string,
+  items: PropTypes.arrayOf(
+    shape({
+      id: PropTypes.string,
+      value: PropTypes.string,
+    }),
+  ),
+  disabled: PropTypes.bool,
+  onSubmit: PropTypes.func,
 };
 
 EditEventsModal.defaultProps = {
@@ -60,4 +71,9 @@ EditEventsModal.defaultProps = {
   datetime: '',
   mentor: '',
   link: '',
+  value: '',
+  setValue: null,
+  items: [],
+  disabled: false,
+  onSubmit: null,
 };
