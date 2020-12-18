@@ -1,26 +1,31 @@
-.radiobutton {
-  background-color: #f6f6f6;
-  border-radius: 25px;
-  border: none;
-  outline: 0;
-  color: #bdbdbd;
-  padding: 10px 14px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
+.btn-group {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 6px;
+  border: 2px solid #e8e8e8;
+  box-sizing: border-box;
+  border-radius: 100px;
+  background: #e8e8e8;
 }
 
-.radiobutton:focus {
+.radiobutton button {
+  width: 85px;
+  padding: 8px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid #e8e8e8;
+  border-radius: 100px;
+  color: rgba(17, 16, 16, 0.336);
+}
+
+.radiobutton button:hover {
   color: #293a7d;
 }
 
-.btn-group {
-  border: 2px solid #f6f6f6;
-  background-color: #f6f6f6;
-  border-radius: 25px;
-}
-
-.btn-group .button:hover {
-  background-color: #fff;
+.radiobutton button:focus {
+  color: #293a7d;
 }
