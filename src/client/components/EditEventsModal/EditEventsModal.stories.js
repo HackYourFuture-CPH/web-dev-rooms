@@ -17,12 +17,14 @@ const studygroups = [
   },
 ];
 
-const EditEvents = ({ items }) => {
+export default { title: 'EditEventsModal' };
+
+export const EditNotPastEvent = () => {
   const [value, setValue] = useState('');
   const emptyInput = value === '';
   return (
     <EditEventsModal
-      items={items}
+      items={studygroups}
       value={value}
       setValue={setValue}
       heading="Edit Event (Time Slot)"
@@ -35,7 +37,3 @@ const EditEvents = ({ items }) => {
     />
   );
 };
-
-export default { title: 'EditEventsModal' };
-
-export const EditNotPastEvent = () => <EditEvents items={studygroups} />;
