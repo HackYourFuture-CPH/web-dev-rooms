@@ -1,0 +1,19 @@
+.edit-event-container {
+  padding: 1rem;
+}
+
+.edit-event-Button button {
+  margin-left: 4rem;
+}
+
+.edit-event-dropDown,
+.edit-event-DateTimePicker,
+.edit-event-Button {
+  margin: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .edit-event-Button button {
+    margin-left: 3rem;
+  }
+}

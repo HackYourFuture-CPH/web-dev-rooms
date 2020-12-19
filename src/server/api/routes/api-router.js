@@ -14,7 +14,10 @@ const eventsRouter = require('./events.router');
 const groupsRouter = require('./groups.router');
 
 const feedbacksRouter = require('./feedbacks.router');
+const organizationsRouter = require('./organizations.router');
+
 const slackRouter = require('./slack.router');
+
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -52,9 +55,9 @@ router.use('/feedbacks', feedbacksRouter);
 
 router.use('/events', eventsRouter);
 
-router.use('/', function (req, res) {
-  res.redirect(`${process.env.API_PATH}/documentation`);
-});
+router.use('/organizations', organizationsRouter);
+
 router.use('/signin', slackRouter);
+
 
 module.exports = router;

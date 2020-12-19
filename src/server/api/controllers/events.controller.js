@@ -2,6 +2,19 @@ const knex = require('../../config/db');
 const Error = require('../lib/utils/http-error');
 const moment = require('moment-timezone');
 
+const createEvent = async (body) => {
+  await knex('events').insert({
+    event_type: body.eventType,
+    venue: body.venue,
+    description: body.description,
+    created_by: body.createdBy,
+  });
+
+  return {
+    successful: true,
+  };
+};
+
 const getEvents = async () => {
   try {
     return await knex('events').select(
@@ -58,6 +71,7 @@ const deleteEvent = async (userId, eventId) => {
 };
 
 module.exports = {
+  createEvent,
   getEvents,
   getEventById,
   deleteEvent,
