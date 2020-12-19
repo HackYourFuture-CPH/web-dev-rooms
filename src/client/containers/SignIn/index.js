@@ -4,7 +4,7 @@ import { UserContext } from '../../context/userContext';
 import SignIn from '../../components/Forms/SignIn';
 import Loader from '../../components/Loader';
 
-function signIn({ email, password, login }) {
+function signIn({ login }) {
   // eslint-disable-next-line
   console.warn('Sign in is not implemented!');
   login();
