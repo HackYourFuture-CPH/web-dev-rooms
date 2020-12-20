@@ -22,8 +22,6 @@ app.locals.ENV = process.env.NODE_ENV;
 app.locals.ENV_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 app.disable('x-powered-by');
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-// app.use(morgan('dev', {stream: winston.stream}));
 app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(
@@ -57,6 +55,9 @@ app.use((err, req, res) => {
 // app.use('/api', function (req, res) {
 //   res.redirect(`${process.env.API_PATH}/documentation`);
 // });
+app.use('/api', function (req, res) {
+  res.redirect(`${process.env.API_PATH}/documentation`);
+});
 
 app.use('*', (req, res) => {
   res.sendFile(path.join(`${buildPath}/index.html`));

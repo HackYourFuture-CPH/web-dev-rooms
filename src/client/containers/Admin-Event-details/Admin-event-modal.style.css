@@ -1,0 +1,35 @@
+.study-group-info {
+  display: flex;
+  justify-content: center;
+  margin-top: -40px;
+  padding: 0 25px 25px 25px;
+}
+
+.student-details-block {
+  padding: 5px;
+  background-color: rgba(196, 196, 196, 0.27);
+}
+
+.student-details-block div:last-child {
+  border: none;
+}
+
+.student-info {
+  border-bottom: 1px solid #616060;
+  color: #616060;
+}
+
+.close-btn {
+  float: right;
+  padding-right: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.student-code-link {
+  color: #616060;
+}
+
+.student-code-link:hover {
+  color: #0a0a0a;
+}

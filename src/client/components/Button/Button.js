@@ -5,7 +5,15 @@ import './Button.styles.css';
 
 export const Button = (props) => {
   return (
-    <button className="button" type="submit" onClick={props.onClick}>
+    <button
+      className={`button ${
+        props.appearance === 'danger' ? 'button-danger' : ''
+      } ${props.disabled === 'disabled' ? 'disabled-button' : ''}`}
+      type="submit"
+      onClick={props.onClick}
+      appearance={props.appearance}
+      disabled={props.disabled}
+    >
       {props.children}
     </button>
   );
@@ -14,9 +22,13 @@ export const Button = (props) => {
 Button.propTypes = {
   children: PropTypes.node,
   onClick: PropTypes.func,
+  appearance: PropTypes.string,
+  disabled: PropTypes.bool,
 };
 
 Button.defaultProps = {
   children: '',
   onClick: null,
+  appearance: 'default',
+  disabled: false,
 };
