@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../context/userContext';
+import { Link } from 'react-router-dom';
 
-import { BrowserRouter as Link } from 'react-router-dom';
 import './footer.styles.css';
 import home from './home.png';
 import profile from './profile.png';
