@@ -3,10 +3,11 @@ exports.seed = function (knex) {
     .del()
     .then(function () {
       return knex('user_roles').insert([
+        // students
         {
           id: 1,
           user_id: 1,
-          role_id: 1,
+          role_id: 2,
         },
         {
           id: 2,
@@ -26,7 +27,19 @@ exports.seed = function (knex) {
         {
           id: 5,
           user_id: 9,
-          role_id: 1, // mentor
+          role_id: 2,
+        },
+        // mentors
+        {
+          id: 6,
+          user_id: 101,
+          role_id: 1,
+        },
+        // admins
+        {
+          id: 7,
+          user_id: 1001,
+          role_id: 3,
         },
       ]);
     });
