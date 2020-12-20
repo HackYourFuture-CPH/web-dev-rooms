@@ -21,9 +21,9 @@ export function UserProvider(props) {
         setToken(null);
         setUserRole(null);
       }
-
-      setIsLoading(false);
     }
+
+    setIsLoading(false);
   }, []);
 
   const login = (role, apiToken) => {

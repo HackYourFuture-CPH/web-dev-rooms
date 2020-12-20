@@ -80,6 +80,12 @@ exports.seed = function (knex) {
           organization_id: 2,
         },
         {
+          id: 102,
+          name: 'mentor zendesk',
+          slack_id: 'mentor_zendesk',
+          organization_id: 3,
+        },
+        {
           id: 1001,
           name: 'admin 1',
           slack_id: 'admin1',

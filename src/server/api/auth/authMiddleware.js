@@ -25,6 +25,7 @@ function authMiddleware(req, res, next) {
         break;
 
       default:
+        // TODO: real auth with Slack here
         break;
     }
   }
