@@ -137,4 +137,56 @@ router.delete('/:userId/:eventId', (req, res) => {
     .catch((error) => console.log(error));
 });
 
+// edit an event
+
+/**
+ * @swagger
+ * /events/{EID}/{UID}:
+ *  patch:
+ *    summary: Edit an event
+ *    description:
+ *      Will edit an event.
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: EID, UID
+ *        description: EID is the event ID to patch, and UID is the User ID to edit
+ *      - in: body
+ *        name: event
+ *        description: The event to edit.
+ *        schema:
+ *          type: object
+ *          properties:
+ *            title:
+ *              type: string
+ *            startDate:
+ *              type: string
+ *              format: date-time
+ *            endDate:
+ *              type: string
+ *              format: date-time
+ *            classId:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: Event was patched
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.patch('/:eid/:uid', (req, res) => {
+  eventsController
+    .editEvent(req.params.eid, req.params.uid, req.body)
+    .then((result) => {
+      if (result === 0) {
+        res.status(404).send('The event ID you provided does not exist.');
+      } else if (result === 'not an admin') {
+        res.status(404).send(`${req.params.uid} is not an administrator`);
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
+
 module.exports = router;

@@ -68,10 +68,33 @@ const deleteEvent = async (userId, eventId) => {
     throw new Error('Unauthorized', 403);
   }
 };
+const editEvent = async (eventId, userId, updatedEvent) => {
+  const users = [];
+  await knex('users')
+    .select('users.id')
+    .join('user_roles', 'users.id', '=', 'user_roles.user_id')
+    .where('user_roles.role_id', 3)
+    .then((records) =>
+      records.forEach((record) => {
+        users.push(record.id);
+      }),
+    );
+  if (users.includes(parseInt(userId, 10))) {
+    const today = moment().format('YYYY-MM-DD HH:mm:ss');
+    return knex('events')
+      .where({ id: eventId })
+      .where('event_date', '>', today)
+      .update({
+        venue: updatedEvent.venue,
+      });
+  }
+  return 'not an admin';
+};
 
 module.exports = {
   createEvent,
   getEvents,
   getEventById,
   deleteEvent,
+  editEvent,
 };
