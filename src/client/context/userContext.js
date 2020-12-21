@@ -8,15 +8,17 @@ export function UserProvider(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(null);
   const [userRole, setUserRole] = useState(null);
+  const [user, setUser] = useState(null);
 
   useEffect(function loadUser() {
     const userFromLocalStorage = localStorage.getItem(LocalStorageKey);
 
     if (userFromLocalStorage) {
       try {
-        const user = JSON.parse(userFromLocalStorage);
-        setUserRole(user.role);
-        setToken(user.token);
+        const parsed = JSON.parse(userFromLocalStorage);
+        setUserRole(parsed.role);
+        setToken(parsed.accessToken);
+        setUser(parsed);
       } catch (e) {
         setToken(null);
         setUserRole(null);
@@ -26,16 +28,19 @@ export function UserProvider(props) {
     setIsLoading(false);
   }, []);
 
-  const login = (role, apiToken) => {
-    localStorage.setItem(
-      LocalStorageKey,
-      JSON.stringify({
-        role,
-        token: apiToken,
-      }),
-    );
-    setToken(apiToken);
-    setUserRole(role);
+  /**
+   * User type:
+   * {
+   *   accessToken: string,
+   *   isNewUser: bool
+   *   role: string
+   * }
+   */
+  const login = (newUser) => {
+    localStorage.setItem(LocalStorageKey, JSON.stringify(user));
+    setToken(user.accessToken);
+    setUserRole(user.userRole);
+    setUser(newUser);
   };
 
   const logout = () => {
@@ -53,6 +58,7 @@ export function UserProvider(props) {
         userRole,
         isLoading,
         isAuthenticated: !!token,
+        isNewUser: user ? user.isNewUser : false,
       }}
     >
       {props.children}
