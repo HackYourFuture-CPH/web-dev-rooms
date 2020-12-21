@@ -26,8 +26,6 @@ function TimeDropTime() {
     </>
   );
 }
-export default {
-  title: 'TimeZone',
-};
+export default { title: 'TimeZone' };
 
 export const timeDrop = () => <TimeDropTime />;
