@@ -1,8 +1,31 @@
 import React from 'react';
-import TimeZoneDropDown from './TimeZone';
+import { TimeZoneDropDown } from './TimeZone.component';
 
-export default {
-  title: 'TimeZone',
-};
+const timeZones = [
+  {
+    id: 1,
+    value: 'Europe/Copenhagen',
+  },
+  {
+    id: 2,
+    value: 'Europe/Dublin',
+  },
+  {
+    id: 3,
+    value: 'Europe/Budapest',
+  },
+  {
+    id: 4,
+    value: 'Australia/Sydney',
+  },
+];
+function TimeDropTime() {
+  return (
+    <>
+      <TimeZoneDropDown timeZones={timeZones} />
+    </>
+  );
+}
+export default { title: 'TimeZone' };
 
-export const timeDrop = () => <TimeZoneDropDown />;
+export const timeDrop = () => <TimeDropTime />;
