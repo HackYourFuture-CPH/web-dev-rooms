@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const HttpError = require('./api/lib/utils/http-error');
+const authMiddleware = require('./api/auth/authMiddleware');
 
 const buildPath = path.join(__dirname, '../../dist');
 
@@ -34,6 +35,8 @@ app.use(
 app.use(cookieParser());
 app.use(cors());
 
+app.use(authMiddleware);
+
 app.use(process.env.API_PATH, apiRouter);
 
 app.use((err, req, res) => {
@@ -44,7 +47,7 @@ app.use((err, req, res) => {
     }
     return res.send({ error: err.message });
   }
-  res.sendStatus(500);
+  req.status(500).send('Unknown error');
 });
 
 app.use('/api/', function (req, res) {

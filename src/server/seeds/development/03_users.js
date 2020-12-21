@@ -64,7 +64,7 @@ exports.seed = function (knex) {
           group_id: 1,
           name: 'Nouha_class14',
           slack_id: 'nouha14',
-          organization_id: 2,
+          organization_id: 1,
         },
         {
           id: 10,
@@ -72,6 +72,24 @@ exports.seed = function (knex) {
           name: 'Maher_class14',
           slack_id: 'Maher14',
           organization_id: 2,
+        },
+        {
+          id: 101,
+          name: 'mentor elastic1',
+          slack_id: 'mentor_elastic1',
+          organization_id: 2,
+        },
+        {
+          id: 102,
+          name: 'mentor zendesk',
+          slack_id: 'mentor_zendesk',
+          organization_id: 3,
+        },
+        {
+          id: 1001,
+          name: 'admin 1',
+          slack_id: 'admin1',
+          organization_id: 1,
         },
       ]);
     });
