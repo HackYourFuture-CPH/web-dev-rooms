@@ -35,6 +35,12 @@ export default { title: 'Modal to create events' };
 
 export const Events = () => {
   return (
-    <ModalCreateEvents events={events} companies={companies} onSubmit={} />
+    <ModalCreateEvents
+      events={events}
+      companies={companies}
+      onSubmit={(data) => {
+        return data;
+      }}
+    />
   );
 };
