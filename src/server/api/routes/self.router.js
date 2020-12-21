@@ -1,5 +1,4 @@
 const express = require('express');
-const { getUserBySlackId } = require('../controllers/users.controller');
 
 const router = express.Router({ mergeParams: true });
 
@@ -33,12 +32,7 @@ router.get('/', async (req, res) => {
     res.header('Expires', '-1');
     res.header('Pragma', 'no-cache');
 
-    const user = await getUserBySlackId(req.user.slackId);
-
-    res.json({
-      ...user,
-      slackId: req.user.slackId,
-    });
+    res.json(req.user);
   } catch (error) {
     res.status(400).send({
       message: 'Cannot get info',

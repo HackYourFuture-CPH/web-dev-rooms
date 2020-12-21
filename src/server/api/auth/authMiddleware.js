@@ -1,4 +1,5 @@
 const axios = require('axios');
+const { getUserBySlackId } = require('../controllers/users.controller');
 
 async function authMiddleware(req, res, next) {
   if (req.headers.authorization) {
@@ -62,6 +63,14 @@ async function authMiddleware(req, res, next) {
 
         break;
     }
+  }
+
+  if (req.user && req.user.slackId) {
+    const userFromDb = await getUserBySlackId(req.user.slackId);
+    req.user = {
+      ...req.user,
+      ...userFromDb,
+    };
   }
 
   next();
