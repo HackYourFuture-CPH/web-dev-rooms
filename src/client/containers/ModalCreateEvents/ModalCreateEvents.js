@@ -1,72 +1,67 @@
 import React, { useState } from 'react';
 import { Button } from '../../components/Button/Button';
-
+import PropTypes from 'prop-types';
 import './ModalCreateEvents.styles.css';
 import DropDown from '../../components/Dropdown/DropDown';
 import DateTime from '../../components/DateTime/DateTime';
 import Modal from '../../components/Modal/Modal';
+// import {Events, Companies} from '../../containers/ModalCreateEvents/ModalCreateEvents.stories'
 
-const companies = [
-  {
-    id: '01',
-    value: 'Elastic',
-  },
-  {
-    id: '02',
-    value: 'Zendesk',
-  },
-  {
-    id: '03',
-    value: 'Hack Your Future',
-  },
-];
-
-const eventTypes = [
-  {
-    id: '01',
-    value: 'Study Group',
-  },
-  {
-    id: '02',
-    value: 'Workshop',
-  },
-  {
-    id: '03',
-    value: 'Other',
-  },
-];
-
-function ModalCreateEvents() {
-  const [companyname, setCompanyName] = useState('');
-  const [eventtype, setEventType] = useState('');
+function ModalCreateEvents(props) {
   const [datetime, setDateTime] = useState('');
+  const [event, setEvent] = useState('');
+  const [company, setCompany] = useState('');
 
+  const isDisabled = datetime === '' || event === '' || company === '';
   return (
     <div className="create-event-modal">
       <Modal title="Create Event (Time Slot)">
-        <div className="create-event-name">
+        <div className="create-event-company-name">
           <DropDown
-            value={companyname}
-            setValue={setCompanyName}
-            items={companies}
+            value={company}
+            setValue={setCompany}
+            items={[{ id: '', value: 'Company Name' }, ...props.companies]}
           />
         </div>
+
         <div className="create-event-type">
           <DropDown
-            value={eventtype}
-            setValue={setEventType}
-            items={eventTypes}
+            value={event}
+            setValue={setEvent}
+            items={[{ id: '', value: 'Type of Event' }, ...props.events]}
           />
         </div>
         <div className="create-event-datetime">
-          <DateTime value={datetime} setValue={setDateTime} />
+          <DateTime value={datetime} onChange={setDateTime} />
         </div>
         <div className="create-event-registration-button">
-          <Button>Submit</Button>
+          <Button
+            onClick={() => {
+              props.onSubmit({ company, event, datetime });
+            }}
+            disabled={isDisabled}
+          >
+            Submit
+          </Button>
         </div>
       </Modal>
     </div>
   );
 }
 
+ModalCreateEvents.propTypes = {
+  companies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      value: PropTypes.string,
+    }),
+  ).isRequired,
+  events: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      value: PropTypes.string,
+    }),
+  ).isRequired,
+  onSubmit: PropTypes.func.isRequired,
+};
 export default ModalCreateEvents;
