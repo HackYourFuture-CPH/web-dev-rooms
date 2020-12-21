@@ -6,13 +6,13 @@ import 'moment-timezone';
 export const TimeZoneDropDown = (props) => {
   const [timeZone, setTimeZone] = useState('');
   return (
-    <div>
+    <>
       <DropDown
         items={props.timeZones}
         value={timeZone}
         setValue={setTimeZone}
       />
-    </div>
+    </>
   );
 };
 
