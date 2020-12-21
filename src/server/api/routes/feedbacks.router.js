@@ -20,22 +20,16 @@ const feedbacksController = require('../controllers/feedbacks.controller');
  *        schema:
  *          type: object
  *          required:
- *            - student_id
- *            - question_id
- *            - answered_by
+ *            - studentId
  *            - description
- *            - open_feedback
+ *            - eventId
  *          properties:
- *            student_id:
- *              type: integer
- *            question_id:
- *              type: integer
- *            answered_by:
+ *            studentId:
  *              type: integer
  *            description:
  *              type: string
- *            open_feedback:
- *              type: string
+ *            eventId:
+ *              type: integer
  *    responses:
  *      201:
  *        description: Feedback created
@@ -43,13 +37,10 @@ const feedbacksController = require('../controllers/feedbacks.controller');
  *        description: Unexpected error.
  */
 router.post('/', (req, res) => {
-  console.log('feedback posted');
   feedbacksController
     .createFeedback(req.body)
     .then((result) => res.json(result))
     .catch((error) => {
-      console.log(error);
-
       res.status(400).send('Bad request').end();
     });
 });

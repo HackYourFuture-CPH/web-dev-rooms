@@ -44,17 +44,15 @@ app.use((err, req, res) => {
     }
     return res.send({ error: err.message });
   }
-  // res.sendStatus(500);
+  res.sendStatus(500);
 });
 
-// app.use('/api/', function (req, res) {
-//   res.status(404).send("Sorry can't find that!");
-// });
+app.use('/api/', function (req, res) {
+  res.status(404).send("Sorry can't find that!");
+});
 
 // If "/api" is called, redirect to the API documentation.
-// app.use('/api', function (req, res) {
-//   res.redirect(`${process.env.API_PATH}/documentation`);
-// });
+
 app.use('/api', function (req, res) {
   res.redirect(`${process.env.API_PATH}/documentation`);
 });

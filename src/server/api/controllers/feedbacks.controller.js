@@ -3,13 +3,10 @@ const knex = require('../../config/db');
 // const moment = require('moment-timezone');
 
 const createFeedback = async (body) => {
-  console.log(body);
   await knex('feedback').insert({
-    student_id: body.student_id,
-    answered_by: body.answered_by,
-    question_id: body.question_id,
-    open_feedback: body.open_feedback,
+    student_id: body.studentId,
     description: body.description,
+    event_id: body.eventId,
   });
 
   return {
@@ -20,5 +17,3 @@ const createFeedback = async (body) => {
 module.exports = {
   createFeedback,
 };
-
-
