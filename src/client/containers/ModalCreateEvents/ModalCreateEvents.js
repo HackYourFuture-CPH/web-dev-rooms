@@ -5,13 +5,11 @@ import './ModalCreateEvents.styles.css';
 import DropDown from '../../components/Dropdown/DropDown';
 import DateTime from '../../components/DateTime/DateTime';
 import Modal from '../../components/Modal/Modal';
-// import {Events, Companies} from '../../containers/ModalCreateEvents/ModalCreateEvents.stories'
 
 function ModalCreateEvents(props) {
   const [datetime, setDateTime] = useState('');
   const [event, setEvent] = useState('');
   const [company, setCompany] = useState('');
-
   const isDisabled = datetime === '' || event === '' || company === '';
   return (
     <div className="create-event-modal">
@@ -23,7 +21,6 @@ function ModalCreateEvents(props) {
             items={[{ id: '', value: 'Company Name' }, ...props.companies]}
           />
         </div>
-
         <div className="create-event-type">
           <DropDown
             value={event}

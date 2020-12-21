@@ -1,5 +1,4 @@
 import React from 'react';
-
 import ModalCreateEvents from './ModalCreateEvents';
 
 const companies = [
