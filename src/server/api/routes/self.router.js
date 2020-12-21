@@ -1,4 +1,5 @@
 const express = require('express');
+const { getUserBySlackId } = require('../controllers/users.controller');
 
 const router = express.Router({ mergeParams: true });
 
@@ -18,7 +19,7 @@ const router = express.Router({ mergeParams: true });
  *      5XX:
  *        description: Unexpected error.
  */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   try {
     if (!req.user) {
       return res.status(401).json({
@@ -32,11 +33,17 @@ router.get('/', async (req, res, next) => {
     res.header('Expires', '-1');
     res.header('Pragma', 'no-cache');
 
+    const user = await getUserBySlackId(req.user.slackId);
+
     res.json({
-      user: req.user,
+      ...user,
+      slackId: req.user.slackId,
     });
-  } catch (e) {
-    next();
+  } catch (error) {
+    res.status(400).send({
+      message: 'Cannot get info',
+      error,
+    });
   }
 });
 
