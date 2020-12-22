@@ -13,7 +13,7 @@ exports.seed = function (knex) {
         },
         {
           id: 3,
-          name: 'Admin',
+          name: 'admin',
         },
       ]);
     });

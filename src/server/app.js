@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const HttpError = require('./api/lib/utils/http-error');
+const authMiddleware = require('./api/auth/authMiddleware');
 
 const buildPath = path.join(__dirname, '../../dist');
 
@@ -22,8 +23,6 @@ app.locals.ENV = process.env.NODE_ENV;
 app.locals.ENV_DEVELOPMENT = process.env.NODE_ENV === 'development';
 
 app.disable('x-powered-by');
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-// app.use(morgan('dev', {stream: winston.stream}));
 app.use(morgan('dev'));
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(
@@ -36,6 +35,8 @@ app.use(
 app.use(cookieParser());
 app.use(cors());
 
+app.use(authMiddleware);
+
 app.use(process.env.API_PATH, apiRouter);
 
 app.use((err, req, res) => {
@@ -46,14 +47,13 @@ app.use((err, req, res) => {
     }
     return res.send({ error: err.message });
   }
-  res.sendStatus(500);
+  req.status(500).send('Unknown error');
 });
 
 app.use('/api/', function (req, res) {
   res.status(404).send("Sorry can't find that!");
 });
 
-// If "/api" is called, redirect to the API documentation.
 app.use('/api', function (req, res) {
   res.redirect(`${process.env.API_PATH}/documentation`);
 });

@@ -1,0 +1,49 @@
+.mentor-registration-main {
+  margin: auto;
+  padding: 0;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.mentor-registration-avatar {
+  width: 100%;
+  margin: 0;
+  padding-top: 2%;
+  padding-left: 5%;
+  padding-bottom: 0.5%;
+  background-color: #f8f8f8;
+  border-radius: 0% 0% 100% 100%/0% 0% 100% 100%;
+}
+
+.mentor-registration-avatar .logo-image {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.mentor-registration-text {
+  padding: 2%;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+  color: #293a7d;
+}
+
+.mentor-registration-input,
+.mentor-registration-dropdown,
+.mentor-registration-button,
+.mentor-registration-info-text {
+  padding: 2%;
+}
+
+.mentor-registration-info-text {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .mentor-registration-main {
+    width: 100%;
+  }
+}

@@ -11,3 +11,14 @@
   text-decoration: none;
   text-shadow: 0 1px 0 #2f6627;
 }
+
+.button.button-danger {
+  background-color: #f00;
+}
+
+.button:disabled {
+  background-color: #f6f6f6;
+  color: #bdbdbd;
+  border: 1px solid #e8e8e8;
+  text-shadow: none;
+}

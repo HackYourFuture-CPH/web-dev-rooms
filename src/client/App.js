@@ -1,60 +1,63 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home } from './containers/Home/Home';
-import SignIn from './containers/SignIn';
-import SignUp from './containers/SignUp';
-import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
-import { useAuthentication } from './hooks/useAuthentication';
-import Header from './components/Navigation/Header';
-import Profile from './containers/Profile';
 import Loader from './components/Loader';
 import Route404 from './components/Route404';
-
+import EventsPage from './containers/EventsPage/EventsPage';
+import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
-import SelectionPage from './containers/SelectionPage/SelectionPage.component';
-import RegistrationPage from './containers/RegistrationPage/RegistrationPage.component';
-import EventsPage from './containers/EventsPage/EventsPage.component';
+import LoginTest from './containers/LoginTestPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
+import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
+import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
+import SelectionPage from './containers/SelectionPage/SelectionPage.component';
+import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
+import { useUser } from './context/userContext';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const { isAuthenticated, isLoading } = useAuthentication();
-  if (isLoading) return <Loader />;
+  const { isLoading } = useUser();
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <Router>
-      <Header isAuthenticated={isAuthenticated} />
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-
         <Route exact path="/login">
           <LoginPage />
         </Route>
-        <Route exact path="/selection">
-          <SelectionPage />
+        <LoginTest exact path="/login-test" />
+        <Route exact path="/slack-auth">
+          <SlackAuthPage />
         </Route>
         <Route exact path="/registration">
-          <RegistrationPage />
+          <SelectionPage />
         </Route>
-        <Route exact path="/events">
-          <EventsPage />
+        <Route exact path="/registration/mentor">
+          <MentorRegistrationPage />
         </Route>
-        <Route exact path="/profile">
-          <ProfilePage />
+        <Route exact path="/registration/student">
+          <StudentRegistrationPage />
+        </Route>
+        <Route exact path="/registration/admin">
+          <AdminRegistrationPage />
         </Route>
 
-        <SignIn exact path="/sign-in" />
-        <SignUp exact path="/sign-up" />
-        <ResetPassword exact path="/reset-password" />
-        <AuthenticatedRoute
-          exact
-          path="/profile"
-          isAuthenticated={isAuthenticated}
-        >
-          <Profile />
+        <AuthenticatedRoute exact path="/">
+          <Home />
         </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/events">
+          <EventsPage />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/profile">
+          <ProfilePage />
+        </AuthenticatedRoute>
+
         <Route path="*" component={Route404} />
       </Switch>
     </Router>

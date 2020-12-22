@@ -1,0 +1,58 @@
+.feedback-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot {
+  height: 80px;
+  width: 80px;
+  background-color: #293a7d;
+  background-image: url('data:image/svg+xml;utf8,<svg width="46" height="34" viewBox="0 0 46 34" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.6109 25.2947L5.30172 15.4492L0.875 19.6768L15.6109 33.75L46 4.72763L41.5733 0.5L15.6109 25.2947Z" fill="%23ffff"/></svg>');
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 3%;
+  margin-right: 5%;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center top 50%;
+}
+
+.event-small-container {
+  background-color: #f6f6f6;
+  width: 90%;
+  display: flex;
+  border-radius: 8px;
+  flex: wrap;
+  margin: 10px;
+  align-items: center;
+  padding: 7% 0%;
+}
+
+.feedback-textfield {
+  margin: 10px;
+  padding: 0;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+}
+
+.feedback-textfield .input-component {
+  height: 5rem;
+  font-size: 12px;
+}
+
+.feedback-submit-btn {
+  padding-bottom: 7%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .feedback-modal {
+    width: 100%;
+  }
+}

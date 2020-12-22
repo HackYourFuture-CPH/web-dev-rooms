@@ -73,21 +73,19 @@ router.get('/:id', (req, res, next) => {
  *        schema:
  *          type: object
  *          required:
- *            - title
- *            - startDate
- *            - endDate
+ *            - module_name
+ *            - created_at
+ *            - updated_at
  *             - classId
  *          properties:
- *            title:
+ *            module_name:
  *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
+ *            created_at:
  *              type: string
  *              format: date-time
- *            classId:
+ *            updated_at:
  *              type: string
+ *              format: date-time
  *    responses:
  *      201:
  *        description: Module created
@@ -123,16 +121,14 @@ router.post('/', (req, res) => {
  *        schema:
  *          type: object
  *          properties:
- *            title:
+ *            module_name:
  *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
+ *            created_at:
  *              type: string
  *              format: date-time
- *            classId:
+ *            updated_at:
  *              type: string
+ *              format: date-time
  *    responses:
  *      200:
  *        description: Module was patched
