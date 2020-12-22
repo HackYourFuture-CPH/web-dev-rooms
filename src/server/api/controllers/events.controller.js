@@ -69,23 +69,24 @@ const deleteEvent = async (userId, eventId) => {
   }
 };
 const editEvent = async (eventId, userId, updatedEvent) => {
-  const users = [];
+  let users = [];
   await knex('users')
     .select('users.id')
     .join('user_roles', 'users.id', '=', 'user_roles.user_id')
     .where('user_roles.role_id', 3)
-    .then((records) =>
-      records.forEach((record) => {
-        users.push(record.id);
-      }),
-    );
+    .then((records) => {
+      users = records.map((record) => record.id);
+    });
+
   if (users.includes(parseInt(userId, 10))) {
     const today = moment().format('YYYY-MM-DD HH:mm:ss');
+
     return knex('events')
       .where({ id: eventId })
       .where('event_date', '>', today)
       .update({
         venue: updatedEvent.venue,
+        updated_at: today,
       });
   }
   return 'not an admin';

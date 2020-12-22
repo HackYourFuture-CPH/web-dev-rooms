@@ -157,15 +157,7 @@ router.delete('/:userId/:eventId', (req, res) => {
  *        schema:
  *          type: object
  *          properties:
- *            title:
- *              type: string
- *            startDate:
- *              type: string
- *              format: date-time
- *            endDate:
- *              type: string
- *              format: date-time
- *            classId:
+ *            venue:
  *              type: string
  *    responses:
  *      200:
@@ -181,7 +173,7 @@ router.patch('/:eid/:uid', (req, res) => {
       if (result === 0) {
         res.status(404).send('The event ID you provided does not exist.');
       } else if (result === 'not an admin') {
-        res.status(404).send(`${req.params.uid} is not an administrator`);
+        res.status(403).send(`${req.params.uid} is not an administrator`);
       } else {
         res.json({ success: true });
       }
