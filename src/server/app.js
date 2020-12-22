@@ -47,7 +47,7 @@ app.use((err, req, res) => {
     }
     return res.send({ error: err.message });
   }
-  res.sendStatus(500);
+  req.status(500).send('Unknown error');
 });
 
 app.use('/api/', function (req, res) {
