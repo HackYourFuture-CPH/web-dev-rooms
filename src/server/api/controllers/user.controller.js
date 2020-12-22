@@ -4,7 +4,7 @@ const Error = require('../lib/utils/http-error');
 const getUserById = async (id, role) => {
   try {
     const eventData = await knex.raw(
-      ` SELECT ev.id AS eventId,  org.name AS organization,  ev.event_date AS eventDate,  ev.created_at AS eventTime,  WEEK(ev.created_at) as eventWeek  FROM  events_users AS eu, users AS us,  events_students AS es,  organizations AS org, events AS ev  WHERE  us.id = eu.users_id  AND es.student_id = eu.id  AND org.id = us.organization_id  AND ev.id = es.event_id  AND eu.users_id = ? `,
+      ` SELECT ev.id AS eventId, org.name AS organization, ev.event_date AS eventDate,  WEEK(ev.created_at) AS eventWeek FROM events_users AS eu, users AS us, user_roles AS ur, roles AS rl, organizations AS org, events AS ev WHERE us.id = eu.users_id AND ur.user_id = us.id AND rl.id = ur.role_id AND rl.name = 'student' AND org.id = us.organization_id AND ev.id = eu.event_id AND eu.users_id = ? `,
       [id],
     );
     if (eventData[0].length === 0) {
@@ -23,8 +23,9 @@ async function transformData(eventData, role) {
   let i;
   for (i = 0; i < eventData[0].length; i += 1) {
     outPutData[i] = eventData[0][i];
-    outPutData[i].eventDate = getDate(outPutData[i].eventTime);
-    outPutData[i].eventTime = String(outPutData[i].eventTime).substr(16, 8);
+    let eventDateTime = outPutData[i].eventDate;
+    outPutData[i].eventDate = getDate(eventDateTime);
+    outPutData[i].eventTime = String(eventDateTime).substr(16, 8);
     listOfAttendes.push(getAttendees(role, outPutData[i].eventId));
   }
   const finalListOfAttendes = await Promise.all(listOfAttendes);
@@ -46,7 +47,7 @@ async function getAttendees(role, eventId) {
   try {
     if (role === 'mentors') {
       const studentNames = await knex.raw(
-        ` SELECT  us.name  FROM  users us, events_students es, events_users eu,  events ev  WHERE  ev.id = es.event_id  AND es.student_id = eu.id  AND eu.users_id = us.id  AND ev.id = ? `,
+        ` SELECT us.name FROM users as us, events_users as eu, events as ev, user_roles AS ur, roles AS rl WHERE ev.id = eu.event_id AND eu.users_id = us.id AND us.id = ur.user_id AND ur.role_id = rl.id AND rl.name = 'student' AND ev.id = ? `,
         [eventId],
       );
       if (studentNames.length > 0) {
@@ -60,7 +61,7 @@ async function getAttendees(role, eventId) {
       }
     } else {
       const mentorNames = await knex.raw(
-        ` SELECT  us.name  FROM  users us,  events_mentors em,  events_users eu,  events ev  WHERE  ev.id = em.event_id  AND em.mentor_id = eu.id  AND eu.users_id = us.id  AND ev.id = ? `,
+        ` SELECT us.name FROM users as us, events_users as eu, events as ev, user_roles AS ur, roles AS rl WHERE ev.id = eu.event_id AND eu.users_id = us.id AND us.id = ur.user_id AND ur.role_id = rl.id AND rl.name = 'mentor' AND ev.id = ? `,
         [eventId],
       );
       if (mentorNames.length > 0) {
@@ -82,8 +83,8 @@ async function getAttendees(role, eventId) {
 }
 
 function getDate(time) {
-  const demo = `${time.getDate()}/${time.getMonth()}/${time.getFullYear()}`;
-  return demo;
+  const date = `${time.getFullYear()}-${time.getMonth()}-${time.getDate()}`;
+  return date;
 }
 
 module.exports = {
