@@ -2,6 +2,7 @@
 .slack-button {
   display: flex;
   justify-content: center;
+  min-width: 300px;
 }
 
 .button-sign-with-slack {
