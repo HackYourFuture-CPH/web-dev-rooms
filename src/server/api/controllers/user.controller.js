@@ -23,7 +23,7 @@ async function transformData(eventData, role) {
   let i;
   for (i = 0; i < eventData[0].length; i += 1) {
     outPutData[i] = eventData[0][i];
-    let eventDateTime = outPutData[i].eventDate;
+    const eventDateTime = outPutData[i].eventDate;
     outPutData[i].eventDate = getDate(eventDateTime);
     outPutData[i].eventTime = String(eventDateTime).substr(16, 8);
     listOfAttendes.push(getAttendees(role, outPutData[i].eventId));
