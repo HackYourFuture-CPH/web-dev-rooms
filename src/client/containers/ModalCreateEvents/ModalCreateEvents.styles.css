@@ -1,0 +1,20 @@
+.create-event-modal {
+  margin: auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.create-event-company-name,
+.create-event-type,
+.create-event-datetime,
+.create-event-registration-button {
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 600px) {
+  .create-event-modal {
+    width: 100%;
+  }
+}
