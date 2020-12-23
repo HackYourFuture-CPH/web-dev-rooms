@@ -54,8 +54,6 @@ app.use('/api/', function (req, res) {
   res.status(404).send("Sorry can't find that!");
 });
 
-// If "/api" is called, redirect to the API documentation.
-
 app.use('/api', function (req, res) {
   res.redirect(`${process.env.API_PATH}/documentation`);
 });
