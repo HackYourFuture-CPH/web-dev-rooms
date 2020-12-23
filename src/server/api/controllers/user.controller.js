@@ -6,7 +6,7 @@ const createStudentRegistration = async (body) => {
     .where('name', organizationName)
     .first('id');
 
-  organizationId = org.id;
+  const organizationId = org.id;
 
   const registerStudent = await knex('users').insert({
     name: body.name,
@@ -16,9 +16,7 @@ const createStudentRegistration = async (body) => {
   });
 
   if (registerStudent) {
-    return { success: true };
-  } else {
-    return { success: false };
+    return { successful: true };
   }
 };
 
