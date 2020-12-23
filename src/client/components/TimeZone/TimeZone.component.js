@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DropDown from '../Dropdown/DropDown';
 import PropTypes, { shape } from 'prop-types';
 import 'moment-timezone';
@@ -22,8 +22,12 @@ TimeZoneDropDown.propTypes = {
       value: PropTypes.string,
     }),
   ),
+  timeZone: PropTypes.string,
+  setTimeZone: PropTypes.func,
 };
 
 TimeZoneDropDown.defaultProps = {
   timeZones: [],
+  timeZone: '',
+  setTimeZone: null,
 };
