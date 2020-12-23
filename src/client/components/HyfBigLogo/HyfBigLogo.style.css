@@ -19,17 +19,3 @@
   font-style: normal;
   font-weight: bold;
 }
-
-@media screen and (max-width: 600px) {
-  .hyf-big-logo {
-    height: 15%;
-  }
-
-  .hyf-big-logo .hyf-logo {
-    width: 15rem;
-  }
-
-  .hyf-big-logo .app-title {
-    font-size: 15px;
-  }
-}
