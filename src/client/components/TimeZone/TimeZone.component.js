@@ -4,13 +4,12 @@ import PropTypes, { shape } from 'prop-types';
 import 'moment-timezone';
 
 export const TimeZoneDropDown = (props) => {
-  const [timeZone, setTimeZone] = useState('');
   return (
     <div>
       <DropDown
         items={props.timeZones}
-        value={timeZone}
-        setValue={setTimeZone}
+        value={props.timeZone}
+        setValue={props.setTimeZone}
       />
     </div>
   );

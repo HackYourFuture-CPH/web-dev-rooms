@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TimeZoneDropDown } from './TimeZone.component';
 
 const timeZones = [
@@ -19,13 +19,18 @@ const timeZones = [
     value: 'Australia/Sydney',
   },
 ];
-function TimeDropTime() {
-  return (
-    <>
-      <TimeZoneDropDown timeZones={timeZones} />
-    </>
-  );
-}
 export default { title: 'TimeZone' };
 
-export const timeDrop = () => <TimeDropTime />;
+export const TimeDropTime = () => {
+  const [timeZone, setTimeZone] = useState('');
+
+  return (
+    <>
+      <TimeZoneDropDown
+        timeZones={timeZones}
+        value={timeZone}
+        setValue={setTimeZone}
+      />
+    </>
+  );
+};
