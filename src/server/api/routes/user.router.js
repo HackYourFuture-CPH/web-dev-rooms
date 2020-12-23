@@ -35,10 +35,6 @@ const studentRegistrationController = require('../controllers/user.controller');
  *        description: Unexpected error.
  */
 
-router.get('/', (req, res) => {
-  res.send('POST only API');
-});
-
 router.post('/register/student', (req, res) => {
   studentRegistrationController
     .createStudentRegistration(req.body)

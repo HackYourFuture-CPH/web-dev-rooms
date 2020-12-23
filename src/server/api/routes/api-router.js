@@ -62,8 +62,4 @@ router.use('/self', selfRouter);
 
 router.use('/user', userRouter);
 
-router.use('/', function (req, res) {
-  res.redirect(`${process.env.API_PATH}/documentation`);
-});
-
 module.exports = router;
