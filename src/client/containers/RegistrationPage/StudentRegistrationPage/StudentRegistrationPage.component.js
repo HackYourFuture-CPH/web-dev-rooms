@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Avatar } from '../../../components/Avatar/Avatar';
 import student from '../../../assets/images/student.png';
@@ -8,25 +8,18 @@ import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
 import './StudentRegistrationPage.styles.css';
 
+const axios = require('axios');
+
 // TODO: Array values would be updated through the DB
-const classes = [
-  {
-    id: '01',
-    value: 'Class14',
-  },
-  {
-    id: '02',
-    value: 'Class15',
-  },
-  {
-    id: '03',
-    value: 'Class16',
-  },
-];
 
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
   const [hyfclass, sethyfClass] = useState('Class14');
+  const [groups, setGroups] = useState();
+
+  useEffect(() => {
+    axios.get('/api/groups').then((response) => setGroups(response.data));
+  }, []);
 
   return (
     <div className="student-registration-main">
@@ -47,7 +40,7 @@ export const StudentRegistrationPage = () => {
         />
       </div>
       <div className="student-registration-dropdown">
-        <DropDown value={hyfclass} setValue={sethyfClass} items={classes} />
+        <DropDown value={hyfclass} setValue={sethyfClass} items={groups} />
       </div>
       <div className="student-registration-button">
         <Button>Submit</Button>
