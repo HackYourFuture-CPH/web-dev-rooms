@@ -6,6 +6,7 @@ import Input from '../../../components/Input/Input';
 import DropDown from '../../../components/Dropdown/DropDown';
 import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
+import Loader from '../../../components/Loader/Loader';
 import './StudentRegistrationPage.styles.css';
 
 const axios = require('axios');
@@ -16,11 +17,17 @@ export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
   const [hyfclass, sethyfClass] = useState('Class14');
   const [groups, setGroups] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('/api/groups').then((response) => setGroups(response.data));
+    axios.get('/api/groups').then((response) => {
+      setGroups(response.data);
+      setIsLoading(false);
+    });
   }, []);
-
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="student-registration-main">
       <div className="student-registration-avatar">
