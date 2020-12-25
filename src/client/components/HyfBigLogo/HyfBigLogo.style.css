@@ -2,15 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   min-width: 300px;
   border-radius: 5px;
   margin-top: 5rem;
 }
 
 .hyf-big-logo .hyf-logo {
-  width: 20rem;
-  height: 170px;
   color: lightblue;
   overflow: hidden;
 }
@@ -18,18 +15,7 @@
 .hyf-big-logo .app-title {
   color: rgba(104, 102, 102, 0.87);
   font-size: 20px;
-  font-family: Roboto;
+  font-family: Roboto, sans-serif;
   font-style: normal;
   font-weight: bold;
-}
-@media screen and (max-width: 600px) {
-  .hyf-big-logo {
-    height: 15%;
-  }
-  .hyf-big-logo .hyf-logo {
-    width: 15rem;
-  }
-  .hyf-big-logo .app-title {
-    font-size: 15px;
-  }
 }

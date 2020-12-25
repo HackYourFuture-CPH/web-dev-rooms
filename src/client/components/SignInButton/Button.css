@@ -2,6 +2,7 @@
 .slack-button {
   display: flex;
   justify-content: center;
+  min-width: 300px;
 }
 
 .button-sign-with-slack {
@@ -15,39 +16,10 @@
   border-style: solid;
   border-color: white;
   font-weight: 900;
-  width: 20rem;
-}
-
-/* Style the image */
-.button-sign-with-slack img {
-  width: 100%;
-  display: flex;
+  background-color: transparent;
 }
 
 /* Make button active when you click it */
 .button-sign-with-slack:active {
   transform: translateY(4px);
-}
-
-/* Responsive */
-@media screen and (max-width: 800px) {
-  .button-sign-with-slack {
-    width: 50%;
-  }
-
-  .button-sign-with-slack img {
-    width: 100%;
-    display: flex;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .button-sign-with-slack {
-    width: 70%;
-  }
-
-  .button-sign-with-slack img {
-    width: 100%;
-    display: flex;
-  }
 }
