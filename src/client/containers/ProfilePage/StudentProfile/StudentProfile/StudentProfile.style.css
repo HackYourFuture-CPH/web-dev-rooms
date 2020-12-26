@@ -1,0 +1,71 @@
+.student-headerProfilePage {
+  width: 100%;
+  height: fit-content;
+  border-bottom-left-radius: 10em;
+  border-bottom-right-radius: 10em;
+  background-color: #f8f8f8;
+}
+
+#Vector {
+  position: absolute;
+  left: 7.8%;
+  top: 3.73%;
+}
+
+#Avatar {
+  padding-top: 25px;
+}
+
+.student-body-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.welcome-student {
+  margin: 20px 0;
+}
+
+.body-event {
+  display: inline-flex;
+  align-items: center;
+  text-align: center;
+  border-radius: 15px;
+  padding-top: 10px;
+}
+
+.event-card {
+  width: 83px;
+  height: 83px;
+  left: 46px;
+  top: 431px;
+  padding-top: 10px;
+}
+
+.event-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f6f6f6;
+  border: 1px solid #d5d5d5;
+  box-sizing: border-box;
+  border-radius: 15px;
+  width: 350px;
+  height: 186px;
+  left: 32px;
+  top: 418px;
+}
+
+.feedback-submit-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 32px;
+}
+
+@media only screen and (max-width: 600px) {
+  .student-profile-page {
+    width: 100%;
+  }
+}
