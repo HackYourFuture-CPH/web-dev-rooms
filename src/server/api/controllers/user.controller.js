@@ -8,16 +8,27 @@ const createStudentRegistration = async (body) => {
 
   const organizationId = org.id;
 
-  const registerStudent = await knex('users').insert({
+  const registerStudentId = await knex('users').insert({
     name: body.name,
     slack_id: body.slackId,
     organization_id: organizationId,
     group_id: body.groupId,
   });
 
-  if (registerStudent) {
-    return { successful: true };
+  const studentRole = await knex('roles').where('name', 'student').first('id');
+
+  if (studentRole && registerStudentId) {
+    const insertedUserRoleId = await knex('user_roles').insert({
+      user_id: registerStudentId,
+      role_id: studentRole.id,
+    });
+
+    if (insertedUserRoleId) {
+      return { successful: true };
+    }
   }
+
+  return { success: false };
 };
 
 module.exports = {
