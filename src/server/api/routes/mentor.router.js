@@ -21,15 +21,18 @@ const registerMentorController = require('../controllers/mentor.controller');
  *          type: object
  *          required:
  *            - name
- *            - organization_id
+ *            - organizationId
+ *            - slackId
  *          properties:
  *            name:
  *              type: string
- *            organization_id:
+ *            organizationId:
  *              type: integer
+ *            slackId:
+ *              type: string
  *    responses:
  *      201:
- *        description: Event created
+ *        description: Mentor registered
  *      5XX:
  *        description: Unexpected error.
  */
