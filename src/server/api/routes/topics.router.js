@@ -75,8 +75,6 @@ router.get('/:id', (req, res, next) => {
  *            - lessonUrl
  *            - homeworkUrl
  *            - moduleId
- *            - created_at
- *            - updated_at
  *          properties:
  *            topicName:
  *              type: string
@@ -90,12 +88,6 @@ router.get('/:id', (req, res, next) => {
  *              type: varchar
  *            moduleId:
  *              type: integer
- *            created_at:
- *              type: string
- *              format: date-time
- *            updated_at:
- *              type: string
- *              format: date-time
  *    responses:
  *      200:
  *        description: Successful request
@@ -106,9 +98,7 @@ router.post('/', (req, res) => {
   topicsController
     .createTopic(req.body)
     .then((result) => res.json(result))
-    .catch((error) => {
-      console.log(error);
-
+    .catch(() => {
       res.status(400).send('Bad request').end();
     });
 });
@@ -133,12 +123,6 @@ router.post('/', (req, res) => {
  *          properties:
  *            topicName:
  *              type: string
- *            created_at:
- *              type: string
- *              format: date-time
- *            updated_at:
- *              type: string
- *              format: date-time
  *    responses:
  *      200:
  *        description: Topic was patched

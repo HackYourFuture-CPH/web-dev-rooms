@@ -28,17 +28,35 @@ const getTopicById = async (id) => {
 };
 
 const editTopic = async (topicId, body) => {
-  return knex('topics')
-    .where({ id: topicId })
-    .update({
-      topic_name: body.topicName,
-      created_at: moment(body.created_at).format(),
-      updated_at: moment(body.updated_at).format(),
-    });
+  let timestamp = moment().format('YYYY-MM-DD HH:mm:ss');
+  return knex('topics').where({ id: topicId }).update({
+    topic_name: body.topicName,
+    created_at: timestamp,
+    updated_at: timestamp,
+  });
 };
 
 const deleteTopic = async (topicId) => {
-  return knex('topics').where({ id: topicId }).del();
+  try {
+    const topics = await knex('topics')
+      .select('topics.deleted_at as id', 'topics.topic_name as topicName')
+      .where({ id: topicId })
+      .andWhere({ deleted_at: null });
+    if (topics.length === 0) {
+      throw new Error(
+        `incorrect entry with the id of ${id} or the entry is deleted`,
+        404,
+      );
+    } else {
+      return knex('topics')
+        .where({ id: topicId })
+        .update({
+          deleted_at: moment().format('YYYY-MM-DD HH:mm:ss'),
+        });
+    }
+  } catch (error) {
+    return error.message;
+  }
 };
 
 const createTopic = async (body) => {
@@ -49,8 +67,6 @@ const createTopic = async (body) => {
     lesson_url: body.lessonUrl,
     homework_url: body.homeworkUrl,
     module_id: body.moduleId,
-    created_at: moment(body.created_at).format(),
-    updated_at: moment(body.updated_at).format(),
   });
 
   return {
