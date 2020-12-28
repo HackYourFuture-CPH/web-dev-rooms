@@ -6,9 +6,9 @@ const getUsers = async () => {
       .select(
         'users.id',
         'users.name',
-        'slack_id',
-        'groups.name as group_name',
-        'organizations.name as organization_name',
+        'slack_id as slackId',
+        'groups.name as groupName',
+        'organizations.name as organizationName',
         'roles.name as role',
       )
       .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
