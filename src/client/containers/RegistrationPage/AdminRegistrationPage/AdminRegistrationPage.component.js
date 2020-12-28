@@ -5,7 +5,6 @@ import admin from '../../../assets/images/admin.png';
 import Input from '../../../components/Input/Input';
 import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
-import Footer from '../../../components/footer/footer';
 import './AdminRegistrationPage.styles.css';
 import HelpText from '../../../components/HelpText/HelpText';
 
