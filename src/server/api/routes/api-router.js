@@ -17,6 +17,7 @@ const groupsRouter = require('./groups.router');
 
 const feedbacksRouter = require('./feedbacks.router');
 const organizationsRouter = require('./organizations.router');
+const eventsUsersRouter = require('./eventsUsers.router');
 
 const slackRouter = require('./slack.router');
 
@@ -56,6 +57,7 @@ router.use('/groups', groupsRouter);
 router.use('/feedbacks', feedbacksRouter);
 
 router.use('/organizations', organizationsRouter);
+router.use('/eventsUsers', eventsUsersRouter);
 
 router.use('/signin', slackRouter);
 
