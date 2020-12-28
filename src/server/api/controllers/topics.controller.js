@@ -28,7 +28,7 @@ const getTopicById = async (id) => {
 };
 
 const editTopic = async (topicId, body) => {
-  let timestamp = moment().format('YYYY-MM-DD HH:mm:ss');
+  const timestamp = moment().format('YYYY-MM-DD HH:mm:ss');
   return knex('topics').where({ id: topicId }).update({
     topic_name: body.topicName,
     created_at: timestamp,
