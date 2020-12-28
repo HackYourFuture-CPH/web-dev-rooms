@@ -10,16 +10,7 @@
 }
 
 .Appheader-img-container {
-  position: absolute;
   max-width: 59px;
   max-height: 30px;
-  left: 5.8%;
-  right: 79.95%;
-  top: 23.73%;
-  bottom: 25.42%;
-}
-
-.Appheader-img-container img {
-  width: 100%;
-  background-size: contain;
+  padding: 1% 0 1% 13%;
 }
