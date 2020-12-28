@@ -10,7 +10,6 @@
 }
 
 .Appheader-img-container {
-  max-width: 59px;
   max-height: 30px;
-  padding: 12px 100px;
+  padding: 1rem 3rem;
 }
