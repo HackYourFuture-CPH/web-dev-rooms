@@ -7,6 +7,7 @@ import DropDown from '../../../components/Dropdown/DropDown';
 import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
 import './MentorRegistrationPage.styles.css';
+import HelpText from '../../../components/HelpText/HelpText';
 
 // TODO: Array values would be updated through the DB
 const companies = [
@@ -52,10 +53,7 @@ export const MentorRegistrationPage = () => {
         <Button>Submit</Button>
       </div>
 
-      <p className="mentor-registration-info-text">
-        If you already do not have a slack id then please make one as it is
-        mandatory to have a slack id to connect with mentors and other students.
-      </p>
+      <HelpText klass="mentor-registration-info-text" />
     </div>
   );
 };

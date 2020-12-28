@@ -1,0 +1,15 @@
+.helptext-component {
+    border: 3px;
+    float: left;
+    padding: 30px 40px;
+  }
+  .HelpText-message {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #666666;
+  }
+ 

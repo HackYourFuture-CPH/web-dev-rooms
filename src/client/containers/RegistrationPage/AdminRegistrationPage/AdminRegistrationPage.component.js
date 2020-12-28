@@ -7,6 +7,7 @@ import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
 import Footer from '../../../components/footer/footer';
 import './AdminRegistrationPage.styles.css';
+import HelpText from '../../../components/HelpText/HelpText';
 
 export const AdminRegistrationPage = () => {
   const [name, setName] = useState('');
@@ -41,13 +42,8 @@ export const AdminRegistrationPage = () => {
       <div className="admin-registration-button">
         <Button>Submit</Button>
       </div>
-      <p className="admin-registration-info-text">
-        If you already do not have a slack id then please make one as it is
-        mandatory to have a slack id to connect with mentors and other students.
-      </p>
-      <div className="admin-registration-footer">
-        <Footer />
-      </div>
+
+      <HelpText klass="admin-registration-info-text" />
     </div>
   );
 };
