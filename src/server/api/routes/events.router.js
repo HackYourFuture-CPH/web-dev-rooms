@@ -136,5 +136,36 @@ router.delete('/:userId/:eventId', (req, res) => {
     })
     .catch((error) => console.log(error));
 });
-
+/**
+ * @swagger
+ * /events/{eventId}/cancel/{studentId}:
+ *  delete:
+ *    summary: Delete a student from event
+ *    description:
+ *      Will delete a the student from specifice event
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: eventId
+ *      - in: path
+ *        name: studentId
+ *        description: ID of the student to delete.
+ *    responses:
+ *      200:
+ *        description: student deleted
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.delete('/:eventId/cancel/:studentId', (req, res) => {
+  eventsController
+    .deleteStudentFromEvent(req.params.eventId, req.params.studentId)
+    .then((result) => {
+      if (result === 0) {
+        res.status(404).send('The student ID you provided does not exist.');
+      } else {
+        res.json({ success: true });
+      }
+    })
+    .catch((error) => console.log(error));
+});
 module.exports = router;
