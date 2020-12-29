@@ -23,6 +23,7 @@ export const StudentRegistrationPage = () => {
     axios.get('/api/groups').then((response) => {
       setGroups(response.data);
       setIsLoading(false);
+      sethyfClass(response.data[0].id);
     });
   }, []);
   if (isLoading) {
