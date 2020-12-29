@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import Loader from './components/Loader';
 import Route404 from './components/Route404';
+import Logout from './components/Logout/Logout';
 import EventsPage from './containers/EventsPage/EventsPage';
 import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
@@ -51,6 +52,9 @@ function App() {
         <AuthenticatedRoute exact path="/">
           <Home />
         </AuthenticatedRoute>
+        <Route exact path="/logout">
+          <Logout />
+        </Route>
         <AuthenticatedRoute exact path="/events">
           <EventsPage />
         </AuthenticatedRoute>
