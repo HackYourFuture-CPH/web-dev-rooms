@@ -64,7 +64,7 @@ router.get('/:id', (req, res, next) => {
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: skill
+ *        name: name
  *        description: To create a skill
  *        schema:
  *          type: object
@@ -101,7 +101,7 @@ router.post('/', (req, res, next) => {
  *        name: ID
  *        description: ID of the skill to patch.
  *      - in: body
- *        name: skill
+ *        name: name
  *        description: The skill to create.
  *        schema:
  *          type: object
@@ -125,7 +125,7 @@ router.patch('/:id', (req, res, next) => {
 // delete a skill
 /**
  * @swagger
- * /skills/{ID}:
+ * /skills/{skillId}:
  *  delete:
  *    summary: Delete a skill
  *    description:
@@ -133,7 +133,7 @@ router.patch('/:id', (req, res, next) => {
  *    produces: application/json
  *    parameters:
  *      - in: path
- *        name: ID
+ *        name: skillId
  *        description: ID of the skill to delete.
  *    responses:
  *      200:
@@ -141,7 +141,7 @@ router.patch('/:id', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
-router.delete('/:ID', (req, res, next) => {
+router.delete('/:skillId', (req, res, next) => {
   skillsController
     .deleteSkill(req.params.skillId, req)
     .then((result) => {

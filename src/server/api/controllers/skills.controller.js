@@ -13,7 +13,7 @@ const getSkills = async () => {
 const getSkillById = async (id) => {
   try {
     const skills = await knex('skills')
-      .select('skills.id as id', 'skills.name as skillName')
+      .select('skills.id as id', 'skills.name ')
       .where({ id });
     if (skills.length === 0) {
       throw new Error(`Incorrect entry with the id of ${id}`, 404);
@@ -27,7 +27,7 @@ const getSkillById = async (id) => {
 const createSkill = async (body) => {
   const today = moment().format('YYYY-MM-DD HH:mm:ss');
   await knex('skills').insert({
-    name: body.skillName,
+    name: body.name,
     created_at: today,
     updated_at: today,
   });
@@ -39,7 +39,7 @@ const createSkill = async (body) => {
 const editSkill = async (skillId, body) => {
   const today = moment().format('YYYY-MM-DD HH:mm:ss');
   return knex('skills').where({ id: skillId }).update({
-    name: body.skillName,
+    name: body.name,
     updated_at: today,
   });
 };
