@@ -18,7 +18,7 @@ const router = express.Router({ mergeParams: true });
  *      5XX:
  *        description: Unexpected error.
  */
-router.get('/', async (req, res, next) => {
+router.get('/', async (req, res) => {
   try {
     if (!req.user) {
       return res.status(401).json({
@@ -32,11 +32,12 @@ router.get('/', async (req, res, next) => {
     res.header('Expires', '-1');
     res.header('Pragma', 'no-cache');
 
-    res.json({
-      user: req.user,
+    res.json(req.user);
+  } catch (error) {
+    res.status(400).send({
+      message: 'Cannot get info',
+      error,
     });
-  } catch (e) {
-    next();
   }
 });
 

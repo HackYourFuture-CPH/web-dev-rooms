@@ -138,7 +138,14 @@ router.delete('/:userId/:eventId', (req, res) => {
 });
 
 // edit an event
+/* 
 
+        venue: updatedEvent.venue,
+        max_participants: updatedEvent.max_participants,
+        description: updatedEvent.description,
+        event_date: updatedEvent.event_date,
+        event_type: updatedEvent.event_type,
+*/
 /**
  * @swagger
  * /events/{EID}/{UID}:
@@ -149,8 +156,11 @@ router.delete('/:userId/:eventId', (req, res) => {
  *    produces: application/json
  *    parameters:
  *      - in: path
- *        name: EID, UID
- *        description: EID is the event ID to patch, and UID is the User ID to edit
+ *        name: EID
+ *        description: EID is the event ID to patch
+ *      - in: path
+ *        name: UID
+ *        description: UID is the User ID to edit
  *      - in: body
  *        name: event
  *        description: The event to edit.
@@ -158,6 +168,14 @@ router.delete('/:userId/:eventId', (req, res) => {
  *          type: object
  *          properties:
  *            venue:
+ *              type: string
+ *            max_participants:
+ *              type: number
+ *            description:
+ *              type: string
+ *            event_date:
+ *              type: string
+ *            event_type:
  *              type: string
  *    responses:
  *      200:
@@ -174,6 +192,36 @@ router.patch('/:eid/:uid', (req, res) => {
         res.status(404).send('The event ID you provided does not exist.');
       } else if (result === 'not an admin') {
         res.status(403).send(`${req.params.uid} is not an administrator`);
+      }
+    });
+});
+
+/**
+ * @swagger
+ * /events/{eventId}/cancel/{studentId}:
+ *  delete:
+ *    summary: Delete a student from event
+ *    description:
+ *      Will delete a the student from specific event
+ *    produces: application/json
+ *    parameters:
+ *      - in: path
+ *        name: eventId
+ *      - in: path
+ *        name: studentId
+ *        description: ID of the student to delete.
+ *    responses:
+ *      200:
+ *        description: student deleted
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.delete('/:eventId/cancel/:studentId', (req, res) => {
+  eventsController
+    .deleteStudentFromEvent(req.params.eventId, req.params.studentId)
+    .then((result) => {
+      if (result === 0) {
+        res.status(404).send('The student ID you provided does not exist.');
       } else {
         res.json({ success: true });
       }
