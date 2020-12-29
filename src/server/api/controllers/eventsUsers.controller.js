@@ -69,7 +69,7 @@ where users.id=3;
       weekNumber: `${getNumberOfWeek(userEvents[0].dateTime)}`,
     }));
 
-    if (userEvents.length === 0) return ['no matching records found'];
+    if (userEvents.length === 0) return [];
     if (role !== userRole) return ['incorrect role name in the url path'];
     if (role === 'student') {
       return ['should return mentors attending'];
