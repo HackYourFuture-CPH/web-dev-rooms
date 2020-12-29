@@ -53,7 +53,7 @@ export const MentorRegistrationPage = () => {
         <Button>Submit</Button>
       </div>
 
-      <HelpText klass="mentor-registration-info-text" />
+      <HelpText />
     </div>
   );
 };

@@ -3,8 +3,9 @@ import './Selectionpage.css';
 import Radio from '../../components/Radio/ButtonRadio';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
 import { Button } from '../../components/Button/Button';
+import HelpText from '../../components/HelpText/HelpText';
 
-const SelectionPage = () => {
+const SelectionPage = (props) => {
   const submit = () => {
     return 'submit';
   };
@@ -30,13 +31,14 @@ const SelectionPage = () => {
         <Button onClick={submit}>Submit</Button>
       </div>
       <div className="text">
-        <p>
+        <HelpText text={props.selectionPageText} />
+        {/* <p>
           Select if you are a student or a mentor.
           <br />
           Please note if you are an alumni you can not register
           <br />
           as a student
-        </p>
+        </p> */}
       </div>
     </div>
   );

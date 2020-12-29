@@ -53,7 +53,7 @@ export const StudentRegistrationPage = () => {
       <div className="student-registration-button">
         <Button>Submit</Button>
       </div>
-      <HelpText klass="student-registration-info-text" />
+      <HelpText />
     </div>
   );
 };

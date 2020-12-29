@@ -42,7 +42,7 @@ export const AdminRegistrationPage = () => {
         <Button>Submit</Button>
       </div>
 
-      <HelpText klass="admin-registration-info-text" />
+      <HelpText />
     </div>
   );
 };
