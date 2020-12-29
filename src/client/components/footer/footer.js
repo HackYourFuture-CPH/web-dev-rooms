@@ -20,8 +20,10 @@ const Footer = () => {
     <footer>
       <div className="main-content">
         <div className="box">
-          <img src={home} alt="home icon" />
-          <h4>HOME</h4>
+          <Link to="/home">
+            <img src={home} alt="home icon" />
+            <h4>HOME</h4>
+          </Link>
         </div>
         <div className=" box">
           <Link to={getProfileLink()}>
