@@ -19,7 +19,7 @@ import { useUser } from './context/userContext';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const { isLoading, isAuthenticated } = useUser();
+  const { isLoading } = useUser();
 
   if (isLoading) {
     return <Loader />;
@@ -48,21 +48,13 @@ function App() {
           <AdminRegistrationPage />
         </Route>
 
-        <AuthenticatedRoute isAuthenticated={isAuthenticated} exact path="/">
+        <AuthenticatedRoute exact path="/">
           <Home />
         </AuthenticatedRoute>
-        <AuthenticatedRoute
-          isAuthenticated={isAuthenticated}
-          exact
-          path="/events"
-        >
+        <AuthenticatedRoute exact path="/events">
           <EventsPage />
         </AuthenticatedRoute>
-        <AuthenticatedRoute
-          isAuthenticated={isAuthenticated}
-          exact
-          path="/profile"
-        >
+        <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
 

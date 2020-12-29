@@ -7,7 +7,7 @@ const slackController = require('../controllers/slack_users.controller');
 
 router.post('/', (req, res) => {
   slackController
-    .getSlackAuth(req.query.code)
+    .loginWithSlack(req.query.code)
     .then((result) => {
       res.json(result);
     })
