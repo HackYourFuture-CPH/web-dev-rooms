@@ -123,6 +123,16 @@ router.post('/', (req, res) => {
  *          properties:
  *            topicName:
  *              type: string
+ *            weekNumber:
+ *              type: integer
+ *            readmeUrl:
+ *              type: varchar
+ *            lessonUrl:
+ *              type: varchar
+ *            homeworkUrl:
+ *              type: varchar
+ *            moduleId:
+ *              type: integer
  *    responses:
  *      200:
  *        description: Topic was patched
