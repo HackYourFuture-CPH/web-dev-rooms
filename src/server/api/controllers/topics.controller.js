@@ -47,7 +47,7 @@ const deleteTopic = async (topicId) => {
       .where({ id: topicId })
       .andWhere({ deleted_at: null });
     if (topics.length === 0) {
-      throw new Error(`incorrect entry with the id of ${topicId}`, 404);
+      throw new Error(`Incorrect topic with the id ${topicId}`, 404);
     } else {
       return knex('topics')
         .where({ id: topicId })
