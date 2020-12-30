@@ -1,53 +1,45 @@
 .admin-registration-main {
-  margin: auto;
-  padding: 0;
-  width: 70%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  padding: 0;
+  width: 100%;
 }
 
 .admin-registration-avatar {
-  width: 100%;
   margin: 0;
-  padding-top: 2%;
-  padding-left: 5%;
-  padding-bottom: 0.5%;
+  width: 100%;
   background-color: #f8f8f8;
-  border-radius: 0% 0% 100% 100%/0% 0% 100% 100%;
+  border-radius: 0% 0% 100% 100%;
+  overflow: hidden;
 }
 
-.admin-registration-avatar .logo-image {
-  float: left;
-  margin: 0;
-  padding: 0;
+.logo-image {
+  padding: 10px;
 }
 
 .admin-registration-text {
+  margin: 0;
   padding: 2%;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 24px;
   line-height: 28px;
   color: #293a7d;
 }
 
 .admin-registration-name,
 .admin-registration-role,
-.admin-registration-button,
 .admin-registration-info-text {
-  padding: 2%;
-}
-
-.admin-registration-footer {
-  padding: 5%;
-}
-
-.admin-registration-info-text {
+  padding: 1.5%;
+  margin: 0;
   text-align: center;
 }
 
-@media only screen and (max-width: 600px) {
-  .student-registration-main {
-    width: 100%;
-  }
+.admin-registration-button,
+.admin-registration-footer {
+  padding-top: 4%;
+}
+
+.admin-registration-footer {
+  padding: 4%;
 }
