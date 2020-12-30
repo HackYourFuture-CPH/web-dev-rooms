@@ -29,7 +29,7 @@ const ModelViewRegisteringForAnEvent = (props) => {
   const [topic, setTopic] = useState('');
   const [inputValue, setInputValue] = useState('');
 
-  const onchange = (e) => {
+  const onChange = (e) => {
     setInputValue(e.target.value);
   };
 
@@ -45,7 +45,7 @@ const ModelViewRegisteringForAnEvent = (props) => {
           <Dropdown items={topics} value={topic} setValue={setTopic} require />
         </div>
         <div className="input link">
-          <Input value={inputValue} onChange={onchange} />
+          <Input value={inputValue} onChange={onChange} />
         </div>
         <div className="text-note">
           <Card
