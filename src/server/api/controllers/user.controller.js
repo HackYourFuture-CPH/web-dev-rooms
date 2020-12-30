@@ -28,7 +28,7 @@ const createStudentRegistration = async (body) => {
     }
   }
 
-  return { success: false };
+  return { successful: false };
 };
 
 module.exports = {
