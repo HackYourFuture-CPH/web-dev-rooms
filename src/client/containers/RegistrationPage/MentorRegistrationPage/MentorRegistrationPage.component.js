@@ -20,13 +20,13 @@ export const MentorRegistrationPage = () => {
     fetch(apiURL)
       .then((data) => data.json())
       .then((data) => {
-        const companies = data.map((company) => {
+        const organizations = data.map((organization) => {
           return {
-            id: company.id,
-            value: company.name,
+            id: organization.id,
+            value: organization.name,
           };
         });
-        setCompanies(companies);
+        setCompanies(organizations);
         setLoadingCompanies(false);
       });
   }, []);
