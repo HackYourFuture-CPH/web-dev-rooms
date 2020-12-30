@@ -4,6 +4,7 @@ import Radio from '../../components/Radio/ButtonRadio';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
 import { Button } from '../../components/Button/Button';
 import HelpText from '../../components/HelpText/HelpText';
+import PropTypes from 'prop-types';
 
 const SelectionPage = (props) => {
   const submit = () => {
@@ -45,3 +46,11 @@ const SelectionPage = (props) => {
 };
 
 export default SelectionPage;
+
+SelectionPage.propTypes = {
+  selectionPageText: PropTypes.string,
+};
+
+SelectionPage.defaultProps = {
+  SelectionPageText: '',
+};
