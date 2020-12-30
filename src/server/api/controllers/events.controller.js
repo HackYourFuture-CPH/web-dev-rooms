@@ -86,10 +86,10 @@ const editEvent = async (eventId, userId, updatedEvent) => {
       .where('event_date', '>', today)
       .update({
         venue: updatedEvent.venue,
-        max_participants: updatedEvent.max_participants,
+        max_participants: updatedEvent.maxParticipants,
         description: updatedEvent.description,
-        event_date: updatedEvent.event_date,
-        event_type: updatedEvent.event_type,
+        event_date: updatedEvent.eventDate,
+        event_type: updatedEvent.eventType,
         updated_at: today,
       });
   }

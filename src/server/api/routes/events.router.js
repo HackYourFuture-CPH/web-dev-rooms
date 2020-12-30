@@ -169,13 +169,13 @@ router.delete('/:userId/:eventId', (req, res) => {
  *          properties:
  *            venue:
  *              type: string
- *            max_participants:
+ *            maxParticipants:
  *              type: number
  *            description:
  *              type: string
- *            event_date:
+ *            eventDate:
  *              type: string
- *            event_type:
+ *            eventType:
  *              type: string
  *    responses:
  *      200:
