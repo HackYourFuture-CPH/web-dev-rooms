@@ -45,7 +45,7 @@ const ModelViewRegisteringForAnEvent = (props) => {
           <Dropdown items={topics} value={topic} setValue={setTopic} require />
         </div>
         <div className="input link">
-          <Input value={inputValue} onChange={onChange} />
+          <Input value={inputValue} onChange={onChange} require />
         </div>
         <div className="text-note">
           <Card
