@@ -45,12 +45,8 @@ const SelectionPage = (props) => {
   );
 };
 
-export default SelectionPage;
-
 SelectionPage.propTypes = {
-  selectionPageText: PropTypes.string,
+  selectionPageText: PropTypes.string.isRequired,
 };
 
-SelectionPage.defaultProps = {
-  SelectionPageText: '',
-};
+export default SelectionPage;
