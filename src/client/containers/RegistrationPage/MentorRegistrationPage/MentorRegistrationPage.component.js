@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { Avatar } from '../../../components/Avatar/Avatar';
 import mentor from '../../../assets/images/mentor.png';
 import Input from '../../../components/Input/Input';
@@ -7,27 +6,34 @@ import DropDown from '../../../components/Dropdown/DropDown';
 import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
 import './MentorRegistrationPage.styles.css';
-
-// TODO: Array values would be updated through the DB
-const companies = [
-  {
-    id: '01',
-    value: 'Elastic',
-  },
-  {
-    id: '02',
-    value: 'Zendesk',
-  },
-  {
-    id: '03',
-    value: 'Hack Your Future',
-  },
-];
+import Loader from '../../../components/Loader/Loader';
 
 export const MentorRegistrationPage = () => {
   const [name, setName] = useState('');
   const [company, setCompany] = useState('');
+  const [loadingCompanies, setLoadingCompanies] = useState(true);
+  const [companies, setCompanies] = useState([]);
 
+  const apiURL = '/api/organizations';
+
+  useEffect(() => {
+    fetch(apiURL)
+      .then((data) => data.json())
+      .then((data) => {
+        const companies = data.map((company) => {
+          return {
+            id: company.id,
+            value: company.name,
+          };
+        });
+        setCompanies(companies);
+        setLoadingCompanies(false);
+      });
+  }, []);
+
+  if (loadingCompanies) {
+    return <Loader />;
+  }
   return (
     <div className="mentor-registration-main">
       <div className="mentor-registration-avatar">
