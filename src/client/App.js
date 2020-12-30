@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import Loader from './components/Loader';
 import Route404 from './components/Route404';
+import Logout from './components/Logout/Logout';
 import EventsPage from './containers/EventsPage/EventsPage';
 import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
@@ -19,7 +20,7 @@ import { useUser } from './context/userContext';
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const { isLoading, isAuthenticated } = useUser();
+  const { isLoading } = useUser();
 
   if (isLoading) {
     return <Loader />;
@@ -48,21 +49,16 @@ function App() {
           <AdminRegistrationPage />
         </Route>
 
-        <AuthenticatedRoute isAuthenticated={isAuthenticated} exact path="/">
+        <AuthenticatedRoute exact path="/">
           <Home />
         </AuthenticatedRoute>
-        <AuthenticatedRoute
-          isAuthenticated={isAuthenticated}
-          exact
-          path="/events"
-        >
+        <Route exact path="/logout">
+          <Logout />
+        </Route>
+        <AuthenticatedRoute exact path="/events">
           <EventsPage />
         </AuthenticatedRoute>
-        <AuthenticatedRoute
-          isAuthenticated={isAuthenticated}
-          exact
-          path="/profile"
-        >
+        <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
 
