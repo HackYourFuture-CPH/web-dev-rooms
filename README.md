@@ -57,7 +57,7 @@ All of this demands coordination between STAFF, STUDENTS and VOLUNTEERS and Web 
 
 - Week 0 - 08/11 - Job Hunt workshop and Boilerplate installation (online)
 - Week 1 - 15/11 - Kick-off with Wireframes presentation and Storybook  (online)
-- Week 2 - 22/11 -      (online)
+- Week 2 - 22/11 - How to review a PR, naming, Swagger and DB Diagram (online)
 - Week 3 - 29/11 -      (online)
 - Week 4 - 06/12 -      (not decided yet but probably online)
 - Week 5 - 13/12 -      (not decided yet but probably online)	
@@ -83,9 +83,13 @@ The customer of this project is HackYourFuture but you should also consider Your
 
 [Business Glossary](/BusinessGlossary.md)
 
+#### 🖌️ Wireframes 
+
+https://www.figma.com/file/9gN79UmpDPrAZk5jY4V7Ww/Study-Group-Management-System
+
 #### 🗄️ Database Model Diagram
 
-_Add here the DB Model Diagram_ - Use https://dbdiagram.io/
+https://dbdiagram.io/d/5fb801913a78976d7b7cc7d8
 
 - [How to make changes on the diagram](/diagram.md)
 

@@ -1,0 +1,34 @@
+/* AppHeader */
+
+/* BG */
+.AppHeader-div {
+  background-color: #f8f8f8;
+  width: 100%;
+  height: 59px;
+  position: absolute;
+}
+
+.AppHeader-div img {
+  position: absolute;
+  left: 5.8%;
+  right: 79.95%;
+  top: 23.73%;
+  bottom: 25.42%;
+}
+
+@media screen and (max-width: 600px) {
+  .AppHeader-div {
+    background-color: #f8f8f8;
+    width: 100%;
+    height: 59px;
+    position: absolute;
+  }
+
+  .AppHeader-div img {
+    position: absolute;
+    left: 5.8%;
+    right: 79.95%;
+    top: 23.73%;
+    bottom: 25.42%;
+  }
+}
