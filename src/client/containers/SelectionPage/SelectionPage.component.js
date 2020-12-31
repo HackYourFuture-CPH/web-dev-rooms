@@ -1,12 +1,11 @@
 import './SelectionPage.styles.css';
-
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-
 import { Button } from '../../components/Button/Button';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
 import { Layout } from '../../components/Layout';
 import Radio from '../../components/Radio/ButtonRadio';
+import HelpText from '../../components/HelpText/HelpText';
 
 const SelectionPage = () => {
   const [role, setRole] = useState('');
@@ -37,21 +36,18 @@ const SelectionPage = () => {
       </Button>
 
       <div className="text">
-        <HelpText text={props.selectionPageText} />
-        {/* <p>
-          Select if you are a student or a mentor.
-          <br />
-          Please note if you are an alumni you can not register
-          <br />
-          as a student
-        </p> */}
+        <HelpText>
+          <p>
+            Select if you are a student or a mentor.
+            <br />
+            Please note if you are an alumni you can not register
+            <br />
+            as a student
+          </p>
+        </HelpText>
       </div>
     </Layout>
   );
-};
-
-SelectionPage.propTypes = {
-  selectionPageText: PropTypes.string.isRequired,
 };
 
 export default SelectionPage;

@@ -12,8 +12,6 @@ import HelpText from '../../../components/HelpText/HelpText';
 
 const axios = require('axios');
 
-// TODO: Array values would be updated through the DB
-
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
   const [hyfclass, sethyfClass] = useState('Class14');
@@ -54,7 +52,13 @@ export const StudentRegistrationPage = () => {
       <div className="student-registration-button">
         <Button>Submit</Button>
       </div>
-      <HelpText />
+      <HelpText>
+        <p className="student-registration-info-text">
+          If you already do not have a slack id then please make one as it is
+          mandatory to have a slack id to connect with mentors and other
+          students.
+        </p>
+      </HelpText>
     </div>
   );
 };

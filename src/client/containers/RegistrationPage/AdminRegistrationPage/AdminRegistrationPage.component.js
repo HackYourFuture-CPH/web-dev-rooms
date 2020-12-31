@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import Footer from '../../../components/footer/footer'
 import { Avatar } from '../../../components/Avatar/Avatar';
 import admin from '../../../assets/images/admin.png';
 import Input from '../../../components/Input/Input';
@@ -41,8 +41,16 @@ export const AdminRegistrationPage = () => {
       <div className="admin-registration-button">
         <Button>Submit</Button>
       </div>
-
-      <HelpText />
+      <HelpText>
+        <p className="admin-registration-info-text">
+          If you already do not have a slack id then please make one as it is
+          mandatory to have a slack id to connect with mentors and other
+          students.
+        </p>
+      </HelpText>
+      <div className="admin-registration-footer">
+        <Footer />
+      </div>
     </div>
   );
 };
