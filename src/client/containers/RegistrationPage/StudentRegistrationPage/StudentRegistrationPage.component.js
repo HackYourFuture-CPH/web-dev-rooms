@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Avatar } from '../../../components/Avatar/Avatar';
 import student from '../../../assets/images/student.png';
@@ -6,29 +6,30 @@ import Input from '../../../components/Input/Input';
 import DropDown from '../../../components/Dropdown/DropDown';
 import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
+import Loader from '../../../components/Loader/Loader';
 import './StudentRegistrationPage.styles.css';
 import HelpText from '../../../components/HelpText/HelpText';
 
+const axios = require('axios');
+
 // TODO: Array values would be updated through the DB
-const classes = [
-  {
-    id: '01',
-    value: 'Class14',
-  },
-  {
-    id: '02',
-    value: 'Class15',
-  },
-  {
-    id: '03',
-    value: 'Class16',
-  },
-];
 
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
   const [hyfclass, sethyfClass] = useState('Class14');
+  const [groups, setGroups] = useState();
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    axios.get('/api/groups').then((response) => {
+      setGroups(response.data);
+      setIsLoading(false);
+      sethyfClass(response.data[0].id);
+    });
+  }, []);
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <div className="student-registration-main">
       <div className="student-registration-avatar">
@@ -48,7 +49,7 @@ export const StudentRegistrationPage = () => {
         />
       </div>
       <div className="student-registration-dropdown">
-        <DropDown value={hyfclass} setValue={sethyfClass} items={classes} />
+        <DropDown value={hyfclass} setValue={sethyfClass} items={groups} />
       </div>
       <div className="student-registration-button">
         <Button>Submit</Button>
