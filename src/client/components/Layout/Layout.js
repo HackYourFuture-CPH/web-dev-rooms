@@ -2,7 +2,8 @@ import './Layout.styles.css';
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as cn from 'classnames';
+
+const cn = require('classnames');
 
 export default function Layout({ className, children }) {
   return <div className={cn('layout', className)}>{children}</div>;
