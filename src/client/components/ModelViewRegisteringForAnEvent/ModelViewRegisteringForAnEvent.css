@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: darkgray;
+  align-items: center;
+}
+
+.model {
+  margin: 20px;
+  padding: 9px 9px;
+}
+
+.input {
+  margin: 9px;
+}

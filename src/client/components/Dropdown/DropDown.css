@@ -1,3 +1,7 @@
+.dropdown-component {
+  display: flex;
+}
+
 .select-css {
   display: block;
   width: 300px;

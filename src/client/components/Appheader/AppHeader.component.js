@@ -7,7 +7,9 @@ import PropTypes from 'prop-types';
 export const AppHeader = (props) => {
   return (
     <div className="AppHeader-div">
-      <img src={props.path} alt="AppHeader" />
+      <div className="Appheader-img-container">
+        <img src={props.path} alt="AppHeader" />
+      </div>
     </div>
   );
 };
