@@ -21,6 +21,9 @@ const eventsUsersRouter = require('./eventsUsers.router');
 
 const slackRouter = require('./slack.router');
 
+
+const eventsUsersRouter = require('./events.users.router');
+
 const userRouter = require('./user.router');
 
 const usersRouter = require('./users.router');
@@ -72,7 +75,11 @@ router.use('/signin', slackRouter);
 
 router.use('/self', selfRouter);
 
+
+router.use('/events_users', eventsUsersRouter);
+
 router.use('/user', userRouter);
 router.use('/user/register/mentor', mentorRouter);
+
 
 module.exports = router;
