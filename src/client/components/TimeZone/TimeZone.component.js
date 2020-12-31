@@ -8,8 +8,8 @@ export const TimeZoneDropDown = (props) => {
     <div>
       <DropDown
         items={props.timeZones}
-        value={props.timeZone}
-        setValue={props.setTimeZone}
+        value={props.name}
+        setValue={props.setName}
       />
     </div>
   );
@@ -19,15 +19,15 @@ TimeZoneDropDown.propTypes = {
   timeZones: PropTypes.arrayOf(
     shape({
       id: PropTypes.number,
-      value: PropTypes.string,
+      name: PropTypes.string,
     }),
   ),
-  timeZone: PropTypes.string,
-  setTimeZone: PropTypes.func,
+  name: PropTypes.string,
+  setName: PropTypes.func,
 };
 
 TimeZoneDropDown.defaultProps = {
   timeZones: [],
-  timeZone: '',
-  setTimeZone: null,
+  name: '',
+  setName: null,
 };

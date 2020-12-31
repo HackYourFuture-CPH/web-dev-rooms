@@ -25,7 +25,7 @@ DropDown.propTypes = {
   items: PropTypes.arrayOf(
     shape({
       id: PropTypes.number,
-      value: PropTypes.string,
+      name: PropTypes.string,
     }),
   ),
 };
