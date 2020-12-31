@@ -1,0 +1,23 @@
+.wrapper {
+  background-color: darkgray;
+  align-items: center;
+}
+
+.model {
+  margin: 20px;
+  padding: 9px 9px;
+}
+
+.input {
+  margin: 9px;
+}
+
+button {
+  margin: 86px;
+}
+
+@media (max-width: 800px) {
+  button {
+    margin: 50px;
+  }
+}
