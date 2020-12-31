@@ -30,7 +30,6 @@ const usersRouter = require('./users.router');
 
 const mentorRouter = require('./mentor.router');
 
-
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
