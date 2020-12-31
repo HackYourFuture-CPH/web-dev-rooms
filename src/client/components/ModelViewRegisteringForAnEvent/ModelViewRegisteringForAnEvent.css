@@ -11,13 +11,3 @@
 .input {
   margin: 9px;
 }
-
-button {
-  margin: 86px;
-}
-
-@media (max-width: 800px) {
-  button {
-    margin: 50px;
-  }
-}
