@@ -1,4 +1,6 @@
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
+
 import SelectOption from './SelectionPage.component';
 
 export default {
@@ -6,4 +8,10 @@ export default {
   component: SelectOption,
 };
 
-export const SelectionPage = () => <SelectOption />;
+export const SelectionPage = () => (
+  <>
+    <StaticRouter>
+      <SelectOption />
+    </StaticRouter>
+  </>
+);

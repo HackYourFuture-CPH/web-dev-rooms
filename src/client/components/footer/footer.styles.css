@@ -20,3 +20,8 @@ footer {
 .main-content .box h4 {
   margin-top: 5px;
 }
+
+.main-content .box img {
+  background-color: transparent;
+  border: 0;
+}

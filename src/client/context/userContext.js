@@ -16,7 +16,7 @@ export function UserProvider(props) {
     if (userFromLocalStorage) {
       try {
         const parsed = JSON.parse(userFromLocalStorage);
-        setUserRole(parsed.role);
+        setUserRole(parsed.userRole);
         setToken(parsed.accessToken);
         setUser(parsed);
       } catch (e) {
@@ -37,9 +37,9 @@ export function UserProvider(props) {
    * }
    */
   const login = (newUser) => {
-    localStorage.setItem(LocalStorageKey, JSON.stringify(user));
-    setToken(user.accessToken);
-    setUserRole(user.userRole);
+    localStorage.setItem(LocalStorageKey, JSON.stringify(newUser));
+    setToken(newUser.accessToken);
+    setUserRole(newUser.userRole);
     setUser(newUser);
   };
 
