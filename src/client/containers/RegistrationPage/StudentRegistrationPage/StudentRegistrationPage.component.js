@@ -8,10 +8,9 @@ import { Button } from '../../../components/Button/Button';
 import logo from '../../../assets/images/hyf-logo.png';
 import Loader from '../../../components/Loader/Loader';
 import './StudentRegistrationPage.styles.css';
+import HelpText from '../../../components/HelpText/HelpText';
 
 const axios = require('axios');
-
-// TODO: Array values would be updated through the DB
 
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
@@ -53,10 +52,13 @@ export const StudentRegistrationPage = () => {
       <div className="student-registration-button">
         <Button>Submit</Button>
       </div>
-      <p className="student-registration-info-text">
-        If you already do not have a slack id then please make one as it is
-        mandatory to have a slack id to connect with mentors and other students.
-      </p>
+      <HelpText>
+        <p className="student-registration-info-text">
+          If you already do not have a slack id then please make one as it is
+          mandatory to have a slack id to connect with mentors and other
+          students.
+        </p>
+      </HelpText>
     </div>
   );
 };
