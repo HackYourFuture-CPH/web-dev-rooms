@@ -1,19 +1,9 @@
 .student-headerProfilePage {
-  width: 100%;
+  min-width: 100%;
   height: fit-content;
   border-bottom-left-radius: 10em;
   border-bottom-right-radius: 10em;
   background-color: #f8f8f8;
-}
-
-#Vector {
-  position: absolute;
-  left: 7.8%;
-  top: 3.73%;
-}
-
-#Avatar {
-  padding-top: 25px;
 }
 
 .student-body-container {
@@ -24,7 +14,11 @@
 }
 
 .welcome-student {
-  margin: 20px 0;
+  padding: 30px;
+}
+
+.welcome-student h1 {
+  color: #293a7d;
 }
 
 .body-event {

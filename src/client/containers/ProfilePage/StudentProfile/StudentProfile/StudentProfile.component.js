@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppHeader } from '../../../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../../../components/Avatar/Avatar';
 import student from '../../../../assets/images/student.png';
 import Vector from '../../../../components/Appheader/Vector.svg';
@@ -16,15 +17,13 @@ export const StudentProfilePage = () => {
   return (
     <div className="student-profile-page">
       <div className="student-headerProfilePage">
-        <img id="Vector" src={Vector} alt="Vector" />
-        <div id="Avatar">
-          <Avatar avatarUrl={student} name="student" />
-        </div>
+        <AppHeader path={Vector} alt={Vector} />
+        <Avatar avatarUrl={student} name="student" />
       </div>
 
       <section className="student-body-container">
         <div className="welcome-student">
-          <h1 className="welcome-text">Wecome Demo Student1</h1>
+          <h1 className="welcome-text">Welcome Demo Student1</h1>
         </div>
 
         <div className="event-card-container">
