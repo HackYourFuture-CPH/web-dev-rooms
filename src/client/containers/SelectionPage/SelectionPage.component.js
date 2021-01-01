@@ -1,44 +1,52 @@
+import './SelectionPage.styles.css';
 import React, { useState } from 'react';
-import './Selectionpage.css';
-import Radio from '../../components/Radio/ButtonRadio';
-import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
+import { useHistory } from 'react-router-dom';
 import { Button } from '../../components/Button/Button';
+import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
+import { Layout } from '../../components/Layout';
+import Radio from '../../components/Radio/ButtonRadio';
+import HelpText from '../../components/HelpText/HelpText';
 
 const SelectionPage = () => {
-  const submit = () => {
-    return 'submit';
-  };
+  const [role, setRole] = useState('');
   const [title, setTitle] = useState('web dev rooms');
-  const onclicked = (choice) => {
-    if (choice === 'student') {
+  const history = useHistory();
+
+  const submit = () => {
+    history.push(`/registration/${role}`);
+  };
+
+  const roleChanged = (value) => {
+    if (role === 'student') {
       setTitle('web dev rooms');
     } else {
       setTitle('STUDY GROUP MANAGEMENT SYSTEM');
     }
+    setRole(value);
   };
-  return (
-    <div className="selection-page">
-      <div className="logo">
-        <HyfBigLogo />
-      </div>
-      <div className="selection-content">{title}</div>
 
-      <div className="radio">
-        <Radio onClick={onclicked} />
-      </div>
-      <div className="sub-button">
-        <Button onClick={submit}>Submit</Button>
-      </div>
+  return (
+    <Layout className="selection-page">
+      <HyfBigLogo title={title} />
+
+      <Radio onClick={roleChanged} />
+
+      <Button onClick={submit} disabled={!role}>
+        Submit
+      </Button>
+
       <div className="text">
-        <p>
-          Select if you are a student or a mentor.
-          <br />
-          Please note if you are an alumni you can not register
-          <br />
-          as a student
-        </p>
+        <HelpText>
+          <p>
+            Select if you are a student or a mentor.
+            <br />
+            Please note if you are an alumni you can not register
+            <br />
+            as a student
+          </p>
+        </HelpText>
       </div>
-    </div>
+    </Layout>
   );
 };
 

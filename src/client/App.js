@@ -1,10 +1,12 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
 import Loader from './components/Loader';
-import Route404 from './components/Route404';
 import Logout from './components/Logout/Logout';
+import Route404 from './components/Route404';
 import EventsPage from './containers/EventsPage/EventsPage';
 import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
@@ -16,8 +18,6 @@ import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRe
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
 import { useUser } from './context/userContext';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const { isLoading } = useUser();
