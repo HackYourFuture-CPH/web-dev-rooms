@@ -2,7 +2,7 @@ import React from 'react';
 
 import { ModalAdminCancelStudentRegistration } from './ModalAdminCancelStudentRegistration';
 
-export default { title: 'Modal with Student Cancel Registration' };
+export default { title: ' Modals | CancelStudentRegistrationModal' };
 
 export const CancelStudentRegistration = () => (
   <ModalAdminCancelStudentRegistration />

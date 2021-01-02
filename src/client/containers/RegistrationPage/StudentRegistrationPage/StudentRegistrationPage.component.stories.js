@@ -2,7 +2,7 @@ import React from 'react';
 import { StudentRegistrationPage } from './StudentRegistrationPage.component';
 
 export default {
-  title: 'StudentRegistrationPage',
+  title: 'Pages | StudentRegistrationPage',
 };
 
 export const StudentRegistration = () => <StudentRegistrationPage />;

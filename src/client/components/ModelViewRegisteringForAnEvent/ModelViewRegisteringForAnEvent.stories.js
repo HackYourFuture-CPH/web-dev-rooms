@@ -3,7 +3,7 @@ import ModelViewRegisteringForAnEvent from './ModelViewRegisteringForAnEvent.js'
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Model View Registering For An Event',
+  title: 'Modals | RegisteringAnEventModal',
   component: ModelViewRegisteringForAnEvent,
 };
 

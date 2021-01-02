@@ -4,7 +4,7 @@ import Button from './Button';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Sign in Button',
+  title: 'Components | Sign in Button',
   component: Button,
 };
 
