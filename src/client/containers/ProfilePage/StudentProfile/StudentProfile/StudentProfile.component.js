@@ -11,13 +11,10 @@ import Footer from '../../../../components/footer/footer';
 import './StudentProfile.style.css';
 
 export const StudentProfilePage = () => {
-  const handelSubmit = (e) => {
-    e.preventDefault();
-  };
   return (
     <div className="student-profile-page">
       <div className="student-headerProfilePage">
-        <AppHeader path={Vector} alt={Vector} />
+        <AppHeader path={Vector} />
         <Avatar avatarUrl={student} name="student" />
       </div>
 
@@ -41,7 +38,7 @@ export const StudentProfilePage = () => {
             </div>
           </div>
           <div className="feedback-submit-btn">
-            <Button onClick={handelSubmit}>Give Feedback</Button>
+            <Button>Give Feedback</Button>
           </div>
         </div>
       </section>
