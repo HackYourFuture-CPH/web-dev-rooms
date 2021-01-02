@@ -15,6 +15,7 @@ import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import { StudentProfilePage } from './containers/ProfilePage/StudentProfile/StudentProfile/StudentProfile.component';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
+import { RegistrationSuccessPage } from './containers/RegistrationPage/RegistrationSuccessPage';
 import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
@@ -48,6 +49,9 @@ function App() {
         </Route>
         <Route exact path="/registration/admin">
           <AdminRegistrationPage />
+        </Route>
+        <Route exact path="/registration/success">
+          <RegistrationSuccessPage />
         </Route>
 
         <AuthenticatedRoute exact path="/">

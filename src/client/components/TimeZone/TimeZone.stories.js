@@ -26,7 +26,7 @@ export const TimeDropTime = () => {
 
   return (
     <>
-      <TimeZoneDropDown timeZones={timeZones} value={name} setValue={setName} />
+      <TimeZoneDropDown timeZones={timeZones} name={name} setName={setName} />
     </>
   );
 };

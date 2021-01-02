@@ -31,7 +31,7 @@ const events = [
   },
 ];
 
-export default { title: 'Modal to create events' };
+export default { title: 'Modals | CreateEventModal' };
 
 export const Events = () => {
   return (
