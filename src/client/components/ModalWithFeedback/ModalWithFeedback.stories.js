@@ -2,7 +2,7 @@ import React from 'react';
 
 import ModalWithFeedback from './ModalWithFeedback';
 
-export default { title: 'Modal with feedback' };
+export default { title: 'Modals | FeedbackModal' };
 
 export const modalwithfeedback = () => (
   <ModalWithFeedback

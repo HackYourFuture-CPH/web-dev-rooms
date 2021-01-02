@@ -17,7 +17,7 @@ const studygroups = [
   },
 ];
 
-export default { title: 'EditEventsModal' };
+export default { title: 'Modals | EditEventModal' };
 
 export const EditNotPastEvent = () => {
   const [value, setValue] = useState('');

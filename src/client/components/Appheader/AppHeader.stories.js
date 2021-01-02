@@ -5,7 +5,7 @@ import { AppHeader } from './AppHeader.component'; // the component that you are
 
 export default {
   // what you see @ bookstory list
-  title: 'AppHeader',
+  title: 'Components | AppHeader',
   decorators: [withKnobs],
 };
 

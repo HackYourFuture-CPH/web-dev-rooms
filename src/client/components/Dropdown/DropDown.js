@@ -11,8 +11,8 @@ export default function DropDown({ value, setValue, items }) {
         onChange={(e) => setValue(e.currentTarget.value)}
       >
         {items.map((item) => (
-          <option className="dropdown-option" key={item.id} value={item.value}>
-            {item.value}
+          <option className="dropdown-option" key={item.id} value={item.name}>
+            {item.name}
           </option>
         ))}
       </select>
@@ -24,8 +24,8 @@ DropDown.propTypes = {
   setValue: PropTypes.func,
   items: PropTypes.arrayOf(
     shape({
-      id: PropTypes.string,
-      value: PropTypes.string,
+      id: PropTypes.number,
+      name: PropTypes.string,
     }),
   ),
 };

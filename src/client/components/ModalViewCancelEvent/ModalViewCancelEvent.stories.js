@@ -3,7 +3,7 @@ import React from 'react';
 import { ModalCancelEvent } from './ModalViewCancelEvent';
 
 export default {
-  title: 'Modal Cancel Event',
+  title: 'Modals | CancelEventModal',
 };
 
 export const CancelEventModal = () => <ModalCancelEvent />;

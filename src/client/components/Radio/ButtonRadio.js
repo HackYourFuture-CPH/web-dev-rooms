@@ -1,26 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import * as cn from 'classnames';
+
+import './ButtonRadio.css';
 
 function ButtonRadio(props) {
+  const [role, setRole] = useState('');
+
   const { onClick } = props;
-  const onclicked = (e) => {
+  const roleChanged = (e) => {
     onClick(e.target.name);
+    setRole(e.target.name);
   };
 
   return (
     <div className="btn-group">
       <div className="radiobutton student">
-        <button type="button" name={props.student} onClick={onclicked}>
+        <button
+          type="button"
+          className={cn({ selected: props.student === role })}
+          name={props.student}
+          onClick={roleChanged}
+        >
           Student
         </button>
       </div>
       <div className="radiobutton mentor">
-        <button type="button" name={props.mentor} onClick={onclicked}>
+        <button
+          type="button"
+          className={cn({ selected: props.mentor === role })}
+          name={props.mentor}
+          onClick={roleChanged}
+        >
           Mentor
         </button>
       </div>
       <div className="radiobutton admin">
-        <button type="button" name={props.admin} onClick={onclicked}>
+        <button
+          type="button"
+          className={cn({ selected: props.admin === role })}
+          name={props.admin}
+          onClick={roleChanged}
+        >
           Admin
         </button>
       </div>
