@@ -37,9 +37,9 @@ export function UserProvider(props) {
    * }
    */
   const login = (newUser) => {
-    localStorage.setItem(LocalStorageKey, JSON.stringify(user));
-    setToken(user.accessToken);
-    setUserRole(user.userRole);
+    localStorage.setItem(LocalStorageKey, JSON.stringify(newUser));
+    setToken(newUser.accessToken);
+    setUserRole(newUser.role);
     setUser(newUser);
   };
 

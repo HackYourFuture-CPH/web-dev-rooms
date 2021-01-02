@@ -1,62 +1,93 @@
-import React, { useEffect, useState } from 'react';
-
-import { Avatar } from '../../../components/Avatar/Avatar';
-import student from '../../../assets/images/student.png';
-import Input from '../../../components/Input/Input';
-import DropDown from '../../../components/Dropdown/DropDown';
-import { Button } from '../../../components/Button/Button';
-import logo from '../../../assets/images/hyf-logo.png';
-import Loader from '../../../components/Loader/Loader';
 import './StudentRegistrationPage.styles.css';
 
-const axios = require('axios');
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-// TODO: Array values would be updated through the DB
+import { AppHeader } from '../../../components/Appheader/AppHeader.component';
+import { StudentAvatar } from '../../../components/Avatar';
+import { Button } from '../../../components/Button/Button';
+import DropDown from '../../../components/Dropdown/DropDown';
+import Heading from '../../../components/Heading/Heading';
+import HelpText from '../../../components/HelpText/HelpText';
+import Input from '../../../components/Input/Input';
+import { Layout } from '../../../components/Layout';
+import Loader from '../../../components/Loader';
+import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
-  const [hyfclass, sethyfClass] = useState('Class14');
+  const [groupId, setGroupId] = useState();
   const [groups, setGroups] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const history = useHistory();
+  const { fetch, isRegistering } = useAuthenticatedFetch();
 
   useEffect(() => {
     axios.get('/api/groups').then((response) => {
       setGroups(response.data);
       setIsLoading(false);
-      sethyfClass(response.data[0].id);
+      setGroupId(response.data[0].id);
     });
   }, []);
-  if (isLoading) {
+
+  async function register(e) {
+    e.preventDefault();
+
+    try {
+      await fetch(`/api/user/register/student`, {
+        method: 'post',
+        data: {
+          name,
+          groupId,
+        },
+      });
+
+      toast('You have been registered!');
+
+      history.push('/registration/success');
+    } catch {
+      toast(`Ouch, an error! Please try again.`);
+    }
+  }
+
+  if (isLoading || isRegistering) {
     return <Loader />;
   }
+
+  const canSubmit = !!name && groupId;
+
   return (
-    <div className="student-registration-main">
-      <div className="student-registration-avatar">
-        <img className="logo-image" src={logo} alt="hyf-logo" />
+    <Layout className="student-registration-main">
+      <section className="w-full">
+        <AppHeader />
 
-        <Avatar avatarUrl={student} name="student" />
-      </div>
+        <div className="student-registration-avatar">
+          <StudentAvatar />
+        </div>
+      </section>
 
-      <p className="student-registration-text">Student registration</p>
-      <div className="student-registration-input">
+      <Heading>Student registration</Heading>
+
+      <form onSubmit={register}>
         <Input
           value={name}
           onChange={(e) => {
             setName(e.target.value);
           }}
-          placeholder="Full Name..."
+          placeholder="Full name..."
         />
-      </div>
-      <div className="student-registration-dropdown">
-        <DropDown value={hyfclass} setValue={sethyfClass} items={groups} />
-      </div>
-      <div className="student-registration-button">
-        <Button>Submit</Button>
-      </div>
-      <p className="student-registration-info-text">
+
+        <DropDown value={groupId} setValue={setGroupId} items={groups} />
+        <Button disabled={!canSubmit}>Submit</Button>
+      </form>
+
+      <HelpText>
         If you already do not have a slack id then please make one as it is
         mandatory to have a slack id to connect with mentors and other students.
-      </p>
-    </div>
+      </HelpText>
+    </Layout>
   );
 };

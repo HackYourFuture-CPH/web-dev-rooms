@@ -20,8 +20,14 @@ const getUsers = async () => {
     console.log(err);
   }
 };
-// Below: existing code for user auth by slack ID
-const getUserBySlackId = async (slackId) => {
+
+/**
+ * Existing code for user auth by slack ID
+ *
+ * @param {string} slackId
+ * @returns {Promise<object>} A promise with the user information
+ */
+async function getUserBySlackId(slackId) {
   const query = knex('users')
     .select('users.id', 'roles.name as role')
     .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
@@ -34,6 +40,7 @@ const getUserBySlackId = async (slackId) => {
     return {
       role: undefined,
       isNewUser: true,
+      slackId,
     };
   }
 
@@ -42,8 +49,9 @@ const getUserBySlackId = async (slackId) => {
   return {
     ...user,
     isNewUser: !user.role,
+    slackId,
   };
-};
+}
 
 module.exports = {
   getUsers,

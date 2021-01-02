@@ -2,7 +2,7 @@ import React from 'react';
 import { AdminRegistrationPage } from './AdminRegistrationPage.component';
 
 export default {
-  title: 'AdminRegistrationPage',
+  title: 'Pages | AdminRegistrationPage',
 };
 
 export const AdminRegistration = () => <AdminRegistrationPage />;

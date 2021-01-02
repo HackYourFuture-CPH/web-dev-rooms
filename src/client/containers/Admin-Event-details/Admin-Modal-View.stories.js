@@ -24,7 +24,7 @@ const students = [
     code: 'maherweb.dk',
   },
 ];
-export default { title: 'AdminModalView' };
+export default { title: 'Modals | EventViewModal' };
 export const EventViewModal = () => (
   <AdminModalView
     eventTitle="Elastic - Week 46"

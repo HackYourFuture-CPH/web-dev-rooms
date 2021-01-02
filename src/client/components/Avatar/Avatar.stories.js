@@ -6,7 +6,7 @@ import mentor from '../../assets/images/mentor.png';
 import admin from '../../assets/images/admin.png';
 
 export default {
-  title: 'Avatar',
+  title: 'Components | Avatar',
 };
 
 export const avatarForStudent = () => (

@@ -4,33 +4,29 @@ import { TimeZoneDropDown } from './TimeZone.component';
 const timeZones = [
   {
     id: 1,
-    value: 'Europe/Copenhagen',
+    name: 'Europe/Copenhagen',
   },
   {
     id: 2,
-    value: 'Europe/Dublin',
+    name: 'Europe/Dublin',
   },
   {
     id: 3,
-    value: 'Europe/Budapest',
+    name: 'Europe/Budapest',
   },
   {
     id: 4,
-    value: 'Australia/Sydney',
+    name: 'Australia/Sydney',
   },
 ];
 export default { title: 'TimeZone' };
 
 export const TimeDropTime = () => {
-  const [timeZone, setTimeZone] = useState('');
+  const [name, setName] = useState('');
 
   return (
     <>
-      <TimeZoneDropDown
-        timeZones={timeZones}
-        value={timeZone}
-        setValue={setTimeZone}
-      />
+      <TimeZoneDropDown timeZones={timeZones} name={name} setName={setName} />
     </>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { HyfLogo } from '../../components/HyfBigLogo/HyfBigLogo.stories';
 import { Layout } from '../../components/Layout';
@@ -15,6 +16,16 @@ export default function LoginPage() {
     <Layout>
       <HyfLogo />
       <Button onClick={authenticateUser} />
+
+      {process.env.NODE_ENV === 'development' ? (
+        <>
+          <hr />
+          <p className="text-center py-2">
+            <span>Or use a test login:</span>{' '}
+            <Link to="/login-test">Test login</Link>
+          </p>
+        </>
+      ) : null}
     </Layout>
   );
 }

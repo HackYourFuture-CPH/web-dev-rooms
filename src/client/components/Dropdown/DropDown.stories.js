@@ -4,75 +4,75 @@ import PropTypes, { shape } from 'prop-types';
 
 const questions = [
   {
-    id: '01',
-    value: 'Add Question here',
+    id: 1,
+    name: 'Add Question here',
   },
   {
-    id: '02',
-    value: 'question2',
+    id: 2,
+    name: 'question2',
   },
   {
-    id: '03',
-    value: 'question3',
+    id: 3,
+    name: 'question3',
   },
 ];
 
 const skills = [
   {
-    id: '01',
-    value: 'HTML/CSS',
+    id: 1,
+    name: 'HTML/CSS',
   },
   {
-    id: '02',
-    value: 'Firebase',
+    id: 2,
+    name: 'Firebase',
   },
   {
-    id: '03',
-    value: 'Javascript',
+    id: 3,
+    name: 'Javascript',
   },
   {
-    id: '04',
-    value: 'MYSQL',
+    id: 4,
+    name: 'MYSQL',
   },
   {
-    id: '05',
-    value: 'NodeJS',
+    id: 5,
+    name: 'NodeJS',
   },
   {
-    id: '06',
-    value: 'React',
+    id: 6,
+    name: 'React',
   },
   {
-    id: '07',
-    value: 'Typescript',
+    id: 7,
+    name: 'Typescript',
   },
 ];
 const classes = [
   {
-    id: '01',
-    value: 'Class14',
+    id: 1,
+    name: 'Class14',
   },
   {
-    id: '02',
-    value: 'Class15',
+    id: 2,
+    name: 'Class15',
   },
   {
-    id: '03',
-    value: 'Class16',
+    id: 3,
+    name: 'Class16',
   },
 ];
 const studygroups = [
   {
-    id: '01',
-    value: 'Elastic',
+    id: 1,
+    name: 'Elastic',
   },
   {
-    id: '02',
-    value: 'Zendesk',
+    id: 2,
+    name: 'Zendesk',
   },
   {
-    id: '03',
-    value: 'Hack Your Future',
+    id: 3,
+    name: 'Hack Your Future',
   },
 ];
 function DropDownWithState({ items }) {
@@ -94,7 +94,7 @@ DropDownWithState.defaultProps = {
   items: [],
 };
 
-export default { title: 'DropDown' };
+export default { title: 'Components | DropDown' };
 
 export const Studygroup = () => <DropDownWithState items={studygroups} />;
 export const Classgroup = () => <DropDownWithState items={classes} />;
