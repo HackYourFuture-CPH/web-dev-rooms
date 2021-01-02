@@ -1,11 +1,16 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import './HelpText.css';
+
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export default function HelpText(props) {
   return <div className="Helptext-component">{props.children}</div>;
 }
 
 HelpText.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.node,
+};
+
+HelpText.defaultProps = {
+  children: null,
 };

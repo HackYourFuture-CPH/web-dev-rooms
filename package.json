@@ -15,6 +15,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "db:clean": "cd ./src/server/ && knex migrate:rollback",
     "db:setup": "cd ./src/server/ && knex migrate:latest && knex seed:run",
+    "db:reset": "npm run db:clean && npm run db:setup",
     "storybook": "cd ./src/client/ && start-storybook -p 3007",
     "build-storybook": "build-storybook --no-dll -s public -c ./src/client/.storybook --quiet",
     "test": "jest",
