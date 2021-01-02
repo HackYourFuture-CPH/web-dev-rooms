@@ -23,7 +23,7 @@ const SelectionPage = () => {
 
   return (
     <Layout className="selection-page">
-      <HyfBigLogo title={`STUDY GROUP MANAGEMENT SYSTEM'`} />
+      <HyfBigLogo />
 
       <Radio onClick={roleChanged} />
 
