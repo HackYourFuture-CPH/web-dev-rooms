@@ -19,7 +19,7 @@ function EventsPage() {
 
   return (
     <div className="events-page">
-      <AppHeader id="app-header" />
+      <AppHeader />
       <Header>Current Studygroup</Header>
       <div className="group-for-class">Study groups</div>
       {events.map((event) => {

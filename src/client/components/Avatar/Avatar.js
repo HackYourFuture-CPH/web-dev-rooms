@@ -1,6 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import './Avatar.css';
+
+import PropTypes from 'prop-types';
+import React from 'react';
 
 export const Avatar = (props) => {
   return (
