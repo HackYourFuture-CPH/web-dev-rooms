@@ -94,7 +94,7 @@ DropDownWithState.defaultProps = {
   items: [],
 };
 
-export default { title: 'DropDown' };
+export default { title: 'Components | DropDown' };
 
 export const Studygroup = () => <DropDownWithState items={studygroups} />;
 export const Classgroup = () => <DropDownWithState items={classes} />;

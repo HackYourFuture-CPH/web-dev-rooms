@@ -4,7 +4,7 @@ import React from 'react';
 import { AppHeader } from './AppHeader.component';
 
 export default {
-  title: 'AppHeader',
+  title: 'Components | AppHeader',
   decorators: [withKnobs],
 };
 

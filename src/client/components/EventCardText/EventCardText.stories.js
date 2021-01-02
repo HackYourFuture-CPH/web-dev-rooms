@@ -3,7 +3,7 @@ import React from 'react';
 import { EventCardText } from './EventCardText';
 
 export default {
-  title: 'EventCardText',
+  title: 'Components | EventCardText',
 };
 
 export const Example = () => (

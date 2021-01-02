@@ -4,7 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import SelectOption from './SelectionPage.component';
 
 export default {
-  title: 'Selection page',
+  title: 'Pages | Selection page',
   component: SelectOption,
 };
 
