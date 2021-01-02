@@ -2,7 +2,7 @@ import React from 'react';
 
 import ModalWithCancelRegistration from './ModalWithCancelRegistration';
 
-export default { title: 'Modal with Cancel Registration' };
+export default { title: 'Modals | CancelRegistrationModal' };
 
 export const Modalwithcancelregistration = () => (
   <ModalWithCancelRegistration

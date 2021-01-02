@@ -6,7 +6,7 @@ import ZendeskLogo from './Zendesk.logo.svg';
 import ElasticLogo from './Elastic.logo.svg';
 
 export default {
-  title: 'StudyGroupLogo',
+  title: 'Components | StudyGroupLogo',
 };
 
 export const ExampleWithHYF = () => (
