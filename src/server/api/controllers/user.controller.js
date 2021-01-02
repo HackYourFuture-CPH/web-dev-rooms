@@ -1,6 +1,6 @@
 const knex = require('../../config/db');
 
-const createStudentRegistration = async (body) => {
+const createStudentRegistration = async (body, authUser) => {
   const organizationName = 'HYF';
   const org = await knex('organizations')
     .where('name', organizationName)
@@ -10,9 +10,10 @@ const createStudentRegistration = async (body) => {
 
   const registerStudentId = await knex('users').insert({
     name: body.name,
-    slack_id: body.slackId,
     organization_id: organizationId,
     group_id: body.groupId,
+    slack_id: authUser.slackId,
+    slack_access_token: authUser.accessToken,
   });
 
   const studentRole = await knex('roles').where('name', 'student').first('id');

@@ -1,22 +1,15 @@
-// dumb/statless img component with props
+import './AppHeader.style.css';
 
 import React from 'react';
-import './AppHeader.style.css';
-import PropTypes from 'prop-types';
 
-export const AppHeader = (props) => {
+import Vector from './Vector.svg';
+
+export const AppHeader = () => {
   return (
     <div className="AppHeader-div">
       <div className="Appheader-img-container">
-        <img src={props.path} alt="AppHeader" />
+        <img src={Vector} alt="AppHeader" />
       </div>
     </div>
   );
-};
-AppHeader.propTypes = {
-  path: PropTypes.string,
-};
-
-AppHeader.defaultProps = {
-  path: '',
 };

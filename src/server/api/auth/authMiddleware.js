@@ -11,18 +11,14 @@ async function authMiddleware(req, res, next) {
       req.user = user;
     } else {
       // TODO: use jwt here
-      switch (token) {
-        default:
-          try {
-            const slackId = getSlackIdFromSlack(token);
-            req.user = {
-              slackId,
-            };
-          } catch (error) {
-            res.status(401).send('Invalid credentials');
-          }
-
-          break;
+      try {
+        const slackId = await getSlackIdFromSlack(token);
+        req.user = {
+          slackId,
+          accessToken: token,
+        };
+      } catch (error) {
+        res.status(401).send('Invalid credentials');
       }
     }
   }
@@ -39,8 +35,7 @@ async function authMiddleware(req, res, next) {
 }
 
 /**
- *
- *
+ * Gets the seeded user with the specified slack id.
  * @param {string} token
  */
 async function getSeedUser(token) {

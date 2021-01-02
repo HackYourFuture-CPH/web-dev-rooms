@@ -38,7 +38,7 @@ const studentRegistrationController = require('../controllers/user.controller');
 
 router.post('/register/student', (req, res) => {
   studentRegistrationController
-    .createStudentRegistration(req.body)
+    .createStudentRegistration(req.body, req.user)
     .then((result) => res.json(result))
     .catch((error) => {
       console.log(error);
