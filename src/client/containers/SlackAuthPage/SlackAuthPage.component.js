@@ -1,11 +1,10 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Link, Redirect, useLocation } from 'react-router-dom';
-import axios from 'axios';
 
-import { useUser } from '../../context/userContext';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
-
-import './SlackAuthPage.styles.css';
+import { Layout } from '../../components/Layout';
+import { useUser } from '../../context/userContext';
 
 export default function SlackAuthPage() {
   const [isError, setIsError] = useState(false);
@@ -33,7 +32,7 @@ export default function SlackAuthPage() {
   }
 
   return (
-    <div className="slack-auth-page">
+    <Layout className="items-center">
       <HyfBigLogo />
 
       <h1>Login with Slack</h1>
@@ -48,6 +47,6 @@ export default function SlackAuthPage() {
       ) : (
         <p>Please wait...</p>
       )}
-    </div>
+    </Layout>
   );
 }

@@ -3,65 +3,27 @@ const { getUserBySlackId } = require('../controllers/users.controller');
 
 async function authMiddleware(req, res, next) {
   if (req.headers.authorization) {
+    /** @type {string} */
     const token = req.headers.authorization.split('Bearer ')[1];
-    // TODO: use jwt here
-    switch (token) {
-      case 'student':
-        req.user = {
-          id: 1,
-          role: 'student',
-          slackId: 'deepti14',
-        };
-        break;
 
-      case 'mentor':
-        req.user = {
-          id: 101,
-          role: 'mentor',
-          slackId: 'mentor_zendesk',
-        };
-        break;
+    if (token.startsWith('TOKEN:')) {
+      const user = await getSeedUser(token);
+      req.user = user;
+    } else {
+      // TODO: use jwt here
+      switch (token) {
+        default:
+          try {
+            const slackId = getSlackIdFromSlack(token);
+            req.user = {
+              slackId,
+            };
+          } catch (error) {
+            res.status(401).send('Invalid credentials');
+          }
 
-      case 'admin':
-        req.user = {
-          id: 1001,
-          role: 'admin',
-          slackId: 'admin1',
-        };
-        break;
-
-      default:
-        // TODO: real auth with Slack here
-        try {
-          /**
-           * {
-           *  "ok": true,
-           *  "user": {
-           *    "name": "",
-           *    "id": ""
-           *  },
-           *  "team": {
-           *    "id": "
-           *  }
-           *}
-           */
-          const { data } = await axios.get(
-            'https://slack.com/api/users.identity',
-            {
-              headers: {
-                Authorization: `Bearer ${token}`,
-              },
-            },
-          );
-          const slackId = data.user.id;
-          req.user = {
-            slackId,
-          };
-        } catch (error) {
-          res.status(401).send('Invalid credentials');
-        }
-
-        break;
+          break;
+      }
     }
   }
 
@@ -74,6 +36,48 @@ async function authMiddleware(req, res, next) {
   }
 
   next();
+}
+
+/**
+ *
+ *
+ * @param {string} token
+ */
+async function getSeedUser(token) {
+  const slackId = token.split('TOKEN:')[1].trim();
+  return {
+    ...(await getUserBySlackId(slackId)),
+    accessToken: token,
+    slackId,
+  };
+}
+
+/**
+ * Calls slack and retrieves user ID
+ *
+ * @param {string} token
+ * @returns {Promise<string>} A slack id.
+ */
+async function getSlackIdFromSlack(token) {
+  /**
+   * {
+   *  "ok": true,
+   *  "user": {
+   *    "name": "",
+   *    "id": ""
+   *  },
+   *  "team": {
+   *    "id": "
+   *  }
+   *}
+   */
+  const { data } = await axios.get('https://slack.com/api/users.identity', {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+  const slackId = data.user.id;
+  return slackId;
 }
 
 module.exports = authMiddleware;

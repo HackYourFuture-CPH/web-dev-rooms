@@ -32,6 +32,7 @@ const loginWithSlack = async (code) => {
 
     return {
       ...user,
+      slackId: data.authed_user.id,
       accessToken,
     };
   } catch (error) {
