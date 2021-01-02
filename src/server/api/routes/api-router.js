@@ -59,6 +59,7 @@ router.use('/topics', TopicsRouter);
 
 router.use('/skills', skillsRouter);
 
+router.use('/user', userRouter);
 router.use('/events', eventsRouter);
 router.use('/groups', groupsRouter);
 
@@ -75,7 +76,6 @@ router.use('/self', selfRouter);
 
 router.use('/events_users', eventsUsersRouter2);
 
-router.use('/user', userRouter);
 router.use('/user/register/mentor', mentorRouter);
 
 module.exports = router;
