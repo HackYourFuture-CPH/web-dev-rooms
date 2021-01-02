@@ -10,27 +10,8 @@ import { Button } from '../../../components/Button/Button';
 import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.component';
 import './MentorProfile.style.css';
 
-const timeZones = [
-  {
-    id: 1,
-    name: 'Europe/Copenhagen',
-  },
-  {
-    id: 2,
-    name: 'Europe/Dublin',
-  },
-  {
-    id: 3,
-    name: 'Europe/Budapest',
-  },
-  {
-    id: 4,
-    name: 'Australia/Sydney',
-  },
-];
 export const MentorProfilePage = () => {
-  const [skill, setSkill] = useState();
-  const [name, setName] = useState('');
+  const [skill, setSkill] = useState([]);
 
   const apiURL = '/api/skills';
 
@@ -57,7 +38,7 @@ export const MentorProfilePage = () => {
 
       <section className="mentor-body-container">
         <div className="welcome-mentor">
-          <h1>Wecome Dummy Mentor</h1>
+          <h1>Welcome Dummy Mentor</h1>
         </div>
         <div className="mentor-skills">
           <Label text="HTML/CSS">HTML/CSS</Label>
@@ -70,7 +51,7 @@ export const MentorProfilePage = () => {
           <DropDown items={skill} value={skill} setValue={setSkill} />
         </div>
         <div className="timezone-dropdown">
-          <TimeZoneDropDown items={timeZones} value={name} setValue={setName} />
+          <TimeZoneDropDown />
         </div>
         <div className="submit-button">
           <Button>Submit</Button>
