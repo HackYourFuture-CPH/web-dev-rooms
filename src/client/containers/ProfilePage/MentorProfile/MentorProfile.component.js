@@ -29,24 +29,22 @@ const timeZones = [
   },
 ];
 export const MentorProfilePage = () => {
-  const [selectSkill, setSelectSkill] = useState([]);
+  const [skill, setSkill] = useState();
   const [name, setName] = useState('');
 
-  const apiURL = 'http://localhost:3000/api/skills';
+  const apiURL = '/api/skills';
 
   useEffect(() => {
     fetch(apiURL)
       .then((response) => response.json())
       .then((data) => {
-        const skills = data.map((skill) => {
+        const skills = data.map((skillItem) => {
           return {
-            id: skill.id,
-            value: skill.name,
+            id: skillItem.id,
+            name: skillItem.name,
           };
         });
-        console.log(skills);
-
-        setSelectSkill(skills);
+        setSkill(skills);
       });
   }, []);
 
@@ -69,11 +67,7 @@ export const MentorProfilePage = () => {
           <Label text="React">React</Label>
         </div>
         <div className="skills-dropdown">
-          <DropDown
-            items={selectSkill}
-            selectSkill={selectSkill}
-            setSelectSkill={setSelectSkill}
-          />
+          <DropDown items={skill} value={skill} setValue={setSkill} />
         </div>
         <div className="timezone-dropdown">
           <TimeZoneDropDown items={timeZones} value={name} setValue={setName} />
