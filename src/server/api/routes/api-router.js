@@ -29,6 +29,8 @@ const usersRouter = require('./users.router');
 
 const mentorRouter = require('./mentor.router');
 
+const eventsDetailRouter = require('./eventDetail.router');
+
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
@@ -76,6 +78,9 @@ router.use('/self', selfRouter);
 
 router.use('/events_users', eventsUsersRouter2);
 
+router.use('/eventsDetail', eventsDetailRouter);
+
+router.use('/user', userRouter);
 router.use('/user/register/mentor', mentorRouter);
 
 module.exports = router;
