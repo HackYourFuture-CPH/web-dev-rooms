@@ -53,9 +53,6 @@ function App() {
         <Route exact path="/registration/success">
           <RegistrationSuccessPage />
         </Route>
-        <Route exact path="/profile/student">
-          <StudentProfilePage />
-        </Route>
 
         <AuthenticatedRoute exact path="/">
           <Home />
@@ -69,6 +66,10 @@ function App() {
 
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
+        </AuthenticatedRoute>
+
+        <AuthenticatedRoute exact path="/profile/student">
+          <StudentProfilePage />
         </AuthenticatedRoute>
 
         <Route path="*" component={Route404} />

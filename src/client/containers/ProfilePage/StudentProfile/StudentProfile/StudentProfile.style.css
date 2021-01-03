@@ -17,8 +17,15 @@
   padding: 30px;
 }
 
-.welcome-student h1 {
-  color: #293a7d;
+.event-card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f6f6f6;
+  border: 1px solid #d5d5d5;
+  box-sizing: border-box;
+  border-radius: 15px;
+  max-width: 350px;
 }
 
 .body-event {
@@ -37,29 +44,9 @@
   padding-top: 10px;
 }
 
-.event-card-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #f6f6f6;
-  border: 1px solid #d5d5d5;
-  box-sizing: border-box;
-  border-radius: 15px;
-  width: 350px;
-  height: 186px;
-  left: 32px;
-  top: 418px;
-}
-
 .feedback-submit-btn {
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 16px 32px;
-}
-
-@media only screen and (max-width: 600px) {
-  .student-profile-page {
-    width: 100%;
-  }
 }

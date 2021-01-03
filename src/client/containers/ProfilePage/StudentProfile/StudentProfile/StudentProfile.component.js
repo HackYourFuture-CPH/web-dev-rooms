@@ -3,6 +3,7 @@ import { AppHeader } from '../../../../components/Appheader/AppHeader.component'
 import { Avatar } from '../../../../components/Avatar/Avatar';
 import student from '../../../../assets/images/student.png';
 import Vector from '../../../../components/Appheader/Vector.svg';
+import Header from '../../../../components/Heading/Heading';
 import { EventCardText } from '../../../../components/EventCardText/EventCardText';
 import ElasticLogo from '../../../../components/StudyGroupLogo/Elastic.logo.svg';
 import { Button } from '../../../../components/Button/Button';
@@ -20,7 +21,7 @@ export const StudentProfilePage = () => {
 
       <section className="student-body-container">
         <div className="welcome-student">
-          <h1 className="welcome-text">Welcome Demo Student1</h1>
+          <Header>Welcome Demo Student1</Header>
         </div>
 
         <div className="event-card-container">
