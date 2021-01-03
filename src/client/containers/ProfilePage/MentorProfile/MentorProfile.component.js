@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../../components/Avatar/Avatar';
+import Heading from '../../../components/Heading/Heading';
 import mentor from '../../../assets/images/mentor.png';
 import Vector from '../../../components/Appheader/Vector.svg';
 import Label from '../../../components/Label/Tags/Label';
@@ -11,7 +12,7 @@ import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.componen
 import './MentorProfile.style.css';
 
 export const MentorProfilePage = () => {
-  const [skill, setSkill] = useState([]);
+  const [skills, setSkills] = useState([]);
 
   const apiURL = '/api/skills';
 
@@ -19,13 +20,13 @@ export const MentorProfilePage = () => {
     fetch(apiURL)
       .then((response) => response.json())
       .then((data) => {
-        const skills = data.map((skillItem) => {
+        const skill = data.map((skillItem) => {
           return {
             id: skillItem.id,
             name: skillItem.name,
           };
         });
-        setSkill(skills);
+        setSkills(skill);
       });
   }, []);
 
@@ -38,7 +39,7 @@ export const MentorProfilePage = () => {
 
       <section className="mentor-body-container">
         <div className="welcome-mentor">
-          <h1>Welcome Dummy Mentor</h1>
+          <Heading>Welcome Dummy Mentor</Heading>
         </div>
         <div className="mentor-skills">
           <Label text="HTML/CSS">HTML/CSS</Label>
@@ -48,7 +49,7 @@ export const MentorProfilePage = () => {
           <Label text="React">React</Label>
         </div>
         <div className="skills-dropdown">
-          <DropDown items={skill} value={skill} setValue={setSkill} />
+          <DropDown items={skills} value={skills} setValue={setSkills} />
         </div>
         <div className="timezone-dropdown">
           <TimeZoneDropDown />
