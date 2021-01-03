@@ -12,6 +12,7 @@ import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import LoginTest from './containers/LoginTestPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { MentorProfilePage } from './containers/ProfilePage/MentorProfile/MentorProfile.component';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
 import { RegistrationSuccessPage } from './containers/RegistrationPage/RegistrationSuccessPage';
@@ -51,6 +52,9 @@ function App() {
         </Route>
         <Route exact path="/registration/success">
           <RegistrationSuccessPage />
+        </Route>
+        <Route exact path="/profile/mentor">
+          <MentorProfilePage />
         </Route>
 
         <AuthenticatedRoute exact path="/">
