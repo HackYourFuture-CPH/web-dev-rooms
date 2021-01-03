@@ -1,4 +1,5 @@
 import './StudentRegistrationPage.styles.css';
+import '../Registration.styles.css';
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
@@ -71,7 +72,7 @@ export const StudentRegistrationPage = () => {
 
       <Heading>Student registration</Heading>
 
-      <form onSubmit={register}>
+      <form onSubmit={register} className="registration-form">
         <Input
           value={name}
           onChange={(e) => {
