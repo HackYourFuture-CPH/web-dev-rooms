@@ -16,8 +16,8 @@ const eventDetail = async (userId) => {
     // .leftJoin('organizations', 'organization_id', 'organizations.id')
     .where('users.id', userId);
   //   const mentorRole = await knex('roles').where('name', 'mentor').first('id');
-  //if (user) {
-  //await knex('events').select('event_date').where('events.id', eventId);
+  //   if (user) {
+  //  await knex('events').select('event_date').where('events.id', eventId);
   return {
     successful: true,
   };
