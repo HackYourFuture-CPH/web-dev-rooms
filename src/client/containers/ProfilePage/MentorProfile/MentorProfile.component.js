@@ -13,6 +13,7 @@ import './MentorProfile.style.css';
 
 export const MentorProfilePage = () => {
   const [skills, setSkills] = useState([]);
+  const [skill, setSkill] = useState(0);
 
   const apiURL = '/api/skills';
 
@@ -20,13 +21,13 @@ export const MentorProfilePage = () => {
     fetch(apiURL)
       .then((response) => response.json())
       .then((data) => {
-        const skill = data.map((skillItem) => {
+        const skillsData = data.map((skillItem) => {
           return {
             id: skillItem.id,
             name: skillItem.name,
           };
         });
-        setSkills(skill);
+        setSkills(skillsData);
       });
   }, []);
 
@@ -49,7 +50,7 @@ export const MentorProfilePage = () => {
           <Label text="React">React</Label>
         </div>
         <div className="skills-dropdown">
-          <DropDown items={skills} value={skills} setValue={setSkills} />
+          <DropDown items={skills} value={skill} setValue={setSkill} />
         </div>
         <div className="timezone-dropdown">
           <TimeZoneDropDown />
