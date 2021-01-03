@@ -1,27 +1,36 @@
+import './AdminRegistrationPage.styles.css';
+
 import React, { useState } from 'react';
 
-import { Avatar } from '../../../components/Avatar/Avatar';
-import admin from '../../../assets/images/admin.png';
-import Input from '../../../components/Input/Input';
+import { AppHeader } from '../../../components/Appheader/AppHeader.component';
+import { AdminAvatar } from '../../../components/Avatar';
 import { Button } from '../../../components/Button/Button';
-import logo from '../../../assets/images/hyf-logo.png';
-import Footer from '../../../components/footer/footer';
-import './AdminRegistrationPage.styles.css';
+import Heading from '../../../components/Heading/Heading';
 import HelpText from '../../../components/HelpText/HelpText';
+import Input from '../../../components/Input/Input';
+import { Layout } from '../../../components/Layout';
 
 export const AdminRegistrationPage = () => {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
 
-  return (
-    <div className="admin-registration-main">
-      <div className="admin-registration-avatar">
-        <img className="logo-image" src={logo} alt="hyf-logo" />
-        <Avatar avatarUrl={admin} name="admin" />
-      </div>
+  function register() {
+    return 'not implemented';
+  }
 
-      <p className="admin-registration-text">Welcome Admin</p>
-      <div className="admin-registration-name">
+  return (
+    <Layout className="admin-registration-main">
+      <section className="w-full">
+        <AppHeader />
+
+        <div className="admin-registration-avatar">
+          <AdminAvatar />
+        </div>
+      </section>
+
+      <Heading>Welcome Admin</Heading>
+
+      <form className="registration-form" onSubmit={register}>
         <Input
           value={name}
           onChange={(e) => {
@@ -29,8 +38,6 @@ export const AdminRegistrationPage = () => {
           }}
           placeholder="Name"
         />
-      </div>
-      <div className="admin-registration-role">
         <Input
           value={role}
           onChange={(e) => {
@@ -38,20 +45,13 @@ export const AdminRegistrationPage = () => {
           }}
           placeholder="Role"
         />
-      </div>
-      <div className="admin-registration-button">
         <Button>Submit</Button>
-      </div>
+      </form>
+
       <HelpText>
-        <p className="admin-registration-info-text">
-          If you already do not have a slack id then please make one as it is
-          mandatory to have a slack id to connect with mentors and other
-          students.
-        </p>
+        If you already do not have a slack id then please make one as it is
+        mandatory to have a slack id to connect with mentors and other students.
       </HelpText>
-      <div className="admin-registration-footer">
-        <Footer />
-      </div>
-    </div>
+    </Layout>
   );
 };
