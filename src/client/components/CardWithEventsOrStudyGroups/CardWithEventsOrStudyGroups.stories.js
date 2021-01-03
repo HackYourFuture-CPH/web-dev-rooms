@@ -6,7 +6,7 @@ import ZendeskLogo from '../StudyGroupLogo/Zendesk.logo.svg';
 import ElasticLogo from '../StudyGroupLogo/Elastic.logo.svg';
 
 export default {
-  title: 'CardWithEventsOrStudyGroups',
+  title: 'Components | CardWithEventsOrStudyGroups',
 };
 
 export const CardExampleWithHYF = () => (
