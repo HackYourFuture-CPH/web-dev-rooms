@@ -19,7 +19,7 @@ const timeZones = [
     name: 'Australia/Sydney',
   },
 ];
-export default { title: 'TimeZone' };
+export default { title: 'Components | TimeZone' };
 
 export const TimeDropTime = () => {
   const [name, setName] = useState('');

@@ -3,31 +3,20 @@ const express = require('express');
 const router = express.Router();
 
 // Router imports
-const modulesRouter = require('./modules.router');
-
-const TopicsRouter = require('./topics.router');
-
-const skillsRouter = require('./skills.router');
-
 const eventsRouter = require('./events.router');
-
-const selfRouter = require('./self.router');
-
-const groupsRouter = require('./groups.router');
-
-const feedbacksRouter = require('./feedbacks.router');
-const organizationsRouter = require('./organizations.router');
 const eventsUsersRouter = require('./eventsUsers.router');
-
-const slackRouter = require('./slack.router');
-
 const eventsUsersRouter2 = require('./events.users.router');
-
-const userRouter = require('./user.router');
-
-const usersRouter = require('./users.router');
-
+const feedbacksRouter = require('./feedbacks.router');
+const groupsRouter = require('./groups.router');
 const mentorRouter = require('./mentor.router');
+const modulesRouter = require('./modules.router');
+const organizationsRouter = require('./organizations.router');
+const selfRouter = require('./self.router');
+const skillsRouter = require('./skills.router');
+const slackRouter = require('./slack.router');
+const TopicsRouter = require('./topics.router');
+const userRouter = require('./user.router');
+const usersRouter = require('./users.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -53,29 +42,19 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
-router.use('/modules', modulesRouter);
-
-router.use('/topics', TopicsRouter);
-
-router.use('/skills', skillsRouter);
-
-router.use('/user', userRouter);
-router.use('/events', eventsRouter);
-router.use('/groups', groupsRouter);
-
-router.use('/feedbacks', feedbacksRouter);
-
-router.use('/organizations', organizationsRouter);
-router.use('/eventsUsers', eventsUsersRouter);
-
-router.use('/users', usersRouter);
-
-router.use('/signin', slackRouter);
-
-router.use('/self', selfRouter);
-
 router.use('/events_users', eventsUsersRouter2);
-
+router.use('/events', eventsRouter);
+router.use('/eventsUsers', eventsUsersRouter);
+router.use('/feedbacks', feedbacksRouter);
+router.use('/groups', groupsRouter);
+router.use('/modules', modulesRouter);
+router.use('/organizations', organizationsRouter);
+router.use('/self', selfRouter);
+router.use('/signin', slackRouter);
+router.use('/skills', skillsRouter);
+router.use('/topics', TopicsRouter);
+router.use('/user', userRouter);
 router.use('/user/register/mentor', mentorRouter);
+router.use('/users', usersRouter);
 
 module.exports = router;
