@@ -25,8 +25,8 @@ export const TimeZoneDropDown = () => {
   const [name, setName] = useState('');
 
   return (
-    <div>
+    <>
       <DropDown items={timeZones} value={name} setValue={setName} />
-    </div>
+    </>
   );
 };
