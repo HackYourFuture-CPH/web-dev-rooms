@@ -17,6 +17,7 @@ const slackRouter = require('./slack.router');
 const TopicsRouter = require('./topics.router');
 const userRouter = require('./user.router');
 const usersRouter = require('./users.router');
+const studentsProfileRouter = require('./studentsprofile.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -56,5 +57,6 @@ router.use('/topics', TopicsRouter);
 router.use('/user', userRouter);
 router.use('/user/register/mentor', mentorRouter);
 router.use('/users', usersRouter);
+router.use('/students_profile', studentsProfileRouter);
 
 module.exports = router;
