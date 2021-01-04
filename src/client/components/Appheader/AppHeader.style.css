@@ -3,8 +3,14 @@
   width: 100%;
   position: relative;
   background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Appheader-img-container {
   padding: 1rem 3rem;
+}
+
+.AppHeader-button {
+  padding-left: 1rem 3rem;
 }
