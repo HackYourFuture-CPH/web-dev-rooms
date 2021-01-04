@@ -7,6 +7,7 @@ const createEvent = async (body) => {
     event_type: body.eventType,
     venue: body.venue,
     description: body.description,
+    event_date: body.eventDate,
     created_by: body.createdBy,
   });
 
@@ -17,14 +18,16 @@ const createEvent = async (body) => {
 
 const getEvents = async () => {
   try {
-    return await knex('events').select(
-      'events.id',
-      'events.event_type',
-      'event_date',
-      'venue',
-      'max_participants',
-      'description',
-    );
+    return await knex('events')
+      .select(
+        'events.id',
+        'events.event_type',
+        'event_date',
+        'venue',
+        'max_participants',
+        'description',
+      )
+      .where('events.event_date', '>', knex.fn.now());
   } catch (error) {
     return error.message;
   }

@@ -3,31 +3,38 @@ import { AppHeader } from '../../components/Appheader/AppHeader.component';
 import Footer from '../../components/footer/footer';
 import './EventsPage.styles.css';
 import Header from '../../components/Heading/Heading';
+import { Layout } from '../../components/Layout';
+import Loader from '../../components/Loader';
 import { CardWithEventsOrStudyGroups } from '../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
 
 function EventsPage() {
   const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const { fetch } = useAuthenticatedFetch();
 
   useEffect(() => {
     fetch('/api/events').then((data) => {
+      setIsLoading(false);
       setEvents(data);
     });
   }, [fetch]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
   return (
     <>
       <AppHeader />
-      <Header>Current Studygroup</Header>
-      {events.map((event) => {
-        return (
-          <>
-            <div className="group-for-class">
-              Study groups {event.event_type}
-            </div>
-            <div className="events-page">
+      <Layout className="events-page">
+        <Header>Current Studygroup</Header>
+        {events.map((event) => {
+          return (
+            <>
+              <div className="group-for-class">
+                Study groups {event.event_type}
+              </div>
               <CardWithEventsOrStudyGroups
                 class="events-card"
                 title="HYF - Week 46"
@@ -38,11 +45,11 @@ function EventsPage() {
               >
                 Register Yourself
               </CardWithEventsOrStudyGroups>
-            </div>
-          </>
-        );
-      })}
-      <Footer id="footer" />
+            </>
+          );
+        })}
+        <Footer id="footer" />
+      </Layout>
     </>
   );
 }

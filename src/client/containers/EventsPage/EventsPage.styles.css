@@ -1,20 +1,14 @@
 .events-page {
-  margin-left: 30rem;
+  align-items: center;
+  min-width: 600px;
 }
 
 .group-for-class {
   font-family: Roboto, sans-serif;
   font-weight: bold;
-  left: 50px;
   color: #293a7d;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-}
-
-@media only screen and (max-width: 800px) {
-  .events-page {
-    margin: auto;
-  }
 }

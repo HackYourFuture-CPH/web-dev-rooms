@@ -1,6 +1,7 @@
 .event-card {
   max-width: 350px;
   max-height: 176px;
+  width: 100%;
   background: #f6f6f6;
   border-radius: 8px;
   display: flex;
