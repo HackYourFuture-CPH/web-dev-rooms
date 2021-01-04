@@ -15,7 +15,7 @@ function EventsPage() {
     fetch('/api/events').then((data) => {
       setEvents(data);
     });
-  }, []);
+  }, [fetch]);
 
   return (
     <>
