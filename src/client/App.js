@@ -12,6 +12,7 @@ import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import LoginTest from './containers/LoginTestPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { StudentProfilePage } from './containers/ProfilePage/StudentProfile/StudentProfile/StudentProfile.component';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
 import { RegistrationSuccessPage } from './containers/RegistrationPage/RegistrationSuccessPage';
@@ -62,8 +63,13 @@ function App() {
         <AuthenticatedRoute exact path="/events">
           <EventsPage />
         </AuthenticatedRoute>
+
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
+        </AuthenticatedRoute>
+
+        <AuthenticatedRoute exact path="/profile/student">
+          <StudentProfilePage />
         </AuthenticatedRoute>
 
         <Route path="*" component={Route404} />
