@@ -23,6 +23,7 @@ const getEvents = async () => {
       'event_date',
       'venue',
       'max_participants',
+      'organization_id as organizationId',
       'description',
     );
   } catch (error) {
