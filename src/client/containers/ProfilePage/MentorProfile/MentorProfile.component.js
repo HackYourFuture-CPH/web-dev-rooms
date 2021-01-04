@@ -9,27 +9,27 @@ import DropDown from '../../../components/Dropdown/DropDown';
 import Footer from '../../../components/footer/footer';
 import { Button } from '../../../components/Button/Button';
 import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.component';
+import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
+
 import './MentorProfile.style.css';
 
 export const MentorProfilePage = () => {
   const [skills, setSkills] = useState([]);
   const [skill, setSkill] = useState(0);
 
-  const apiURL = '/api/skills';
+  const { fetch } = useAuthenticatedFetch();
 
   useEffect(() => {
-    fetch(apiURL)
-      .then((response) => response.json())
-      .then((data) => {
-        const skillsData = data.map((skillItem) => {
-          return {
-            id: skillItem.id,
-            name: skillItem.name,
-          };
-        });
-        setSkills(skillsData);
+    fetch('/api/skills').then((data) => {
+      const skillsData = data.map((skillItem) => {
+        return {
+          id: skillItem.id,
+          name: skillItem.name,
+        };
       });
-  }, []);
+      setSkills(skillsData);
+    });
+  }, [fetch]);
 
   return (
     <div>

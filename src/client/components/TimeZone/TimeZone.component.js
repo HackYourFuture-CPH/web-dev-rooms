@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DropDown from '../Dropdown/DropDown';
-import 'moment-timezone';
+import PropTypes from 'prop-types';
 
 const timeZones = [
   {
@@ -21,12 +21,20 @@ const timeZones = [
   },
 ];
 
-export const TimeZoneDropDown = () => {
-  const [name, setName] = useState('');
-
+export const TimeZoneDropDown = (props) => {
   return (
     <>
-      <DropDown items={timeZones} value={name} setValue={setName} />
+      <DropDown items={timeZones} value={props.name} setValue={props.setName} />
     </>
   );
+};
+
+TimeZoneDropDown.propTypes = {
+  name: PropTypes.string,
+  setName: PropTypes.func,
+};
+
+TimeZoneDropDown.defaultProps = {
+  name: '',
+  setName: null,
 };
