@@ -1,4 +1,5 @@
 const knex = require('../../config/db');
+const HttpError = require('../lib/utils/http-error');
 const Error = require('../lib/utils/http-error');
 
 const getUserById = async (id, role) => {
@@ -119,7 +120,51 @@ const createStudentRegistration = async (body, authUser) => {
   return { successful: false };
 };
 
+async function registerAdmin(body, authUser) {
+  if (!body || !body.name || !body.role) {
+    throw new HttpError(null, 'Invalid data', 405, 'body');
+  }
+
+  const organizationName = 'HYF';
+  const org = await knex('organizations')
+    .where('name', organizationName)
+    .first('id');
+
+  if (!org) {
+    throw new HttpError(null, 'HYF is missing', 500);
+  }
+
+  const existingUser = await knex('users').where('slack_id', authUser.slackId);
+  if (existingUser.length > 0) {
+    throw new HttpError(null, 'User is already registered', 400);
+  }
+
+  const user = await knex('users').insert({
+    name: body.name,
+    organization_id: org.id,
+    admin_role: body.role,
+    slack_id: authUser.slackId,
+    slack_access_token: authUser.accessToken,
+  });
+
+  const adminRole = await knex('roles').where('name', 'admin').first('id');
+
+  if (adminRole && user) {
+    const insertedUserRoleId = await knex('user_roles').insert({
+      user_id: user,
+      role_id: adminRole.id,
+    });
+
+    if (insertedUserRoleId) {
+      return { successful: true };
+    }
+  }
+
+  return { successful: false };
+}
+
 module.exports = {
   getUserById,
   createStudentRegistration,
+  registerAdmin,
 };
