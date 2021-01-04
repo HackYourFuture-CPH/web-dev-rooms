@@ -1,20 +1,18 @@
 .events-page {
-  margin-left: 30rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .group-for-class {
   font-family: Roboto, sans-serif;
   font-weight: bold;
-  left: 50px;
   color: #293a7d;
   margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
+  padding-right: 150px;
   text-align: center;
 }
 
-@media only screen and (max-width: 800px) {
-  .events-page {
-    margin: auto;
-  }
+.events-card {
+  margin-left: auto;
+  margin-right: auto;
 }
