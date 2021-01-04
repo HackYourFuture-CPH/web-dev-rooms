@@ -9,7 +9,7 @@ import DropDown from '../../../components/Dropdown/DropDown';
 import Footer from '../../../components/footer/footer';
 import { Button } from '../../../components/Button/Button';
 import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.component';
-import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
+import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 
 import './MentorProfile.style.css';
 
