@@ -57,6 +57,6 @@ router.use('/topics', TopicsRouter);
 router.use('/user', userRouter);
 router.use('/user/register/mentor', mentorRouter);
 router.use('/users', usersRouter);
-router.use('/profile/students', studentsProfileRouter);
+router.use('/profile/student', studentsProfileRouter);
 
 module.exports = router;
