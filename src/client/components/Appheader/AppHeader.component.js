@@ -11,7 +11,7 @@ export const AppHeader = () => {
   return (
     <div className="AppHeader-div">
       <img src={Vector} alt="AppHeader" className="Appheader-img-container" />
-      {isAuthenticated && <Button className="AppHeader-button">Logout</Button>}
+      {isAuthenticated && <Button appearance="link">Logout</Button>}
     </div>
   );
 };
