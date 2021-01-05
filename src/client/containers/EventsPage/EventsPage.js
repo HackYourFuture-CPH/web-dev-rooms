@@ -5,6 +5,7 @@ import './EventsPage.styles.css';
 import Header from '../../components/Heading/Heading';
 import { Layout } from '../../components/Layout';
 import Loader from '../../components/Loader';
+import HYFLogo from '../../components/StudyGroupLogo/HYF.logo.svg';
 import { CardWithEventsOrStudyGroups } from '../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
 
@@ -25,32 +26,30 @@ function EventsPage() {
     return <Loader />;
   }
   return (
-    <>
+    <Layout className="events-page">
       <AppHeader />
-      <Layout className="events-page">
-        <Header>Current Studygroup</Header>
-        {events.map((event) => {
-          return (
-            <>
-              <div className="group-for-class">
-                Study groups {event.event_type}
-              </div>
-              <CardWithEventsOrStudyGroups
-                class="events-card"
-                title="HYF - Week 46"
-                datetime={event.event_date}
-                mentor="Benjamin"
-                link={event.venue}
-                key={event.id}
-              >
-                Register Yourself
-              </CardWithEventsOrStudyGroups>
-            </>
-          );
-        })}
-        <Footer id="footer" />
-      </Layout>
-    </>
+      <Header>Current Studygroup</Header>
+      {events.map((event) => {
+        return (
+          <>
+            <div className="group-for-class">
+              Study groups {event.event_type}
+            </div>
+            <CardWithEventsOrStudyGroups
+              path={HYFLogo}
+              title="HYF - Week 46"
+              datetime={event.event_date}
+              mentor="Benjamin"
+              link={event.venue}
+              key={event.id}
+            >
+              Register Yourself
+            </CardWithEventsOrStudyGroups>
+          </>
+        );
+      })}
+      <Footer id="footer" />
+    </Layout>
   );
 }
 
