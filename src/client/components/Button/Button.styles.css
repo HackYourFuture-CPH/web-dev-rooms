@@ -15,6 +15,7 @@
 
 .button.button-danger {
   background-color: #f00;
+  border: none;
 }
 
 .button:disabled {

@@ -12,6 +12,12 @@ body {
   margin: 0;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 .text-danger {
   color: #fa0000;
 }
@@ -34,4 +40,8 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.self-center {
+  align-self: center;
 }

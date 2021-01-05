@@ -58,6 +58,9 @@ function App() {
         <AuthenticatedRoute exact path="/">
           <Home />
         </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/home">
+          <Home />
+        </AuthenticatedRoute>
         <Route exact path="/logout">
           <Logout />
         </Route>
