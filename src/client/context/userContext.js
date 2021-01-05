@@ -52,6 +52,7 @@ export function UserProvider(props) {
   return (
     <UserContext.Provider
       value={{
+        id: user ? user.id : undefined,
         token,
         login,
         logout,
