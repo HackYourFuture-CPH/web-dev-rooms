@@ -24,7 +24,7 @@ const studentsProfileController = require('../controllers/studentsprofile.contro
 
 router.get('/', (req, res, next) => {
   studentsProfileController
-    .getStudentsProfile()
+    .getStudentsProfile(req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });
