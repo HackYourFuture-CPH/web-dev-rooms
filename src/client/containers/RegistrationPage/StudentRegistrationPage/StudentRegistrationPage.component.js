@@ -1,3 +1,4 @@
+import '../Registration.styles.css';
 import './StudentRegistrationPage.styles.css';
 
 import axios from 'axios';
@@ -15,6 +16,7 @@ import Input from '../../../components/Input/Input';
 import { Layout } from '../../../components/Layout';
 import Loader from '../../../components/Loader';
 import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
+import { formatApiError } from '../../../utils/formatApiError';
 
 export const StudentRegistrationPage = () => {
   const [name, setName] = useState('');
@@ -23,7 +25,7 @@ export const StudentRegistrationPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const history = useHistory();
-  const { fetch, isRegistering } = useAuthenticatedFetch();
+  const { fetch, working: isRegistering } = useAuthenticatedFetch();
 
   useEffect(() => {
     axios.get('/api/groups').then((response) => {
@@ -48,8 +50,10 @@ export const StudentRegistrationPage = () => {
       toast('You have been registered!');
 
       history.push('/registration/success');
-    } catch {
-      toast(`Ouch, an error! Please try again.`);
+    } catch (error) {
+      toast(
+        `Ouch, an error! Please try again. Details: ${formatApiError(error)}`,
+      );
     }
   }
 
@@ -71,7 +75,7 @@ export const StudentRegistrationPage = () => {
 
       <Heading>Student registration</Heading>
 
-      <form onSubmit={register}>
+      <form onSubmit={register} className="registration-form">
         <Input
           value={name}
           onChange={(e) => {
