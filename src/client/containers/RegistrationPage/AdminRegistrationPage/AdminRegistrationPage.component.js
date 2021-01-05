@@ -1,27 +1,68 @@
-import React, { useState } from 'react';
-
-import { Avatar } from '../../../components/Avatar/Avatar';
-import admin from '../../../assets/images/admin.png';
-import Input from '../../../components/Input/Input';
-import { Button } from '../../../components/Button/Button';
-import logo from '../../../assets/images/hyf-logo.png';
-import Footer from '../../../components/footer/footer';
 import './AdminRegistrationPage.styles.css';
+
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
+import { AppHeader } from '../../../components/Appheader/AppHeader.component';
+import { AdminAvatar } from '../../../components/Avatar';
+import { Button } from '../../../components/Button/Button';
+import Heading from '../../../components/Heading/Heading';
 import HelpText from '../../../components/HelpText/HelpText';
+import Input from '../../../components/Input/Input';
+import { Layout } from '../../../components/Layout';
+import Loader from '../../../components/Loader';
+import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
+import { formatApiError } from '../../../utils/formatApiError';
 
 export const AdminRegistrationPage = () => {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
+  const history = useHistory();
+
+  const { fetch, working: isRegistering } = useAuthenticatedFetch();
+
+  async function register(e) {
+    e.preventDefault();
+
+    try {
+      await fetch(`/api/user/register/admin`, {
+        method: 'post',
+        data: {
+          name,
+          role,
+        },
+      });
+
+      toast('You have been registered!');
+
+      history.push('/registration/success');
+    } catch (error) {
+      toast(
+        `Ouch, an error! Please try again. Details: ${formatApiError(error)}`,
+      );
+    }
+  }
+
+  const canSubmit = !!name && !!role;
+
+  if (isRegistering) {
+    return <Loader />;
+  }
 
   return (
-    <div className="admin-registration-main">
-      <div className="admin-registration-avatar">
-        <img className="logo-image" src={logo} alt="hyf-logo" />
-        <Avatar avatarUrl={admin} name="admin" />
-      </div>
+    <Layout className="admin-registration-main">
+      <section className="w-full">
+        <AppHeader />
 
-      <p className="admin-registration-text">Welcome Admin</p>
-      <div className="admin-registration-name">
+        <div className="admin-registration-avatar">
+          <AdminAvatar />
+        </div>
+      </section>
+
+      <Heading>Welcome Admin</Heading>
+
+      <form className="registration-form" onSubmit={register}>
         <Input
           value={name}
           onChange={(e) => {
@@ -29,8 +70,6 @@ export const AdminRegistrationPage = () => {
           }}
           placeholder="Name"
         />
-      </div>
-      <div className="admin-registration-role">
         <Input
           value={role}
           onChange={(e) => {
@@ -38,20 +77,13 @@ export const AdminRegistrationPage = () => {
           }}
           placeholder="Role"
         />
-      </div>
-      <div className="admin-registration-button">
-        <Button>Submit</Button>
-      </div>
+        <Button disabled={!canSubmit}>Submit</Button>
+      </form>
+
       <HelpText>
-        <p className="admin-registration-info-text">
-          If you already do not have a slack id then please make one as it is
-          mandatory to have a slack id to connect with mentors and other
-          students.
-        </p>
+        If you already do not have a slack id then please make one as it is
+        mandatory to have a slack id to connect with mentors and other students.
       </HelpText>
-      <div className="admin-registration-footer">
-        <Footer />
-      </div>
-    </div>
+    </Layout>
   );
 };

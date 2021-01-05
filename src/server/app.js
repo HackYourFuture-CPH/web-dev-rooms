@@ -39,14 +39,21 @@ app.use(authMiddleware);
 
 app.use(process.env.API_PATH, apiRouter);
 
-app.use((err, req, res) => {
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    console.log('headers sent...');
+    return next(err);
+  }
+
   if (err instanceof HttpError) {
     res.status(err.httpStatus);
+    console.log('AAKJSDHJKASHDLASDJSD');
     if (err.body) {
       return res.json(err.body);
     }
     return res.send({ error: err.message });
   }
+
   req.status(500).send('Unknown error');
 });
 
