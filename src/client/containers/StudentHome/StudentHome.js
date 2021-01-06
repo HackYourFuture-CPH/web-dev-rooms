@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { Layout } from '../../components/Layout';
 import Loader from '../../components/Loader/Loader';
@@ -11,19 +10,23 @@ import HYFLogo from '../../components/StudyGroupLogo/HYF.logo.svg';
 import ZendeskLogo from '../../components/StudyGroupLogo/Zendesk.logo.svg';
 import ElasticLogo from '../../components/StudyGroupLogo/Elastic.logo.svg';
 import Footer from '../../components/footer/footer';
+import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
+import { useUser } from '../../context/userContext';
 
 function StudentHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState([]);
+  const { fetch } = useAuthenticatedFetch();
+  const { id } = useUser();
   const cardTitle = 'No events to show here';
   const cardText =
     'There are no events to show here maybe  you did not book any event yet. Please go to events page and book an event';
   useEffect(() => {
-    axios.get('/api/events').then((response) => {
-      setEvents(response.data);
+    fetch(`/api/eventsUsers/${id}`).then((data) => {
+      setEvents(data);
       setIsLoading(false);
     });
-  }, []);
+  }, [fetch, id]);
 
   return (
     <Layout>
@@ -36,36 +39,36 @@ function StudentHome() {
       ) : (
         <div>
           {events.map((event) => (
-            <div>
-              {event.organizationId === 1 && (
+            <div key={event.eventID}>
+              {event.organization === 'HYF' && (
                 <CardWithEventsOrStudyGroups
                   path={HYFLogo}
-                  title="HYF - Week 46"
-                  datetime="Wednesday | 11 Nov 20|10:00 CEST"
+                  title={`HYF - Week ${event.weekNumber}`}
+                  datetime={`${event.day} | ${event.date}|${event.time} CEST`}
                   mentor="Benjamin"
-                  link={event.venue}
+                  link={event.link}
                 >
                   Register Yourself
                 </CardWithEventsOrStudyGroups>
               )}
-              {event.organizationId === 2 && (
+              {event.organization === 'Elastic ' && (
                 <CardWithEventsOrStudyGroups
                   path={ElasticLogo}
-                  title="Elastic - Week 46"
-                  datetime="Wednesday | 11 Nov 20|10:00 CEST"
-                  mentor="Daniel"
-                  link={event.venue}
+                  title={`Elastic - Week ${event.weekNumber}`}
+                  datetime={`${event.day} | ${event.date}|${event.time} CEST`}
+                  mentor="Benjamin"
+                  link={event.link}
                 >
                   Register Yourself
                 </CardWithEventsOrStudyGroups>
               )}
-              {event.organizationId === 3 && (
+              {event.organization === 'Zendesk' && (
                 <CardWithEventsOrStudyGroups
                   path={ZendeskLogo}
-                  title="Zendesk - Week 46"
-                  datetime="Wednesday | 11 Nov 20|10:00 CEST"
-                  mentor="Toni"
-                  link={event.venue}
+                  title={`Zendesk - Week ${event.weekNumber}`}
+                  datetime={`${event.day} | ${event.date}|${event.time} CEST`}
+                  mentor="Benjamin"
+                  link={event.link}
                 >
                   Register Yourself
                 </CardWithEventsOrStudyGroups>
