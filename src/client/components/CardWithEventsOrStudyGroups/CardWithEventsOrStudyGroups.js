@@ -17,7 +17,7 @@ export const CardWithEventsOrStudyGroups = (props) => {
           link={props.link}
         />
       </div>
-      <div className="event-card-button">{props.children}</div>
+      <div className="event-card-buttons">{props.children}</div>
     </div>
   );
 };
