@@ -3,7 +3,7 @@ const knex = require('../../config/db');
 const getStudentsProfile = async () => {
   try {
     const studentsProfile = await knex('users')
-      .select('name', 'group_id', 'groups.name as group_name', 'timezone')
+      .select('name', 'group_id', 'groups.name as groupName', 'timezone')
       .leftJoin('groups', 'group_id', 'groups.id')
       .leftJoin('groups', 'group_name', 'groups.name');
     return studentsProfile;
