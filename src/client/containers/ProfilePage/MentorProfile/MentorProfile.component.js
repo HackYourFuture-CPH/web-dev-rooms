@@ -9,6 +9,7 @@ import DropDown from '../../../components/Dropdown/DropDown';
 import Footer from '../../../components/footer/footer';
 import { Button } from '../../../components/Button/Button';
 import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.component';
+import { Layout } from '../../../components';
 import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 
 import './MentorProfile.style.css';
@@ -32,7 +33,7 @@ export const MentorProfilePage = () => {
   }, [fetch]);
 
   return (
-    <div>
+    <Layout>
       <div className="mentor-headerProfilePage">
         <AppHeader path={Vector} />
         <Avatar avatarUrl={mentor} name="mentor" />
@@ -60,6 +61,6 @@ export const MentorProfilePage = () => {
         </div>
       </section>
       <Footer />
-    </div>
+    </Layout>
   );
 };

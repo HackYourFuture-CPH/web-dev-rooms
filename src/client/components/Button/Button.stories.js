@@ -23,3 +23,8 @@ export const DisabledExample = () => (
     <Button disabled={boolean('disabled', true)}>Submit</Button>
   </>
 );
+export const LinkExample = () => (
+  <>
+    <Button appearance="link">Sign Out</Button>
+  </>
+);

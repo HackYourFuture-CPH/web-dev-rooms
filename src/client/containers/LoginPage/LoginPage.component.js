@@ -12,12 +12,16 @@ export default function LoginPage() {
     window.location = oauthUrl;
   };
 
+  // Disable for the demo
+  // const showTestLogin = process.env.NODE_ENV === 'development';
+  const showTestLogin = true;
+
   return (
     <Layout>
       <HyfLogo />
       <Button onClick={authenticateUser} />
 
-      {process.env.NODE_ENV === 'development' ? (
+      {showTestLogin ? (
         <>
           <hr />
           <p className="text-center py-2">
