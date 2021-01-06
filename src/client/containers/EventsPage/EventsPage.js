@@ -8,6 +8,7 @@ import Loader from '../../components/Loader';
 import HYFLogo from '../../components/StudyGroupLogo/HYF.logo.svg';
 import { CardWithEventsOrStudyGroups } from '../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
+import { Button } from '../../components';
 
 function EventsPage() {
   const [events, setEvents] = useState([]);
@@ -43,7 +44,7 @@ function EventsPage() {
               link={event.venue}
               key={event.id}
             >
-              Register Yourself
+              <Button>Register Yourself</Button>
             </CardWithEventsOrStudyGroups>
           </>
         );

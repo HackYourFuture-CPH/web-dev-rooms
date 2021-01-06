@@ -8,7 +8,7 @@ function getNumberOfWeek(date) {
   return Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
 }
 
-const getUserEventsByUID = async (userID, role) => {
+const getUserEventsByUID = async (userID) => {
   const today = moment().format('YYYY-MM-DD HH:mm:ss');
   /* 
 SQL query to select .... all the future and ongoing events for a userId
@@ -37,6 +37,7 @@ where users.id=3;
         'events.id as eventID',
         'organizations.name as organization',
         'events.event_date as dateTime',
+        'events.venue as link',
       )
       .join('events_users', 'events.id', 'events_users.event_id')
       .join('users', 'events_users.users_id', 'users.id')
@@ -45,12 +46,12 @@ where users.id=3;
       .where('event_date', '>', today);
     // userEvents has all the events for a user id
     // now check the role of the user
-
+    /* 
     const userRole = await knex('users')
       .select('roles.name')
       .join('user_roles', 'users.id', 'user_roles.user_id')
       .join('roles', 'user_roles.role_id', 'roles.id')
-      .where('users.id', 3);
+      .where('users.id', 3); */
 
     /* modify userEvents as per our requirement
      1. Event Id
@@ -58,7 +59,16 @@ where users.id=3;
     3. Date of the event/study group
     4. Time of the event/study group,
     5. Week number */
-
+    const days = [
+      'Sunday',
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+    ];
+    // var dayName = days[d.getDay()];
     const formatedUserEvents = userEvents.map((userEvent) => ({
       eventID: userEvent.eventID,
       organization: userEvent.organization,
@@ -67,10 +77,11 @@ where users.id=3;
       }-${userEvents[0].dateTime.getFullYear()}`,
       time: `${userEvents[0].dateTime.getHours()}:${userEvents[0].dateTime.getMinutes()}:${userEvents[0].dateTime.getSeconds()}`,
       weekNumber: `${getNumberOfWeek(userEvents[0].dateTime)}`,
+      day: `${days[userEvents[0].dateTime.getDay()]}`,
+      link: userEvent.link,
     }));
 
     if (userEvents.length === 0) return [];
-    if (role !== userRole) return [];
 
     return formatedUserEvents;
   } catch (error) {
