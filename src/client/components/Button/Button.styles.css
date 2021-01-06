@@ -23,3 +23,10 @@
   border: 1px solid #e8e8e8;
   text-shadow: none;
 }
+
+.button.button-link {
+  background-color: #f8f8f8;
+  border: none;
+  color: #293a7d;
+  text-decoration: underline;
+}
