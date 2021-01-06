@@ -8,7 +8,9 @@ export const Button = (props) => {
     <button
       className={`button ${
         props.appearance === 'danger' ? 'button-danger' : ''
-      } ${props.disabled === 'disabled' ? 'disabled-button' : ''}`}
+      } ${props.disabled === 'disabled' ? 'disabled-button' : ''} ${
+        props.appearance === 'link' ? 'button-link' : ''
+      }`}
       type="submit"
       onClick={props.onClick}
       appearance={props.appearance}
