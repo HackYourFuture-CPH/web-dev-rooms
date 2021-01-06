@@ -3,4 +3,4 @@ import HelpText from './HelpText';
 
 export default { title: 'Components | Help Text' };
 
-export const pagesMessage = () => <HelpText />;
+export const pagesMessage = () => <HelpText>Some text goes here</HelpText>;
