@@ -5,6 +5,7 @@ import Footer from '../../components/footer/footer';
 import { Layout } from '../../components/Layout';
 import ModalWithFeedback from '../../components/ModalWithFeedback/ModalWithFeedback';
 import { useUser } from '../../context/userContext';
+import StudentHome from '../StudentHome/StudentHome';
 import { AdminHomePage } from './Admin/AdminHomePage';
 
 export const Home = () => {
@@ -15,6 +16,9 @@ export const Home = () => {
     setShowModal(false);
   }
 
+  if (userRole === 'student') {
+    return <StudentHome />;
+  }
   if (userRole === 'admin') {
     return <AdminHomePage />;
   }

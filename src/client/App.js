@@ -56,9 +56,9 @@ function App() {
           <RegistrationSuccessPage />
         </Route>
 
-        <Route exact path="/home/student">
+        <AuthenticatedRoute exact path="/home/student">
           <StudentHome />
-        </Route>
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/">
           <Home />
         </AuthenticatedRoute>

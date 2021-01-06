@@ -3,7 +3,6 @@ import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../../components/Avatar/Avatar';
 import Heading from '../../../components/Heading/Heading';
 import mentor from '../../../assets/images/mentor.png';
-import Vector from '../../../components/Appheader/Vector.svg';
 import Label from '../../../components/Label/Tags/Label';
 import DropDown from '../../../components/Dropdown/DropDown';
 import Footer from '../../../components/footer/footer';
@@ -13,10 +12,14 @@ import { Layout } from '../../../components';
 import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 
 import './MentorProfile.style.css';
+import { useUser } from '../../../context/userContext';
 
 export const MentorProfilePage = () => {
   const [skills, setSkills] = useState([]);
   const [skill, setSkill] = useState(0);
+  const {
+    user: { name },
+  } = useUser();
 
   const { fetch } = useAuthenticatedFetch();
 
@@ -35,13 +38,13 @@ export const MentorProfilePage = () => {
   return (
     <Layout>
       <div className="mentor-headerProfilePage">
-        <AppHeader path={Vector} />
+        <AppHeader />
         <Avatar avatarUrl={mentor} name="mentor" />
       </div>
 
       <section className="mentor-body-container">
         <div className="welcome-mentor">
-          <Heading>Welcome Dummy Mentor</Heading>
+          <Heading>Welcome {name}</Heading>
         </div>
         <div className="mentor-skills">
           <Label text="HTML/CSS">HTML/CSS</Label>

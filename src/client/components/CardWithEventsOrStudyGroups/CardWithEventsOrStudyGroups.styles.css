@@ -20,11 +20,11 @@
   padding: 10px 0;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 /* Dirty hack, fix! */
 .event-card .event-card-buttons .button {
   height: unset;
   padding: 10px 30px;
+  margin: 0 2px;
 }

@@ -1,5 +1,8 @@
+import './StudentHome.styles.css';
+
 import React, { useEffect, useState } from 'react';
 import { Layout } from '../../components/Layout';
+import { Button, Heading } from '../../components';
 import Loader from '../../components/Loader/Loader';
 import { AppHeader } from '../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../components/Avatar/Avatar';
@@ -12,12 +15,16 @@ import ElasticLogo from '../../components/StudyGroupLogo/Elastic.logo.svg';
 import Footer from '../../components/footer/footer';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
 import { useUser } from '../../context/userContext';
+import { Link } from 'react-router-dom';
 
 function StudentHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [events, setEvents] = useState([]);
   const { fetch } = useAuthenticatedFetch();
-  const { id } = useUser();
+  const {
+    id,
+    user: { name },
+  } = useUser();
   const cardTitle = 'No events to show here';
   const cardText =
     'There are no events to show here maybe  you did not book any event yet. Please go to events page and book an event';
@@ -29,10 +36,15 @@ function StudentHome() {
   }, [fetch, id]);
 
   return (
-    <Layout>
-      <AppHeader />
-      <Avatar avatarUrl={student} name="student" />
+    <Layout className="student-home-page">
+      <section className="profile-header">
+        <AppHeader />
+        <Avatar avatarUrl={student} name="student" />
+      </section>
+
       {isLoading && <Loader />}
+
+      <Heading>Welcome {name}</Heading>
 
       {events.length === 0 ? (
         <Card title={cardTitle} text={cardText} />
@@ -48,7 +60,7 @@ function StudentHome() {
                   mentor="Benjamin"
                   link={event.link}
                 >
-                  Register Yourself
+                  <Button>Register Yourself</Button>
                 </CardWithEventsOrStudyGroups>
               )}
               {event.organization === 'Elastic ' && (
@@ -77,6 +89,8 @@ function StudentHome() {
           ))}
         </div>
       )}
+
+      <Link to="/events">Find more events</Link>
 
       <Footer />
     </Layout>

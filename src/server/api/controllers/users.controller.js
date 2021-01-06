@@ -29,7 +29,7 @@ const getUsers = async () => {
  */
 async function getUserBySlackId(slackId) {
   const query = knex('users')
-    .select('users.id', 'roles.name as role')
+    .select('users.id', 'users.name', 'roles.name as role')
     .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
     .leftJoin('roles', 'user_roles.role_id', 'roles.id')
     .where('users.slack_id', slackId);
