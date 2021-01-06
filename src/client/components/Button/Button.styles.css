@@ -1,5 +1,4 @@
 .button {
-  background-color: #293a7d;
   border-radius: 28px;
   border: 1px solid #293a7d;
   display: inline-block;
@@ -11,6 +10,11 @@
   text-decoration: none;
   text-shadow: 0 1px 0 #2f6627;
   height: 50px;
+  font-weight: 600;
+}
+
+.button.button-default {
+  background-color: #293a7d;
 }
 
 .button.button-danger {
@@ -26,8 +30,9 @@
 }
 
 .button.button-link {
-  background-color: #f8f8f8;
+  background-color: transparent;
   border: none;
   color: #293a7d;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 500;
 }
