@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
+import { StaticRouter } from 'react-router-dom';
 
 import { AppHeader } from './AppHeader.component';
 
@@ -8,4 +9,8 @@ export default {
   decorators: [withKnobs],
 };
 
-export const appHeader = () => <AppHeader />;
+export const appHeader = () => (
+  <StaticRouter>
+    <AppHeader />
+  </StaticRouter>
+);

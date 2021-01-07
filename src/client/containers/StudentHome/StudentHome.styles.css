@@ -1,8 +1,8 @@
-.student-profile-page {
+.student-home-page {
   align-items: center;
 }
 
-.student-profile-page .student-profile-header {
+.student-home-page .profile-header {
   min-width: 100%;
   height: fit-content;
   border-bottom-left-radius: 10em;

@@ -1,8 +1,15 @@
 .AppHeader-div {
-  height: 59px;
+  /* Dirty hack to fix it on the registration pages */
+  max-width: calc(640px - 24px);
   width: 100%;
-  position: relative;
+  height: 59px;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
   background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
 }
 
 .Appheader-img-container {

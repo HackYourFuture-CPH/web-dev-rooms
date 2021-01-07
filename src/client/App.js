@@ -22,6 +22,7 @@ import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
 import { useUser } from './context/userContext';
 import SkillsPage from './containers/SkillsPage/SkillsPage';
+import StudentHome from './containers/StudentHome/StudentHome';
 
 function App() {
   const { isLoading } = useUser();
@@ -58,7 +59,13 @@ function App() {
         <AuthenticatedRoute exact path="/admin/skills">
           <SkillsPage />
         </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/home/student">
+          <StudentHome />
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/">
+          <Home />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/home">
           <Home />
         </AuthenticatedRoute>
         <Route exact path="/logout">
