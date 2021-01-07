@@ -5,12 +5,14 @@ const express = require('express');
 const router = express.Router({ mergeParams: true });
 
 // controllers
-const studentsProfileController = require('../controllers/studentsprofile.controller');
+const profileController = require('../controllers/profile.controller');
 
 /**
  * @swagger
  * /profile/students:
  *  get:
+ *    tags:
+ *    - profile
  *    summary: Get all students profile
  *    description:
  *      Will return all students profile.
@@ -22,8 +24,8 @@ const studentsProfileController = require('../controllers/studentsprofile.contro
  *        description: Unexpected error.
  */
 
-router.get('/', (req, res, next) => {
-  studentsProfileController
+router.get('/student', (req, res, next) => {
+  profileController
     .getStudentsProfile(req.user.id)
     .then((result) => res.json(result))
     .catch(next);
