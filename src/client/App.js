@@ -21,6 +21,7 @@ import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRe
 import SelectionPage from './containers/SelectionPage/SelectionPage.component';
 import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
 import { useUser } from './context/userContext';
+import SkillsPage from './containers/SkillsPage/SkillsPage';
 import StudentHome from './containers/StudentHome/StudentHome';
 
 function App() {
@@ -55,7 +56,9 @@ function App() {
         <Route exact path="/registration/success">
           <RegistrationSuccessPage />
         </Route>
-
+        <AuthenticatedRoute exact path="/admin/skills">
+          <SkillsPage />
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/home/student">
           <StudentHome />
         </AuthenticatedRoute>
