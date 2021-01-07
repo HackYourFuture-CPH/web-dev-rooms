@@ -6,15 +6,25 @@
   border-radius: 8px;
   display: flex;
   flex-direction: column;
+  padding: 14px;
+  align-items: center;
 }
 
-.event-card-logo-and-text {
+.event-card .event-card-logo-and-text {
   display: flex;
   padding: 5px;
+  width: 100%;
 }
 
-.event-card-button {
-  padding-top: 10px;
-  padding-bottom: 10px;
-  align-self: center;
+.event-card .event-card-buttons {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+}
+
+/* Dirty hack, fix! */
+.event-card .event-card-buttons .button {
+  height: unset;
+  padding: 10px 30px;
+  margin: 0 2px;
 }

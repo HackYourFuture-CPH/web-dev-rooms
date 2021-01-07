@@ -13,7 +13,7 @@ function ModalCreateEvents(props) {
   const isDisabled = datetime === '' || event === '' || company === '';
   return (
     <div className="create-event-modal">
-      <Modal title="Create Event (Time Slot)">
+      <Modal title="Create Event (Time Slot)" isOpen>
         <div className="create-event-company-name">
           <DropDown
             value={company}

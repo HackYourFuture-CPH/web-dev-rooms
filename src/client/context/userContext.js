@@ -59,6 +59,7 @@ export function UserProvider(props) {
         userRole: userRole || '',
         isLoading,
         isAuthenticated: !!token,
+        user,
         isNewUser: user ? user.isNewUser : false,
       }}
     >
@@ -87,6 +88,7 @@ UserProvider.defaultProps = {
  * @property {'student' | 'mentor' | 'admin' | undefined} userRole - The role of the current user.
  * @property {(user) => void} login - Save the specified user information in the context.
  * @property {() => void} logout - Logs out current user and clears all data.
+ * @property {object} user - Current user or undefined if.
  *
  * @export
  * @returns {UserContextType} Information about user.

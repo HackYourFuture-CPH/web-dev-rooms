@@ -19,7 +19,15 @@ const createEvent = async (body) => {
 const getEvents = async () => {
   try {
     return await knex('events')
-      .select('events.id', 'events.event_type', 'event_date', 'venue')
+      .select(
+        'events.id',
+        'events.event_type',
+        'event_date',
+        'venue',
+        'max_participants',
+        'organization_id as organizationId',
+        'description',
+      )
       .where('events.event_date', '>', knex.fn.now());
   } catch (error) {
     return error.message;
