@@ -23,11 +23,14 @@ function AuthenticatedRoute({ children, requiredRole, ...rest }) {
               />
             );
           }
-          if (userRole === requiredRole) {
-            return children;
-          }
+          if (requiredRole) {
+            if (userRole === requiredRole) {
+              return children;
+            }
 
-          return <ErrorPage />;
+            return <ErrorPage />;
+          }
+          return children;
         }
 
         return (
