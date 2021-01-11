@@ -56,7 +56,7 @@ function App() {
         <Route exact path="/registration/success">
           <RegistrationSuccessPage />
         </Route>
-        <AuthenticatedRoute exact path="/admin/skills">
+        <AuthenticatedRoute exact path="/admin/skills" requiredRole="admin">
           <SkillsPage />
         </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/home/student">
@@ -75,7 +75,7 @@ function App() {
           <EventsPage />
         </AuthenticatedRoute>
 
-        <AuthenticatedRoute exact path="/profile" requiredRole="student">
+        <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
 
