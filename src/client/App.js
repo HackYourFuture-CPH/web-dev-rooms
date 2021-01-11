@@ -75,7 +75,7 @@ function App() {
           <EventsPage />
         </AuthenticatedRoute>
 
-        <AuthenticatedRoute exact path="/profile">
+        <AuthenticatedRoute exact path="/profile" requiredRole="student">
           <ProfilePage />
         </AuthenticatedRoute>
 

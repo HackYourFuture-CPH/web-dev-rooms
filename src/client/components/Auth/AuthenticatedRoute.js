@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-
+import ErrorPage from '../../containers/404Page/404Page.component';
 import { useUser } from '../../context/userContext';
 
 function AuthenticatedRoute({ children, requiredRole, ...rest }) {
@@ -25,10 +25,10 @@ function AuthenticatedRoute({ children, requiredRole, ...rest }) {
           }
           // I am just adding here but i am not sure whether it is the right place
           if (userRole === requiredRole) {
-            return 'matches'; // no idea on what to do if it matches
+            return children; // no idea on what to do if it matches
           }
 
-          return children;
+          return <ErrorPage />;
         }
 
         return (
