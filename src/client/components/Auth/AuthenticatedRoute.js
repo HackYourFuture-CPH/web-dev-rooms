@@ -23,9 +23,8 @@ function AuthenticatedRoute({ children, requiredRole, ...rest }) {
               />
             );
           }
-          // I am just adding here but i am not sure whether it is the right place
           if (userRole === requiredRole) {
-            return children; // no idea on what to do if it matches
+            return children;
           }
 
           return <ErrorPage />;
