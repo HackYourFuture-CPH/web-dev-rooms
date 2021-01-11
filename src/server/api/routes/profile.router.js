@@ -31,4 +31,27 @@ router.get('/student', (req, res, next) => {
     .catch(next);
 });
 
+/**
+ * @swagger
+ * /profile/admin:
+ *  get:
+ *    tags:
+ *    - Profile
+ *    summary: Get all admins profile
+ *    description:
+ *      Will return all admins profile.
+ *    produces: application/json
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.get('/admin', (req, res, next) => {
+  profileController
+    .getAdminsProfile()
+    .then((result) => res.json(result))
+    .catch(next);
+});
 module.exports = router;
