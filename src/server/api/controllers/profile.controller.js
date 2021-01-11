@@ -17,7 +17,7 @@ const getStudentsProfile = async (userId) => {
   }
 };
 
-const getAdminsProfile = async () => {
+const getAdminsProfile = async (userId) => {
   /* SQL query to get all the admins 
   SELECT users.name, roles.name
   FROM users 
@@ -30,7 +30,7 @@ const getAdminsProfile = async () => {
       .select('users.name', 'users.admin_role')
       .join('user_roles', 'users.id', 'user_roles.user_id')
       .join('roles', 'user_roles.role_id', 'roles.id')
-      .where('roles.name', 'admin');
+      .where('users.id', userId);
     return profile;
   } catch (error) {
     return error.message;

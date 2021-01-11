@@ -50,7 +50,7 @@ router.get('/student', (req, res, next) => {
 
 router.get('/admin', (req, res, next) => {
   profileController
-    .getAdminsProfile()
+    .getAdminsProfile(req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });
