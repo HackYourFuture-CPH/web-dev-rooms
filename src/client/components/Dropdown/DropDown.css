@@ -5,10 +5,10 @@
 
 .option {
   background: none !important;
-  color: rgb(157 156 156) !important;
+  color: #aeaeae !important;
 }
 
 .option:hover {
-  background: rgb(255 255 255) !important;
-  color: rgb(157 156 156) !important;
+  background: #ebe8e8 !important;
+  color: #aeaeae !important;
 }
