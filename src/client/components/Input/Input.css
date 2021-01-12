@@ -6,7 +6,12 @@
   border-radius: 2rem;
   border: 1px solid #f6f6f6;
   background-color: #f6f6f6;
-  font: Roboto;
+  font: Roboto, sans-serif;
   height: 3rem;
   font-size: 1.5rem;
+}
+
+.input-component::placeholder {
+  font-style: italic;
+  font-size: 0.8em;
 }

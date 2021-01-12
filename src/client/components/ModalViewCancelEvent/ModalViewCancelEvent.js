@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export const ModalCancelEvent = ({ onCancelMessage }) => {
   return (
-    <Modal title="Cancel Event">
+    <Modal title="Cancel Event" isOpen>
       <p>Are you sure you want to cancel</p>
       <Button
         className="modal-cancel-event-button"

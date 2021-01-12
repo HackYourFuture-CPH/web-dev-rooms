@@ -1,45 +1,10 @@
 .admin-registration-main {
-  display: flex;
   align-items: center;
-  flex-direction: column;
-  padding: 0;
-  width: 100%;
 }
 
 .admin-registration-avatar {
-  margin: 0;
   width: 100%;
   background-color: #f8f8f8;
   border-radius: 0% 0% 100% 100%;
   overflow: hidden;
-}
-
-.logo-image {
-  padding: 10px;
-}
-
-.admin-registration-text {
-  margin: 0;
-  padding: 2%;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #293a7d;
-}
-
-.admin-registration-name,
-.admin-registration-role,
-.admin-registration-info-text {
-  padding: 1.5%;
-  margin: 0;
-  text-align: center;
-}
-
-.admin-registration-button,
-.admin-registration-footer {
-  padding-top: 4%;
-}
-
-.admin-registration-footer {
-  padding: 4%;
 }

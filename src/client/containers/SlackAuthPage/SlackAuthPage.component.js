@@ -1,17 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import { Link, Redirect, useLocation } from 'react-router-dom';
 import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 
-import { useUser } from '../../context/userContext';
 import HyfBigLogo from '../../components/HyfBigLogo/HyfBigLogo';
-
-import './SlackAuthPage.styles.css';
+import { Layout } from '../../components/Layout';
+import { useUser } from '../../context/userContext';
 
 export default function SlackAuthPage() {
   const [isError, setIsError] = useState(false);
-  const [user, setUser] = useState(null);
   const location = useLocation();
   const { login } = useUser();
+  const history = useHistory();
 
   useEffect(() => {
     const code = new URLSearchParams(location.search).get('code');
@@ -19,7 +18,11 @@ export default function SlackAuthPage() {
       .post(`/api/signin?code=${code}`)
       .then((r) => {
         login(r.data);
-        setUser(r.data);
+        if (r.data.isNewUser) {
+          history.push('/registration');
+        } else {
+          history.push('/');
+        }
       })
       .catch(() => {
         setIsError(true);
@@ -28,12 +31,8 @@ export default function SlackAuthPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
 
-  if (user && user.isNewUser) {
-    return <Redirect to="/registration" />;
-  }
-
   return (
-    <div className="slack-auth-page">
+    <Layout className="items-center">
       <HyfBigLogo />
 
       <h1>Login with Slack</h1>
@@ -48,6 +47,6 @@ export default function SlackAuthPage() {
       ) : (
         <p>Please wait...</p>
       )}
-    </div>
+    </Layout>
   );
 }

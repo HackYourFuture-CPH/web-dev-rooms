@@ -1,40 +1,10 @@
 .student-registration-main {
-  display: flex;
   align-items: center;
-  flex-direction: column;
-  padding: 0;
-  width: 100%;
 }
 
-.student-registration-avatar {
-  margin: 0;
+.student-registration-main .student-registration-avatar {
   width: 100%;
   background-color: #f8f8f8;
   border-radius: 0% 0% 100% 100%;
   overflow: hidden;
-}
-
-.logo-image {
-  padding: 10px;
-}
-
-.student-registration-text {
-  margin: 0;
-  padding: 2%;
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 28px;
-  color: #293a7d;
-}
-
-.student-registration-input,
-.student-registration-dropdown,
-.student-registration-info-text {
-  padding: 1.5%;
-  margin: 0;
-  text-align: center;
-}
-
-.student-registration-button {
-  padding-top: 4%;
 }

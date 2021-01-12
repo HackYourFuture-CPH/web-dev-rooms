@@ -1,5 +1,4 @@
 import React from 'react';
-import Footer from '../../components/footer/footer';
 
 export default function ProfilePage() {
   return (
@@ -7,7 +6,6 @@ export default function ProfilePage() {
       <div>
         <h1>This is a ProfilePage</h1>
       </div>
-      <Footer />
     </div>
   );
 }

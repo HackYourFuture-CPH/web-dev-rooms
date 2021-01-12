@@ -16,7 +16,7 @@ function ModalWithFeedback(props) {
   };
   return (
     <div className="feedback-modal">
-      <Modal title="Feedback Form">
+      <Modal title="Feedback Form" isOpen={props.isOpen}>
         <div className="event-small-container">
           <span className="dot" />
           <div className="eventcardtext">
@@ -45,7 +45,9 @@ function ModalWithFeedback(props) {
     </div>
   );
 }
+
 ModalWithFeedback.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
   placeholder: PropTypes.string,
   title: PropTypes.string,
   datetime: PropTypes.string,

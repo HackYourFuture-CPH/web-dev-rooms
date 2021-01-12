@@ -1,14 +1,10 @@
-.dropdown-component {
-  display: flex;
-}
-
 .select-css {
   display: block;
-  width: 300px;
+  width: 100%;
   padding-left: 1rem;
   padding-right: 30px;
   border-radius: 2rem;
-  border: 1px solid #bdbdbd;
+  border: 1px solid #e8e8e8;
   background-color: #f6f6f6;
   font-family: 'Roboto', sans-serif;
   color: #bdbdbd;

@@ -1,9 +1,8 @@
 const express = require('express');
+const requireAuthMiddleware = require('../auth/requireAuthMiddleware');
+const userController = require('../controllers/user.controller');
 
 const router = express.Router({ mergeParams: true });
-
-// controllers
-const userController = require('../controllers/user.controller');
 
 /**
  * @swagger
@@ -56,46 +55,80 @@ router.get('/:id/:role/', (req, res, next) => {
     .catch(next);
 });
 
-const studentRegistrationController = require('../controllers/user.controller');
 /**
  * @swagger
  * /user/register/student:
  *  post:
- *    summary: Create student registration
- *    description:
- *      Will create an endpoint to register students.
+ *    tags:
+ *    - Registration
+ *    summary: Register student
+ *    description: Registers a new user as a student
  *    produces: application/json
  *    parameters:
  *      - in: body
- *        name: student registration
- *        description: The module to create an endpoint for registering student.
+ *        name: Student information
+ *        description: User provided information
  *        schema:
  *          type: object
  *          required:
  *            - name
- *            - slackId
  *            - groupId
  *          properties:
  *            name:
  *              type: string
- *            slackId:
- *              type: integer
  *            groupId:
  *              type: integer
  *    responses:
- *      201:
+ *      200:
  *        description: Student Registration created
  *      5XX:
  *        description: Unexpected error.
  */
-
-router.post('/register/student', (req, res) => {
-  studentRegistrationController
-    .createStudentRegistration(req.body)
+router.post('/register/student', (req, res, next) => {
+  userController
+    .createStudentRegistration(req.body, req.user)
     .then((result) => res.json(result))
-    .catch((error) => {
-      console.log(error);
-      res.status(400).send('Bad request').end();
-    });
+    .catch(next);
 });
+
+/**
+ * @swagger
+ * /user/register/admin:
+ *  post:
+ *    tags:
+ *    - Registration
+ *    summary: Register admin
+ *    description: Register a new user as an admin
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: Admin information
+ *        description: User provided information.
+ *        schema:
+ *          type: object
+ *          required:
+ *            - name
+ *            - role
+ *          properties:
+ *            name:
+ *              type: string
+ *            role:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: Admin registered successfully.
+ *      400:
+ *        description: Invalid data was submitted.
+ *      401:
+ *        description: Authentication missing.
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.post('/register/admin', requireAuthMiddleware, (req, res, next) => {
+  userController
+    .registerAdmin(req.body, req.user)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+
 module.exports = router;

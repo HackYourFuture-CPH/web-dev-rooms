@@ -1,18 +1,20 @@
-import React from 'react';
 import './heading.style.css';
 
 import PropTypes from 'prop-types';
+import React from 'react';
 
-const Header = ({ children }) => <header className="header">{children}</header>;
+const Heading = ({ children }) => (
+  <header className="header">{children}</header>
+);
 
 // Expected prop values
-Header.propTypes = {
+Heading.propTypes = {
   children: PropTypes.node,
 };
 
 // Default prop values
-Header.defaultProps = {
+Heading.defaultProps = {
   children: '',
 };
 
-export default Header;
+export default Heading;
