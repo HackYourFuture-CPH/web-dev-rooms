@@ -53,12 +53,11 @@ export default function LoginTest() {
 
       <hr />
 
+      <h2>Log in as:</h2>
       <ul>
         {users.map((user) => (
           <li key={user.id}>
-            <Button onClick={() => fakeLogin(user)}>
-              Log in as {user.name}
-            </Button>
+            <Button onClick={() => fakeLogin(user)}>{user.name}</Button>
           </li>
         ))}
       </ul>

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../../components/footer/footer';
 
 import { Layout } from '../../components/Layout';
 import ModalWithFeedback from '../../components/ModalWithFeedback/ModalWithFeedback';
 import { useUser } from '../../context/userContext';
+import StudentHome from '../StudentHome/StudentHome';
+import { AdminHomePage } from './Admin/AdminHomePage';
 
 export const Home = () => {
   const { userRole } = useUser();
@@ -11,6 +14,13 @@ export const Home = () => {
 
   function handle() {
     setShowModal(false);
+  }
+
+  if (userRole === 'student') {
+    return <StudentHome />;
+  }
+  if (userRole === 'admin') {
+    return <AdminHomePage />;
   }
 
   return (
@@ -25,6 +35,8 @@ export const Home = () => {
         <hr />
         <Link to="/logout">Logout</Link>
       </section>
+
+      <Footer />
     </Layout>
   );
 };

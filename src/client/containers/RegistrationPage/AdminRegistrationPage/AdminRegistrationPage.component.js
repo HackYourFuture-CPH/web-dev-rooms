@@ -1,6 +1,8 @@
 import './AdminRegistrationPage.styles.css';
 
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { AdminAvatar } from '../../../components/Avatar';
@@ -9,13 +11,43 @@ import Heading from '../../../components/Heading/Heading';
 import HelpText from '../../../components/HelpText/HelpText';
 import Input from '../../../components/Input/Input';
 import { Layout } from '../../../components/Layout';
+import Loader from '../../../components/Loader';
+import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
+import { formatApiError } from '../../../utils/formatApiError';
 
 export const AdminRegistrationPage = () => {
   const [name, setName] = useState('');
   const [role, setRole] = useState('');
+  const history = useHistory();
 
-  function register() {
-    return 'not implemented';
+  const { fetch, working: isRegistering } = useAuthenticatedFetch();
+
+  async function register(e) {
+    e.preventDefault();
+
+    try {
+      await fetch(`/api/user/register/admin`, {
+        method: 'post',
+        data: {
+          name,
+          role,
+        },
+      });
+
+      toast('You have been registered!');
+
+      history.push('/registration/success');
+    } catch (error) {
+      toast(
+        `Ouch, an error! Please try again. Details: ${formatApiError(error)}`,
+      );
+    }
+  }
+
+  const canSubmit = !!name && !!role;
+
+  if (isRegistering) {
+    return <Loader />;
   }
 
   return (
@@ -45,7 +77,7 @@ export const AdminRegistrationPage = () => {
           }}
           placeholder="Role"
         />
-        <Button>Submit</Button>
+        <Button disabled={!canSubmit}>Submit</Button>
       </form>
 
       <HelpText>

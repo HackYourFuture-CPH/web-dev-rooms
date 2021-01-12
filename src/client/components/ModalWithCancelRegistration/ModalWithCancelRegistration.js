@@ -7,7 +7,7 @@ import Modal from '../Modal/Modal';
 function ModalWithCancelRegistration(props) {
   return (
     <div className="cancel-reg-modal">
-      <Modal title="Cancel Registration">
+      <Modal title="Cancel Registration" isOpen>
         <div className="cancel-reg-textfield">{props.text}</div>
         <div className="cancel-reg-submit-btn">
           <Button appearance={props.appearance} onClick={props.onClick}>

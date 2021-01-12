@@ -40,7 +40,7 @@ const ModelViewRegisteringForAnEvent = (props) => {
   const canContinue = !!topics && inputValue;
   return (
     <div className="model">
-      <Modal title="Register your spot">
+      <Modal title="Register your spot" isOpen>
         <div className="input dropDown">
           <Dropdown items={topics} value={topic} setValue={setTopic} require />
         </div>
