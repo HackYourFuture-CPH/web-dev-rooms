@@ -14,6 +14,8 @@ function EventsPage() {
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  const { fetch } = useAuthenticatedFetch();
+
   useEffect(() => {
     fetch('/api/events').then((data) => {
       setIsLoading(false);
@@ -28,7 +30,6 @@ function EventsPage() {
     <Layout className="events-page">
       <AppHeader />
       <Header>Current Studygroup</Header>
-      <div className="group-for-class">Study groups</div>
       {events.map((event) => {
         return (
           <>
