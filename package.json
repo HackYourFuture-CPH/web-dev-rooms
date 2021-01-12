@@ -63,6 +63,7 @@
     "moment-timezone": "^0.5.26",
     "morgan": "^1.9.1",
     "mssql": "^6.2.0",
+    "multiselect-react-dropdown": "^1.6.3",
     "mysql": "^2.18.1",
     "mysql2": "^2.1.0",
     "node-sass": "^4.14.1",

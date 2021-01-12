@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import DropDown from './DropDown';
 import PropTypes, { shape } from 'prop-types';
 
@@ -75,28 +75,36 @@ const studygroups = [
     name: 'Hack Your Future',
   },
 ];
-function DropDownWithState({ items }) {
-  const [value, setValue] = useState('');
-
-  return <DropDown items={items} value={value} setValue={setValue} />;
+function DropDownWithState({ items, placeholder }) {
+  return <DropDown options={items} placeholder={placeholder} />;
 }
 
 DropDownWithState.propTypes = {
   items: PropTypes.arrayOf(
     shape({
       id: PropTypes.string,
-      value: PropTypes.string,
+      name: PropTypes.string,
     }),
   ),
+  placeholder: PropTypes.string,
 };
 
 DropDownWithState.defaultProps = {
   items: [],
+  placeholder: '',
 };
 
 export default { title: 'Components | DropDown' };
 
-export const Studygroup = () => <DropDownWithState items={studygroups} />;
-export const Classgroup = () => <DropDownWithState items={classes} />;
-export const Skillgroup = () => <DropDownWithState items={skills} />;
-export const Questiongroup = () => <DropDownWithState items={questions} />;
+export const Studygroup = () => (
+  <DropDownWithState items={studygroups} placeholder="choose study group " />
+);
+export const Classgroup = () => (
+  <DropDownWithState items={classes} placeholder="choose calss group " />
+);
+export const Skillgroup = () => (
+  <DropDownWithState items={skills} placeholder="choose your skills  " />
+);
+export const Questiongroup = () => (
+  <DropDownWithState items={questions} placeholder="what is your question" />
+);
