@@ -15,6 +15,9 @@ const Footer = () => {
     if (userRole === 'mentor') {
       return '/profile/mentor';
     }
+    if (userRole === 'admin') {
+      return '/profile/admin';
+    }
   };
   return (
     <footer>
