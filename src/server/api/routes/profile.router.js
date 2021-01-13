@@ -9,10 +9,10 @@ const profileController = require('../controllers/profile.controller');
 
 /**
  * @swagger
- * /profile/students:
+ * /profile/student:
  *  get:
  *    tags:
- *    - profile
+ *    - Profile
  *    summary: Get all students profile
  *    description:
  *      Will return all students profile.
