@@ -30,7 +30,8 @@ const getAdminsProfile = async (userId) => {
       .select('users.name', 'users.admin_role as adminRole')
       .join('user_roles', 'users.id', 'user_roles.user_id')
       .join('roles', 'user_roles.role_id', 'roles.id')
-      .where('users.id', userId);
+      .where('users.id', userId)
+      .where('roles.name', 'admin');
     return profile;
   } catch (error) {
     return error.message;
