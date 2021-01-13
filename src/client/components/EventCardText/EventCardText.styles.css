@@ -1,0 +1,50 @@
+.container-event-card-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card-title {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #293a7d;
+}
+
+.event-card-date-time {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  color: #666;
+}
+
+.event-card-mentor {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+
+  /* line-height: 0.75; pixels with respect to font-size */
+
+  /* Default text grey */
+  color: #666;
+  max-width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.event-card-link {
+  max-width: 250px;
+
+  /* line-height: 0.75;  pixels with respect to font-size */
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

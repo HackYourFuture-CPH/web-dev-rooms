@@ -1,36 +1,97 @@
+import 'react-toastify/dist/ReactToastify.css';
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import { Home } from './containers/Home/Home';
-import SignIn from './containers/SignIn';
-import SignUp from './containers/SignUp';
-import ResetPassword from './containers/ResetPassword';
 import AuthenticatedRoute from './components/Auth/AuthenticatedRoute';
-import { useAuthentication } from './hooks/useAuthentication';
-import Header from './components/Navigation/Header';
-import Profile from './containers/Profile';
 import Loader from './components/Loader';
+import Logout from './components/Logout/Logout';
+import Route404 from './components/Route404';
+import EventsPage from './containers/EventsPage/EventsPage';
+import { Home } from './containers/Home/Home';
+import LoginPage from './containers/LoginPage/LoginPage.component';
+import LoginTest from './containers/LoginTestPage';
+import ProfilePage from './containers/ProfilePage/ProfilePage.component';
+import { MentorProfilePage } from './containers/ProfilePage/MentorProfile/MentorProfile.component';
+import { StudentProfilePage } from './containers/ProfilePage/StudentProfile/StudentProfile/StudentProfile.component';
+import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
+import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
+import { RegistrationSuccessPage } from './containers/RegistrationPage/RegistrationSuccessPage';
+import { StudentRegistrationPage } from './containers/RegistrationPage/StudentRegistrationPage/StudentRegistrationPage.component';
+import SelectionPage from './containers/SelectionPage/SelectionPage.component';
+import SlackAuthPage from './containers/SlackAuthPage/SlackAuthPage.component';
+import OrganizationsPage from './containers/OrganizationsPage/OrganizationsPage';
+import { useUser } from './context/userContext';
+import SkillsPage from './containers/SkillsPage/SkillsPage';
+import StudentHome from './containers/StudentHome/StudentHome';
 
 function App() {
-  const { isAuthenticated, isLoading } = useAuthentication();
-  if (isLoading) return <Loader />;
+  const { isLoading } = useUser();
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <Router>
-      <Header isAuthenticated={isAuthenticated} />
       <Switch>
-        <Route exact path="/">
-          <Home />
+        <Route exact path="/login">
+          <LoginPage />
         </Route>
-        <SignIn exact path="/sign-in" />
-        <SignUp exact path="/sign-up" />
-        <ResetPassword exact path="/reset-password" />
-        <AuthenticatedRoute
-          exact
-          path="/profile"
-          isAuthenticated={isAuthenticated}
-        >
-          <Profile />
+        <LoginTest exact path="/login-test" />
+        <Route exact path="/slack-auth">
+          <SlackAuthPage />
+        </Route>
+        <Route exact path="/registration">
+          <SelectionPage />
+        </Route>
+        <Route exact path="/registration/mentor">
+          <MentorRegistrationPage />
+        </Route>
+        <Route exact path="/registration/student">
+          <StudentRegistrationPage />
+        </Route>
+        <Route exact path="/registration/admin">
+          <AdminRegistrationPage />
+        </Route>
+        <Route exact path="/registration/success">
+          <RegistrationSuccessPage />
+        </Route>
+        <AuthenticatedRoute exact path="/admin/organizations">
+          <OrganizationsPage />
         </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/admin/skills">
+          <SkillsPage />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/home/student">
+          <StudentHome />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/">
+          <Home />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/home">
+          <Home />
+        </AuthenticatedRoute>
+        <Route exact path="/logout">
+          <Logout />
+        </Route>
+        <AuthenticatedRoute exact path="/events">
+          <EventsPage />
+        </AuthenticatedRoute>
+
+        <AuthenticatedRoute exact path="/profile">
+          <ProfilePage />
+        </AuthenticatedRoute>
+
+        <AuthenticatedRoute exact path="/profile/student">
+          <StudentProfilePage />
+        </AuthenticatedRoute>
+
+        <AuthenticatedRoute exact path="/profile/mentor">
+          <MentorProfilePage />
+        </AuthenticatedRoute>
+
+        <Route path="*" component={Route404} />
       </Switch>
     </Router>
   );

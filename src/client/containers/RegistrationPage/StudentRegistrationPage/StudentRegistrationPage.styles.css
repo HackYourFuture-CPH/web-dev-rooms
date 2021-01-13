@@ -1,0 +1,10 @@
+.student-registration-main {
+  align-items: center;
+}
+
+.student-registration-main .student-registration-avatar {
+  width: 100%;
+  background-color: #f8f8f8;
+  border-radius: 0% 0% 100% 100%;
+  overflow: hidden;
+}

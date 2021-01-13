@@ -1,0 +1,25 @@
+/* Style the button */
+.slack-button {
+  display: flex;
+  justify-content: center;
+  min-width: 300px;
+}
+
+.button-sign-with-slack {
+  padding: 0;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: rgb(17, 1, 1);
+  border-radius: 10px;
+  border-style: solid;
+  border-color: white;
+  font-weight: 900;
+  background-color: transparent;
+}
+
+/* Make button active when you click it */
+.button-sign-with-slack:active {
+  transform: translateY(4px);
+}

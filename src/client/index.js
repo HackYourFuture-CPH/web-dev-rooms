@@ -1,15 +1,11 @@
+import './index.css';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router } from 'react-router-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Modal from 'react-modal';
 
-ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
-  document.getElementById('root'),
-);
+import AppContainer from './AppContainer';
 
-serviceWorker.unregister();
+Modal.setAppElement('#root');
+
+ReactDOM.render(<AppContainer />, document.getElementById('root'));

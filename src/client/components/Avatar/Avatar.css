@@ -1,0 +1,10 @@
+.avatar-images-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-avatar-images {
+  max-width: 150px;
+}

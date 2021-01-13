@@ -1,0 +1,39 @@
+.ReactModal__Overlay,
+.ReactModal__Overlay--after-open {
+  background-color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.modal-wrapper {
+  background: #f6f6f6;
+  border: 0.1px solid #e4e4e4;
+  border-radius: 8px;
+  max-width: 400px;
+  width: 100%;
+  padding: 12px;
+  margin: 4rem auto;
+  transition: all 0.5s ease;
+}
+
+.modal-header {
+  color: #e9e9e9;
+  text-align: right;
+}
+
+.modal-header span {
+  color: #666;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: right;
+  justify-content: right;
+}
+
+.modal-title {
+  text-align: center;
+  color: #293a7d;
+  font-size: 24px;
+}
+
+.react-modal .button-close {
+  background: transparent;
+  border: none;
+}

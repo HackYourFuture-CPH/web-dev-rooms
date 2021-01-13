@@ -1,24 +1,47 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import React from 'react';
+import { Redirect, Route } from 'react-router-dom';
+import ErrorPage from '../../containers/404Page/404Page.component';
+import { useUser } from '../../context/userContext';
 
-function AuthenticatedRoute({ children, isAuthenticated, ...rest }) {
+function AuthenticatedRoute({ children, requiredRole, ...rest }) {
+  const { isAuthenticated, isNewUser, userRole } = useUser();
+
   return (
     <Route
       // (we need to spread)
       {...rest} // eslint-disable-line
-      render={({ location }) =>
-        isAuthenticated ? (
-          children
-        ) : (
+      render={({ location }) => {
+        if (isAuthenticated) {
+          if (isNewUser) {
+            return (
+              <Redirect
+                to={{
+                  pathname: '/registration',
+                  state: { from: location },
+                }}
+              />
+            );
+          }
+          if (requiredRole) {
+            if (userRole === requiredRole) {
+              return children;
+            }
+
+            return <ErrorPage />;
+          }
+          return children;
+        }
+
+        return (
           <Redirect
             to={{
-              pathname: '/sign-in',
+              pathname: '/login',
               state: { from: location },
             }}
           />
-        )
-      }
+        );
+      }}
     />
   );
 }
@@ -27,5 +50,9 @@ export default AuthenticatedRoute;
 
 AuthenticatedRoute.propTypes = {
   children: PropTypes.element.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  requiredRole: PropTypes.string,
+};
+
+AuthenticatedRoute.defaultProps = {
+  requiredRole: '',
 };

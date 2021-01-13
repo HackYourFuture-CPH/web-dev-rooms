@@ -1,0 +1,25 @@
+.layout {
+  max-width: 640px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 12px;
+  padding-top: 59px;
+  padding-bottom: 90px;
+}
+
+.layout > * {
+  margin-bottom: 32px;
+}
+
+.layout > footer {
+  margin-bottom: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .layout {
+    padding: 0;
+  }
+}

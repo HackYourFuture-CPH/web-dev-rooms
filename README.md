@@ -36,9 +36,9 @@
 
 This repository is for Web Dev Rooms - Class14 Final Project.
 
-The project consists of creating an App that facilitates the Study Group Management. 
+The project consists of creating an App that facilitates the Study Group Management.
 
-Currently we have 2 companies supporting HackYourFuture where there employees volunteers work hours on 2 different days and on 4 different time slots. We also run an Open Office once a week where students can meet. 
+Currently we have 2 companies supporting HackYourFuture where there employees volunteers work hours on 2 different days and on 4 different time slots. We also run an Open Office once a week where students can meet.
 
 All of this demands coordination between STAFF, STUDENTS and VOLUNTEERS and Web Dev Rooms will help everyone to be on track without spending too much time or loosing good opportunities - Let's use time wisely :)
 
@@ -56,14 +56,14 @@ All of this demands coordination between STAFF, STUDENTS and VOLUNTEERS and Web 
 ## 📅 Project's Calendar
 
 - Week 0 - 08/11 - Job Hunt workshop and Boilerplate installation (online)
-- Week 1 - 15/11 - Kick-off with Wireframes presentation and Storybook  (online)
-- Week 2 - 22/11 -      (online)
-- Week 3 - 29/11 -      (online)
-- Week 4 - 06/12 -      (not decided yet but probably online)
-- Week 5 - 13/12 -      (not decided yet but probably online)	
-- Week 6 - 20/12 -      (not decided yet but probably online)
-- Xmas Holidays - 27/12 
-- Week 7 - 03/01 -      (not decided yet but probably online)
+- Week 1 - 15/11 - Kick-off with Wireframes presentation and Storybook (online)
+- Week 2 - 22/11 - How to review a PR, naming, Swagger and DB Diagram (online)
+- Week 3 - 29/11 - (online)
+- Week 4 - 06/12 - (not decided yet but probably online)
+- Week 5 - 13/12 - (not decided yet but probably online)
+- Week 6 - 20/12 - (not decided yet but probably online)
+- Xmas Holidays - 27/12
+- Week 7 - 03/01 - (not decided yet but probably online)
 - Graduation - 06/01 - Graduation
 
 ## 🕛 Class Daily Agenda 🕓
@@ -83,9 +83,13 @@ The customer of this project is HackYourFuture but you should also consider Your
 
 [Business Glossary](/BusinessGlossary.md)
 
+#### 🖌️ Wireframes
+
+https://www.figma.com/file/9gN79UmpDPrAZk5jY4V7Ww/Study-Group-Management-System
+
 #### 🗄️ Database Model Diagram
 
-_Add here the DB Model Diagram_ - Use https://dbdiagram.io/
+https://dbdiagram.io/d/5fb801913a78976d7b7cc7d8
 
 - [How to make changes on the diagram](/diagram.md)
 
@@ -103,14 +107,14 @@ _Add here the DB Model Diagram_ - Use https://dbdiagram.io/
 Generally there are 2 types of components: _presentational_ and _container_ components. Please review the differences below:
 
 |                       | Presentational components                           | Container components                                                                                                                                                      |
-| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --- |
 | Also known as         | "dumb" components, functional stateless components  | "smart" components, stateful components                                                                                                                                   |
 | Lives in this folder  | `/components`                                       | `/containers`                                                                                                                                                             |
 | Purpose               | Determines what a component looks like              | Determines how the applications works                                                                                                                                     |
 | Communication         | Can only communicate by receiving and passing props | Can communicate via props, can call APIs, can manipulate the DOM with REFs, etc.                                                                                          |
 | Markup                | Contains most of the markup for the application     | Should generally have as little markup as possible. A container `<div>` or an `<ul>` tag is ok, but if you need more, consider making a separate presentational component |
 | Storybook             | Can easily be mocked in Storybook                   | Cannot easily be mocked in Storybook, would require mocking API calls, etc.                                                                                               |
-| Can have side effects | No                                                  | Yes                                                                                                                                                                       |  |
+| Can have side effects | No                                                  | Yes                                                                                                                                                                       |     |
 
 #### A note about React Hooks
 
@@ -314,6 +318,8 @@ To run the tests when you change a test file, run:
 First clone the repo on your local machine using a terminal or a git client.
 
 #### 💾 [Installations](/installations.md)
+
+#### 🔐 [Authentication](/Authentication.md)
 
 ##### Errors
 

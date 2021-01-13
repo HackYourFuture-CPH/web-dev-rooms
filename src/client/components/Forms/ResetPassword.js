@@ -8,6 +8,7 @@ export default function ResetPassword({ onSubmit }) {
     e.preventDefault();
     onSubmit({ email });
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="email">

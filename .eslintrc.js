@@ -24,5 +24,14 @@ module.exports = {
     'react/destructuring-assignment': 'off',
     'react/state-in-constructor': 'off',
     'react/no-access-state-in-setstate': 'off',
+    'react/jsx-props-no-spreading': 'off',
   },
+  overrides: [
+    {
+      files: ['**/seeds/**/*.js', '**/controllers/**/*.js'],
+      rules: {
+        '@typescript-eslint/camelcase': 'off',
+      },
+    },
+  ],
 };

@@ -1,0 +1,11 @@
+.login-test-page ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.login-test-page ul li {
+  margin-bottom: 0.5rem;
+}
