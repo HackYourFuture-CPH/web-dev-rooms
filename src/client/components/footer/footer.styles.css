@@ -1,42 +1,70 @@
-footer {
+.footer {
   background-color: #f8f8f8;
   position: fixed;
   width: 100%;
   left: 0;
   bottom: 0;
   right: 0;
-}
-
-footer a {
-  color: #666;
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 10px;
-  line-height: 12px;
-  text-align: center;
-  text-decoration: none;
-}
-
-.main-content {
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 !important;
 }
 
-.main-content .box {
-  padding: 20px 0;
-  flex-basis: 50%;
-  text-align: center;
+.footer > * {
+  padding: 1rem 0;
+}
+
+.footer .app-logo {
+  display: none;
+}
+
+.footer a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  font-size: 0.75rem;
+  text-decoration: none;
+  color: #666;
+  font-style: normal;
+  font-weight: 500;
 }
 
-.main-content .box h4 {
-  margin-top: 5px;
+.footer a:hover {
+  text-decoration: decoration;
+  color: var(--main);
 }
 
-.main-content .box img {
-  background-color: transparent;
-  border: 0;
+.footer a svg {
+  font-size: 1rem;
+}
+
+.footer h4 {
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+}
+
+.footer .logout {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .footer {
+    top: 0;
+    left: 0;
+    right: unset;
+    width: unset;
+    flex-direction: column;
+    padding: 0 1rem;
+    justify-content: start;
+  }
+
+  .footer .app-logo {
+    display: block;
+  }
+
+  .footer .logout {
+    display: flex;
+    margin-top: auto;
+  }
 }
