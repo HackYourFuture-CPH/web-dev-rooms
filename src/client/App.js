@@ -75,9 +75,9 @@ function App() {
         <AuthenticatedRoute exact path="/events">
           <EventsPage />
         </AuthenticatedRoute>
-        <Route exact path="/topics">
+        <AuthenticatedRoute exact path="/topics">
           <TopicsTest />
-        </Route>
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
