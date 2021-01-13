@@ -2,20 +2,14 @@ import './AdminHomePage.styles.css';
 
 import React from 'react';
 
-import {
-  Button,
-  Heading,
-  HelpText,
-  Loader,
-  Modal,
-  Layout,
-} from '../../../components';
+import { Button, Heading, HelpText, Loader, Layout } from '../../../components';
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { CardWithEventsOrStudyGroups } from '../../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
 import Footer from '../../../components/footer/footer';
 import { useQuery } from '../../../hooks/useQuery';
 
 import ElasticLogo from '../../../components/StudyGroupLogo/Elastic.logo.svg';
+import { ViewEventModal } from './ViewEventModal';
 
 export function AdminHomePage() {
   const { data: events, loading } = useQuery(`/api/events`);
@@ -59,8 +53,4 @@ export function AdminHomePage() {
       <Footer />
     </Layout>
   );
-}
-
-function ViewEventModal(props) {
-  return <Modal {...props}>a</Modal>;
 }

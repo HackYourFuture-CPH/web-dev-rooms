@@ -22,29 +22,36 @@ export const Button = (props) => {
   }
 
   return (
-    <button
-      className={cn(
-        `button`,
-        {
-          'button-default': appearance === 'default',
-        },
-        {
-          'button-danger': appearance === 'danger',
-        },
-        {
-          'button-link': appearance === 'link',
-        },
-      )}
-      type="submit"
-      onClick={click}
-      appearance={props.appearance}
-      disabled={props.disabled}
-    >
-      {props.children}
+    <>
+      <button
+        className={cn(
+          `button`,
+          {
+            'button-default': appearance === 'default',
+          },
+          {
+            'button-danger': appearance === 'danger',
+          },
+          {
+            'button-link': appearance === 'link',
+          },
+        )}
+        type="submit"
+        onClick={click}
+        appearance={props.appearance}
+        disabled={props.disabled}
+      >
+        {props.children}
+      </button>
+
       {props.modal && isOpen
-        ? props.modal({ isOpen, onRequestClose: closeModal })
+        ? props.modal({
+            isOpen,
+            onClose: closeModal,
+            onRequestClose: closeModal,
+          })
         : null}
-    </button>
+    </>
   );
 };
 
