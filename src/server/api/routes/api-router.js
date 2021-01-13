@@ -18,7 +18,6 @@ const TopicsRouter = require('./topics.router');
 const userRouter = require('./user.router');
 const usersRouter = require('./users.router');
 const profileRouter = require('./profile.router');
-
 const eventsDetailRouter = require('./eventDetail.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
@@ -57,7 +56,7 @@ router.use('/self', selfRouter);
 
 router.use('/events_users', eventsUsersRouter2);
 
-router.use('/eventsDetail', eventsDetailRouter);
+router.use('/eventDetail', eventsDetailRouter);
 
 router.use('/signin', slackRouter);
 router.use('/skills', skillsRouter);

@@ -7,7 +7,7 @@ const eventDetailController = require('../controllers/eventDetail.controller');
 
 /**
  * @swagger
- * /eventsDetail/{userId}:
+ * /eventDetail/{eventId}:
  *  get:
  *    summary: Get the detail for a specific event
  *    description:
@@ -15,17 +15,17 @@ const eventDetailController = require('../controllers/eventDetail.controller');
  *    produces: application/json
  *    parameters:
  *      - in: path
- *        name: userId
- *        description: ID
+ *        name: eventId
+ *        description: Details of the specific event.
  *    responses:
  *      200:
  *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
  */
-router.get('/:userId', (req, res, next) => {
+router.get('/:eventId/', (req, res, next) => {
   eventDetailController
-    .eventDetail(req.query.userId)
+    .eventDetail(req.params.eventId)
     .then((result) => res.json(result))
     .catch(next);
 });
