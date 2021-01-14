@@ -26,7 +26,7 @@ export default function TopicsPage() {
       <Heading>Welcome Admin</Heading>
       <div className="topic-lable">
         {topics.map((topic) => (
-          <span> {topic.topicName} </span>
+          <span key={topic.id}> {topic.topicName} </span>
         ))}
       </div>
       <Footer id="footer" />
