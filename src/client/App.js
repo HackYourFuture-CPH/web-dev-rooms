@@ -24,6 +24,7 @@ import OrganizationsPage from './containers/OrganizationsPage/OrganizationsPage'
 import { useUser } from './context/userContext';
 import SkillsPage from './containers/SkillsPage/SkillsPage';
 import StudentHome from './containers/StudentHome/StudentHome';
+import { AdminRootPage } from './containers/AdminRootPage/AdminRootPage';
 
 function App() {
   const { isLoading } = useUser();
@@ -57,6 +58,9 @@ function App() {
         <Route exact path="/registration/success">
           <RegistrationSuccessPage />
         </Route>
+        <AuthenticatedRoute exact path="/admin">
+          <AdminRootPage />
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/admin/organizations">
           <OrganizationsPage />
         </AuthenticatedRoute>

@@ -1,9 +1,10 @@
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
-import { Layout } from '../../components/Layout';
-import Loader from '../../components/Loader/Loader';
+
+import { Button, Heading, Layout, Loader, Table } from '../../components';
 import { AppHeader } from '../../components/Appheader/AppHeader.component';
 import Footer from '../../components/footer/footer';
-import Label from '../../components/Label/Tags/Label';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
 
 export default function SkillsPage() {
@@ -21,10 +22,36 @@ export default function SkillsPage() {
   return (
     <Layout>
       <AppHeader />
+
+      <Heading>Skills</Heading>
+
       {isLoading && <Loader />}
-      {skills.map((skill) => (
-        <Label text={skill.name} />
-      ))}
+
+      <Table>
+        <thead>
+          <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th aria-label="Action" />
+          </tr>
+        </thead>
+        <tbody>
+          {skills.map((skill) => (
+            <tr key={skill.id}>
+              <td>{skill.id}</td>
+              <td>{skill.name}</td>
+              <td style={{ textAlign: 'right' }}>
+                <Button appearance="link">
+                  <FontAwesomeIcon icon={faEdit} />
+                </Button>
+                <Button appearance="link">
+                  <FontAwesomeIcon icon={faTrash} />
+                </Button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
       <Footer />
     </Layout>
   );
