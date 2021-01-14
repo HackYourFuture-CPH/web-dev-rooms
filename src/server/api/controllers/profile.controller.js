@@ -26,13 +26,13 @@ const getAdminsProfile = async (userId) => {
   where roles.name= "admin";
   */
   try {
-    const profile = await knex('users')
+    const profiles = await knex('users')
       .select('users.name', 'users.admin_role as adminRole')
       .join('user_roles', 'users.id', 'user_roles.user_id')
       .join('roles', 'user_roles.role_id', 'roles.id')
       .where('users.id', userId)
       .where('roles.name', 'admin');
-    return profile;
+    return profiles[0];
   } catch (error) {
     return error.message;
   }

@@ -19,10 +19,10 @@ export const AdminProfilePage = () => {
   const inputRef = useRef('');
   useEffect(() => {
     fetch('/api/profile/admin').then((data) => {
-      setAdminName(data[0].name);
-      setAdminRole(data[0].adminRole);
-      setEditableName(data[0].name);
-      setEditableRole(data[0].adminRole);
+      setAdminName(data.name);
+      setAdminRole(data.adminRole);
+      setEditableName(data.name);
+      setEditableRole(data.adminRole);
     });
   }, [fetch]);
   const handleInputNameChange = (e) => {
@@ -38,7 +38,7 @@ export const AdminProfilePage = () => {
         <Avatar avatarUrl={admin} name="admin" />
       </section>
 
-      <Header>Welcome {name}</Header>
+      <Header>Welcome {adminName}</Header>
 
       <section style={{ maxWidth: '500px', width: '100%' }}>
         <Input
