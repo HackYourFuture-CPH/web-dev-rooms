@@ -13,7 +13,6 @@ export default function TopicsPage() {
   useEffect(() => {
     fetch('/api/topics').then((data) => {
       setTopics(data);
-      console.log(data);
     });
   }, [fetch]);
 
