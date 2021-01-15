@@ -11,9 +11,11 @@ import EventsPage from './containers/EventsPage/EventsPage';
 import { Home } from './containers/Home/Home';
 import LoginPage from './containers/LoginPage/LoginPage.component';
 import LoginTest from './containers/LoginTestPage';
+import TopicsTest from './containers/TopicsPage/TopicsPage';
 import ProfilePage from './containers/ProfilePage/ProfilePage.component';
 import { MentorProfilePage } from './containers/ProfilePage/MentorProfile/MentorProfile.component';
 import { StudentProfilePage } from './containers/ProfilePage/StudentProfile/StudentProfile/StudentProfile.component';
+import { AdminProfilePage } from './containers/ProfilePage/AdminProfile/AdminProfile';
 import { AdminRegistrationPage } from './containers/RegistrationPage/AdminRegistrationPage/AdminRegistrationPage.component';
 import { MentorRegistrationPage } from './containers/RegistrationPage/MentorRegistrationPage/MentorRegistrationPage.component';
 import { RegistrationSuccessPage } from './containers/RegistrationPage/RegistrationSuccessPage';
@@ -82,7 +84,9 @@ function App() {
         <AuthenticatedRoute exact path="/events">
           <EventsPage />
         </AuthenticatedRoute>
-
+        <AuthenticatedRoute exact path="/topics">
+          <TopicsTest />
+        </AuthenticatedRoute>
         <AuthenticatedRoute exact path="/profile">
           <ProfilePage />
         </AuthenticatedRoute>
@@ -93,6 +97,9 @@ function App() {
 
         <AuthenticatedRoute exact path="/profile/mentor">
           <MentorProfilePage />
+        </AuthenticatedRoute>
+        <AuthenticatedRoute exact path="/profile/admin">
+          <AdminProfilePage />
         </AuthenticatedRoute>
 
         <Route path="*" component={Route404} />
