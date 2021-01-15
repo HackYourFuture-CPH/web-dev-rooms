@@ -1,0 +1,9 @@
+.admin-home-page .events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin-home-page .events > * {
+  margin-bottom: 20px;
+}

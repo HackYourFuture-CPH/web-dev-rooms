@@ -1,6 +1,5 @@
 .events-page {
-  margin-left: auto;
-  margin-right: auto;
+  align-items: center;
 }
 
 .group-for-class {
@@ -8,11 +7,6 @@
   font-weight: bold;
   color: #293a7d;
   margin-bottom: 20px;
-  padding-right: 150px;
-  text-align: center;
-}
-
-.events-card {
   margin-left: auto;
   margin-right: auto;
 }

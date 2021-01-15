@@ -7,7 +7,7 @@ import Modal from '../Modal/Modal';
 export const ModalAdminCancelStudentRegistration = ({ onCancelMessage }) => {
   return (
     <div className="cancel-reg-modal">
-      <Modal title="Cancel Student Registration">
+      <Modal title="Cancel Student Registration" isOpen>
         <p className="cancel-reg-textfield">Are you sure you want to cancel</p>
         <div className="cancel-reg-submit-btn">
           <Button appearance="danger" onClick={onCancelMessage}>
