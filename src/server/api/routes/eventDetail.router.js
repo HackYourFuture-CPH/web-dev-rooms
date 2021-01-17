@@ -7,7 +7,7 @@ const eventDetailController = require('../controllers/eventDetail.controller');
 
 /**
  * @swagger
- * /eventDetail/{eventId}:
+ * /events/{eventId}/details:
  *  get:
  *    summary: Get the detail for a specific event
  *    description:
