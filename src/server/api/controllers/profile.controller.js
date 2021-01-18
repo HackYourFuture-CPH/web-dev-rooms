@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const knex = require('../../config/db');
 
 const getStudentsProfile = async (userId) => {
@@ -17,11 +18,32 @@ const getStudentsProfile = async (userId) => {
   }
 };
 
+const editStudentProfile = async (userId, body) => {
+  try {
+    const studentData = await knex('users')
+      .select('users.name', 'users.timezone')
+      .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
+      .leftJoin('roles', 'user_roles.role_id', 'roles.id')
+      .where('roles.name', 'student')
+      .where({ id: userId });
+    if (studentData.length === 0) {
+      throw new Error(`incorrect entry with the id of ${userId}`, 404);
+    } else {
+      await knex('users').where({ id: userId }).update({
+        name: body.name,
+        timezone: body.timezone,
+      });
+    }
+  } catch (error) {
+    return error.message;
+  }
+};
+
 const getAdminsProfile = async (userId) => {
-  /* SQL query to get all the admins 
+  /* SQL query to get all the admins
   SELECT users.name, roles.name
-  FROM users 
-  join user_roles on users.id = user_roles.user_id 
+  FROM users
+  join user_roles on users.id = user_roles.user_id
   join roles on user_roles.role_id = roles.id
   where roles.name= "admin";
   */
@@ -39,5 +61,6 @@ const getAdminsProfile = async (userId) => {
 };
 module.exports = {
   getStudentsProfile,
+  editStudentProfile,
   getAdminsProfile,
 };
