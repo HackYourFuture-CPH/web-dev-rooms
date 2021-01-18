@@ -23,7 +23,7 @@ const eventDetailController = require('../controllers/eventDetail.controller');
  *      5XX:
  *        description: Unexpected error.
  */
-router.get('/:eventId/', (req, res, next) => {
+router.get('', (req, res, next) => {
   eventDetailController
     .eventDetail(req.params.eventId)
     .then((result) => res.json(result))
