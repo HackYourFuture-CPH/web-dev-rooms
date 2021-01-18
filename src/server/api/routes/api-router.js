@@ -53,7 +53,6 @@ router.use('/modules', modulesRouter);
 router.use('/organizations', organizationsRouter);
 router.use('/profile', profileRouter);
 router.use('/self', selfRouter);
-router.use('/events_users', eventsUsersRouter2);
 router.use('/events/:eventId/details', eventsDetailRouter);
 router.use('/signin', slackRouter);
 router.use('/skills', skillsRouter);
