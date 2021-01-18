@@ -9,7 +9,7 @@ const eventDetail = async (eventId) => {
       'topics.topic_name as topic',
       'topics.week_number as weekNumber',
       'topics.homework_url as link',
-      'organizations.name as Organization',
+      'organizations.name as organization',
     )
     .leftJoin('events_users', 'events.id', 'events_users.event_id')
     .leftJoin('users', 'events_users.users_id', 'users.id')
