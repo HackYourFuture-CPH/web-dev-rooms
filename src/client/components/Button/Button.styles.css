@@ -6,20 +6,22 @@
   color: #fff;
   font-family: 'Inter', sans-serif;
   font-size: 17px;
-  padding: 6px 58px;
   text-decoration: none;
   text-shadow: 0 1px 0 #2f6627;
-  height: 50px;
   font-weight: 600;
 }
 
 .button.button-default {
   background-color: #293a7d;
+  padding: 6px 58px;
+  height: 50px;
 }
 
 .button.button-danger {
   background-color: #f00;
   border: none;
+  padding: 6px 58px;
+  height: 50px;
 }
 
 .button:disabled {

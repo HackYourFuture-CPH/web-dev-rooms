@@ -2,13 +2,13 @@ import './AdminHomePage.styles.css';
 
 import React from 'react';
 
-import { Button, Heading, HelpText, Loader, Layout } from '../../../components';
+import { Button, Heading, HelpText, Layout, Loader } from '../../../components';
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { CardWithEventsOrStudyGroups } from '../../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
 import Footer from '../../../components/footer/footer';
-import { useQuery } from '../../../hooks/useQuery';
-
 import ElasticLogo from '../../../components/StudyGroupLogo/Elastic.logo.svg';
+import { useQuery } from '../../../hooks/useQuery';
+import { CreateTimeSlotModal } from './CreateTimeSlotModal';
 import { ViewEventModal } from './ViewEventModal';
 
 export function AdminHomePage() {
@@ -47,7 +47,9 @@ export function AdminHomePage() {
       </section>
 
       <section className="self-center">
-        <Button>Create time slot</Button>
+        <Button modal={(props) => <CreateTimeSlotModal {...props} />}>
+          Create time slot
+        </Button>
       </section>
 
       <Footer />

@@ -20,9 +20,11 @@ export const AppHeader = () => {
       <AppLogo className="logo" />
 
       {isAuthenticated && (
-        <Button appearance="link" onClick={logout}>
-          Logout
-        </Button>
+        <div className="logout">
+          <Button appearance="link" onClick={logout}>
+            Logout
+          </Button>
+        </div>
       )}
     </div>
   );
