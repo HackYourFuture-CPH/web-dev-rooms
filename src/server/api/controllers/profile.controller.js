@@ -45,7 +45,7 @@ const editMentorProfile = async (mentorId, updatedMentor) => {
   if (getUser[0].id !== mentorId) return 404;
 
   // validate that name is not an empty string and return 400 if it is
-  if (updatedMentor.name === null) return 400;
+  if (!updatedMentor.name) return 400;
 
   // validate that the user is a student and return 404 if it isn't.
   const userRole = await knex('users')
