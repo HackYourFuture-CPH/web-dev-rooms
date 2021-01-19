@@ -1,4 +1,5 @@
 const knex = require('../../config/db');
+const moment = require('moment-timezone');
 
 const getStudentsProfile = async (userId) => {
   try {
@@ -37,7 +38,63 @@ const getAdminsProfile = async (userId) => {
     return error.message;
   }
 };
+
+const editMentorProfile = async (mentorId, updatedMentor) => {
+  // validate that user exists and return 404 if it doesn't
+  const getUser = await knex('users').select('id').where('id', mentorId);
+  if (getUser[0].id !== mentorId) return 404;
+
+  // validate that name is not an empty string and return 400 if it is
+  if (!updatedMentor.name) return 400;
+
+  // validate that the user is a student and return 404 if it isn't.
+  const userRole = await knex('users')
+    .select('roles.name')
+    .join('user_roles', 'users.id', 'user_roles.user_id')
+    .join('roles', 'user_roles.role_id', 'roles.id')
+    .where('users.id', mentorId)
+    .then((data) => JSON.parse(JSON.stringify(data)));
+  if (userRole[0].name !== 'student') return 404;
+
+  // delete existing skills of mentor from mentors_skills table
+  const statusOnDeleteSkills = await knex('mentors_skills')
+    .where('mentors_skills.mentor_id', mentorId)
+    .del();
+
+  // add new skills from the request
+  const skillsArray = updatedMentor.skills.map(Number); // converts string array to number array
+  const today = moment().format('YYYY-MM-DD HH:mm:ss');
+  let statusOnAddSkill;
+  skillsArray.map(async (skill) => {
+    statusOnAddSkill = await knex('mentors_skills')
+      .insert({
+        skill_id: skill,
+        mentor_id: mentorId,
+        created_at: today,
+        updated_at: today,
+      })
+      .then((data) => JSON.stringify(data));
+    // knex.insert() returns 'id of inserted record as an object' on success
+    // returns 'undefined' on failure
+  });
+
+  // update name and timezone
+  const statusOnUpdateName = await knex('users')
+    .update({
+      name: updatedMentor.name,
+      timezone: updatedMentor.timezone,
+    })
+    .where('users.id', mentorId);
+
+  if (
+    statusOnAddSkill !== undefined &&
+    statusOnDeleteSkills > 0 &&
+    statusOnUpdateName > 0
+  )
+    return 1;
+};
 module.exports = {
   getStudentsProfile,
   getAdminsProfile,
+  editMentorProfile,
 };
