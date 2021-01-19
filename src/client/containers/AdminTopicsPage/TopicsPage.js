@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Layout } from '../../components/Layout';
-import Footer from '../../components/footer/footer';
+import React, { useEffect, useState } from 'react';
+
+import { Heading } from '../../components';
 import { AppHeader } from '../../components/Appheader/AppHeader.component';
-import { AdminAvatar } from '../../components/Avatar';
-import Heading from '../../components/Heading/Heading';
+import Footer from '../../components/footer/footer';
+import { Layout } from '../../components/Layout';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
 
 export default function TopicsPage() {
@@ -19,10 +19,9 @@ export default function TopicsPage() {
   return (
     <Layout>
       <AppHeader />
-      <div className="admin-registration-avatar">
-        <AdminAvatar />
-      </div>
-      <Heading>Welcome Admin</Heading>
+
+      <Heading>Topics</Heading>
+
       <div className="topic-lable">
         {topics.map((topic) => (
           <span key={topic.id}> {topic.topicName} </span>

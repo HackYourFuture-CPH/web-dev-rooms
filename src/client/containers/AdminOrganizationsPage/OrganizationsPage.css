@@ -4,6 +4,7 @@ ul.orgs_list {
   flex-direction: column;
   align-items: center;
 }
+
 li.orgs_list_items {
   line-height: 50px;
   width: 30%;
