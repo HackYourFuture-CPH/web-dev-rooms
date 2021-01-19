@@ -55,6 +55,12 @@ router.get('/admin', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/mentor', (req, res, next) => {
+  profileController
+    .getMentorProfile(req.user.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
 /**
  * @swagger
  * /profile/mentor:
