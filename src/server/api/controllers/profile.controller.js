@@ -18,14 +18,14 @@ const getStudentsProfile = async (userId) => {
   }
 };
 
-const editStudentProfile = async (userId, body) => {
+const editStudentProfile = async (body, userId) => {
   try {
     const studentData = await knex('users')
       .select('users.name', 'users.timezone')
       .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
       .leftJoin('roles', 'user_roles.role_id', 'roles.id')
       .where('roles.name', 'student')
-      .where({ id: userId });
+      .where({ 'users.id': userId });
     if (studentData.length === 0) {
       throw new Error(`incorrect entry with the id of ${userId}`, 404);
     } else {

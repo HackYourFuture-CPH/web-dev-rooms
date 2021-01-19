@@ -59,9 +59,9 @@ router.get('/student', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
-router.patch('/profile', (req, res, next) => {
+router.patch('/student', (req, res, next) => {
   profileController
-    .editProfile(req.body, req.user.id)
+    .editStudentProfile(req.body, req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });
