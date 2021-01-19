@@ -28,7 +28,9 @@ export default function OrganizationsPage() {
       <div className="orgs_box">
         <ul className="orgs_list">
           {organizations.map((orgs) => (
-            <li className='orgs_list_items' key={orgs.id}>{orgs.name}</li>
+            <li className="orgs_list_items" key={orgs.id}>
+              {orgs.name}
+            </li>
           ))}
         </ul>
       </div>
