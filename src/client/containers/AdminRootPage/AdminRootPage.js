@@ -12,6 +12,7 @@ export function AdminRootPage() {
 
       <Link to="/admin/skills">Edit skills</Link>
       <Link to="/admin/organizations">Edit organizations</Link>
+      <Link to="/admin/topics">Edit topics</Link>
 
       <Footer />
     </Layout>
