@@ -17,6 +17,27 @@ const getStudentsProfile = async (userId) => {
   }
 };
 
+const getAdminsProfile = async (userId) => {
+  /* SQL query to get all the admins 
+  SELECT users.name, roles.name
+  FROM users 
+  join user_roles on users.id = user_roles.user_id 
+  join roles on user_roles.role_id = roles.id
+  where roles.name= "admin";
+  */
+  try {
+    const profiles = await knex('users')
+      .select('users.name', 'users.admin_role as adminRole')
+      .join('user_roles', 'users.id', 'user_roles.user_id')
+      .join('roles', 'user_roles.role_id', 'roles.id')
+      .where('users.id', userId)
+      .where('roles.name', 'admin');
+    return profiles[0];
+  } catch (error) {
+    return error.message;
+  }
+};
 module.exports = {
   getStudentsProfile,
+  getAdminsProfile,
 };
