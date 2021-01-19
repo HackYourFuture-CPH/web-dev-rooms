@@ -35,7 +35,7 @@ router.get('/student', (req, res, next) => {
  * @swagger
  * /profile/student:
  *  patch:
- *    summary: Update all students profile
+ *    summary: Update a student's profile
  *    description:
  *      Will update the profile.
  *    produces: application/json
@@ -61,7 +61,7 @@ router.get('/student', (req, res, next) => {
  */
 router.patch('/profile', (req, res, next) => {
   profileController
-    .editProfile(req.user.id)
+    .editProfile(req.body, req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });
