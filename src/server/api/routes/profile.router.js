@@ -54,4 +54,41 @@ router.get('/admin', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
+
+/**
+ * @swagger
+ * /profile/mentor:
+ *  patch:
+ *    tags:
+ *    - Profile
+ *    summary: To update a mentor profile
+ *    description:
+ *      Will update a mentor profile.
+ *    produces: application/json
+ *    responses:
+ *      200:
+ *        description: Successful request
+ *      5XX:
+ *        description: Unexpected error.
+ */
+
+router.patch('/mentor', (req, res, next) => {
+  // console.log(req.body);
+  // console.log(req.user);
+  profileController
+    .editMentorProfile(req.user.id, req.body)
+    .then((result) => {
+      if (result === 404) {
+        res.status(404).send('not a valid user or user does not exist');
+      }
+      if (result === 400) {
+        res.status(400).send('user name is empty');
+      }
+      if (result === 1) {
+        res.status(200).send('name, timezone and skills updated');
+      }
+    })
+    .catch(next);
+});
+
 module.exports = router;
