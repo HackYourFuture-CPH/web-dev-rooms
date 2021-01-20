@@ -75,8 +75,14 @@ const studygroups = [
     name: 'Hack Your Future',
   },
 ];
-function DropDownWithState({ items, placeholder }) {
-  return <DropDown options={items} placeholder={placeholder} />;
+function DropDownWithState({ items, placeholder, singleSelect }) {
+  return (
+    <DropDown
+      options={items}
+      placeholder={placeholder}
+      singleSelect={singleSelect}
+    />
+  );
 }
 
 DropDownWithState.propTypes = {
@@ -97,14 +103,30 @@ DropDownWithState.defaultProps = {
 export default { title: 'Components | DropDown' };
 
 export const Studygroup = () => (
-  <DropDownWithState items={studygroups} placeholder="choose study group " />
+  <DropDownWithState
+    items={studygroups}
+    placeholder="choose study group "
+    singleSelect={true}
+  />
 );
 export const Classgroup = () => (
-  <DropDownWithState items={classes} placeholder="choose calss group " />
+  <DropDownWithState
+    items={classes}
+    placeholder="choose calss group "
+    singleSelect={true}
+  />
 );
 export const Skillgroup = () => (
-  <DropDownWithState items={skills} placeholder="choose your skills  " />
+  <DropDownWithState
+    items={skills}
+    placeholder="choose your skills  "
+    singleSelect={false}
+  />
 );
 export const Questiongroup = () => (
-  <DropDownWithState items={questions} placeholder="what is your question" />
+  <DropDownWithState
+    items={questions}
+    placeholder="what is your question"
+    singleSelect={true}
+  />
 );
