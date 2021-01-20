@@ -321,6 +321,8 @@ First clone the repo on your local machine using a terminal or a git client.
 
 #### 🔐 [Authentication](/Authentication.md)
 
+#### ⍰ [Modals](/Modals.md)
+
 ##### Errors
 
 If you get this error: `Error: ENOENT: no such file or directory, scandir`
