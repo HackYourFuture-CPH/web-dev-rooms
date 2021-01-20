@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StudyGroupLogo } from '../StudyGroupLogo/StudyGroupLogo';
-import { Button } from '../Button/Button';
 import { EventCardText } from '../EventCardText/EventCardText';
 
 import './CardWithEventsOrStudyGroups.styles.css';
@@ -18,9 +17,7 @@ export const CardWithEventsOrStudyGroups = (props) => {
           link={props.link}
         />
       </div>
-      <div className="event-card-button">
-        <Button>{props.children}</Button>
-      </div>
+      <div className="event-card-buttons">{props.children}</div>
     </div>
   );
 };
@@ -36,7 +33,7 @@ CardWithEventsOrStudyGroups.propTypes = {
 
 CardWithEventsOrStudyGroups.defaultProps = {
   path: '',
-  children: '',
+  children: null,
   title: '',
   datetime: '',
   mentor: '',

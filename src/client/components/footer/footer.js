@@ -1,13 +1,21 @@
-import React, { useContext } from 'react';
-import { UserContext } from '../../context/userContext';
-import { Link } from 'react-router-dom';
-
 import './footer.styles.css';
-import home from './home.png';
-import profile from './profile.png';
+
+import {
+  faCalendarAlt,
+  faEdit,
+  faHome,
+  faSignOutAlt,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
+import React, { useContext } from 'react';
+
+import { UserContext } from '../../context/userContext';
+import { AppLogo } from '../Appheader/AppLogo';
+import { NavItem } from './NavItem';
 
 const Footer = () => {
   const { userRole } = useContext(UserContext);
+
   const getProfileLink = () => {
     if (userRole === 'student') {
       return '/profile/student';
@@ -15,24 +23,40 @@ const Footer = () => {
     if (userRole === 'mentor') {
       return '/profile/mentor';
     }
+    if (userRole === 'admin') {
+      return '/profile/admin';
+    }
   };
+
   return (
-    <footer>
-      <div className="main-content">
-        <div className="box">
-          <Link to="/home">
-            <img src={home} alt="home icon" />
-            <h4>HOME</h4>
-          </Link>
-        </div>
-        <div className=" box">
-          <Link to={getProfileLink()}>
-            <img src={profile} alt="profile icon" />
-            <h4>PROFILE</h4>
-          </Link>
-        </div>
-      </div>
-    </footer>
+    <nav className="footer">
+      <AppLogo className="app-logo" />
+      <NavItem to="/home" icon={faHome}>
+        Home
+      </NavItem>
+
+      {userRole === 'student' && (
+        <>
+          <NavItem to="/events" icon={faCalendarAlt}>
+            Events
+          </NavItem>
+        </>
+      )}
+      {userRole === 'admin' && (
+        <>
+          <NavItem to="/admin" icon={faEdit}>
+            Edit
+          </NavItem>
+        </>
+      )}
+
+      <NavItem to={getProfileLink()} icon={faUser}>
+        Profile
+      </NavItem>
+      <NavItem className="logout" to="/logout" icon={faSignOutAlt}>
+        Logout
+      </NavItem>
+    </nav>
   );
 };
 

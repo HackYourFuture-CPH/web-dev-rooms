@@ -17,6 +17,8 @@ const slackRouter = require('./slack.router');
 const TopicsRouter = require('./topics.router');
 const userRouter = require('./user.router');
 const usersRouter = require('./users.router');
+const profileRouter = require('./profile.router');
+const eventsDetailRouter = require('./eventDetail.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -49,7 +51,9 @@ router.use('/feedbacks', feedbacksRouter);
 router.use('/groups', groupsRouter);
 router.use('/modules', modulesRouter);
 router.use('/organizations', organizationsRouter);
+router.use('/profile', profileRouter);
 router.use('/self', selfRouter);
+router.use('/events/:eventId/details', eventsDetailRouter);
 router.use('/signin', slackRouter);
 router.use('/skills', skillsRouter);
 router.use('/topics', TopicsRouter);

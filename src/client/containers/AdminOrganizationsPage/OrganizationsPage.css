@@ -1,0 +1,19 @@
+ul.orgs_list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li.orgs_list_items {
+  line-height: 50px;
+  width: 30%;
+  height: 30%;
+  background-color: lightgray;
+  color: #293a7d;
+  margin: 6px 3px;
+  border-radius: 5px;
+  font-weight: 500;
+  font-style: 14px;
+  text-align: center;
+}

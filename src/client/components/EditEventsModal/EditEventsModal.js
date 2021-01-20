@@ -11,7 +11,7 @@ import PropTypes, { shape } from 'prop-types';
 export default function EditEventsModal(props) {
   return (
     <div className="edit-event-modal">
-      <Modal>
+      <Modal isOpen>
         <h4 className="modal-title">{props.heading} </h4>
         <div className="edit-event-container">
           <div className="event-card container">

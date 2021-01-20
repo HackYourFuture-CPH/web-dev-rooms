@@ -15,7 +15,7 @@ export default function EventModalView({
 }) {
   return (
     <div className="event-modal-view">
-      <Modal>
+      <Modal isOpen>
         <div className="study-group-info">
           <div className="study-group-logo">
             <StudyGroupLogo path={Elasticlogo} />
