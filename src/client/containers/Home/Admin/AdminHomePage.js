@@ -1,7 +1,6 @@
 import './AdminHomePage.styles.css';
 
 import React from 'react';
-
 import { Button, Heading, HelpText, Layout, Loader } from '../../../components';
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { CardWithEventsOrStudyGroups } from '../../../components/CardWithEventsOrStudyGroups/CardWithEventsOrStudyGroups';
@@ -10,6 +9,7 @@ import ElasticLogo from '../../../components/StudyGroupLogo/Elastic.logo.svg';
 import { useQuery } from '../../../hooks/useQuery';
 import { CreateTimeSlotModal } from './CreateTimeSlotModal';
 import { ViewEventModal } from './ViewEventModal';
+import { DeleteEventModal } from './DeleteEventModal';
 
 export function AdminHomePage() {
   const { data: events, loading } = useQuery(`/api/events`);
@@ -17,7 +17,6 @@ export function AdminHomePage() {
   if (loading) {
     return <Loader />;
   }
-
   return (
     <Layout className="admin-home-page">
       <AppHeader />
@@ -38,7 +37,12 @@ export function AdminHomePage() {
                 View
               </Button>
               <Button>Edit</Button>
-              <Button appearance="danger">Cancel</Button>
+              <Button
+                appearance="danger"
+                modal={(props) => <DeleteEventModal id={event.id} {...props} />}
+              >
+                Cancel
+              </Button>
             </CardWithEventsOrStudyGroups>
           ))
         ) : (

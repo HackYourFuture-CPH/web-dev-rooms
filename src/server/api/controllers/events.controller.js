@@ -61,7 +61,7 @@ const deleteEvent = async (userId, eventId) => {
     .join('roles', 'user_roles.role_id', 'roles.id')
     .where('users.id', userId)
     .first();
-  if (user && user.role_name === 'Admin') {
+  if (user && user.role_name === 'admin') {
     const today = moment().format('YYYY-MM-DD HH:mm:ss');
     await knex('events')
       .where('id', eventId)
