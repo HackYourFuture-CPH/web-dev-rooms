@@ -17,7 +17,7 @@ export function NavItem({ className, to, icon, children }) {
 NavItem.propTypes = {
   className: PropTypes.string,
   to: PropTypes.string.isRequired,
-  icon: PropTypes.node,
+  icon: PropTypes.oneOfType([PropTypes.node, PropTypes.object]),
   children: PropTypes.node,
 };
 

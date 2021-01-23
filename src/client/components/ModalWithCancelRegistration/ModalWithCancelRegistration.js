@@ -1,32 +1,44 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Button } from '../Button/Button';
 import './ModalWithCancelRegistration.css';
+
+import PropTypes from 'prop-types';
+import React, { useState } from 'react';
+
+import { Button } from '../Button/Button';
 import Modal from '../Modal/Modal';
 
 function ModalWithCancelRegistration(props) {
+  const [cancelling, setCancelling] = useState(false);
+
+  async function cancel() {
+    setCancelling(true);
+    await props.onCancel();
+    props.onClose();
+  }
+
   return (
     <div className="cancel-reg-modal">
       <Modal title="Cancel Registration" isOpen>
-        <div className="cancel-reg-textfield">{props.text}</div>
+        <div className="cancel-reg-textfield">
+          Are you sure want to cancel your registration?
+        </div>
         <div className="cancel-reg-submit-btn">
-          <Button appearance={props.appearance} onClick={props.onClick}>
-            Cancel
+          <Button appearance="danger" onClick={cancel} disabled={cancelling}>
+            Yes, cancel it
           </Button>
         </div>
       </Modal>
     </div>
   );
 }
+
 ModalWithCancelRegistration.propTypes = {
-  text: PropTypes.string,
-  onClick: PropTypes.func,
-  appearance: PropTypes.string,
+  onCancel: PropTypes.func,
+  onClose: PropTypes.func,
 };
+
 ModalWithCancelRegistration.defaultProps = {
-  text: '',
-  onClick: null,
-  appearance: 'default',
+  onCancel: null,
+  onClose: null,
 };
 
 export default ModalWithCancelRegistration;
