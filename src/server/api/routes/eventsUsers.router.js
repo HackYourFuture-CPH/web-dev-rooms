@@ -9,28 +9,21 @@ const eventsUsersController = require('../controllers/eventsUsers.controller');
 
 /**
  * @swagger
- * /eventsUsers/{userID}:
+ * /events/registered:
  *  get:
- *    summary: Get events by a user with userID
+ *    summary: Get events that the user has registered for
  *    description:
- *      Will return  events with a matching userID.
+ *      Will return all events that the user has registered for.
  *    produces: application/json
- *    parameters:
- *     - in: path
- *       name: userID
- *       schema:
- *         type: integer
- *         required: true
- *         description: The userID of the event to get
  *    responses:
  *      200:
  *        description: Successful request
  *      5XX:
  *        description: Unexpected error.
  */
-router.get('/:userID/', (req, res, next) => {
+router.get('/', (req, res, next) => {
   eventsUsersController
-    .getUserEventsByUID(req.params.userID)
+    .getEventsForUser(req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });
