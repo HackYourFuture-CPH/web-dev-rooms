@@ -93,7 +93,7 @@ router.get('/admin', (req, res, next) => {
 // create a admin
 /**
  * @swagger
- * /profile/admin/{ID}:
+ * /profile/admin:
  *  post:
  *    tags:
  *    - Profile
