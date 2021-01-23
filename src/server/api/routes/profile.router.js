@@ -57,7 +57,7 @@ router.get('/admin', (req, res, next) => {
 
 router.get('/mentor', (req, res, next) => {
   profileController
-    .getMentorProfile(req.user.id)
+    .getMentorsProfile(req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });
