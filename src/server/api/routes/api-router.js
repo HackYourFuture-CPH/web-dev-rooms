@@ -44,9 +44,13 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
+
+// delete user registration by a mentor
 router.use('/events_users', eventsUsersRouter2);
+// get registered events for the user
+router.use('/events/registered', eventsUsersRouter);
+
 router.use('/events', eventsRouter);
-router.use('/eventsUsers', eventsUsersRouter);
 router.use('/feedbacks', feedbacksRouter);
 router.use('/groups', groupsRouter);
 router.use('/modules', modulesRouter);

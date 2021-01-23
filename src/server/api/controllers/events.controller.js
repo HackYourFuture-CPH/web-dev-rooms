@@ -100,35 +100,32 @@ const editEvent = async (eventId, userId, updatedEvent) => {
   return 'not an admin';
 };
 
-const deleteStudentFromEvent = async (eventId, studentId) => {
+const cancelStudentRegistration = async (eventId, studentId) => {
   const user = await knex('users')
-    .select(
-      'users.name',
-      'users.id',
-      'user_id',
-      'role_id',
-      'roles.name as role_name',
-    )
+    .select('users.id', 'users.name', 'roles.name as roleName')
     .join('user_roles', 'users.id', 'user_roles.user_id')
     .join('roles', 'user_roles.role_id', 'roles.id')
     .where('users.id', studentId)
     .first();
-  if (user.role_name === 'Admin' || user.id === studentId) {
-    const today = moment().format('YYYY-MM-DD HH:mm:ss');
-    await knex('events_users')
-      .where(eventId === 'event_id')
-      .where(studentId === 'user_id')
-      .whereNull('deleted_at')
-      .update({ deleted_at: today });
-  } else {
-    throw new Error('Unauthorized', 403);
+
+  if (!user) {
+    throw new Error(`Invalid user ${studentId}`);
   }
+
+  const today = moment().format('YYYY-MM-DD HH:mm:ss');
+  console.log({ eventId, studentId });
+  return knex('events_users')
+    .where('event_id', eventId)
+    .where('users_id', studentId)
+    .whereNull('deleted_at')
+    .update({ deleted_at: today });
 };
+
 module.exports = {
   createEvent,
   getEvents,
   getEventById,
   deleteEvent,
   editEvent,
-  deleteStudentFromEvent,
+  cancelStudentRegistration,
 };
