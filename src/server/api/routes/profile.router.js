@@ -1,3 +1,4 @@
+/* eslint-disable no-irregular-whitespace */
 /* The API routing for events */
 
 const express = require('express');
@@ -27,6 +28,40 @@ const profileController = require('../controllers/profile.controller');
 router.get('/student', (req, res, next) => {
   profileController
     .getStudentsProfile(req.user.id)
+    .then((result) => res.json(result))
+    .catch(next);
+});
+/**
+ * @swagger
+ * /profile/student:
+ *  patch:
+ *    summary: Update a student's profile
+ *    description:
+ *      Will update the profile.
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: profile
+ *        description: The module to create.
+ *        schema:
+ *          type: object
+ *          reqiured:
+ *            - name
+ *            - timezone
+ *          properties:
+ *            name:
+ *              type: string
+ *            timezone:
+ *              type: string
+ *    responses:
+ *      200:
+ *        description: Profile was patched
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.patch('/student', (req, res, next) => {
+  profileController
+    .editStudentProfile(req.body, req.user.id)
     .then((result) => res.json(result))
     .catch(next);
 });

@@ -198,27 +198,24 @@ router.patch('/:eid/:uid', (req, res) => {
 
 /**
  * @swagger
- * /events/{eventId}/cancel/{studentId}:
+ * /events/{eventId}/cancel:
  *  delete:
- *    summary: Delete a student from event
+ *    summary: Cancels registration for the event
  *    description:
- *      Will delete a the student from specific event
+ *      Cancel current registration from the future or current event.
  *    produces: application/json
  *    parameters:
  *      - in: path
  *        name: eventId
- *      - in: path
- *        name: studentId
- *        description: ID of the student to delete.
  *    responses:
  *      200:
- *        description: student deleted
+ *        description: Registration cancelled
  *      5XX:
  *        description: Unexpected error.
  */
-router.delete('/:eventId/cancel/:studentId', (req, res) => {
+router.post('/:eventId/cancel', (req, res) => {
   eventsController
-    .deleteStudentFromEvent(req.params.eventId, req.params.studentId)
+    .cancelStudentRegistration(req.params.eventId, req.user.id)
     .then((result) => {
       if (result === 0) {
         res.status(404).send('The student ID you provided does not exist.');
