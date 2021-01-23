@@ -51,7 +51,7 @@ router.use('/events_users', eventsUsersRouter2);
 router.use('/events/registered', eventsUsersRouter);
 
 router.use('/events', eventsRouter);
-router.use('/feedbacks', feedbacksRouter);
+router.use('/feedback', feedbacksRouter);
 router.use('/groups', groupsRouter);
 router.use('/modules', modulesRouter);
 router.use('/organizations', organizationsRouter);
