@@ -63,19 +63,21 @@ const getAdminsProfile = async (userId) => {
 
 const postAdminsProfile = async (adminRole, userId) => {
   try {
-    const userProfileData = await knex.raw(
-      ` SELECT us.id AS userID, us.name as userName FROM users AS us, user_roles AS ur, roles AS rl WHERE ur.user_id = us.id AND ur.role_id = rl.id AND rl.name = 'student' AND us.id = ? `,
-      [userId],
-    );
-    if (userProfileData[0].length === 0) {
+    const userProfileData = await knex('users')
+      .select('users.id')
+      .join('user_roles', 'users.id', 'user_roles.user_id')
+      .join('roles', 'user_roles.role_id', 'roles.id')
+      .where('users.id', userId)
+      .where('roles.name', 'admin');
+    if (userProfileData.length === 0) {
       throw new Error(`incorrect entry with the id of ${userId}`, 404);
     } else {
       await knex('users').where({ id: userId }).update({
         name: adminRole.name,
       });
 
-      await knex('user_roles').where({ id: userId }).update({
-        role_id: adminRole.role,
+      await knex('users').where({ id: userId }).update({
+        admin_role: adminRole.role,
       });
     }
   } catch (error) {

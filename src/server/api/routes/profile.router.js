@@ -114,7 +114,7 @@ router.get('/admin', (req, res, next) => {
  *            name:
  *              type: string
  *            role:
- *              type: integer
+ *              type: string
  *
  *    responses:
  *      201:
