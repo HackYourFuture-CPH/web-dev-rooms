@@ -18,7 +18,29 @@ const getStudentsProfile = async (userId) => {
     return error.message;
   }
 };
-
+const getMentorsProfile = async (userId) => {
+  try {
+    const profiles = await knex('users')
+      .select(
+        'users.name',
+        'users.mentor_role as mentorRole',
+        'users.timezone',
+        'organization_id',
+      )
+      .join('user_roles', 'users.id', 'user_roles.user_id')
+      .join('roles', 'user_roles.role_id', 'roles.id')
+      .join(
+        'organizations',
+        'user_organizations.organization_name',
+        'organization_name',
+      )
+      .where('users.id', userId)
+      .where('roles.name', 'mentor');
+    return profiles[0];
+  } catch (error) {
+    return error.message;
+  }
+};
 const editStudentProfile = async (body, userId) => {
   try {
     const studentData = await knex('users')
@@ -55,29 +77,6 @@ const getAdminsProfile = async (userId) => {
       .join('roles', 'user_roles.role_id', 'roles.id')
       .where('users.id', userId)
       .where('roles.name', 'admin');
-    return profiles[0];
-  } catch (error) {
-    return error.message;
-  }
-};
-const getMentorsProfile = async (userId) => {
-  try {
-    const profiles = await knex('users')
-      .select(
-        'users.name',
-        'users.mentor_role as mentorRole',
-        'users.timezone',
-        'organization_id',
-      )
-      .join('user_roles', 'users.id', 'user_roles.user_id')
-      .join('roles', 'user_roles.role_id', 'roles.id')
-      .join(
-        'organizations',
-        'user_organizations.organization_name',
-        'organization_name',
-      )
-      .where('users.id', userId)
-      .where('roles.name', 'mentor');
     return profiles[0];
   } catch (error) {
     return error.message;
@@ -141,7 +140,7 @@ const editMentorProfile = async (mentorId, updatedMentor) => {
 module.exports = {
   getStudentsProfile,
   editStudentProfile,
+  getMentorsProfile,
   getAdminsProfile,
   editMentorProfile,
-  getMentorsProfile,
 };
