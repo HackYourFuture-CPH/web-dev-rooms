@@ -96,6 +96,7 @@ router.get('/mentor', (req, res, next) => {
     .then((result) => res.json(result))
     .catch(next);
 });
+
 /**
  * @swagger
  * /profile/mentor:

@@ -83,6 +83,7 @@ const getMentorsProfile = async (userId) => {
     return error.message;
   }
 };
+
 const editMentorProfile = async (mentorId, updatedMentor) => {
   // validate that user exists and return 404 if it doesn't
   const getUser = await knex('users').select('id').where('id', mentorId);
