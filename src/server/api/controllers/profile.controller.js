@@ -23,19 +23,18 @@ const getMentorsProfile = async (userId) => {
     const profiles = await knex('users')
       .select(
         'users.name',
-        'users.mentor_role as mentorRole',
         'users.timezone',
         'organization_id',
+        'organizations.name as organizationName',
+        'skills.name as Skills',
       )
-      .join('user_roles', 'users.id', 'user_roles.user_id')
-      .join('roles', 'user_roles.role_id', 'roles.id')
-      .join(
-        'organizations',
-        'user_organizations.organization_name',
-        'organization_name',
-      )
-      .where('users.id', userId)
-      .where('roles.name', 'mentor');
+      .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
+      .leftJoin('roles', 'user_roles.role_id', 'roles.id')
+      .leftJoin('mentors_skills', 'users.id', 'mentors_skills.mentor_id')
+      .leftJoin('skills', 'mentors_skills.skill_id', 'skills.id')
+      .leftJoin('organizations', 'organizations.id', 'users.organization_id')
+      .where('users.id', userId);
+
     return profiles[0];
   } catch (error) {
     return error.message;
