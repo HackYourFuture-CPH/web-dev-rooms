@@ -70,7 +70,7 @@ const postAdminsProfile = async (adminRole, userId) => {
       .where('users.id', userId)
       .where('roles.name', 'admin');
     if (userProfileData.length === 0) {
-      throw new Error(`incorrect entry with the id of ${userId}`, 404);
+      throw new Error(`No user found for id ${userId}`, 404);
     } else {
       await knex('users').where({ id: userId }).update({
         name: adminRole.name,
