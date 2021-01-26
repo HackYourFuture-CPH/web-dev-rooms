@@ -61,7 +61,7 @@ const getAdminsProfile = async (userId) => {
   }
 };
 
-const postAdminsProfile = async (adminRole, userId) => {
+const postAdminsProfile = async (body, userId) => {
   try {
     const userProfileData = await knex('users')
       .select('users.id')
@@ -73,11 +73,11 @@ const postAdminsProfile = async (adminRole, userId) => {
       throw new Error(`No user found for id ${userId}`, 404);
     } else {
       await knex('users').where({ id: userId }).update({
-        name: adminRole.name,
+        name: body.name,
       });
 
       await knex('users').where({ id: userId }).update({
-        admin_role: adminRole.role,
+        admin_role: body.role,
       });
     }
   } catch (error) {

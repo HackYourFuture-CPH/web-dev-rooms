@@ -123,7 +123,6 @@ router.get('/admin', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.post('/admin', (req, res) => {
-  console.log(req);
   profileController
     .postAdminsProfile(req.body, req.user.id)
     .then((result) => res.json(result));
