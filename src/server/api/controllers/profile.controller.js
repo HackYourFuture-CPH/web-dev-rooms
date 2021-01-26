@@ -61,6 +61,30 @@ const getAdminsProfile = async (userId) => {
   }
 };
 
+const postAdminsProfile = async (body, userId) => {
+  try {
+    const userProfileData = await knex('users')
+      .select('users.id')
+      .join('user_roles', 'users.id', 'user_roles.user_id')
+      .join('roles', 'user_roles.role_id', 'roles.id')
+      .where('users.id', userId)
+      .where('roles.name', 'admin');
+    if (userProfileData.length === 0) {
+      throw new Error(`No user found for id ${userId}`, 404);
+    } else {
+      await knex('users').where({ id: userId }).update({
+        name: body.name,
+      });
+
+      await knex('users').where({ id: userId }).update({
+        admin_role: body.role,
+      });
+    }
+  } catch (error) {
+    return error.message;
+  }
+};
+
 const editMentorProfile = async (mentorId, updatedMentor) => {
   // validate that user exists and return 404 if it doesn't
   const getUser = await knex('users').select('id').where('id', mentorId);
@@ -119,5 +143,6 @@ module.exports = {
   getStudentsProfile,
   editStudentProfile,
   getAdminsProfile,
+  postAdminsProfile,
   editMentorProfile,
 };
