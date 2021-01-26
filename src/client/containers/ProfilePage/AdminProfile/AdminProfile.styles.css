@@ -1,0 +1,11 @@
+.admin-profile-page {
+  align-items: center;
+}
+
+.admin-profile-page .admin-profile-header {
+  min-width: 100%;
+  height: fit-content;
+  border-bottom-left-radius: 10em;
+  border-bottom-right-radius: 10em;
+  background-color: #f8f8f8;
+}

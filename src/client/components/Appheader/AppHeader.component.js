@@ -1,11 +1,11 @@
-import './AppHeader.style.css';
+import './AppHeader.styles.css';
 
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 
 import { useUser } from '../../context/userContext';
 import { Button } from '../Button/Button';
-import Vector from './Vector.svg';
+import { AppLogo } from './AppLogo';
 
 export const AppHeader = () => {
   const { isAuthenticated } = useUser();
@@ -16,12 +16,15 @@ export const AppHeader = () => {
   }
 
   return (
-    <div className="AppHeader-div">
-      <img src={Vector} alt="AppHeader" className="Appheader-img-container" />
+    <div className="AppHeader">
+      <AppLogo className="logo" />
+
       {isAuthenticated && (
-        <Button appearance="link" onClick={logout}>
-          Logout
-        </Button>
+        <div className="logout">
+          <Button appearance="link" onClick={logout}>
+            Logout
+          </Button>
+        </div>
       )}
     </div>
   );

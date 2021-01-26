@@ -18,6 +18,7 @@ const TopicsRouter = require('./topics.router');
 const userRouter = require('./user.router');
 const usersRouter = require('./users.router');
 const profileRouter = require('./profile.router');
+const eventsDetailRouter = require('./eventDetail.router');
 
 const swaggerJsDoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
@@ -43,15 +44,20 @@ const swaggerDocument = swaggerJsDoc(swaggerOptions);
 router.use('/documentation', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Application routes
+
+// delete user registration by a mentor
 router.use('/events_users', eventsUsersRouter2);
+// get registered events for the user
+router.use('/events/registered', eventsUsersRouter);
+
 router.use('/events', eventsRouter);
-router.use('/eventsUsers', eventsUsersRouter);
-router.use('/feedbacks', feedbacksRouter);
+router.use('/feedback', feedbacksRouter);
 router.use('/groups', groupsRouter);
 router.use('/modules', modulesRouter);
 router.use('/organizations', organizationsRouter);
 router.use('/profile', profileRouter);
 router.use('/self', selfRouter);
+router.use('/events/:eventId/details', eventsDetailRouter);
 router.use('/signin', slackRouter);
 router.use('/skills', skillsRouter);
 router.use('/topics', TopicsRouter);

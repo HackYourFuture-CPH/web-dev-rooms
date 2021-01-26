@@ -7,7 +7,7 @@ const feedbacksController = require('../controllers/feedbacks.controller');
 
 /**
  * @swagger
- * /feedbacks:
+ * /feedback:
  *  post:
  *    summary: Create a feedback
  *    description:

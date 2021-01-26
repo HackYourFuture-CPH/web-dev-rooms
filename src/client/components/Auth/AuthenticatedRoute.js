@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-
+import ErrorPage from '../../containers/404Page/404Page.component';
 import { useUser } from '../../context/userContext';
 
-function AuthenticatedRoute({ children, ...rest }) {
-  const { isAuthenticated, isNewUser } = useUser();
+function AuthenticatedRoute({ children, requiredRole, ...rest }) {
+  const { isAuthenticated, isNewUser, userRole } = useUser();
 
   return (
     <Route
@@ -23,7 +23,13 @@ function AuthenticatedRoute({ children, ...rest }) {
               />
             );
           }
+          if (requiredRole) {
+            if (userRole === requiredRole) {
+              return children;
+            }
 
+            return <ErrorPage />;
+          }
           return children;
         }
 
@@ -44,4 +50,9 @@ export default AuthenticatedRoute;
 
 AuthenticatedRoute.propTypes = {
   children: PropTypes.element.isRequired,
+  requiredRole: PropTypes.string,
+};
+
+AuthenticatedRoute.defaultProps = {
+  requiredRole: '',
 };
