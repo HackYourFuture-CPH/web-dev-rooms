@@ -1,7 +1,6 @@
 import '../Registration.styles.css';
 import './StudentRegistrationPage.styles.css';
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -28,12 +27,12 @@ export const StudentRegistrationPage = () => {
   const { fetch, working: isRegistering } = useAuthenticatedFetch();
 
   useEffect(() => {
-    axios.get('/api/groups').then((response) => {
-      setGroups(response.data);
+    fetch('/api/groups').then((response) => {
+      setGroups(response);
       setIsLoading(false);
-      setGroupId(response.data[0].id);
+      setGroupId(response.id);
     });
-  }, []);
+  }, [fetch]);
 
   async function register(e) {
     e.preventDefault();
