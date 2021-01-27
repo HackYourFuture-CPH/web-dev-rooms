@@ -123,7 +123,6 @@ router.get('/:id', (req, res, next) => {
  *        description: Unexpected error.
  */
 router.delete('/:eventId', (req, res) => {
-  console.log(req.user.id);
   eventsController
     .deleteEvent(req.user.id, req.params.eventId)
     .then((result) => {
