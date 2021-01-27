@@ -1,22 +1,22 @@
-import React from 'react';
-import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 import PropTypes from 'prop-types';
+import React from 'react';
+
 import { ModalCancelEvent } from '../../../components/ModalViewCancelEvent/ModalViewCancelEvent';
 
 export function DeleteEventModal(props) {
-  const { onClose, id } = props;
-  const { fetch } = useAuthenticatedFetch();
+  const { onClose, onDelete, id } = props;
 
   async function deleteEvent() {
-    await fetch(`/api/events/${id}`, { method: 'DELETE' });
+    await onDelete(id);
 
     onClose();
   }
 
-  return <ModalCancelEvent onCancelMessage={deleteEvent} {...props} />;
+  return <ModalCancelEvent onCancel={deleteEvent} {...props} />;
 }
 
 DeleteEventModal.propTypes = {
   onClose: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
 };

@@ -28,7 +28,8 @@ const getEvents = async () => {
         'organization_id as organizationId',
         'description',
       )
-      .where('events.event_date', '>', knex.fn.now());
+      .where('events.event_date', '>', knex.fn.now())
+      .whereNull('events.deleted_at');
   } catch (error) {
     return error.message;
   }
