@@ -90,6 +90,43 @@ router.get('/admin', (req, res, next) => {
     .catch(next);
 });
 
+// create a admin
+/**
+ * @swagger
+ * /profile/admin:
+ *  post:
+ *    tags:
+ *    - Profile
+ *    summary: Creates a admin
+ *    description:
+ *      Will create a admin.
+ *    produces: application/json
+ *    parameters:
+ *      - in: body
+ *        name: adminRole
+ *        description: To create a admin
+ *        schema:
+ *          type: object
+ *          required:
+ *            - name
+ *            - role
+ *          properties:
+ *            name:
+ *              type: string
+ *            role:
+ *              type: string
+ *
+ *    responses:
+ *      201:
+ *        description: admin created
+ *      5XX:
+ *        description: Unexpected error.
+ */
+router.post('/admin', (req, res) => {
+  profileController
+    .postAdminsProfile(req.body, req.user.id)
+    .then((result) => res.json(result));
+});
 /**
  * @swagger
  * /profile/mentor:
