@@ -31,7 +31,6 @@ export const StudentRegistrationPage = () => {
     axios.get('/api/groups').then((response) => {
       setGroups(response.data);
       setIsLoading(false);
-      setGroupId(response.data[0].id);
     });
   }, []);
 

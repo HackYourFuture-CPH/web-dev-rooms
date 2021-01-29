@@ -10,10 +10,7 @@ const customStyles = {
     borderRadius: '100px',
     backgroundColor: '#f6f6f6',
     border: '1px solid #e8e8e8',
-    paddingLeft: '0.5rem',
-  }),
-  menu: (provided) => ({
-    ...provided,
+    padding: '0.5rem',
   }),
   menuList: (provided) => ({
     ...provided,
