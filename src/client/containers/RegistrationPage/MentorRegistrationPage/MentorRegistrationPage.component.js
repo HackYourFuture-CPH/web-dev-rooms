@@ -1,6 +1,5 @@
 import './MentorRegistrationPage.styles.css';
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -27,18 +26,18 @@ export const MentorRegistrationPage = () => {
   const { fetch, working: isRegistering } = useAuthenticatedFetch();
 
   useEffect(() => {
-    axios.get('/api/organizations').then((res) => {
-      const organizations = res.data.map((organization) => {
+    fetch('/api/organizations').then((res) => {
+      const organizations = res.map((organization) => {
         return {
           id: organization.id,
           name: organization.name,
         };
       });
       setCompanies(organizations);
-      setOrganizationId(res.data.id);
+      setOrganizationId(res.id);
       setLoadingCompanies(false);
     });
-  }, []);
+  }, [fetch]);
 
   async function register(e) {
     e.preventDefault();
