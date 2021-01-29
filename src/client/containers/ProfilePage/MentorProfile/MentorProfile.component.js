@@ -14,12 +14,19 @@ import { useUser } from '../../../context/userContext';
 import { useQuery } from '../../../hooks/useQuery';
 
 export const MentorProfilePage = () => {
+  const [timezone, setTimezone] = useState(undefined);
   const [selectedSkills, setSelectedSkills] = useState([]);
   const {
     user: { name },
   } = useUser();
 
   const { data: skills, loading } = useQuery(`/api/skills`);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    // eslint-disable-next-line no-alert
+    alert(JSON.stringify({ timezone, selectedSkills }));
+  }
 
   if (loading) {
     return <Loader />;
@@ -34,13 +41,13 @@ export const MentorProfilePage = () => {
 
       <Heading>Welcome {name}</Heading>
 
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <SkillsPicker
           skills={skills}
           selected={selectedSkills}
           onChange={setSelectedSkills}
         />
-        <TimeZoneDropDown />
+        <TimeZoneDropDown timezone={timezone} setTimezone={setTimezone} />
 
         <Button type="submit" className="self-center">
           Submit
