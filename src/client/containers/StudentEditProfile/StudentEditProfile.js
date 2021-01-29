@@ -6,13 +6,14 @@ import Header from '../../components/Heading/Heading';
 import { AppHeader } from '../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../components/Avatar/Avatar';
 import Footer from '../../components/footer/footer';
-import { Layout } from '../../components/Layout';
 import Loader from '../../components/Loader/Loader';
+import Input from '../../../components/Input/Input';
 import { useAuthenticatedFetch } from '../../hooks/useAuthenticatedFetch';
 
 function StudentEditProfile() {
   const [name, setName] = useState('');
   const { fetch } = useAuthenticatedFetch();
+  const { loading } = useState(true);
 
   useEffect(() => {
     fetch('/api/profile/student').then((data) => {
@@ -34,8 +35,6 @@ function StudentEditProfile() {
         <AppHeader />
         <Avatar avatarUrl={student} name="student" />
       </section>
-
-      {loading && <Loader />}
 
       <Header>Welcome {name}</Header>
 
