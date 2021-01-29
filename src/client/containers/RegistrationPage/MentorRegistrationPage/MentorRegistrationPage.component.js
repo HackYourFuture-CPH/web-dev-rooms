@@ -20,7 +20,6 @@ import { formatApiError } from '../../../utils/formatApiError';
 export const MentorRegistrationPage = () => {
   const [name, setName] = useState('');
   const [organizationId, setOrganizationId] = useState();
-  const [company, setCompany] = useState('');
   const [loadingCompanies, setLoadingCompanies] = useState(true);
   const [companies, setCompanies] = useState([]);
 
@@ -65,7 +64,8 @@ export const MentorRegistrationPage = () => {
     return <Loader />;
   }
 
-  const canSubmit = !!name;
+  const canSubmit = !!name && organizationId;
+
   return (
     <Layout className="mentor-registration-main">
       <section className="w-full">
@@ -86,7 +86,11 @@ export const MentorRegistrationPage = () => {
           }}
           placeholder="Full Name..."
         />
-        <DropDown value={company} setValue={setCompany} items={companies} />
+        <DropDown
+          value={organizationId}
+          setValue={setOrganizationId}
+          items={companies}
+        />
         <Button disabled={!canSubmit}>Submit</Button>
       </form>
 
