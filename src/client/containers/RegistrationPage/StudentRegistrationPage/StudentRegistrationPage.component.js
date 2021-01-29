@@ -30,7 +30,6 @@ export const StudentRegistrationPage = () => {
     fetch('/api/groups').then((response) => {
       setGroups(response);
       setIsLoading(false);
-      setGroupId(response.id);
     });
   }, [fetch]);
 

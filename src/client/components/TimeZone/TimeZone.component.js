@@ -1,6 +1,7 @@
-import React from 'react';
-import DropDown from '../Dropdown/DropDown';
 import PropTypes from 'prop-types';
+import React from 'react';
+
+import DropDown from '../Dropdown/DropDown';
 
 const timeZones = [
   {
@@ -23,18 +24,21 @@ const timeZones = [
 
 export const TimeZoneDropDown = (props) => {
   return (
-    <>
-      <DropDown items={timeZones} value={props.name} setValue={props.setName} />
-    </>
+    <DropDown
+      items={timeZones}
+      value={props.timezone}
+      setValue={props.setTimezone}
+      placeholder="Select a timezone..."
+    />
   );
 };
 
 TimeZoneDropDown.propTypes = {
-  name: PropTypes.string,
-  setName: PropTypes.func,
+  timezone: PropTypes.string,
+  setTimezone: PropTypes.func,
 };
 
 TimeZoneDropDown.defaultProps = {
-  name: '',
-  setName: null,
+  timezone: '',
+  setTimezone: null,
 };
