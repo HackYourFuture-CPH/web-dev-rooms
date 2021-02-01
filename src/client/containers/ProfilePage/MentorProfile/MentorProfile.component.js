@@ -1,68 +1,59 @@
-import React, { useState, useEffect } from 'react';
+import './MentorProfile.style.css';
+
+import React, { useState } from 'react';
+
+import mentor from '../../../assets/images/mentor.png';
+import { Button, Form, Layout, Loader } from '../../../components';
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../../components/Avatar/Avatar';
-import Heading from '../../../components/Heading/Heading';
-import mentor from '../../../assets/images/mentor.png';
-import Label from '../../../components/Label/Tags/Label';
-import DropDown from '../../../components/Dropdown/DropDown';
 import Footer from '../../../components/footer/footer';
-import { Button } from '../../../components/Button/Button';
+import Heading from '../../../components/Heading/Heading';
+import { SkillsPicker } from '../../../components/SkillsPicker/SkillsPicker';
 import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.component';
-import { Layout } from '../../../components';
-import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
-
-import './MentorProfile.style.css';
 import { useUser } from '../../../context/userContext';
+import { useQuery } from '../../../hooks/useQuery';
 
 export const MentorProfilePage = () => {
-  const [skills, setSkills] = useState([]);
-  const [skill, setSkill] = useState(0);
+  const [timezone, setTimezone] = useState(undefined);
+  const [selectedSkills, setSelectedSkills] = useState([]);
   const {
     user: { name },
   } = useUser();
 
-  const { fetch } = useAuthenticatedFetch();
+  const { data: skills, loading } = useQuery(`/api/skills`);
 
-  useEffect(() => {
-    fetch('/api/skills').then((data) => {
-      const skillsData = data.map((skillItem) => {
-        return {
-          id: skillItem.id,
-          name: skillItem.name,
-        };
-      });
-      setSkills(skillsData);
-    });
-  }, [fetch]);
+  function handleSubmit(e) {
+    e.preventDefault();
+    // eslint-disable-next-line no-alert
+    alert(JSON.stringify({ timezone, selectedSkills }));
+  }
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
-    <Layout>
+    <Layout className="items-center">
       <div className="mentor-headerProfilePage">
         <AppHeader />
         <Avatar avatarUrl={mentor} name="mentor" />
       </div>
 
-      <section className="mentor-body-container">
-        <div className="welcome-mentor">
-          <Heading>Welcome {name}</Heading>
-        </div>
-        <div className="mentor-skills">
-          <Label text="HTML/CSS">HTML/CSS</Label>
-          <Label text="Javascript">Javascript</Label>
-          <Label text="MySQL">MySQL</Label>
-          <Label text="NodeJS">NodeJS</Label>
-          <Label text="React">React</Label>
-        </div>
-        <div className="skills-dropdown">
-          <DropDown items={skills} value={skill} setValue={setSkill} />
-        </div>
-        <div className="timezone-dropdown">
-          <TimeZoneDropDown />
-        </div>
-        <div className="submit-button">
-          <Button>Submit</Button>
-        </div>
-      </section>
+      <Heading>Welcome {name}</Heading>
+
+      <Form onSubmit={handleSubmit}>
+        <SkillsPicker
+          skills={skills}
+          selected={selectedSkills}
+          onChange={setSelectedSkills}
+        />
+        <TimeZoneDropDown timezone={timezone} setTimezone={setTimezone} />
+
+        <Button type="submit" className="self-center">
+          Submit
+        </Button>
+      </Form>
+
       <Footer />
     </Layout>
   );

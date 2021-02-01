@@ -8,6 +8,7 @@ import Modal from './Modal/Modal';
 export * from './Appheader/AppHeader.component';
 export * from './Appheader/AppLogo';
 export * from './Button/Button';
+export * from './Form/Form';
 export * from './Table/Table';
 
 export { Footer, Heading, HelpText, Layout, Loader, Modal };

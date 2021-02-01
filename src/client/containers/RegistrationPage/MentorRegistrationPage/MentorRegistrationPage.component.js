@@ -1,6 +1,5 @@
 import './MentorRegistrationPage.styles.css';
 
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -20,7 +19,6 @@ import { formatApiError } from '../../../utils/formatApiError';
 export const MentorRegistrationPage = () => {
   const [name, setName] = useState('');
   const [organizationId, setOrganizationId] = useState();
-  const [company, setCompany] = useState('');
   const [loadingCompanies, setLoadingCompanies] = useState(true);
   const [companies, setCompanies] = useState([]);
 
@@ -28,18 +26,18 @@ export const MentorRegistrationPage = () => {
   const { fetch, working: isRegistering } = useAuthenticatedFetch();
 
   useEffect(() => {
-    axios.get('/api/organizations').then((res) => {
-      const organizations = res.data.map((organization) => {
+    fetch('/api/organizations').then((res) => {
+      const organizations = res.map((organization) => {
         return {
           id: organization.id,
           name: organization.name,
         };
       });
       setCompanies(organizations);
-      setOrganizationId(res.data.id);
+      setOrganizationId(res.id);
       setLoadingCompanies(false);
     });
-  }, []);
+  }, [fetch]);
 
   async function register(e) {
     e.preventDefault();
@@ -65,7 +63,8 @@ export const MentorRegistrationPage = () => {
     return <Loader />;
   }
 
-  const canSubmit = !!name;
+  const canSubmit = !!name && organizationId;
+
   return (
     <Layout className="mentor-registration-main">
       <section className="w-full">
@@ -86,7 +85,11 @@ export const MentorRegistrationPage = () => {
           }}
           placeholder="Full Name..."
         />
-        <DropDown value={company} setValue={setCompany} items={companies} />
+        <DropDown
+          value={organizationId}
+          setValue={setOrganizationId}
+          items={companies}
+        />
         <Button disabled={!canSubmit}>Submit</Button>
       </form>
 
