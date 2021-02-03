@@ -26,7 +26,7 @@ const getMentorsProfile = async (userId) => {
         'users.timezone',
         'organization_id',
         'organizations.name as organizationName',
-        'skills.name as Skills',
+        'skills.id as Skills',
       )
       .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
       .leftJoin('roles', 'user_roles.role_id', 'roles.id')
@@ -34,12 +34,18 @@ const getMentorsProfile = async (userId) => {
       .leftJoin('skills', 'mentors_skills.skill_id', 'skills.id')
       .leftJoin('organizations', 'organizations.id', 'users.organization_id')
       .where('users.id', userId);
-
-    return profiles[0];
+    return {
+      name: profiles[0].name,
+      organizationId: profiles[0].organization_id,
+      organizationName: profiles[0].organizationName,
+      timeZone: profiles[0].timezone,
+      skills: profiles.map((profile) => profile.Skills),
+    };
   } catch (error) {
     return error.message;
   }
 };
+
 const editStudentProfile = async (body, userId) => {
   try {
     const studentData = await knex('users')
