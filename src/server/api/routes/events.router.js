@@ -114,8 +114,6 @@ router.get('/:id', (req, res, next) => {
  *    produces: application/json
  *    parameters:
  *      - in: path
- *        name: userId
- *      - in: path
  *        name: eventId
  *        description: ID of the event to delete.
  *    responses:
@@ -124,9 +122,9 @@ router.get('/:id', (req, res, next) => {
  *      5XX:
  *        description: Unexpected error.
  */
-router.delete('/:userId/:eventId', (req, res) => {
+router.delete('/:eventId', (req, res) => {
   eventsController
-    .deleteEvent(req.params.userId, req.params.eventId)
+    .deleteEvent(req.user.id, req.params.eventId)
     .then((result) => {
       if (result === 0) {
         res.status(404).send('The event ID you provided does not exist.');

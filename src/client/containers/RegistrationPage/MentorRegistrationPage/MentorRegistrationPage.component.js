@@ -1,6 +1,8 @@
 import './MentorRegistrationPage.styles.css';
 
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
 import { MentorAvatar } from '../../../components/Avatar';
@@ -11,38 +13,57 @@ import HelpText from '../../../components/HelpText/HelpText';
 import Input from '../../../components/Input/Input';
 import { Layout } from '../../../components/Layout';
 import Loader from '../../../components/Loader/Loader';
+import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
+import { formatApiError } from '../../../utils/formatApiError';
 
 export const MentorRegistrationPage = () => {
   const [name, setName] = useState('');
-  const [company, setCompany] = useState('');
+  const [organizationId, setOrganizationId] = useState();
   const [loadingCompanies, setLoadingCompanies] = useState(true);
   const [companies, setCompanies] = useState([]);
 
-  const apiURL = '/api/organizations';
+  const history = useHistory();
+  const { fetch, working: isRegistering } = useAuthenticatedFetch();
 
   useEffect(() => {
-    fetch(apiURL)
-      .then((data) => data.json())
-      .then((data) => {
-        const organizations = data.map((organization) => {
-          return {
-            id: organization.id,
-            name: organization.name,
-          };
-        });
-        setCompanies(organizations);
-        setLoadingCompanies(false);
+    fetch('/api/organizations').then((res) => {
+      const organizations = res.map((organization) => {
+        return {
+          id: organization.id,
+          name: organization.name,
+        };
       });
-  }, []);
+      setCompanies(organizations);
+      setOrganizationId(res.id);
+      setLoadingCompanies(false);
+    });
+  }, [fetch]);
 
-  function register(e) {
+  async function register(e) {
     e.preventDefault();
-    return 'not implemented';
-  }
+    try {
+      await fetch(`/api/user/register/mentor`, {
+        method: 'post',
+        data: {
+          name,
+          organizationId,
+        },
+      });
 
-  if (loadingCompanies) {
+      toast('You have been registered!');
+
+      history.push('/registration/success');
+    } catch (error) {
+      toast(
+        `Ouch, an error! Please try again. Details: ${formatApiError(error)}`,
+      );
+    }
+  }
+  if (loadingCompanies || isRegistering) {
     return <Loader />;
   }
+
+  const canSubmit = !!name && organizationId;
 
   return (
     <Layout className="mentor-registration-main">
@@ -64,8 +85,12 @@ export const MentorRegistrationPage = () => {
           }}
           placeholder="Full Name..."
         />
-        <DropDown value={company} setValue={setCompany} items={companies} />
-        <Button>Submit</Button>
+        <DropDown
+          value={organizationId}
+          setValue={setOrganizationId}
+          items={companies}
+        />
+        <Button disabled={!canSubmit}>Submit</Button>
       </form>
 
       <HelpText>

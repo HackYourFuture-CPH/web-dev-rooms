@@ -40,7 +40,7 @@
     "@storybook/react": "^5.3.17",
     "@storybook/theming": "^5.3.17",
     "app-root-path": "^2.2.1",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "babel-polyfill": "^6.26.0",
     "body-parser": "^1.19.0",
     "chalk": "^3.0.0",
@@ -49,7 +49,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
-    "cross-fetch": "^3.0.4",
+    "cross-fetch": "^3.0.6",
     "debug": "^4.1.1",
     "dotenv": "^8.0.0",
     "dotenv-webpack": "^1.7.0",
@@ -74,6 +74,7 @@
     "react-modal": "^3.12.1",
     "react-router-dom": "^5.0.1",
     "react-scripts": "^3.3.0",
+    "react-select": "^4.0.2",
     "react-social-login-buttons": "^3.0.0",
     "react-toastify": "^6.2.0",
     "sass-loader": "^7.1.0",
@@ -101,7 +102,7 @@
     "sequelize-cli": "^5.4.0",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "^20.0.0",
-    "webpack-dev-server": "3.7.2"
+    "webpack-dev-server": "^3.11.2"
   },
   "jest": {
     "moduleNameMapper": {
