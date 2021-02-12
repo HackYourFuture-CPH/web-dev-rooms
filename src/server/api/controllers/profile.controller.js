@@ -26,20 +26,27 @@ const getMentorsProfile = async (userId) => {
         'users.timezone',
         'organization_id',
         'organizations.name as organizationName',
-        'skills.name as Skills',
       )
       .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
       .leftJoin('roles', 'user_roles.role_id', 'roles.id')
       .leftJoin('mentors_skills', 'users.id', 'mentors_skills.mentor_id')
-      .leftJoin('skills', 'mentors_skills.skill_id', 'skills.id')
       .leftJoin('organizations', 'organizations.id', 'users.organization_id')
       .where('users.id', userId);
-
-    return profiles[0];
+    const skills = await knex('mentors_skills')
+      .select('skill_id')
+      .where('mentor_id', userId);
+    return {
+      name: profiles[0].name,
+      organizationId: profiles[0].organization_id,
+      organizationName: profiles[0].organizationName,
+      timeZone: profiles[0].timezone,
+      skills: skills.map((skill) => skill.skill_id),
+    };
   } catch (error) {
     return error.message;
   }
 };
+
 const editStudentProfile = async (body, userId) => {
   try {
     const studentData = await knex('users')
@@ -77,6 +84,30 @@ const getAdminsProfile = async (userId) => {
       .where('users.id', userId)
       .where('roles.name', 'admin');
     return profiles[0];
+  } catch (error) {
+    return error.message;
+  }
+};
+
+const postAdminsProfile = async (body, userId) => {
+  try {
+    const userProfileData = await knex('users')
+      .select('users.id')
+      .join('user_roles', 'users.id', 'user_roles.user_id')
+      .join('roles', 'user_roles.role_id', 'roles.id')
+      .where('users.id', userId)
+      .where('roles.name', 'admin');
+    if (userProfileData.length === 0) {
+      throw new Error(`No user found for id ${userId}`, 404);
+    } else {
+      await knex('users').where({ id: userId }).update({
+        name: body.name,
+      });
+
+      await knex('users').where({ id: userId }).update({
+        admin_role: body.role,
+      });
+    }
   } catch (error) {
     return error.message;
   }
@@ -141,5 +172,6 @@ module.exports = {
   editStudentProfile,
   getMentorsProfile,
   getAdminsProfile,
+  postAdminsProfile,
   editMentorProfile,
 };
