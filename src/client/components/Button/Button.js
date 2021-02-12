@@ -1,3 +1,4 @@
+/* eslint-disable react/button-has-type */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import * as cn from 'classnames';
@@ -25,6 +26,7 @@ export const Button = (props) => {
     <>
       <button
         className={cn(
+          props.className,
           `button`,
           {
             'button-default': appearance === 'default',
@@ -36,7 +38,7 @@ export const Button = (props) => {
             'button-link': appearance === 'link',
           },
         )}
-        type="submit"
+        type={props.type || 'submit'}
         onClick={click}
         appearance={props.appearance}
         disabled={props.disabled}
@@ -56,17 +58,21 @@ export const Button = (props) => {
 };
 
 Button.propTypes = {
+  className: PropTypes.string,
   children: PropTypes.node,
   onClick: PropTypes.func,
   appearance: PropTypes.string,
   disabled: PropTypes.bool,
   modal: PropTypes.func,
+  type: PropTypes.oneOf(['submit', 'reset', 'button']),
 };
 
 Button.defaultProps = {
+  className: '',
   children: '',
   onClick: null,
   appearance: 'default',
   disabled: false,
   modal: null,
+  type: 'submit',
 };

@@ -28,7 +28,8 @@ const getEvents = async () => {
         'organization_id as organizationId',
         'description',
       )
-      .where('events.event_date', '>', knex.fn.now());
+      .where('events.event_date', '>', knex.fn.now())
+      .whereNull('events.deleted_at');
   } catch (error) {
     return error.message;
   }
@@ -61,7 +62,7 @@ const deleteEvent = async (userId, eventId) => {
     .join('roles', 'user_roles.role_id', 'roles.id')
     .where('users.id', userId)
     .first();
-  if (user && user.role_name === 'Admin') {
+  if (user && user.role_name === 'admin') {
     const today = moment().format('YYYY-MM-DD HH:mm:ss');
     await knex('events')
       .where('id', eventId)

@@ -1,24 +1,34 @@
-import React from 'react';
-import Modal from '../Modal/Modal';
-import { Button } from '../Button/Button';
-import PropTypes from 'prop-types';
+import './ModalViewCancelEvent.css';
 
-export const ModalCancelEvent = ({ onCancelMessage }) => {
+import PropTypes from 'prop-types';
+import React from 'react';
+
+import { Button } from '../Button/Button';
+import Modal from '../Modal/Modal';
+
+export const ModalCancelEvent = (props) => {
+  const { onCancel } = props;
+
   return (
-    <Modal title="Cancel Event" isOpen>
-      <p>Are you sure you want to cancel</p>
-      <Button
-        className="modal-cancel-event-button"
-        appearance="danger"
-        onClick={onCancelMessage}
-      >
-        Cancel
-      </Button>
+    <Modal title="Cancel Event" {...props}>
+      <section className="modal-view-cancel-event">
+        <p>Are you sure you want to cancel this event?</p>
+        <Button
+          className="modal-cancel-event-button"
+          appearance="danger"
+          onClick={onCancel}
+        >
+          Cancel
+        </Button>
+      </section>
     </Modal>
   );
 };
+
 ModalCancelEvent.propTypes = {
-  onCancelMessage: PropTypes.func,
+  onCancel: PropTypes.func,
 };
 
-ModalCancelEvent.defaultProps = { onCancelMessage: null };
+ModalCancelEvent.defaultProps = {
+  onCancel: null,
+};
