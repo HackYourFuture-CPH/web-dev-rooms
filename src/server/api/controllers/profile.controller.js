@@ -18,6 +18,34 @@ const getStudentsProfile = async (userId) => {
     return error.message;
   }
 };
+const getMentorsProfile = async (userId) => {
+  try {
+    const profiles = await knex('users')
+      .select(
+        'users.name',
+        'users.timezone',
+        'organization_id',
+        'organizations.name as organizationName',
+      )
+      .leftJoin('user_roles', 'users.id', 'user_roles.user_id')
+      .leftJoin('roles', 'user_roles.role_id', 'roles.id')
+      .leftJoin('mentors_skills', 'users.id', 'mentors_skills.mentor_id')
+      .leftJoin('organizations', 'organizations.id', 'users.organization_id')
+      .where('users.id', userId);
+    const skills = await knex('mentors_skills')
+      .select('skill_id')
+      .where('mentor_id', userId);
+    return {
+      name: profiles[0].name,
+      organizationId: profiles[0].organization_id,
+      organizationName: profiles[0].organizationName,
+      timeZone: profiles[0].timezone,
+      skills: skills.map((skill) => skill.skill_id),
+    };
+  } catch (error) {
+    return error.message;
+  }
+};
 
 const editStudentProfile = async (body, userId) => {
   try {
@@ -142,6 +170,7 @@ const editMentorProfile = async (mentorId, updatedMentor) => {
 module.exports = {
   getStudentsProfile,
   editStudentProfile,
+  getMentorsProfile,
   getAdminsProfile,
   postAdminsProfile,
   editMentorProfile,
