@@ -1,20 +1,34 @@
 import './StudentProfile.style.css';
-
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import student from '../../../../assets/images/student.png';
-import { Layout } from '../../../../components';
+import { Button, Layout } from '../../../../components';
 import { AppHeader } from '../../../../components/Appheader/AppHeader.component';
 import { Avatar } from '../../../../components/Avatar/Avatar';
 import Footer from '../../../../components/footer/footer';
 import Header from '../../../../components/Heading/Heading';
+import Loader from '../../../../components/Loader';
 import Input from '../../../../components/Input/Input';
-import { useUser } from '../../../../context/userContext';
+import { useAuthenticatedFetch } from '../../../../hooks/useAuthenticatedFetch';
 
 export const StudentProfilePage = () => {
-  const {
-    user: { name },
-  } = useUser();
+  const [name, setName] = useState('');
+  const { fetch } = useAuthenticatedFetch();
+  const { loading } = useState(true);
+
+  useEffect(() => {
+    fetch('/api/profile/student').then((data) => {
+      setName(data.name);
+    });
+  }, [fetch]);
+
+  const handleInputNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
 
   return (
     <Layout className="student-profile-page">
@@ -26,7 +40,9 @@ export const StudentProfilePage = () => {
       <Header>Welcome {name}</Header>
 
       <section style={{ maxWidth: '500px', width: '100%' }}>
-        <Input value={name} />
+        <Input value={name} onChange={handleInputNameChange} />
+
+        <Button>Submit</Button>
       </section>
 
       <Footer />
