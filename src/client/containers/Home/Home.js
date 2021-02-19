@@ -7,6 +7,7 @@ import ModalWithFeedback from '../../components/ModalWithFeedback/ModalWithFeedb
 import { useUser } from '../../context/userContext';
 import StudentHome from '../StudentHome/StudentHome';
 import { AdminHomePage } from './Admin/AdminHomePage';
+import { MentorHomePage } from './Mentor/MentorHomePage';
 
 export const Home = () => {
   const { userRole } = useUser();
@@ -21,6 +22,9 @@ export const Home = () => {
   }
   if (userRole === 'admin') {
     return <AdminHomePage />;
+  }
+  if (userRole === 'mentor') {
+    return <MentorHomePage />;
   }
 
   return (
