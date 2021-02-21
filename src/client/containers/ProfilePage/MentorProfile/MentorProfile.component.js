@@ -1,6 +1,6 @@
 import './MentorProfile.style.css';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import mentor from '../../../assets/images/mentor.png';
 import { Button, Form, Layout, Loader } from '../../../components';
@@ -12,15 +12,24 @@ import { SkillsPicker } from '../../../components/SkillsPicker/SkillsPicker';
 import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.component';
 import { useUser } from '../../../context/userContext';
 import { useQuery } from '../../../hooks/useQuery';
+import Input from '../../../components/Input/Input';
+
+import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 
 export const MentorProfilePage = () => {
   const [timezone, setTimezone] = useState(undefined);
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [mentorName, setMentorName] = useState('');
   const {
     user: { name },
   } = useUser();
-
+  const { fetch } = useAuthenticatedFetch();
   const { data: skills, loading } = useQuery(`/api/skills`);
+  useEffect(() => {
+    fetch(`/api/profile/mentor`).then((data) => {
+      setMentorName(data.name);
+    });
+  }, [fetch]);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -42,6 +51,10 @@ export const MentorProfilePage = () => {
       <Heading>Welcome {name}</Heading>
 
       <Form onSubmit={handleSubmit}>
+        <Input
+          value={mentorName}
+          onChange={(e) => setMentorName(e.target.value)}
+        />
         <SkillsPicker
           skills={skills}
           selected={selectedSkills}
