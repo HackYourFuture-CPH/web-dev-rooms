@@ -25,11 +25,15 @@ export const MentorProfilePage = () => {
   } = useUser();
   const { fetch } = useAuthenticatedFetch();
   const { data: skills, loading } = useQuery(`/api/skills`);
+
   useEffect(() => {
     fetch(`/api/profile/mentor`).then((data) => {
       setMentorName(data.name);
+      setSelectedSkills(
+        skills.filter((skill) => data.skills.includes(skill.id)),
+      );
     });
-  }, [fetch]);
+  }, [fetch, skills]);
 
   function handleSubmit(e) {
     e.preventDefault();
