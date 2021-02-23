@@ -1,7 +1,7 @@
 import './MentorProfile.style.css';
 
 import React, { useState, useEffect } from 'react';
-
+import { toast } from 'react-toastify';
 import mentor from '../../../assets/images/mentor.png';
 import { Button, Form, Layout, Loader } from '../../../components';
 import { AppHeader } from '../../../components/Appheader/AppHeader.component';
@@ -13,7 +13,7 @@ import { TimeZoneDropDown } from '../../../components/TimeZone/TimeZone.componen
 import { useUser } from '../../../context/userContext';
 import { useQuery } from '../../../hooks/useQuery';
 import Input from '../../../components/Input/Input';
-
+import { formatApiError } from '../../../utils/formatApiError';
 import { useAuthenticatedFetch } from '../../../hooks/useAuthenticatedFetch';
 
 export const MentorProfilePage = () => {
@@ -37,8 +37,20 @@ export const MentorProfilePage = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // eslint-disable-next-line no-alert
-    alert(JSON.stringify({ timezone, selectedSkills }));
+    try {
+      fetch(`/api/profile/mentor`, {
+        method: 'patch',
+        data: {
+          mentorName,
+          selectedSkills,
+          timezone,
+        },
+      });
+    } catch (error) {
+      toast(
+        `Ouch, an error! Please try again. Details: ${formatApiError(error)}`,
+      );
+    }
   }
 
   if (loading) {
